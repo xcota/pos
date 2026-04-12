@@ -1,0 +1,8 @@
+# Personal data (generated during profiling)
+memory/svoboda/*/
+*.jsonl
+
+# System
+.DS_Store
+__pycache__/
+*.pyc

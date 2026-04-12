@@ -1,0 +1,26 @@
+Personal OS (pos-starter)
+Copyright (C) 2026 C0$T@ (Codeberg: Cotya)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, version 3 of the License.
+
+== AI-Assisted Development ==
+
+This project was developed with the assistance of AI tools (Claude by Anthropic).
+Per Anthropic's Terms of Service, all rights to AI-generated outputs are assigned
+to the user who generated them. The author directed the architecture, methodology,
+and all creative decisions — AI was used as a development tool.
+
+References:
+- Anthropic Commercial Terms: "Customer owns all Outputs. Anthropic assigns
+  to Customer its right, title and interest (if any) in and to Outputs."
+  https://www.anthropic.com/news/expanded-legal-protections-api-improvements
+- Thaler v. Perlmutter (2026): Works with substantial human creative direction
+  are copyrightable regardless of AI tool usage.
+
+== Methodology ==
+
+The СВОБОДА profiling methodology integrated in this project was created by
+Anton (svoboda-profiler). The technical implementation, system architecture,
+and Personal OS framework are original works by C0$T@.
