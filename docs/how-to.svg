@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#1e293b" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="1260" fill="url(#bg)"/>
+
+  <!-- HEADER -->
+  <rect x="40" y="36" width="920" height="168" rx="24" fill="url(#hero)" filter="url(#soft)"/>
+  <text x="500" y="104" text-anchor="middle" fill="#ffffff" font-size="46" font-weight="800">Your Personal OS</text>
+  <text x="500" y="146" text-anchor="middle" fill="#e0e7ff" font-size="23" font-weight="500">An AI that remembers you — and grows with you.</text>
+  <text x="500" y="180" text-anchor="middle" fill="#c7d2fe" font-size="17">Plain files on your own machine · nothing ever leaves</text>
+
+  <!-- SECTION 1: START -->
+  <text x="60" y="268" fill="#4338ca" font-size="15" font-weight="700" letter-spacing="2">GET STARTED IN 10 SECONDS</text>
+
+  <!-- step 1 -->
+  <rect x="40" y="288" width="290" height="180" rx="20" fill="#ffffff" stroke="#e2e8f0" filter="url(#soft)"/>
+  <text x="72" y="344" font-size="40">📂</text>
+  <circle cx="292" cy="322" r="17" fill="#eef2ff"/>
+  <text x="292" y="329" text-anchor="middle" fill="#6366f1" font-size="18" font-weight="800">1</text>
+  <text x="72" y="400" fill="#1e293b" font-size="21" font-weight="700">Open the folder</text>
+  <text x="72" y="432" fill="#64748b" font-size="17">in Claude Code.</text>
+
+  <!-- step 2 (highlighted) -->
+  <rect x="355" y="288" width="290" height="180" rx="20" fill="#4f46e5" filter="url(#soft)"/>
+  <text x="387" y="344" font-size="40">💬</text>
+  <circle cx="607" cy="322" r="17" fill="#6366f1"/>
+  <text x="607" y="329" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800">2</text>
+  <text x="387" y="400" fill="#ffffff" font-size="21" font-weight="700">Say one word:</text>
+  <rect x="387" y="416" width="118" height="40" rx="10" fill="#ffffff"/>
+  <text x="446" y="444" text-anchor="middle" fill="#4f46e5" font-size="22" font-weight="800" font-family="monospace">start</text>
+
+  <!-- step 3 -->
+  <rect x="670" y="288" width="290" height="180" rx="20" fill="#ffffff" stroke="#e2e8f0" filter="url(#soft)"/>
+  <text x="702" y="344" font-size="40">✨</text>
+  <circle cx="922" cy="322" r="17" fill="#eef2ff"/>
+  <text x="922" y="329" text-anchor="middle" fill="#6366f1" font-size="18" font-weight="800">3</text>
+  <text x="702" y="400" fill="#1e293b" font-size="21" font-weight="700">Answer a few</text>
+  <text x="702" y="428" fill="#1e293b" font-size="21" font-weight="700">questions</text>
+  <text x="702" y="456" fill="#64748b" font-size="16">— it builds your space.</text>
+
+  <!-- SECTION 2: WHAT YOU GET -->
+  <text x="60" y="546" fill="#4338ca" font-size="15" font-weight="700" letter-spacing="2">WHAT YOU GET</text>
+
+  <!-- card A -->
+  <rect x="40" y="566" width="450" height="128" rx="18" fill="#ffffff" stroke="#e2e8f0" filter="url(#soft)"/>
+  <rect x="40" y="566" width="7" height="128" rx="3" fill="#6366f1"/>
+  <text x="76" y="626" font-size="34">🧠</text>
+  <text x="130" y="612" fill="#1e293b" font-size="20" font-weight="700">Memory that never forgets</text>
+  <text x="130" y="644" fill="#64748b" font-size="16">Remembers everything, across every session.</text>
+
+  <!-- card B -->
+  <rect x="510" y="566" width="450" height="128" rx="18" fill="#ffffff" stroke="#e2e8f0" filter="url(#soft)"/>
+  <rect x="510" y="566" width="7" height="128" rx="3" fill="#14b8a6"/>
+  <text x="546" y="626" font-size="34">⚡</text>
+  <text x="600" y="612" fill="#1e293b" font-size="20" font-weight="700">Gets things done</text>
+  <text x="600" y="644" fill="#64748b" font-size="16">Give it a task — it plans and executes.</text>
+
+  <!-- card C -->
+  <rect x="40" y="710" width="450" height="128" rx="18" fill="#ffffff" stroke="#e2e8f0" filter="url(#soft)"/>
+  <rect x="40" y="710" width="7" height="128" rx="3" fill="#f59e0b"/>
+  <text x="76" y="770" font-size="34">🪞</text>
+  <text x="130" y="756" fill="#1e293b" font-size="20" font-weight="700">Mirrors you back</text>
+  <text x="130" y="788" fill="#64748b" font-size="16">Shows your patterns and blind spots.</text>
+
+  <!-- card D -->
+  <rect x="510" y="710" width="450" height="128" rx="18" fill="#ffffff" stroke="#e2e8f0" filter="url(#soft)"/>
+  <rect x="510" y="710" width="7" height="128" rx="3" fill="#ec4899"/>
+  <text x="546" y="770" font-size="34">📈</text>
+  <text x="600" y="756" fill="#1e293b" font-size="20" font-weight="700">Learns you</text>
+  <text x="600" y="788" fill="#64748b" font-size="16">Gets sharper about you over time.</text>
+
+  <!-- SECTION 3: DAILY LOOP -->
+  <text x="60" y="912" fill="#4338ca" font-size="15" font-weight="700" letter-spacing="2">EVERY DAY — JUST FOUR WORDS</text>
+  <rect x="40" y="932" width="920" height="150" rx="20" fill="#ffffff" stroke="#e2e8f0" filter="url(#soft)"/>
+
+  <!-- loop items -->
+  <g>
+    <text x="128" y="998" text-anchor="middle" font-size="32">💬</text>
+    <text x="128" y="1032" text-anchor="middle" fill="#1e293b" font-size="17" font-weight="700">talk</text>
+    <text x="128" y="1056" text-anchor="middle" fill="#94a3b8" font-size="13">ask or tell it anything</text>
+  </g>
+  <text x="248" y="1010" text-anchor="middle" fill="#cbd5e1" font-size="30">→</text>
+  <g>
+    <text x="372" y="998" text-anchor="middle" font-size="32">📝</text>
+    <text x="372" y="1032" text-anchor="middle" fill="#1e293b" font-size="17" font-weight="700">note</text>
+    <text x="372" y="1056" text-anchor="middle" fill="#94a3b8" font-size="13">drop it in daily/</text>
+  </g>
+  <text x="492" y="1010" text-anchor="middle" fill="#cbd5e1" font-size="30">→</text>
+  <g>
+    <text x="622" y="998" text-anchor="middle" font-size="32">💾</text>
+    <text x="622" y="1032" text-anchor="middle" fill="#4f46e5" font-size="17" font-weight="800" font-family="monospace">save</text>
+    <text x="622" y="1056" text-anchor="middle" fill="#94a3b8" font-size="13">it remembers</text>
+  </g>
+  <text x="742" y="1010" text-anchor="middle" fill="#cbd5e1" font-size="30">→</text>
+  <g>
+    <text x="872" y="998" text-anchor="middle" font-size="32">🔎</text>
+    <text x="872" y="1032" text-anchor="middle" fill="#4f46e5" font-size="17" font-weight="800" font-family="monospace">recall</text>
+    <text x="872" y="1056" text-anchor="middle" fill="#94a3b8" font-size="13">find it by meaning</text>
+  </g>
+
+  <!-- FOOTER -->
+  <rect x="40" y="1116" width="920" height="104" rx="20" fill="#1e293b" filter="url(#soft)"/>
+  <text x="130" y="1165" font-size="26">🔒</text>
+  <text x="176" y="1162" fill="#ffffff" font-size="19" font-weight="700">100% local</text>
+  <text x="176" y="1188" fill="#94a3b8" font-size="15">no cloud · no accounts · no tracking</text>
+  <line x1="560" y1="1138" x2="560" y2="1198" stroke="#334155" stroke-width="1.5"/>
+  <text x="620" y="1165" font-size="26">⚖️</text>
+  <text x="666" y="1162" fill="#ffffff" font-size="19" font-weight="700">MIT licensed</text>
+  <text x="666" y="1188" fill="#94a3b8" font-size="15">free to use, change &amp; build on</text>
+</svg>

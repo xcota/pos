@@ -1,0 +1,176 @@
+# =============================================================================
+#  Personal OS Starter — .gitignore
+#  Distribution is allowlist-based (see SHIP.md): `git add <explicit paths>`.
+#  This file is the second line of defence — it guarantees that runtime junk,
+#  generated caches, per-machine state, and any local leak-vocab file can NEVER
+#  be committed even if someone runs a broad `git add`.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+#  Python runtime (virtualenvs + bytecode + build metadata) — rebuildable
+# -----------------------------------------------------------------------------
+.venv/
+.venv-*/
+venv/
+.memory_venv/
+bge_test_venv/
+*_venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+pip-wheel-metadata/
+
+# -----------------------------------------------------------------------------
+#  Node (only if a module ever pulls it in)
+# -----------------------------------------------------------------------------
+node_modules/
+
+# -----------------------------------------------------------------------------
+#  Memory semantic-index — generated sidecar/manifest/logs (heavy, rebuildable)
+#  Keep the directory itself shippable via its tracked .gitkeep (negated below).
+# -----------------------------------------------------------------------------
+state/memory-index/*.npz
+state/memory-index/*.faiss
+state/memory-index/manifest.json
+state/memory-index/*.log
+
+# -----------------------------------------------------------------------------
+#  Model / embedding cache if any weights ever land in-tree (never ship weights)
+# -----------------------------------------------------------------------------
+.cache/
+*.onnx
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+models/
+model-cache/
+.huggingface/
+
+# -----------------------------------------------------------------------------
+#  Other runtime state caches (not source-of-truth)
+# -----------------------------------------------------------------------------
+state/vector-store/
+state/cache/
+
+# -----------------------------------------------------------------------------
+#  Sessions / secrets — must NEVER travel
+# -----------------------------------------------------------------------------
+*.session
+*.session-journal
+.env
+*.env
+.env.*
+*credentials*.json
+*secret*
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+.claude.json
+.claude/settings.local.json
+*.local
+
+# -----------------------------------------------------------------------------
+#  Local leak-terms / forbidden-vocab file (SHIP.md tells the owner to keep a
+#  local list next to the tree). Belt-and-suspenders: block it in-tree AND at
+#  parent-relative names, so it can never be committed by accident.
+# -----------------------------------------------------------------------------
+leak-terms.txt
+leak_terms.txt
+leak-terms*.txt
+forbidden-vocab*.txt
+
+# -----------------------------------------------------------------------------
+#  Logs + scratch + temp
+# -----------------------------------------------------------------------------
+tmp/
+temp/
+scratch/
+*.tmp
+*.bak
+*.orig
+logs/
+*.log
+
+# -----------------------------------------------------------------------------
+#  OS junk
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+__MACOSX/
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# -----------------------------------------------------------------------------
+#  Editor / IDE junk
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+*.sublime-workspace
+.netrwhist
+# Obsidian: ship the vault config if present, but NOT per-machine UI state.
+# (Do not ignore .obsidian/ wholesale — only the machine-specific bits.)
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/*.cache
+
+# -----------------------------------------------------------------------------
+#  Media + bulky artifacts (anywhere in tree). NOTE: *.png intentionally NOT
+#  ignored — docs/architecture.png ships as a diagram asset.
+# -----------------------------------------------------------------------------
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.mp3
+*.m4a
+*.wav
+*.flac
+*.pdf
+*.epub
+*.zip
+*.tar.gz
+*.tar
+*.7z
+*.rar
+*.webarchive
+
+# -----------------------------------------------------------------------------
+#  Keep empty shippable dirs alive. Whitelist .gitkeep so no rule above can
+#  ever swallow it, then re-include the dirs that must ship empty.
+# -----------------------------------------------------------------------------
+!.gitkeep
+!daily/.gitkeep
+!reports/.gitkeep
+!memory/svoboda/.gitkeep
+!knowledge/**/.gitkeep
+!state/**/.gitkeep
+!state/memory-index/.gitkeep
