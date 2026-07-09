@@ -1,8 +1,20 @@
-# Personal OS — Starter
+# Personal OS — a memory for Claude Code
 
-A personal exocortex you make your own: **memory + execution + mirror**, living as plain Markdown files in one folder. No database, no cloud, nothing leaves your machine. You run it inside [Claude Code](https://docs.claude.com/en/docs/claude-code). (The optional semantic-memory layer runs one small **local** model + an ephemeral localhost server — still fully offline; see below.)
+**Your AI forgets everything the moment you close it.** Every session you re-explain who you are, what you're building, and what you already decided last time.
 
-This ships **blank**. It sets itself up with you the first time you open it. Nothing here is anyone else's data.
+This fixes that. It's a folder of plain text files that gives [Claude Code](https://docs.claude.com/en/docs/claude-code) a lasting memory — of **you**, your projects, your decisions, and the mistakes you told it not to repeat. It grows as you use it, and it all lives on your machine as Markdown you can read, edit, and back up. No database, no cloud, nothing leaves your computer.
+
+You don't configure anything. You open the folder and say **`start`** — it interviews you for a bit and builds your personal setup *with* you. It ships **blank**; nothing here is anyone else's data.
+
+## What you actually get
+
+- 🧠 **Remembers you across every session** — stop re-introducing yourself and your goals each time.
+- 📂 **Tracks your projects and decisions** — pick up exactly where you left off, days or weeks later.
+- 🪞 **Learns your preferences and stops repeating corrected mistakes** — it keeps a running list and checks it.
+- 🔎 **Finds anything you've ever told it by meaning**, not just keywords (optional, runs a small model fully offline).
+- 📝 **Everything is plain Markdown in a git folder you own** — read it, grep it, diff it, back it up, take it anywhere.
+
+Think of it as a second brain for your AI: **memory** (it knows you) + **execution** (it tracks the work) + **mirror** (it reflects your patterns back and improves).
 
 ## ▶ Launch in 10 seconds
 
