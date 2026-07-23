@@ -93,4 +93,4 @@ The **engine** (boot logic, skills, rules, templates, docs) is **MIT-licensed** 
 
 Your own content on top of the engine (your `profile.yaml`, identity, knowledge graph, daily notes, memories) is **yours** — the license doesn't touch it.
 
-Copyright (c) 2026 <your name>.
+Copyright (c) 2026 xcota.
