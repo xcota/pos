@@ -1,0 +1,27 @@
+# Optional modules manifest.
+# Everything off by default. Flip enabled:true, then run /enable-modules.
+# File-based only — no DB. The installer copies modules/<name>/SKILL.md into
+# .claude/skills/<name>/, makes the declared dirs, and copies the seeds.
+#
+# Per module:
+#   enabled  — install it or not (default false)
+#   skill    — skill name (dir under .claude/skills/ after install)
+#   dirs     — workspace dirs to create on enable (vault-relative)
+#   seeds    — starter files: dest is vault-relative, source is modules/<name>/seeds/<basename>;
+#              copied only if dest doesn't already exist (never clobbers user data)
+#   requires — human-readable precondition the installer just prints
+
+# The engine ships with NO modules of its own — only one worked example below,
+# off by default. Flip its enabled:true and run /enable-modules to watch the
+# mechanism work, then delete or replace it with your own.
+
+modules:
+
+  example-skill:
+    enabled: false
+    skill: example-skill
+    dirs:
+      - reports
+    seeds:
+      - reports/example-note.md
+    requires: "nothing real — flip enabled:true and run /enable-modules to watch the mechanism work, then delete or replace this with your own module"

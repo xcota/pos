@@ -1,0 +1,91 @@
+# profile.template.yaml
+# ---------------------------------------------------------------------------
+# Blank template for the output of /svoboda-profiler.
+# Copy to  memory/svoboda/{subject_id}/profile.yaml , fill it in, then run
+# /vault-scaffolder {subject_id} to personalize this folder.
+#
+# Every field below is consumed by the scaffolder. Keep the key names exactly.
+# Tier each subjective claim:  FACT (subject's own words) / INDICATOR
+# (behavioral evidence) / HYPOTHESIS (AI inference). Don't over-classify into
+# tidy buzzwords — keep it spectral and contextual.
+# ---------------------------------------------------------------------------
+
+subject_id: ""              # kebab-case id; must match the folder name
+profile_version: "1.0"      # bump on each fresh re-run
+synthesized: ""             # YYYY-MM-DD of this synthesis
+run_type: ""                # fresh | rerun | patched
+supersedes: ""              # prior profile_version this replaces, or ""
+
+identity:
+  name: ""                  # display name used across the vault
+  age:                      # integer
+  role: ""                  # short self-description / what they do
+  languages: []             # e.g. ["English"] — languages[0] = primary
+  timezone: ""              # IANA tz, e.g. "Europe/Berlin"
+
+# 7 СВОБОДА life domains, each scored 1-10.
+# Prefer OBSERVED (derived from evidence) over bare self-scores.
+svoboda_scores:
+  samorazvitie:             # self-development
+  vitalnost:                # vitality / energy / body
+  okruzhenie:               # environment / relationships / social
+  bogatstvo:                # wealth / money
+  otdyh:                    # rest / recovery
+  delo:                     # work / mission
+  aktivy:                   # assets / capital base
+
+# Optional: where the subject's self-score and the observed score diverge.
+# Each item documents the gap and why. Leave [] if not used.
+score_divergence: []
+  # - {domain: "", self: , observed: , note: ""}
+
+# Which of the 7 domains the subject actively operates in.
+domains_active: []
+
+# One or two sentences. Goes verbatim into context/goals.md ## North Star.
+# Separate the telos (what they actually want) from the means (how they fund it).
+north_star: >
+
+
+style: ""                   # direct | explanatory | mixed
+cognitive_style: ""         # scanning | deep-dive | burst | gradual
+
+# 3-5 things that cause instant frustration. Seeds CLAUDE.md ## Triggers.
+# Note if reactivity is low/contextual (same stimulus → different responses).
+triggers: []
+  # - ""
+
+# Granularity instrument output — how finely the subject reads inner states.
+# Distinguish cognitive/conceptual granularity from somatic/interoceptive.
+granularity_coverage:
+  emotion_families_reached: []
+  emotion_families_thin: []
+  body_channels_reached: []
+  note: >
+
+
+cadence:
+  chronotype: ""            # e.g. "night owl, self-paced"
+  reflection: ""            # daily | weekly | adhoc
+
+# Watch-items, NOT clinical diagnoses. Each seeds a profile-specific
+# anti-pattern (AP-006+) in context/anti-patterns.md. Frame as a growth edge.
+blind_spots: []
+  # - ""
+
+# Behavior at decision points. One row per situation.
+# Becomes the Predictive Model table in context/identity.md.
+predictive_model: []
+  # - {situation: "", behavior: ""}
+
+# Stable descriptive tags. Keep spectral, not reductive.
+tags:
+  core_confirmed: []        # well-evidenced traits
+  refined: []               # nuanced / qualified traits
+  retired_from_baseline: [] # tombstoned claims a prior run asserted
+
+# Free-text guardrail for the scaffolder, e.g. "don't reduce to buzzwords".
+synthesis_constraint: ""
+
+# Living-profile change log. Empty on a fresh synthesis.
+delta_log: []

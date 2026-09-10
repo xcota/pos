@@ -3,3 +3,27 @@
 *.session-journal
 __pycache__/
 .venv/
+
+# Служебное: пересобирается само, в архив и в историю не нужно
+.memory_venv/
+*_venv/
+state/memory-index/*.npz
+state/memory-index/manifest.json
+state/memory-index/*.log
+state/.lint-attempts.json
+.huggingface/
+*.onnx
+*.log
+*.tmp
+*.bak
+.claude/settings.local.json
+.env
+*.env
+
+# Пустые папки должны доехать
+!.gitkeep
+!daily/.gitkeep
+!reports/.gitkeep
+!memory/svoboda/.gitkeep
+!knowledge/**/.gitkeep
+!state/**/.gitkeep
