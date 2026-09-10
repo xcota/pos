@@ -42,6 +42,10 @@ advisory layer demonstrably failed to prevent its recurrence.
   (C4)
 - `local-only-repo.md` — the engine assumes a local-only repo; don't raise
   secret-scrub / durability guards as findings for the private instance. (C3)
+- `secrets-never-in-notes.md` — never write the person's passwords, keys, card
+  numbers or codes into their files, even on request; say one plain line instead.
+  (Scope: their data in their notes — not repo audits, which `local-only-repo.md`
+  still governs.)
 - `naming-convention.md` — `[a-z0-9_-]` filenames; dated document formula; entity
   vs document schemes.
 

@@ -10,7 +10,11 @@ Boot context for a new working session. Progressive loading: minimal at start, e
 
 ## Steps
 
-1. If `state/current.md` exists, read it — what's happening across all contexts right now. If it's absent (or `context/identity.md` still has `{{ }}` placeholders), the vault isn't set up yet — don't fabricate state. Warmly tell the user, in one line: *"This vault isn't set up yet — just say `start` and I'll do it with you (no commands, no steps)."* Then stop and let them.
+1. If `state/current.md` exists, read it — what's happening across all contexts right now. If it's absent (or `context/identity.md` still has `{{ }}` placeholders), the folder isn't set up yet — don't fabricate state. Say it to the person in ONE plain line, in their language (Russian by default), and stop:
+
+   > Папка ещё не настроена — просто напишите `start`, дальше всё сделаю я. Команд и шагов от вас не нужно.
+
+   Слово «вейлт» / «vault» человеку не писать никогда — это папка.
 2. Read `context/priorities.md` — current focus and active work
 3. Read `context/anti-patterns-index.md` → load the **LIVE watch-list** (active failure modes). Full `context/anti-patterns.md` is reference — pull by AP-ID when a task touches that domain.
 4. Check if `daily/{today's date}.md` exists — read last 20 lines for today's events
@@ -21,15 +25,19 @@ Boot context for a new working session. Progressive loading: minimal at start, e
 
 Display a compact dashboard:
 
+Плоским русским (или на языке человека), без путей и служебных слов:
+
 ```
-=== Camomile ===
-Focus: {top priorities from priorities.md}
-State: {active contexts from current.md}
-Watch: {top 3 anti-patterns to remember}
-Today: {key events if daily note exists}
-Checkpoint: {available session to continue, if any}
+=== Ромашка ===
+Сейчас в фокусе: {top priorities from priorities.md}
+На чём остановились: {active contexts from current.md}
+О чём помню не повторять: {top 3 anti-patterns}
+Сегодня: {key events if daily note exists}
+Можно продолжить: {available session checkpoint, if any}
 ===
 ```
+
+Пустую строку не показывать вовсе — лучше короче, чем с прочерками.
 
 ## Rules
 

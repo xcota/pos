@@ -49,8 +49,11 @@ Q_PROMPT = "task: search result | query: {}"
 D_PROMPT = "title: none | text: {}"
 
 # --- corpus = the real searchable surface of the graph ---
-WINGS = ["knowledge", "daily", "context", "reports", "state", "projects"]
-EXCLUDE = ("/node_modules/", "/.venv/", "/build/", "/.git/", "/memory-index/")
+# `memory` and `inbox` are in the list on purpose: the person's own verbatim stories
+# (memory/svoboda/{id}/stories/) and whatever they drop into inbox/ are exactly what
+# "find what I said about X" has to reach. A wing that doesn't exist yet is skipped.
+WINGS = ["knowledge", "daily", "context", "reports", "state", "memory", "inbox", "projects"]
+EXCLUDE = ("/node_modules/", "/.venv/", "/.memory_venv/", "/build/", "/.git/", "/memory-index/")
 
 # --- storage ---
 INDEX_DIR = ROOT / "state/memory-index"
@@ -118,7 +121,10 @@ def walk_nodes():
     """Walk the graph → list of (relpath, header_path, body, embed_text)."""
     out = []
     for wing in WINGS:
-        for p in (ROOT / wing).rglob("*.md"):
+        wing_dir = ROOT / wing
+        if not wing_dir.is_dir():
+            continue
+        for p in wing_dir.rglob("*.md"):
             rel = "/" + str(p.relative_to(ROOT)) + "/"
             if any(x in rel for x in EXCLUDE):
                 continue

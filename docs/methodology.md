@@ -1,5 +1,9 @@
 # How Camomile actually works
 
+> **Это техническая страница — по-английски и про устройство движка.** Читать её не нужно:
+> чтобы пользоваться Ромашкой, английский не требуется. Обычным языком то же самое —
+> в [presentation.md](presentation.md).
+
 This is not a note-taking template. It is an **operating discipline** for an AI agent that
 lives in a file tree and works on your behalf across many sessions. The directory layout is
 just the substrate. The methodology below is *how the agent uses it* — and it is the part that

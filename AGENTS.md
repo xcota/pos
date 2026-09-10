@@ -7,9 +7,10 @@ Before doing task work:
 
 1. Read `CLAUDE.md` (operating rules + orchestration).
 2. Read `context/identity.md` — your profile. If it still contains `{{ }}` placeholders or an empty `profile_version:`, the vault is not personalized yet: read `.claude/skills/start/SKILL.md` and run it — `start` is the entry point that sets everything up (it orchestrates `/svoboda-profiler` + `/vault-scaffolder` for you). Tell the user they only need to say `start`.
-3. Read `daily/YYYY-MM-DD.md` for today and yesterday.
-4. In a main/direct session, read `MEMORY.md`.
-5. For project work, read `projects/{project}/AGENTS.md` and/or `projects/{project}/context.md` if present.
+3. Read `rules/AGENTS.md` — hard rules; read the matching `rules/*.md` whenever its domain is touched (`plain-first.md`, `honesty-register.md`, `secrets-never-in-notes.md` are always in force).
+4. Read `daily/YYYY-MM-DD.md` for today and yesterday.
+5. In a main/direct session, read `MEMORY.md`.
+6. For project work, read `projects/{project}/AGENTS.md` and/or `projects/{project}/context.md` if present.
 
 Don't ask permission for this boot context. Just load it.
 

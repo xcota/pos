@@ -23,7 +23,12 @@ Takes a completed svoboda `profile.yaml` (v3.2 schema) and personalizes Camomile
 
 1. **Required:** `{subject_id}` argument
 2. Read `memory/svoboda/{subject_id}/profile.yaml`
-3. If missing → error: `"Run /svoboda-profiler {subject_id} first"`
+3. Файла нет → **не показывай человеку английскую ошибку и не проси его вводить вторую команду.**
+   На первом заходе профиль пишется прямо сейчас: вернись в `svoboda-profiler` Phase 4 и
+   синтезируй по правилу первого захода — **≥2 подтверждённых карточки → `profile.yaml` с
+   `depth: provisional`** (пять сфер и три слоя нужны только для полного прохода). Карточек
+   меньше двух → покажи следующую карточку, а человеку одной строкой: «Пока рано собирать —
+   давайте пройдём ещё одну сферу».
 
 ## Gate — две подтверждённые карточки (проверить ДО первого шага)
 
@@ -35,6 +40,11 @@ Takes a completed svoboda `profile.yaml` (v3.2 schema) and personalizes Camomile
 Собранная из непроверенных выводов папка — это ярлыки, которые потом грузятся каждый запуск.
 Гейт не обходится ни аргументом, ни просьбой «просто собери» — вместо этого покажи следующую
 карточку.
+
+**Две карточки — это и весь порог первого захода.** Ждать пяти сфер и трёх глубинных слоёв на
+`run_type: fresh` не нужно: с `depth: provisional` папка собирается полностью (кто вы, цели,
+карточки сфер, обложка), а глубина добирается дальше. Одно и то же правило записано в
+`svoboda-profiler` Phase 4 и в `start` ③.
 
 ## profile.yaml — schema contract (v3.2, must match svoboda-profiler)
 
@@ -62,7 +72,7 @@ svoboda_scores:                                   # NESTED map, agent's OBSERVED
   aktivy: int
 
 score_confidence: {domain: low|med|high}          # confidence per domain (coverage-based)
-growth_edges_named: [str, ...]                    # сферы, где человек САМ назвал дыру — только они идут в 🟡/«куда вложиться»
+growth_edges_named: [str, ...]                    # сферы, где человек САМ назвал дыру — ТОЛЬКО они идут в «куда вложиться» и в 🟡 (Step 5b, Step 6). Моя низкая цифра туда не попадает: она живёт в карточке сферы как моё прочтение
 cards_confirmed: [str, ...]                       # подтверждённые карточки (дублируется из session.yaml)
 depth: provisional|confirmed                      # первый проход всегда provisional
 interface_draft: {channel, reply_len, language, profanity, address, lists, avoid: []}
@@ -214,25 +224,45 @@ it in place. Keep it in Russian, keep every section and the plain-word glosses.*
 - Quick links: leave as shipped
 - North-star line: replace `{{from north_star}}` with `north_star`, verbatim, in the owner's words
 
-### Step 5 — Generate context/identity.md
+### Step 5 — Fill context/identity.md (in place, IN RUSSIAN, preserve hand edits)
 
-`context/identity.md` ships as a template — **read it first and fill it in place**, keep every section.
+`context/identity.md` ships as a template **in plain Russian** — read it first and fill it in
+place, keeping every section and its wording. **Заполняется по-русски, бытовыми словами.**
+Ярлыков, английских терминов и служебных кодов (`#tags`, названий полей `profile.yaml`) в
+этом файле нет: его открывает и правит человек, а не только агент.
 
-- YAML frontmatter: `type: context`, `tags: [identity, profile]`, `updated: {today}`
-- Identity block (name, age, role, timezone, languages)
-- **`## Как со мной работать`** — fill from `profile.yaml.interface_draft`: обращение (`address`),
-  длина (`reply_len`), язык и регистр (`language`, `profanity`), списки (`lists`), чего не
-  спрашивать (`avoid[]`). Каждая строка с датой. Пустое поле оставь пустым — не выдумывай.
-  **На повторном прогоне этот раздел НЕ перезаписывается:** его дописывает `/session-save` по
-  живым поправкам человека; сохранить существующие строки, добавить только новые.
-- Ярлыков без источника не писать: тип привязанности, «Big Five», реакцию на стресс одним словом —
-  только если есть его собственная цитата; нет — раздела нет.
-- Tags section: list every tag in `tags_all` with a one-line origin note. (List `tags_retired` separately under a small "Retired (do not apply)" note, so future runs don't resurrect them.)
-- Blind spots section: each `blind_spots[]` item, framed as a growth edge, not a diagnosis
-- Predictive model: render `predictive_model[]` as a `situation → behavior` table
-- Cognitive style and communication style notes (`cognitive_style`, `style`)
-- СВОБОДА scores as a reference block
-- If present: a one-line note from `granularity_coverage.note` and `cadence.chronotype`
+**Правки человека сохраняются.** Перед записью прочитай текущий файл и сравни: строку, которую
+человек дописал, поправил или вычеркнул, **не восстанавливай и не переписывай**. Обновляй
+только то, что пришло из свежего профиля и раньше писал ты сам. Это обещано в шапке файла
+(«правьте руками — при пересборке ваши правки сохраняются») и в README.
+
+Куда что кладётся:
+
+| Раздел файла | Из чего |
+|---|---|
+| Шапка + `## Коротко` | `identity.name/age/role/languages/timezone`, `updated: {today}`, `profile_version` |
+| `## Как со мной работать` | `interface_draft` (обращение, длина, темп, язык и регистр, списки, `avoid[]`). Каждая строка с датой. Пустое поле — оставить пустым. **На повторном прогоне НЕ перезаписывается:** его дописывает `/session-save` по живым поправкам; сохранить существующие строки, добавить только новые |
+| `## Что вы сами про себя сказали` | дословные цитаты из `stories/` с датами — только его слова |
+| `## Как вы думаете и учитесь` | `cognitive_style` + `style`, развёрнутые обычными словами (не «scanning», а «пробегает по верхам и возвращается») |
+| `## Что вас заряжает и что выматывает` | `strength_skill_map`, если есть; нет — раздел остаётся пустым |
+| `## Что вас злит` | `triggers[]`, его формулировками |
+| `## Как вы отвечаете под нагрузкой` | наблюдения с источником + `cadence.chronotype`; ярлыков и диагнозов не писать |
+| `## Что вы обычно делаете в типовых ситуациях` | `predictive_model[]` → таблица «ситуация → что сделает» |
+| `## Мои догадки о том, чего вы про себя не видите` | `blind_spots[]`, каждая как догадка с основанием (они же засевают профильные анти-паттерны в Step 7) |
+| `## Чего я про вас не знаю` | сферы и подвопросы без охвата (`svoboda_scores: null`, низкая уверенность) — честно, а не пусто |
+| `## Снято` | `tags.retired_from_baseline` + прежние формулировки, которые человек поправил. Ничего не удалять молча |
+
+Правила заполнения:
+
+- Тегов списком в файл не выносим: каждый значимый тег разворачивается в строку обычными
+  словами в подходящем разделе. Служебный список тегов живёт в `knowledge/people/{subject_id}.md`
+  (Step 9), где его читает только агент.
+- Ярлыков без его цитаты не писать вообще: тип привязанности, «Big Five», «реакция на стресс»
+  одним словом — нет цитаты, нет строки.
+- Цифры по сферам в этот файл не переносим: они живут в карточках `memory/svoboda/{id}/domains/`
+  и в `profile.yaml`. Сюда — только словами, и только то, что человек видел.
+- Первый заход = `depth: provisional`: разделы, под которые данных нет, остаются пустыми с их
+  курсивной подсказкой. Пустой раздел честнее выдуманного.
 
 ### Step 5b — Fill context/root.md (identity anchor — CLAUDE.md boots it every session)
 
@@ -240,7 +270,7 @@ it in place. Keep it in Russian, keep every section and the plain-word glosses.*
 
 1. **§1 WHO** (the `_{{from identity…}}_` block, ~line 32): write the identity core from `identity.name` + `identity.age` + 4–6 core `tags_all` rendered as `#hashtag`-style descriptors (each a one-clause "how they decode/engage the world" note), + the integrity/anger trigger drawn from `triggers[]` if one exists (frame as `Anger trigger: #… — …`), + agreeableness / neuroticism markers if derivable from tags/style. Match the shape shown in the §1 EXAMPLE blockquote, then **DELETE that EXAMPLE blockquote** (lines ~39–44).
 2. **North Star** (the `- **North Star:**` line, ~line 36): fill **verbatim** from `north_star`.
-3. **§3 REAL DOMAINS** (the `_{{from svoboda_scores…}}_` block, ~line 64): one line per real life-domain from `domains_active`, grouped (e.g. **WORK / GROWTH / SYSTEM**). Each line: `domain — [where the material lives] · status-emoji`. Set the emoji from `svoboda_scores` + `score_confidence`: наблюдаемая цифра < 5 при уверенности `med`/`high` → 🟡; здоровая → 🟢; пусто (`null`) или низкая уверенность → ⚪ с подписью «об этом не говорили» (никогда не ноль и не 🟡). Mark off-repo material explicitly (that boundary is the "OS only sees part of my life" blind spot). Then **DELETE the §3 EXAMPLE blockquote** (lines ~68–80).
+3. **§3 REAL DOMAINS** (the `_{{from svoboda_scores…}}_` block, ~line 64): one line per real life-domain from `domains_active`, grouped (e.g. **WORK / GROWTH / SYSTEM**). Each line: `domain — [where the material lives] · status-emoji`. Set the emoji: сфера из `growth_edges_named` (человек САМ назвал дыру) → 🟡; пусто (`null`) или низкая уверенность → ⚪ с подписью «об этом не говорили» (никогда не ноль и не 🟡); всё остальное → 🟢. **Моя низкая цифра сама по себе 🟡 не даёт** — она остаётся в карточке сферы как моё прочтение; ярлык «куда вложиться» человек получает только со своих слов (то же правило в схеме выше, в Step 6 и в `docs/onboarding-flow.md`). Mark off-repo material explicitly (that boundary is the "OS only sees part of my life" blind spot). Then **DELETE the §3 EXAMPLE blockquote** (lines ~68–80).
 4. **Top note** (the blockquote at ~lines 10–16): after fill it is no longer a blank template — replace the "Until then this boots as a template" sentence with a one-line `Personalized {today}.` marker. **Keep** the "single source the field-of-view (the 'cone') is assembled from" sentence.
 5. **Leave §2 (the four functions) and §4 (THE CONE RULE) EXACTLY as shipped** — portable engine doctrine, do NOT personalize.
 6. Set the frontmatter `updated: {today}`.
@@ -252,7 +282,7 @@ it in place. Keep it in Russian, keep every section and the plain-word glosses.*
 `goals.md` ships as a fill-in template. Read it first, then:
 - YAML frontmatter: `type: context`, `tags: [goals, strategy]`
 - `## North Star` — verbatim from `north_star` (refresh every run — profile-derived)
-- `## Domains to Develop` — только (а) сферы из `growth_edges_named[]`, где человек сам назвал дыру, и (б) сферы с наблюдаемой цифрой < 5 при уверенности `med`/`high` (`score_confidence`). Пустая цифра (`null`) или низкая уверенность → сфера сюда НЕ попадает: это «об этом не говорили», а не слабое место. Refresh every run — profile-derived
+- `## Domains to Develop` («куда вложиться») — **только сферы из `growth_edges_named[]`, где человек сам назвал дыру своими словами.** Моя низкая цифра сюда не идёт ни при какой уверенности: она остаётся в карточке сферы как моё прочтение, и человек может с ней не согласиться. Пустая цифра (`null`) — тем более не повод. Одно правило, слово в слово в схеме, Step 5b и `docs/onboarding-flow.md`. Refresh every run — profile-derived
 - `## Active Goals` — **user-owned.** FRESH vault: leave header-only empty tables (strip the `_e.g. …{{thing}}…_` example rows so no placeholder shows). RE-RUN (goals.md already has user rows): **preserve the existing Active Goals block verbatim** — never wipe a returning user's goals. Only North Star + Domains to Develop refresh.
 
 ### Step 7 — APPEND profile anti-patterns (PRESERVE the shipped corpus, de-dup on re-run)
@@ -332,8 +362,9 @@ After all steps:
 4. `context/root.md` — **no `{{ }}` placeholders and no EXAMPLE blockquotes remain**; §1 WHO, North Star, and §3 domains are filled from the profile; §2 and §4 are untouched.
 5. Verify all `[[wikilinks]]` resolve to actual files in the vault
 6. Confirm `tags` was read as a nested map and `tags_retired` was NOT applied as live traits
-7. `context/identity.md` — раздел «Как со мной работать» на месте и заполнен из `interface_draft`
-   (или пуст, если данных не было); ярлыков без источника в файле нет
+7. `context/identity.md` — по-русски, все разделы на месте, раздел «Как со мной работать»
+   заполнен из `interface_draft` (или пуст, если данных не было); ярлыков без источника нет;
+   строки, дописанные или поправленные человеком, сохранены
 8. Гейт соблюдён: в `session.yaml.cards_confirmed` было ≥2 сферы до начала сборки
 
 ## Output
@@ -367,5 +398,7 @@ Restart Claude Code in this directory to activate the personalized agent.
 - Do NOT write a non-`[a-z0-9_-]` `subject_id` into a filename — slugify in Step 0.
 - Do NOT собирать папку, пока человек не подтвердил хотя бы две карточки (`cards_confirmed` ≥ 2).
 - Do NOT перезаписывать раздел «Как со мной работать» на повторном прогоне — он растёт из поправок человека.
+- Do NOT затирать правки человека в `context/identity.md` и do NOT писать этот файл по-английски — человек его открывает и правит руками.
+- Do NOT ставить 🟡 / «куда вложиться» по своей низкой цифре — только по сферам из `growth_edges_named` (Step 5b, Step 6).
 - Do NOT писать в профиль ярлык без его цитаты (тип привязанности, черты, «реакция на стресс»).
 - Do NOT write outside the workspace.

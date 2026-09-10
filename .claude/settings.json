@@ -5,6 +5,7 @@
       "Write(*)",
       "Edit(*)",
       "MultiEdit(*)",
+      "Bash(bash:*)",
       "Bash(git:*)",
       "Bash(ls:*)",
       "Bash(cat:*)",

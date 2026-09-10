@@ -23,7 +23,7 @@ Build (1) a **causal psychological profile** AND (2) a **living life-state docum
 | **С** | **С**аморазвитие | learning, education, skills, content consumption, personal growth |
 | **В** | **В**итальность | health, body, energy, mental state, "жажда жизни" — NOT just physical |
 | **О** | **О**кружение | environment, place of living, people, networking, communication channels |
-| **Б** | **Б**огатство | philosophical relationship with wealth — what does "rich" mean to them, духовность |
+| **Б** | **Б**огатство | philosophical relationship with wealth — what does "rich" mean to them, what they hold above money |
 | **О** | **О**тдых | rest, recovery, travel, entertainment, hobbies as recovery (NOT skill-building) |
 | **Д** | **Д**ело | work, business, projects, profession, what they DO |
 | **А** | **А**ктивы | financial assets, income sources, asset management, liabilities |
@@ -104,7 +104,7 @@ Continue from `phase` + next uncompleted block. Never restart completed blocks. 
 работа отдельного агента, а не главного окна: он отдаёт `memory/svoboda/{subject_id}/prefill.md`
 ≤15K с черновиками карточек и дырами, главное окно читает только его.
 НЕ читать: старый `profile.md` целиком (кроме раздела «Как со мной работать»), `context/identity.md`
-кроме «Retired claims» и того же раздела, `knowledge/people/{subject_id}.md` — иначе вместо человека
+кроме разделов «Снято» (что уже оказалось неверным) и «Как со мной работать», `knowledge/people/{subject_id}.md` — иначе вместо человека
 разбираешь свои прошлые ярлыки.
 
 ### Phase 1: 7 Доменов СВОБОДА — рассказ → карточка → поправка
@@ -122,7 +122,9 @@ Continue from `phase` + next uncompleted block. Never restart completed blocks. 
 
 **Step C — Карточка** `memory/svoboda/{subject_id}/domains/{domain}.md`. Пишется сразу теми
 словами, которыми будет показана — служебных кодов и тегов в ней нет, только пометка источника
-в конце строки (её при показе не читают вслух):
+в конце строки (её при показе не читают вслух). **Обращение то же, каким идёт разговор:** говорите
+на «вы» — пиши «вы сказали:», на «ты» — «ты сказал:». Проверка цитат понимает обе формы, так что
+переписывать карточку перед показом не нужно (в примере ниже — «ты», потому что в примере на «ты»):
 
 ```
 # Дело — {subject_id}
@@ -171,10 +173,12 @@ Continue from `phase` + next uncompleted block. Never restart completed blocks. 
 python3 scripts/check_quotes.py memory/svoboda/{subject_id}/domains/{domain}.md
 ```
 
-Скрипт берёт каждую строку «ты сказал» и ищет её дословно в сохранённых рассказах этого человека
-(`stories/`). Не нашлась — печатает номер строки и переписывает её в «я услышал: … — так?»: значит
+Скрипт берёт каждую строку «ты сказал» / «вы сказали» и ищет её дословно в сохранённых рассказах
+этого человека (`stories/` — включая `stories/popravki.md`, куда падают его поправки, см. Step F). Не нашлась — печатает номер строки и переписывает её в «я услышал: … — так?»: значит
 это моя формулировка, а не его слова. Красный прогон (код 1) = карточку **не показывать**: разберись
-с помеченными строками и прогони снова, до чистого прогона в этой же сессии. Нет Python — строки
+с помеченными строками и прогони снова, до чистого прогона в этой же сессии. Код 2 = проверять
+нечего (нет рассказов или в карточке нет ни одной строки-цитаты) — это тоже «не показывать»:
+сначала сохрани рассказ в `stories/`, потом собирай карточку. Нет Python — строки
 «ты сказал» из показа убираются совсем, остаются «видел в файлах», «я думаю» и «не знаю»:
 непроверенное за его слова не выдаём.
 
@@ -203,7 +207,13 @@ python3 scripts/check_quotes.py memory/svoboda/{subject_id}/domains/{domain}.md
 > Я услышал «Фигма» — так?
 > Как вижу Дело: работа руками есть, поток клиентов — затык. 6 из 10, уверенность средняя.
 
-**Step F — Поправка.** «Да» одним словом подтверждает только строки «вы сказали». Строки «я думаю»
+**Step F — Поправка.** Его поправку **сначала дописываешь дословно** в
+`memory/svoboda/{subject_id}/stories/popravki.md` (шапка `## {YYYY-MM-DD} — {сфера}`, ниже его
+фраза как есть), и только потом правишь карточку и гоняешь проверку цитат заново. Иначе скрипт
+не найдёт его свежие слова в рассказах и вернёт их обратно в «я услышал: … — так?» — человек
+получит вопрос про то, что сам только что поправил.
+
+«Да» одним словом подтверждает только строки «вы сказали». Строки «я думаю»
 остаются догадками, пока человек не ответил по номеру. «Не так: …» → его формулировка становится
 строкой «ты сказал» поверх старой, старая уходит в «Поправки» + `delta_log {source: correction}`.
 Строка «видел в файлах» не стирается под интерпретацию — факт остаётся, рядом его слова. Молчание ≠ подтверждение: нет ответа —
@@ -221,7 +231,7 @@ python3 scripts/check_quotes.py memory/svoboda/{subject_id}/domains/{domain}.md
 
 3. **Окружение** — physical environment (place of living, atmosphere), people network, communication channels. Кого хочешь в окружении (фантазия) vs кто есть (факт). Networking strategies. **Includes parents/family if person doesn't separate Phase 3.**
 
-4. **Богатство** — *philosophical*. "Что для тебя богатство? Как ты поймешь что оно наступило?" Духовность. Relationship with abundance/scarcity. Что бы делали с unlimited resources.
+4. **Богатство** — *philosophical*. "Что для тебя богатство? Как ты поймешь что оно наступило?" Что человек ставит выше денег — его словами, без эзотерики (ни таро, ни «энергий», ни духовных практик). Relationship with abundance/scarcity. Что бы делали с unlimited resources.
 
 5. **Отдых** — recovery patterns, travel, entertainment. Не хобби-проекты (те идут в Дело/Саморазвитие) — а то что *восстанавливает*. Влияние путешествий. Время на природе.
 
@@ -288,7 +298,19 @@ If open to it, read `references/parents_brief.md`. Genesis of patterns from Phas
 
 ### Phase 4: Synthesis
 
-Minimum: 5 Phase 1 domains + 3 Phase 2 layers. Read `references/synthesis_template.md`.
+**Порог зависит от захода — одно правило, оно же в `start` ③ и в `vault-scaffolder`:**
+
+| Заход | Порог | Что пишем |
+|---|---|---|
+| Первый (`run_type: fresh`, папка ещё не собрана) | **≥2 подтверждённых карточки** (`cards_confirmed`) | `profile.yaml` + короткий `profile.md` с `depth: provisional`; пустые поля оставляем пустыми, не выдумываем |
+| Полный проход (`rerun`, глубина) | 5 сфер Phase 1 + 3 слоя Phase 2 | полный `profile.md` по шаблону, `depth: confirmed` |
+
+Первый заход **не ждёт** пяти сфер и трёх слоёв: иначе человек за пятнадцать минут не получает
+ни портрета, ни собранной папки, а `context/identity.md` остаётся с `{{ }}`. Две подтверждённые
+карточки — это и есть минимум первого захода; остальное добирается дальше по ходу.
+
+Read `references/synthesis_template.md` (на первом заходе — только те разделы, под которые есть
+данные; раздела без данных в файле нет).
 
 **Two artifacts in same turn:**
 
@@ -542,6 +564,9 @@ This is a **diagnostic** instrument. Adopt the measurement engine; reject the th
 ## References
 
 - `references/domain_probes.md` — подвопросы по сферам для счёта охвата (Phase 1 Step B)
+- `references/svoboda_questions.md` — запасные вопросы на случай пустого листа: человек не знает,
+  что говорить о сфере. Не анкета и не читается подряд — берёшь одну-две штуки и спрашиваешь
+  своими словами. Оценок себя там нет и быть не должно.
 - `scripts/check_quotes.py` — проверка цитат карточки по рассказам человека (Phase 1 Step D, обязательна до показа)
 - `references/deep_layers.md` — Phase 2 questioning framework
 - `references/granularity_instrument.md` — v3.1: emotion-family + body-signal coverage map (Layer 1 diagnostic yardstick)

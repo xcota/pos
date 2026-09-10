@@ -22,6 +22,22 @@ Save current session state before closing or when context gets heavy (>150K toke
    с чем он согласился; молчание — не согласие. Выводы о человеке (карточки сфер, профиль) сюда
    не попадают, и наоборот.
 
+0b. **Новое про сферу жизни → в карточку сферы (иначе портрет застынет на дне знакомства).**
+   Если человек за эту сессию между делом рассказал новое про одну из семи сфер (Саморазвитие,
+   Витальность, Окружение, Богатство, Отдых, Дело, Активы) и папка уже собрана
+   (`memory/svoboda/{id}/` существует):
+
+   1. Дословную фразу — в `memory/svoboda/{id}/stories/dopolneniya.md` под шапкой
+      `## {YYYY-MM-DD}` (без этого проверка цитат её не найдёт).
+   2. Одну строку в `memory/svoboda/{id}/domains/{сфера}.md` в раздел «Строки», в том же виде,
+      что и в знакомстве: `вы сказали: «…» — из разговора {дата}` или `я думаю: … — из 1 и 3`.
+      Больше двух строк за сессию не дописывать; пересказ вместо цитаты — это «я думаю», не
+      «вы сказали».
+   3. Сфера впервые получила записи → отметь это одной строкой в `HOME.md` (в разделе про семь
+      сфер), чтобы было видно, где густо, а где человек не говорил.
+   4. Цифру по сфере здесь **не пересчитываем** и заново не показываем. Пересобрать карточку
+      целиком — только по его слову: «пройдём эту сферу заново» → `/svoboda-profiler {id} update {сфера}`.
+
 1. **Summarize** what was done — scope = ALL un-persisted work since the last commit, NOT just the current salient task:
    - First **scan for orphans**: `git log --oneline -5` vs. substantive work that exists only in the transcript/compaction-summary. Anything analyzed-but-never-written-to-a-file → fixate it in this save. Work done before a `/compact` is the most likely orphan — explicitly verify it got persisted.
    - Key decisions made
