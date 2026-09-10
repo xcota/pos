@@ -23,8 +23,9 @@ identity:
   languages: []             # e.g. ["English"] — languages[0] = primary
   timezone: ""              # IANA tz, e.g. "Europe/Berlin"
 
-# 7 СВОБОДА life domains, each scored 1-10.
-# Prefer OBSERVED (derived from evidence) over bare self-scores.
+# 7 СВОБОДА life domains. The number is the AGENT'S observed read (1..10), derived from what the
+# person actually told you — we never ask a person to rate themselves. Thin coverage → leave the
+# domain empty (null): «об этом не говорили», never a zero.
 svoboda_scores:
   samorazvitie:             # self-development
   vitalnost:                # vitality / energy / body
@@ -34,10 +35,37 @@ svoboda_scores:
   delo:                     # work / mission
   aktivy:                   # assets / capital base
 
-# Optional: where the subject's self-score and the observed score diverge.
-# Each item documents the gap and why. Leave [] if not used.
+# Confidence per domain — low | med | high, from coverage of references/domain_probes.md.
+score_confidence: {}
+
+# Did the person name a number themselves, unasked? not_asked | volunteered. We never ask.
+self_scoring: not_asked
+
+# Optional: only for domains where the person volunteered a number that differs from the
+# observed one. Leave [] if not used.
 score_divergence: []
-  # - {domain: "", self: , observed: , note: ""}
+  # - {domain: "", volunteered: , observed: , note: ""}
+
+# How to work with this person (form, not conclusions) — copied from session.yaml on Phase 4.
+# The scaffolder writes it into context/identity.md § «Как со мной работать».
+interface_draft:
+  channel: ""               # text | voice
+  reply_len: ""             # short | medium | long
+  language: ""
+  profanity: ""             # yes | no
+  address: ""               # ты | вы | имя
+  lists: ""                 # yes | no
+  avoid: []                 # формулировки, которые он просил не использовать
+
+# Domains where the PERSON named a gap in their own words. Only these (plus a low observed
+# score with med/high confidence) go into «куда вложиться» — never a domain they didn't discuss.
+growth_edges_named: []
+
+# provisional | confirmed — первый проход всегда provisional.
+depth: provisional
+
+# Сферы, карточку которых человек увидел и подтвердил или поправил. Меньше двух → папку не собираем.
+cards_confirmed: []
 
 # Which of the 7 domains the subject actively operates in.
 domains_active: []

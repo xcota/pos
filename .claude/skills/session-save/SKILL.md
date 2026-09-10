@@ -15,6 +15,13 @@ Save current session state before closing or when context gets heavy (>150K toke
 
 0. **Analyze this session as a self-improvement signal:** before summarizing, walk back through this session and read it as friction data (like `/reflect` Step 1b, but over the CURRENT dialogue): how the user responded (tone, corrections, what they valued, what frustrated them), and where the agent missed, substituted, failed to orient, or added noise. → new anti-pattern / learned / identity refinements, tagged with a source-tier. Don't bulk-load the transcript — reflect over what is already in context.
 
+   **Поправки формы → `context/identity.md` § «Как со мной работать».** Если человек за эту сессию
+   поправил, КАК с ним говорить («короче», «не спрашивай про это», «на ты», «не списком») — это
+   данные об интерфейсе, а не выводы о нём: 0–2 строки в тот раздел, каждая с датой и его словами.
+   Второго списка в другом файле не заводить. Покажи кандидатов одной строкой и запиши только то,
+   с чем он согласился; молчание — не согласие. Выводы о человеке (карточки сфер, профиль) сюда
+   не попадают, и наоборот.
+
 1. **Summarize** what was done — scope = ALL un-persisted work since the last commit, NOT just the current salient task:
    - First **scan for orphans**: `git log --oneline -5` vs. substantive work that exists only in the transcript/compaction-summary. Anything analyzed-but-never-written-to-a-file → fixate it in this save. Work done before a `/compact` is the most likely orphan — explicitly verify it got persisted.
    - Key decisions made

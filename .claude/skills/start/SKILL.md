@@ -1,112 +1,146 @@
 ---
 name: start
-version: 1.0
+version: 2.0
 user_invocable: true
-description: One-word self-unfolding onboarding. Sets up a fresh, unpersonalized vault end-to-end — installs the memory engine, runs the profile interview, scaffolds the vault, and teaches the user as it goes. The single front door.
+description: Знакомство с чистой папкой — первая и единственная команда для нового человека. Заводит папку под память, по желанию ставит поиск по смыслу, ведёт первые рассказы, передаёт разбор профилировщику и сборку — сборщику. Use when the folder is fresh/unpersonalized or the person types start / знакомство / начать.
 ---
 
-# /start — set everything up (the only command a new user needs)
+# /start — знакомство
 
-This runs when someone lands in a **fresh, unpersonalized** vault (or types `start`). Your job:
-take them from a blank folder to a living, personalized Camomile folder **without them having to
-know any commands, paths, or setup steps.** You drive; they just talk.
+Читает это помощник. Человек типа «первый день, ничего не настраивал» пишет `start` — и дальше
+всё делаешь ты: он только разговаривает.
 
-**Design target: a curious beginner — think "a smart 10-year-old with a short attention span."**
-So:
-- **One thing at a time.** Never dump a wall of text or a list of commands.
-- **Plain words.** No jargon ("vault", "scaffold", "embedding") unless you immediately say what it
-  means in kid-plain terms. Prefer "your notebook", "set it up", "search by meaning".
-- **Do the work for them.** Run every shell command yourself, silently or with a one-line plain
-  narration. The user should never see or type `pip`, `bash`, or a file path unless they ask.
-- **Show progress + let them quit.** Say where they are ("① of ④"). They can stop anytime and
-  come back by typing `start` — it resumes, never restarts from zero.
-- **Teach by doing.** After each step, one sentence on *what they just got and how they'll use it*.
-- **Be warm and short.** Encourage. Match their energy. This should feel like a friendly setup
-  wizard, not a manual.
+Если папка уже личная (в `context/identity.md` нет `{{ }}` и стоит имя) — знакомство не начинать:
+поздороваться и перейти к обычной работе (`/session-start`).
 
-If the vault is ALREADY personalized (`context/identity.md` has no `{{ }}` placeholders and a real
-name), don't re-onboard — greet them back and point to what they were doing (`/session-start`).
+## Тон: берётся из его ответа, не задаётся заранее
+
+С первого же ответа человека фиксируй форму и держись её (это `interface_draft`, см.
+`svoboda-profiler` → «Рабочий профиль и адаптация»):
+
+| Что берём | Откуда | Что меняется со следующего хода |
+|---|---|---|
+| обращение (ты / вы / имя) | как назвался и как обратился | так же и обращаешься |
+| язык | язык его ответа | весь разговор на нём |
+| длина | длина его первого ответа | коротко ответил → твой ход ≤2 строк, один вопрос |
+| списки или поток | как написал | так же и спрашиваешь |
+| крепкое слово | есть/нет | твой регистр |
+| «не спрашивай так» | его поправки | стоп-формулировки, больше не повторять |
+
+Запрещено: «ты молодец», «отлично справляешься», «ещё чуть-чуть, ты справишься» и прочая
+похвала за ответы — человек не на экзамене. Запрещено объяснять «как десятилетнему»: он взрослый,
+просто не обязан знать слова из твоей области. Плоский русский, без терминов; если слово нужно —
+сразу рядом обычными словами, что оно значит.
+
+Правила ходов: одно за раз; свой ход ≤5 строк; вместо путей, команд и вывода программ — одна
+понятная фраза; в любой момент можно остановиться, `start` продолжит с того же места.
 
 ---
 
-## The flow (four steps — you orchestrate all of them)
+## ① Первые минуты — что произойдёт (≈1 минута)
 
-### ① Hello + the one-sentence what-is-this (~20 sec)
-Greet by asking their name/handle to use. Say, in one sentence, what this is:
-> "This is your own AI notebook-and-assistant that remembers everything and gets smarter about
-> *you* over time. I'll set it up with you — takes about 15–20 minutes, and you can stop anytime."
+Поздоровайся, спроси, как к нему обращаться, и одним абзацем скажи, что будет. Ровно это,
+без обещаний сверху:
 
-Tell them the shape: "First I get to know you (a few questions), then I build your space, then
-you're live." Then start step ②. Don't wait for a long answer — keep momentum.
+> Это ваша папка: я помню, что вы рассказали, и работаю дальше уже с этим. Сейчас будет так —
+> вы тремя рассказами расскажете про свою жизнь, минут пятнадцать. Оценивать себя по шкале
+> я не попрошу: откуда вам знать, какая она. Разберу сам и покажу карточку по каждой сфере —
+> «вот что вы сказали, вот что я из этого думаю, вот чего не знаю». Вы поправите по номерам.
+> Потом соберу папку. Остановиться можно в любой момент.
 
-### ② Turn on memory (runs in the background while you talk — don't make them wait)
-First, silently make sure the vault is a **git repo** — the memory is git-backed (`/session-save`,
-`/dream`, `/reflect` commit to it), so a clone works out of the box but an unzipped copy needs this
-one-time init. Then kick off the semantic-memory engine **in the background** so it installs while
-you do the interview. Run:
+Не жди длинного ответа — дальше.
+
+## ② Один вопрос про поиск по смыслу (да/нет) + тихая подготовка
+
+Спроси **один раз, честно**, и жди ответа — молча не ставить:
+
+> Поставить поиск по смыслу? Это когда я нахожу вашу старую запись по мысли, а не по точному
+> слову. Разово скачается около 300 МБ, на диске займёт примерно гигабайт, минут пять-десять.
+> Без него всё работает, только искать буду по точным словам. Ставим?
+
+- **Да** → запусти в фоне и сразу переходи к ③, не заставляя ждать:
+  ```bash
+  bash scripts/bootstrap.sh
+  ```
+  Скрипт сам всё рассказывает и при любой заминке выходит без ошибки. Не показывай его вывод.
+  Не получилось — одна строка: «Поиск по смыслу здесь не встал, искать буду по точным словам,
+  вернуться к этому можно позже» — и дальше. Знакомство на этом не останавливается **никогда**.
+- **Нет** → «Хорошо, ищу по точным словам. Захотите — скажете, поставлю позже». И дальше.
+
+Молча, ничего не говоря человеку, подготовь папку (папка из архива историю не хранит — без этого
+сохранения будут без истории):
+
 ```bash
-git rev-parse --is-inside-work-tree >/dev/null 2>&1 || git init -q   # git-backed memory; no-op if already a repo
-bash scripts/bootstrap.sh
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 || git init -q
+mkdir -p inbox memory/svoboda daily state
 ```
-(Run it non-blocking / in the background if your harness supports it, e.g. append ` &`, or just
-launch it and move straight into step ③ — it self-narrates and takes 1–2 min.)
 
-Say it plainly, one line: *"Setting up your memory in the background — it lets me find things by
-what you *mean*, not just exact words. Meanwhile, let's get to know you."*
+`inbox/` — куда человек может кидать свои файлы и расшифровки; скажи про неё одной строкой
+позже, в ④, а не сейчас.
 
-Handle the two outcomes without alarming them:
-- **No Python, or the script prints that it didn't manage** → that's fine, it exits cleanly. Say it
-  in one plain line: *"Meaning-based search needs a free add-on I couldn't install here; everything
-  else works and I'll search by exact words. We can come back to it later."* Then continue.
-  **Never block onboarding on this, and never show the raw output.**
-- **It succeeds** → mention it once at the end ("your memory is on"), don't interrupt the interview.
+## ③ Три рассказа → карточки (основное)
 
-### ③ Get to know them → build their space (the core)
-Run the profile interview by following **`.claude/skills/svoboda-profiler/SKILL.md`**, but wrap it
-in this friendly frame:
-- **One question at a time.** Ask, wait, react warmly, ask the next. Never paste the whole question
-  set. The interview has natural sections — after each, say "that's section X done, Y to go — you're
-  doing great" so they feel progress.
-- **Let them go shallow or deep.** If they give short answers, that's OK — capture and move on.
-  Remind them once: "you can stop after any section and pick up later by typing `start`."
-- It's a normal conversation — no tools, no downloads, nothing for them to install. Just talking.
+Дальше ведёт `.claude/skills/svoboda-profiler/SKILL.md` — Phase 0 и Phase 1. Кратко, чтобы ты
+не искал: **не спрашивай оценок**. Просишь рассказ, сохраняешь его дословно, разбираешь сам,
+показываешь карточку, человек поправляет по номерам.
 
-When the profiler has written `profile.yaml`, **immediately and silently build their vault** by
-following **`.claude/skills/vault-scaffolder/SKILL.md`** — the user does NOT type a second command.
-Narrate the result in plain words, not file paths:
-> "Done — I just built your space. I set up who-you-are, your north star, your starting goals, and
-> your memory notebook, all from what you told me."
+Три опоры — по одной за ход, своими словами, не списком:
 
-### ④ You're live — teach the 3 things they'll actually use
-Confirm memory finished (or note it's the plain-search fallback). Then teach ONLY these three, one
-line each — this is the whole "how to use it" they need on day one:
-1. **Just talk to me.** "Ask me anything, or tell me to do things. I remember across sessions."
-2. **Dump your day.** "Drop notes, thoughts, links into me anytime — say them or put them in `daily/`."
-3. **Say `save` when you want me to remember something important.** (i.e. `/session-save`.)
+1. «Расскажите как другу вчерашний день, с подъёма до сна» — закрывает дело, отдых, силы, людей.
+2. «За последний месяц: что купили, о чём жалеете, чему рады» — деньги и имущество.
+3. «Чему научились за год и от кого» — учёбу и окружение.
 
-Then the finish line:
-> "That's it — you're set up. Restart me in this folder and say hi. Your notes live here as plain
-> files — you can open, edit or move them any time."
+Текстом — обычный способ. Голосом — только если у человека уже есть чем расшифровать: в пакете
+расшифровки голоса нет, попроси положить текст расшифровки в `inbox/`.
 
-Optionally mention one power-up they can explore later, in one line: "When you're curious how the
-brain works, ask me to explain `docs/methodology.md`."
+Каждый рассказ сохраняется дословно в `memory/svoboda/{id}/stories/<сфера>.md` — это потом
+единственный источник строк «вы сказали», и по нему же идёт проверка цитат.
+
+После каждой карточки — короткая честная сводка своими словами: сколько сфер разобрано, где
+пока пусто. Без процентов бодрости и без похвалы.
+
+**Сборку папки не запускать, пока человек не подтвердил хотя бы две карточки.** Подтвердил —
+молча собери папку по `.claude/skills/vault-scaffolder/SKILL.md` (второй команды человек не
+вводит) и скажи результат обычными словами, без путей:
+
+> Собрал вашу папку: кто вы, к чему идёте, с чего начинаем и куда я складываю память.
+
+## ④ Готово — три вещи, которыми он будет пользоваться
+
+Одной строкой на каждую:
+
+1. **Просто говорите со мной.** Спрашивайте, поручайте — я помню между разговорами.
+2. **Кидайте сюда день.** Мысли, ссылки, файлы — словами или в папку `inbox/`.
+3. **Скажите «сохрани»,** когда что-то важное стоит запомнить.
+
+И финал:
+
+> Всё. Перезапустите меня в этой папке и поздоровайтесь — дальше я уже с вашей памятью.
+> Ваши записи лежат тут обычными файлами: открывайте, правьте, переносите когда угодно.
+
+Перезапуск — единственное, что человек делает руками. Предупреди о нём заранее, ещё в ③,
+когда собираешь папку, а не ставь перед фактом.
+
+Можно добавить одну строку: «Захотите разобраться, как это устроено внутри — скажите, покажу
+`docs/methodology.md`».
 
 ---
 
-## Rules
-- **Never** show the user raw command output, pip logs, file paths, or errors unless they ask —
-  translate everything into one plain sentence.
-- **Never** make them run a second command. `start` (or the word "start") is the only thing they type.
-- **Never** block or abort on the memory add-on failing — the core is pure Markdown and always works.
-- Resumable: if `profile.yaml` or a partial `session.yaml` already exists, continue from there
-  instead of restarting (the profiler handles resume — honor it).
-- Keep each of your turns short. If you've written more than ~5 lines, you're dumping — trim.
-- After onboarding completes, `start` should no longer re-onboard — it should greet + hand off to
-  `/session-start`.
+## Правила
 
-## What this skill orchestrates (so you don't reinvent it)
-- `scripts/bootstrap.sh` → the memory engine (venv + model + index). Fire-and-forget, self-narrating.
-- `.claude/skills/svoboda-profiler/SKILL.md` → the interview (writes `profile.yaml`).
-- `.claude/skills/vault-scaffolder/SKILL.md` → builds the personalized vault from `profile.yaml`
-  (fills CLAUDE.md, context/root.md, identity, goals, self-entity).
-- `.claude/skills/session-start/SKILL.md` → the normal boot, for every session after onboarding.
+- Никакого вывода программ, путей, ошибок и логов на экран — одна понятная фраза вместо них.
+- Вторую команду человек не вводит: `start` — единственное, что он печатает.
+- Поиск по смыслу не встал — идём дальше; всё главное это обычные текстовые файлы.
+- Возобновляемость: есть `session.yaml` или сохранённые рассказы — продолжай с этого места,
+  ничего не переспрашивая заново.
+- Не заявляй сделанным то, чего не делал: карточка показывается только после чистой проверки
+  цитат (`scripts/check_quotes.py`), папка собирается только после двух подтверждённых карточек.
+- После знакомства `start` больше не знакомит — здоровается и передаёт в `/session-start`.
+
+## Что это связывает (не изобретай заново)
+
+- `scripts/bootstrap.sh` — необязательный поиск по смыслу, по ответу «да» в ②.
+- `.claude/skills/svoboda-profiler/SKILL.md` — рассказы, карточки, `profile.yaml`.
+- `scripts/check_quotes.py` — проверка цитат перед показом карточки.
+- `.claude/skills/vault-scaffolder/SKILL.md` — сборка личной папки из `profile.yaml`.
+- `.claude/skills/session-start/SKILL.md` — обычное начало каждого следующего разговора.

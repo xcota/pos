@@ -100,7 +100,7 @@ Update each source to mention this synthesis in its Related section (avoids floa
 ```
 /query "should we ship the new onboarding flow before or after the next release?"
 ```
-→ Searches: `knowledge/concepts/onboarding-funnel.md`, `knowledge/decisions/2026-01-10-release-cadence.md`, relevant retro notes in `reports/`.
+→ Searches: `knowledge/concepts/onboarding-funnel.md`, `knowledge/decisions/2026-01-14-release-cadence.md`, relevant retro notes in `reports/`.
 → Synthesizes: "Ship after. The release-cadence decision caps in-flight changes per cycle, and the onboarding-funnel note shows the metric lift only registers with a clean A/B window — bundling both into one release confounds attribution."
 → Files: `knowledge/concepts/query_onboarding_ship_timing_2026-01-12.md`.
 → Next time a similar question comes up: it starts from this file, not from zero.

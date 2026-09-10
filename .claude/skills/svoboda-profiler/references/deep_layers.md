@@ -100,7 +100,7 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 - Don't ask "what's your attachment style" and never name a type to the subject.
 - Take a CONCRETE relationship already surfaced in Phase 1 (partner, friend, family). "When [X] suddenly goes distant or silent — what do you notice in yourself in the first minutes?"
 - Listen for the axis: hypervigilance to their behavior (anxious branch) vs fast internal exit into work (avoidant branch) vs steady contact (secure).
-- Bridge to genesis: "When a parent's warmth was unpredictable — did you learn to predict their state?"
+- Genesis only if THEY bring it up. Don't propose a childhood origin, don't hint at one: an origin goes into the profile only as their own quote, otherwise `origin: not given`.
 - Silent yardstick: anxious / avoidant / secure / disorganized. Scope = general closeness style; the systems-vs-intimacy switch belongs to Layer 10, don't re-derive it here.
 
 **What it reveals:**
@@ -135,7 +135,7 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 
 **What it reveals:**
 - A mechanism distinct from anxiety (anxiety = future, rumination = past/errors) and from cognitive-style-in-norm (Section II measures scanning/deep-dive, not loop-stickiness).
-- Resolves a "can't switch the mind off / thinking all the time" report when it surfaces: is that a reflective stream (resource) or a ruminative capture (cost) masked as a deliberate choice? Genesis often = childhood hypervigilance (predicting a caregiver's state = early training of compulsive monitoring). Feeds Sections II + III.
+- Resolves a "can't switch the mind off / thinking all the time" report when it surfaces: is that a reflective stream (resource) or a ruminative capture (cost) masked as a deliberate choice? Feeds Sections II + III.
 
 ## Layer 10: Граница под давлением (self-erasure vs system-integrity, switch-point)
 

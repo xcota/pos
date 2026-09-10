@@ -31,6 +31,25 @@ sourced_from: memory/svoboda/{subject_id}/profile.yaml
 
 ---
 
+## Как со мной работать
+
+_Это про форму разговора, а не выводы о человеке. Заполняется из `profile.yaml.interface_draft`
+при сборке и дописывается `/session-save`, когда человек поправляет форму. Каждая строка — с
+датой и его словами. Строки не выдумывать: нет его поправки — строки нет._
+
+| Что | Как | Дата | Откуда |
+|---|---|---|---|
+| Обращение | _ты / вы / по имени_ | | |
+| Длина ответа | _коротко / средне / развёрнуто_ | | |
+| Темп | _один вопрос за раз / можно несколько_ | | |
+| Язык и регистр | _язык, крепкие слова да/нет_ | | |
+| Списки | _списком / сплошным текстом_ | | |
+| Чего не спрашивать | _его стоп-формулировки (`avoid[]`)_ | | |
+| Что срабатывает | _на что он отвечает охотно_ | | |
+| Снято | _что перестало действовать, с датой_ | | |
+
+---
+
 ## Core Cognitive Style
 
 _Three-to-four interlocking patterns describing how the subject processes reality.
@@ -45,27 +64,6 @@ _Information-processing pattern (e.g. depth → simplify → quantify). One para
 ### #learning_mode
 _Learning cadence — `cognitive_style` from profile (scanning | deep-dive | burst | gradual).
 What "before ripening" vs "after" looks like._
-
----
-
-## Personality Metrics
-
-### Big Five
-| Trait | Score | Manifestation |
-|-------|-------|---------------|
-| Openness | _/10_ | _evidence_ |
-| Conscientiousness | _/10_ | _evidence_ |
-| Extraversion | _/10_ | _evidence_ |
-| Agreeableness | _/10_ | _evidence_ |
-| Neuroticism | _/10_ | _evidence_ |
-
-### Temperament
-_e.g. Fisher type, best-match note. Optional — leave blank if not profiled._
-
-### Attachment Style
-**Baseline:** _style_
-**Under stress:** _regression pattern, if any_
-**Primary vulnerability:** _trigger_
 
 ---
 
@@ -93,8 +91,8 @@ broken expectation). From `triggers`._
 
 ## Stress Response
 
-**Primary:** _fight | flight | freeze | fawn_
-**Secondary:** _..._
+_Что наблюдается под нагрузкой — без ярлыков и без диагнозов. Только с источником: его словами
+или поведением, которое видно в файлах._
 
 **Markers observed:**
 - _Under stress → ..._
