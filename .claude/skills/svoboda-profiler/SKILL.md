@@ -132,11 +132,11 @@ Step C.
 
 | Kind of line | EN | ZH | RU |
 |---|---|---|---|
-| their exact words | `you said:` | `你说：` | `ты сказал(а): / вы сказали:` |
+| their exact words | `you said:` | `你说：` | `ты сказал: / ты сказала: / вы сказали:` |
 | seen in their files | `I saw in your files:` | `我在你的文件里看到：` | `видел в файлах:` |
 | my inference | `I think:` | `我觉得：` | `я думаю:` |
 | a gap | `I don't know:` | `我不知道：` | `не знаю:` |
-| heard, unconfirmed | `I heard «…» — right?` | `我听到的是「…」——对吗？` | `я услышал «…» — так?` |
+| heard, unconfirmed | `I heard "…" — right?` | `我听到的是「…」——对吗？` | `я услышал «…» — так?` |
 | closing read | `As I see it:` | `我的看法：` | `как вижу:` |
 
 `scripts/check_quotes.py` recognises the "you said" label in all three languages, so a card written
@@ -167,31 +167,31 @@ showing it (the example below is in English):
 stories: stories/yesterday.md, stories/year-of-learning.md
 
 ## Lines
-1. you said: «spent the morning fixing a client's site» — stories/yesterday.md
-2. you said: «call with my partner» — stories/yesterday.md
+1. you said: "spent the morning fixing a client's site" — stories/yesterday.md
+2. you said: "call with my partner" — stories/yesterday.md
 3. I saw in your files: edits in three projects this month, nothing closed — git status
 4. I think: the bottleneck is the flow of clients, not the choice of project — from 1 and 3
-5. I heard: «Figma» — right?
+5. I heard: "Figma" — right?
 
 ## I don't know
 - whether the site is the main income or one of several; whether the partner is money or craft
 ## Closed by them (do not ask again)
 - (empty)
 ## Coverage: 4 of 7 sub-questions → medium confidence
-## As I see it: the hands-on work is there, client flow is the jam. 6 out of 10, medium confidence.
+## As I see it: the hands-on work is there, client flow is the bottleneck. 6 out of 10, medium confidence.
 ## Corrections
 - (after it is shown)
 ```
 
 Four kinds of line, and the kind of line IS its tier:
-- **«you said: «…»»** — only a verbatim quote from their story + the story file at the end of the
+- **`you said: "…"`** — only a verbatim quote from their story + the story file at the end of the
   line. A paraphrase never goes here: that is already "I think".
-- **«I saw in your files: …»** — behaviour visible in the folder (files, `git status`), with its
+- **`I saw in your files: …`** — behaviour visible in the folder (files, `git status`), with its
   source.
-- **«I think: …»** — your inference, with the numbers of the lines it was drawn from.
-- **«I heard: … — right?»** — a name, a number, a city, a word you half-caught: until the person
+- **`I think: …`** — your inference, with the numbers of the lines it was drawn from.
+- **`I heard: … — right?`** — a name, a number, a city, a word you half-caught: until the person
   confirms it, it feeds neither conclusions nor the number.
-- Third-party statements — «second-hand: …», without the names of outside people.
+- Third-party statements — `second-hand: …`, without the names of outside people.
 
 Rules:
 - Something skipped (you asked, they didn't touch it) = a gap in the data, not a diagnosis. What
@@ -233,8 +233,9 @@ internal headings, strictly in this order:
 1. The numbered lines: "you said: …" / "I saw in your files: …" / "I think: …".
 2. "I don't know: …".
 3. "I heard X — right?".
-4. As the last line: "As I see Work: {one phrase in their words}. N out of 10, medium confidence" —
-   or "I'm not putting a number on it, you didn't talk about this" when coverage is thin.
+4. As the last line: "As I see it: {area} — {one phrase in their words}. N out of 10, medium
+   confidence" — or "I'm not putting a number on it, you didn't talk about this" when coverage is
+   thin.
 
 Never open with the number and never ask about it. Example of a showing:
 
@@ -245,8 +246,9 @@ Never open with the number and never ask about it. Example of a showing:
 > 4. I think: the bottleneck is the flow of clients, not the choice of project
 > I don't know: whether the site is your main income or one of several; whether the partner is
 > money or craft.
-> I heard «Figma» — right?
-> As I see Work: the hands-on work is there, client flow is the jam. 6 out of 10, medium confidence.
+> I heard "Figma" — right?
+> As I see it: Work — the hands-on work is there, client flow is the bottleneck. 6 out of 10,
+> medium confidence.
 
 **Step F — Correction.** Their correction is **first appended verbatim** to
 `memory/svoboda/{subject_id}/stories/corrections.md` (heading `## {YYYY-MM-DD} — {area}`, their

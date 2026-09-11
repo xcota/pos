@@ -10,7 +10,7 @@
 
 **给谁用。** 给听说过 ChatGPT、又想让 AI 多帮点忙的人。不用写一行代码。
 
-**先说清楚两件事，免得你白忙：** 只能在 Mac 或者 Linux 电脑上用，Windows 现在还不行；还要有 Claude（一个 AI 聊天工具，跟 ChatGPT 差不多）的付费账号。
+**先说清楚三件事，免得你白忙：** 只能在 Mac 或者 Linux 电脑上用，Windows 现在还不行；还要有 Claude（一个 AI 聊天工具，跟 ChatGPT 差不多）的付费账号；而且 Claude 账号在中国内地和港澳注册不了、也付不了钱——Anthropic 公布的可用国家和地区名单里没有这几个地方（名单见 https://www.anthropic.com/supported-countries ），你得能连到名单里那些地区的网络，付费也要用那边的银行卡。这是 Anthropic 那边的规定，跟这个文件夹没关系，我们也改不了。
 
 ## 你会得到什么
 

@@ -8,7 +8,7 @@ Starting point: the folder is empty and the assistant knows nothing about you. S
 
 **Then — three stories.** Not once are you asked to rate yourself: how would you know what your vitality (body and energy) is — that is subjective. Instead of a questionnaire the assistant asks you to talk the way you would to a friend: yesterday, from waking up to going to bed; the past month — what you bought, what you regret, what you are glad about; what you learned over the past year and from whom. Three stories cover all seven areas — Self-development (learning and growth), Vitality (body and energy), Surroundings (people and place), Wealth (what "enough" means to you), Rest (what restores you), Work (what you do), Assets (money and property). Each story is saved in your folder word for word: that is later the only source for the "you said" lines.
 
-**Next — a card per area, for you to check.** Having gone through the stories, the assistant shows a numbered list for each area: "you said: …" (only your own words, word for word), "I saw in your files: …", "I think: …", then "I don't know: …", then "I heard «…» — right?", and as the last line its own number with a confidence level. Before showing it, it checks itself: the folder contains a small program that matches every quote against your own stories. If a quote is not found word for word, that line turns into a question, "I heard «…» — right?", and until the check comes back clean it does not show the card at all. You correct by number: "3 is wrong, what actually happened is…". A one-word "yes" confirms only the "you said" lines; what it thinks stays its guess until you answer by number.
+**Next — a card per area, for you to check.** Having gone through the stories, the assistant shows a numbered list for each area: "you said: …" (only your own words, word for word), "I saw in your files: …", "I think: …", then "I don't know: …", then "I heard '…' — right?", and as the last line its own number with a confidence level. Before showing it, it checks itself: the folder contains a small program that matches every quote against your own stories. If a quote is not found word for word, that line turns into a question, "I heard '…' — right?", and until the check comes back clean it does not show the card at all. You correct by number: "3 is wrong, what actually happened is…". A one-word "yes" confirms only the "you said" lines; what it thinks stays its guess until you answer by number.
 
 **Next — questions that go deeper.** After five areas the conversation changes character: what really makes you angry, what you lost and could not digest, how being lonely differs from being alone, what counts as irreversible for you, what charges you up and what drains you. It is still a conversation, not a test, but the questions are not shallow.
 
@@ -40,10 +40,10 @@ And then, having gone through the story, a card for you to check:
 > 3. I saw in your files: edits in three projects over the past month, nothing closed
 > 4. I think: the bottleneck is the flow of clients, not the choice of project
 > I don't know: whether the website is your main income or one of several; whether the partner is a money partner or a work partner.
-> I heard «Figma» — right?
-> As I see it, Work: the hands-on work is there, the flow of clients is the jam. 6 out of 10, medium confidence.
+> I heard "Figma" — right?
+> As I see it: Work — the hands-on work is there, client flow is the bottleneck. 6 out of 10, medium confidence.
 
-The lines here carry different weight, and the first words show it. "You said" — your own words, word for word, nothing of its own. "I saw in your files" — what it found in your own folder. "I think" — its guess, and it stays a guess until you answer by number. "I heard «…» — right?" — a name, a number or a city it might have misheard. For an area you barely talked about, the last line with a number will not be there at all.
+The lines here carry different weight, and the first words show it. "You said" — your own words, word for word, nothing of its own. "I saw in your files" — what it found in your own folder. "I think" — its guess, and it stays a guess until you answer by number. "I heard '…' — right?" — a name, a number or a city it might have misheard. For an area you barely talked about, the last line with a number will not be there at all.
 
 ## The number for an area: where it comes from and what is done with it
 

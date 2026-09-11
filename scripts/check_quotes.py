@@ -2,8 +2,9 @@
 """Quote check for a domain card.
 
 Every card line that starts with a "you said" label — `you said:` in English,
-`你说：` in Chinese, `ты сказал(а):` / `вы сказали:` in Russian (the form of
-address is the one the conversation uses) — must be found word for word in the
+`你说：` in Chinese, `ты сказал:` / `ты сказала:` / `вы сказали:` in Russian (the
+form of address is the one the conversation uses; the written-out `ты сказал(а):`
+is accepted too) — must be found word for word in the
 person's stories (the `stories/` folder next to the card). If the quote isn't
 there, the line is not a fact but my own assumption: the script prints its number
 and rewrites it as "I heard: … — right?" in the same language.
@@ -33,7 +34,7 @@ from pathlib import Path
 # "you said" in the three card-label languages (see the label table in
 # .claude/skills/start/SKILL.md). Add a language here and the check follows.
 SAID_RE = re.compile(
-    r"^(\s*(?:\d+[.)]\s*)?)(you said|你说|ты сказал(?:а)?|вы сказали)\s*[:：]\s*(.+?)\s*$",
+    r"^(\s*(?:\d+[.)]\s*)?)(you said|你说|ты сказал(?:\(а\)|а)?|вы сказали)\s*[:：]\s*(.+?)\s*$",
     re.IGNORECASE,
 )
 HEARD = {

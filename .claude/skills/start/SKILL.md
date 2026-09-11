@@ -23,11 +23,11 @@ Card labels come from this table — pick the row set for the language of the co
 
 | Kind of line | EN | ZH | RU |
 |---|---|---|---|
-| their exact words | `you said:` | `你说：` | `ты сказал(а): / вы сказали:` |
+| their exact words | `you said:` | `你说：` | `ты сказал: / ты сказала: / вы сказали:` |
 | seen in their files | `I saw in your files:` | `我在你的文件里看到：` | `видел в файлах:` |
 | my inference | `I think:` | `我觉得：` | `я думаю:` |
 | a gap | `I don't know:` | `我不知道：` | `не знаю:` |
-| heard, unconfirmed | `I heard «…» — right?` | `我听到的是「…」——对吗？` | `я услышал «…» — так?` |
+| heard, unconfirmed | `I heard "…" — right?` | `我听到的是「…」——对吗？` | `я услышал «…» — так?` |
 | closing read | `As I see it:` | `我的看法：` | `как вижу:` |
 
 File names, folder names and keys stay ASCII/English whatever the conversation language is

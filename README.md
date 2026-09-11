@@ -6,7 +6,7 @@ English · [中文](README.zh.md) · [Русский](docs/ru/README.md)
 
 **A folder on your computer where an AI assistant remembers you: what you are doing, what you decided, and how you want to be talked to.**
 
-An ordinary AI chat forgets everything the moment you close the window. Every time you explain again who you are, what you are working on, what you agreed last time. Here the assistant writes all of that into files on your own disk and re-reads them at the start of every conversation.
+An ordinary AI chat forgets everything the moment you close the window. Every time, you explain again who you are, what you are working on, and what you agreed on last time. Here the assistant writes all of that into files on your own disk and re-reads them at the start of every conversation.
 
 **Who this is for.** Anyone who has heard of ChatGPT and wants more from AI than one-off answers. You do not need to write a single line of code.
 
@@ -64,11 +64,11 @@ About disk space: if you agreed to search by meaning, its dictionary is kept out
 
 An honest note about the internet: for the assistant to answer you, pieces of your notes are sent to Claude — the same as any text you type into an AI chat. Storage is on your side, thinking happens on Anthropic's servers. That is why you need an internet connection.
 
-## Cheat sheet: three words
+## Cheat sheet: three commands
 
-Type them in Latin letters, with the slash in front, right in the conversation line:
+Type them straight into the conversation, with a slash in front:
 
-| Word | What it does |
+| Command | What it does |
 |---|---|
 | `/session-save` | save this conversation into memory |
 | `/recall` | find an old note |
