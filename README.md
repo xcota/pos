@@ -4,6 +4,9 @@ English · [中文](README.zh.md) · [Русский](docs/ru/README.md)
 
 # Camomile
 
+**Presentation online:** https://xcota.github.io/pos/ (English · 中文 · Русский)
+
+
 **A folder on your computer where an AI assistant remembers you: what you are doing, what you decided, and how you want to be talked to.**
 
 An ordinary AI chat forgets everything the moment you close the window. Every time, you explain again who you are, what you are working on, and what you agreed on last time. Here the assistant writes all of that into files on your own disk and re-reads them at the start of every conversation.
