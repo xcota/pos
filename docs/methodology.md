@@ -1,8 +1,8 @@
 # How Camomile actually works
 
-> **Это техническая страница — по-английски и про устройство движка.** Читать её не нужно:
-> чтобы пользоваться Ромашкой, английский не требуется. Обычным языком то же самое —
-> в [presentation.md](presentation.md).
+> **This is the technical page — it describes how the engine is built.** You don't need it:
+> nothing here is required to use Camomile. The same thing in plain language is in
+> [en/presentation.md](en/presentation.md).
 
 This is not a note-taking template. It is an **operating discipline** for an AI agent that
 lives in a file tree and works on your behalf across many sessions. The directory layout is

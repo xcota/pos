@@ -1,79 +1,81 @@
-![Ромашка](assets/logo/camomile-wordmark.png)
+![Camomile](assets/logo/camomile-wordmark.png)
 
-# Ромашка
+English · [中文](README.zh.md) · [Русский](docs/ru/README.md)
 
-**Папка на вашем компьютере, в которой ИИ-помощник помнит вас: ваши дела, ваши решения и то, как именно с вами разговаривать.**
+# Camomile
 
-Обычный ИИ-чат забывает всё, как только вы закрыли окно. Каждый раз объясняете заново, кто вы, чем заняты и о чём договорились в прошлый раз. Здесь помощник записывает это в файлы у вас на диске и перечитывает их в начале каждого разговора.
+**A folder on your computer where an AI assistant remembers you: what you are doing, what you decided, and how you want to be talked to.**
 
-**Для кого.** Для человека, который слышал про ChatGPT и хочет от ИИ больше, чем разовые ответы. Программировать не нужно ни строчки.
+An ordinary AI chat forgets everything the moment you close the window. Every time you explain again who you are, what you are working on, what you agreed last time. Here the assistant writes all of that into files on your own disk and re-reads them at the start of every conversation.
 
-## Что вы получите
+**Who this is for.** Anyone who has heard of ChatGPT and wants more from AI than one-off answers. You do not need to write a single line of code.
 
-- **Не рассказывать себя заново.** Открыли разговор — помощник уже знает, чем вы заняты, что решили в прошлый вторник и почему.
-- **Дела не теряются.** Бросили что-то надолго — вернулись и спросили «на чём я остановился»: ответ есть, вместе с причиной, почему отложили.
-- **Старые решения находятся.** «Где я записывал, почему отказался от той квартиры» — найдёт, даже если вы тогда писали другими словами. Так умеет поиск по смыслу: в самом начале знакомства помощник спросит одним вопросом да/нет, ставить его или нет, и честно назовёт, сколько это займёт места и времени. Откажетесь — поиск пойдёт по точным словам, и по другим словам записи не найдутся.
-- **Ваши правила разговора закрепляются.** «Не пиши так длинно», «не задавай два вопроса сразу», «обращайся на ты» — это ложится отдельным разделом «Как со мной работать» в файл «кто я», а этот файл помощник перечитывает при каждом запуске. Когда вы в конце разговора говорите «сохрани», он показывает одну-две строки-кандидата туда и записывает только то, с чем вы согласились.
-- **Никакой самооценки по шкале.** Вас не просят ставить себе баллы за «здоровье» или «деньги». Вы рассказываете, как другу, — разбирает он сам и показывает разбор на проверку.
-- **Видно, как идут дела в жизни целиком.** Семь сфер: саморазвитие (учёба и рост), витальность (тело и силы), окружение (люди рядом и где живёте), богатство (что для вас достаток), отдых (что восстанавливает), дело (чем занимаетесь), активы (деньги и имущество). По каждой сфере лежит карточка: видно, что вы рассказали, а о чём не говорили. Когда вы в конце разговора говорите «сохрани», новое из разговора дописывается в нужную карточку строкой.
+## What you get
 
-## Что нужно иметь
+- **You stop introducing yourself.** You open a conversation and the assistant already knows what you are working on, what you decided last Tuesday, and why.
+- **Nothing gets dropped.** Put something aside for a month, come back, ask "where did I stop" — the answer is there, together with the reason you put it aside.
+- **Old decisions can be found again.** "Where did I write down why I turned down that apartment" — it finds it, even if you wrote it in completely different words back then. That is search by meaning: right at the start the assistant asks one yes/no question about whether to install it, and tells you honestly how much disk space and time it costs. Say no and search works by exact words instead — records phrased differently will not be found.
+- **Your rules for the conversation stick.** "Don't write so much", "don't ask two questions at once", "use my first name" — these go into a "How to work with me" section of your "who I am" file, and the assistant re-reads that file every time it starts. When you say "save" at the end of a conversation, it shows you one or two candidate lines for that section and writes down only what you agreed to.
+- **No rating yourself on a scale.** Nobody asks you to give yourself a score for "health" or "money". You just talk, the way you would to a friend — the assistant does the sorting and shows you its reading so you can check it.
+- **You can see how life is going as a whole.** Seven areas: Self-development (learning and growth), Vitality (body and energy), Surroundings (people and place), Wealth (what "enough" means to you), Rest (what restores you), Work (what you do), Assets (money and property). Each area has a card: you can see what you told it and what you never talked about. When you say "save" at the end of a conversation, what is new goes into the right card as a line.
 
-- **Компьютер Mac или Linux.** Windows пока не поддерживаем — версии под неё нет, вечер потратите зря.
-- **Программа Claude Code и платный доступ к Claude** (подписка Pro или Max у Anthropic). Claude Code — это программа компании Anthropic: вы запускаете её в окне команд и там же, в этом окне, переписываетесь с помощником, как в обычном чате. Помощник живёт в ней, а не в этой папке. Подписку вы оплачиваете Anthropic — это единственный платёж, который тут нужен.
-- **Две служебные программы, обе бесплатные: Python и Git.** Первая нужна помощнику для поиска по вашим записям и для проверки его собственных выводов, вторая — чтобы хранить прошлые версии ваших записей. На Mac обычно уже стоят. Если Python нет — ничего не сломается и ошибок на экране не будет, просто не станет поиска по смыслу и самопроверки цитат; помощник скажет об этом обычными словами и подскажет, что поставить.
-- **Эта папка**, скачанная и распакованная куда вам удобно.
-- **Минут пятнадцать** на первый заход и интернет всё время, пока вы разговариваете с помощником.
+## What you need
 
-## Как начать: четыре шага
+- **A Mac or a Linux computer.** Windows is not supported yet — there is no version for it, you would waste an evening.
+- **The Claude Code program and a paid Claude plan** (Pro or Max, from Anthropic). Claude Code is a program made by Anthropic: you start it in a command window, and inside that same window you write back and forth with the assistant, just like an ordinary chat. The assistant lives there, not in this folder. The plan is paid to Anthropic — that is the only payment involved.
+- **Two small helper programs, both free: Python and Git.** The first lets the assistant search your notes and check its own quotes; the second keeps earlier versions of your notes. On a Mac they are usually already there. If Python is missing, nothing breaks and no errors appear on screen — you simply get no search by meaning and no quote self-check; the assistant will say so in plain words and tell you what to install.
+- **This folder**, downloaded and unpacked wherever is convenient for you.
+- **About fifteen minutes** for the first session, and an internet connection the whole time you are talking to the assistant.
 
-1. **Поставьте Claude Code.** Инструкция Anthropic: https://code.claude.com/docs/en/setup — там будет одна команда, которую надо вставить в окно команд. На Mac это окно называется «Терминал»: нажмите клавишу Command (⌘) вместе с пробелом, наберите «Терминал» и нажмите Enter. Ставится один раз. Нужна оплаченная подписка Claude — Pro или Max.
-2. **Скачайте папку.** Откройте страницу https://github.com/xcota/pos, нажмите зелёную кнопку «Code» и выберите «Download ZIP». Если GitHub у вас не открывается (например, из Китая), та же папка лежит на https://gitee.com/cotya/pos-starter — кнопка «克隆/下载» → «下载 ZIP». Двойной щелчок по скачанному архиву создаст рядом папку (она будет называться `pos-main` или `pos-starter-master`) — перенесите её в «Документы»; переименовать в «Ромашка» можно, ничего не сломается.
-3. **Откройте папку в Claude Code.** В том же окне команд (закрыли — откройте снова тем же способом) напечатайте `cd`, потом пробел, потом перетащите папку мышкой прямо в окно и нажмите Enter. `cd` — это «перейти»: вы говорите окну, с какой папкой дальше работать. Когда вы перетащите папку, в строке сама собой появится длинная надпись с косыми чертами — это адрес папки, так и надо, править её не нужно. Потом напечатайте `claude` и Enter. Если в ответ появилось `command not found` — программа не установлена, вернитесь к шагу 1.
-4. **Напишите `/start`.** Дальше ведёт помощник: он расспросит вас и сам соберёт вашу папку. Остановиться можно в любом месте — вернётесь, напишете `/start` ещё раз, продолжится с того же места, а не с нуля.
+## Getting started: four steps
 
-**Как понять, что получилось.** После `claude` окно очищается и появляется приветствие программы, а внизу — строка, в которую можно печатать. Это и есть успех: дальше всё происходит прямо здесь, обычной перепиской — вы пишете фразу, жмёте Enter, читаете ответ. Никаких других команд, кроме тех, что ниже в шпаргалке, знать не нужно.
+1. **Install Claude Code.** Anthropic's instructions: https://code.claude.com/docs/en/setup — there is one command there that you paste into a command window. On a Mac that window is called Terminal: press Command (⌘) together with the space bar, type "Terminal" and press Enter. You install it once. A paid Claude plan — Pro or Max — is required.
+2. **Download the folder.** Open https://github.com/xcota/pos, press the green "Code" button and choose "Download ZIP". If GitHub does not open for you (in China, for example), the same folder is at https://gitee.com/cotya/pos-starter — button "克隆/下载" → "下载 ZIP". Double-clicking the downloaded archive creates a folder next to it (it will be called `pos-main` or `pos-starter-master`) — move it into your Documents. You can rename it to "Camomile", nothing breaks.
+3. **Open the folder in Claude Code.** In that same command window (if you closed it, open it again the same way) type `cd`, then a space, then drag the folder into the window with your mouse and press Enter. `cd` means "go to": you are telling the window which folder to work with from now on. When you drag the folder in, a long line with slashes appears by itself — that is the folder's address, it is supposed to look like that, do not edit it. Then type `claude` and press Enter. If the answer is `command not found`, the program is not installed — go back to step 1.
+4. **Type `/start`.** From here the assistant leads: it asks you about yourself and builds your folder for you. You can stop anywhere — come back, type `/start` again, and it continues from the same place instead of starting over.
 
-## Как проходит знакомство
+**How to tell it worked.** After `claude` the window clears, the program's greeting appears, and at the bottom there is a line you can type into. That is the success: from here on everything happens right there, as ordinary writing back and forth — you type a sentence, press Enter, read the answer. Apart from the few words in the cheat sheet below, there is nothing else to learn.
 
-Коротко, чтобы не было сюрпризов:
+## What the first session looks like
 
-- Помощник спрашивает, как к вам обращаться, и одним абзацем говорит, что сейчас будет.
-- Один вопрос да/нет: ставить ли поиск по смыслу.
-- **Три рассказа вместо анкеты**: вчерашний день с подъёма до сна; за месяц — что купили, о чём жалеете, чему рады; чему научились за год и от кого. Оценивать себя по шкале не просят ни разу.
-- **Карточка на проверку** по каждой сфере: пронумерованные строки «вы сказали» (только ваши дословные слова), «видел в файлах», «я думаю», потом «чего не знаю» и «я услышал X — так?». Вы поправляете по номерам: «3 — не так, на самом деле…».
-- **Цифра по сфере** — только последней строкой карточки и только если вы про эту сферу достаточно рассказали. Ставит её помощник, рядом пишет, насколько уверен. Рассказали мало — цифры не будет вовсе: «об этом вы не говорили».
-- Собирать вашу папку он начинает только после того, как хотя бы две карточки вы подтвердили или поправили.
-- В самом конце он один раз попросит закрыть его и открыть заново в этой же папке. Это те же две строки из шага 3. Больше руками за всё знакомство делать нечего.
+Briefly, so there are no surprises:
 
-Подробнее: [что это и как устроено](docs/presentation.md) · [как проходит знакомство](docs/onboarding-flow.md)
+- The assistant asks what to call you and explains in one paragraph what is about to happen.
+- One yes/no question: install search by meaning or not.
+- **Three stories instead of a questionnaire**: yesterday, from waking up to going to bed; the past month — what you bought, what you regret, what you are glad about; what you learned over the past year and from whom. Not once are you asked to rate yourself on a scale.
+- **A card to check** for each area: numbered lines "you said" (your own words, word for word), "I saw in your files", "I think", then "I don't know" and "I heard X — right?". You correct by number: "3 is wrong, what actually happened is…".
+- **A number for the area** — only as the last line of the card, and only if you told it enough about that area. The assistant is the one who assigns it, and says next to it how confident it is. If you said little, there is no number at all: "you didn't talk about this".
+- It only starts building your folder after you have confirmed or corrected at least two cards.
+- Right at the end it asks you once to close it and open it again in the same folder. Those are the same two lines from step 3. That is the only thing you do by hand in the whole session.
 
-## Как вернуться завтра
+More detail: [what this is and how it works](docs/en/presentation.md) · [what the first session looks like](docs/en/onboarding-flow.md)
 
-Те же две строки в том же окне команд: сначала `cd` с вашей папкой, потом `claude`. В окне команд стрелка вверх на клавиатуре подставляет то, что вы печатали в прошлый раз, — так быстрее.
+## Coming back tomorrow
 
-## Где ваши данные
+The same two lines in the same command window: first `cd` with your folder, then `claude`. In a command window the up arrow on your keyboard brings back what you typed last time — that is quicker.
 
-Всё лежит у вас на диске обычными текстовыми файлами — их открывает даже блокнот. Никакой отдельной программы-хранилища и никакого нашего сервера. Мы вас нигде не регистрируем: своей учётной записи у нас нет и завести её негде. Подписка нужна только у Anthropic — для самой программы Claude Code. Скопировали папку — перенесли все свои записи; удалили папку — записей не осталось.
+## Where your data is
 
-Пароли, ключи и номера карт помощнику давать не нужно, и в ваши файлы он их не переносит, даже если вы назовёте их в разговоре, — это записано у него в правилах.
+Everything sits on your own disk as ordinary text files — even a basic text editor opens them. There is no separate storage program and no server of ours. We do not register you anywhere: we have no accounts and there is nowhere to create one. The only subscription is with Anthropic, for the Claude Code program itself. Copy the folder and you have moved all your notes; delete the folder and the notes are gone.
 
-Про место на диске: если вы согласились на поиск по смыслу, отдельно от папки, в служебной части системы, остаётся его словарь — примерно гигабайт. Это не ваши записи, но место он занимает; помощник подскажет, как его убрать.
+You do not need to give the assistant passwords, keys or card numbers, and it does not copy them into your files even if you mention them in conversation — that is written into its rules.
 
-Честная оговорка про интернет: чтобы помощник вам ответил, куски ваших записей уходят в Claude — так же, как любой текст, который вы отправляете в ИИ-чат. Хранение у вас, а думает помощник на серверах Anthropic. Поэтому нужен интернет.
+About disk space: if you agreed to search by meaning, its dictionary is kept outside the folder, in a service area of your system — about one gigabyte. It is not your notes, but it does take up space; the assistant can tell you how to remove it.
 
-## Шпаргалка: три слова
+An honest note about the internet: for the assistant to answer you, pieces of your notes are sent to Claude — the same as any text you type into an AI chat. Storage is on your side, thinking happens on Anthropic's servers. That is why you need an internet connection.
 
-Печатать латиницей, вместе с косой чертой в начале, прямо в строке разговора:
+## Cheat sheet: three words
 
-| Слово | Что делает |
+Type them in Latin letters, with the slash in front, right in the conversation line:
+
+| Word | What it does |
 |---|---|
-| `/session-save` | сохранить этот разговор в память |
-| `/recall` | найти старую запись |
-| `/reflect` | разобрать промахи последних дней |
+| `/session-save` | save this conversation into memory |
+| `/recall` | find an old note |
+| `/reflect` | go over the misses of the last few days |
 
-`/start` нужен только в самый первый раз (и чтобы продолжить прерванное знакомство). Всё то же самое можно попросить обычными словами: «сохрани разговор», «найди, где я писал про…».
+`/start` is only needed the very first time (and to continue an interrupted first session). All of the same things can be asked for in plain words: "save this conversation", "find where I wrote about…".
 
-## Лицензия
+## License
 
-AGPL v3: пользоваться и менять — бесплатно; если делаете на этом сервис для других людей — открывайте и свои изменения. Полный текст в файле LICENSE.
+AGPL v3: using and changing it is free; if you build a service for other people on top of it, open up your changes too. Full text in the LICENSE file.
