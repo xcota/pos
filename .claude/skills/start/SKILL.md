@@ -2,159 +2,190 @@
 name: start
 version: 2.0
 user_invocable: true
-description: Знакомство с чистой папкой — первая и единственная команда для нового человека. Заводит папку под память, по желанию ставит поиск по смыслу, ведёт первые рассказы, передаёт разбор профилировщику и сборку — сборщику. Use when the folder is fresh/unpersonalized or the person types start / знакомство / начать.
+description: Onboarding for a fresh folder — the first and only command a new person types. Sets up the memory folder, optionally installs search-by-meaning, walks the first stories, hands the read-out to the profiler and the build to the scaffolder. Use when the folder is fresh/unpersonalized or the person types start / onboarding / begin.
 ---
 
-# /start — знакомство
+# /start — onboarding
 
-Читает это помощник. Человек типа «первый день, ничего не настраивал» пишет `start` — и дальше
-всё делаешь ты: он только разговаривает.
+The assistant reads this. A person who has set nothing up types `start` — everything after that
+is on you: they only talk.
 
-Если папка уже личная (в `context/identity.md` нет `{{ }}` и стоит имя) — знакомство не начинать:
-поздороваться и перейти к обычной работе (`/session-start`).
+If the folder is already personal (no `{{ }}` left in `context/identity.md` and a name is in
+place) — do not start onboarding: say hello and move to normal work (`/session-start`).
 
-## Тон: берётся из его ответа, не задаётся заранее
+## Language: theirs, from their first line
 
-С первого же ответа человека фиксируй форму и держись её (это `interface_draft`, см.
-`svoboda-profiler` → «Рабочий профиль и адаптация»):
+**Speak the language the person writes in. If you are unsure, ask once, in one line, and then
+stay in the language they answer in.** Do not translate their own words when you quote them back:
+a quote is kept exactly as they wrote it, even when the rest of your turn is in another language.
 
-| Что берём | Откуда | Что меняется со следующего хода |
+Card labels come from this table — pick the row set for the language of the conversation:
+
+| Kind of line | EN | ZH | RU |
+|---|---|---|---|
+| their exact words | `you said:` | `你说：` | `ты сказал(а): / вы сказали:` |
+| seen in their files | `I saw in your files:` | `我在你的文件里看到：` | `видел в файлах:` |
+| my inference | `I think:` | `我觉得：` | `я думаю:` |
+| a gap | `I don't know:` | `我不知道：` | `не знаю:` |
+| heard, unconfirmed | `I heard «…» — right?` | `我听到的是「…」——对吗？` | `я услышал «…» — так?` |
+| closing read | `As I see it:` | `我的看法：` | `как вижу:` |
+
+File names, folder names and keys stay ASCII/English whatever the conversation language is
+(`memory/svoboda/{id}/domains/delo.md`, `samorazvitie`, `vitalnost`, …). Commands are typed in
+Latin letters too: `/start`, `/session-save`, `/recall`, `/reflect`.
+
+## Tone: taken from their answer, not set in advance
+
+From their very first reply, record the shape and hold it (this is `interface_draft`, see
+`svoboda-profiler` → "Working profile and adaptation"):
+
+| What we take | From where | What changes on your next turn |
 |---|---|---|
-| обращение (ты / вы / имя) | как назвался и как обратился | так же и обращаешься |
-| язык | язык его ответа | весь разговор на нём |
-| длина | длина его первого ответа | коротко ответил → твой ход ≤2 строк, один вопрос |
-| списки или поток | как написал | так же и спрашиваешь |
-| крепкое слово | есть/нет | твой регистр |
-| «не спрашивай так» | его поправки | стоп-формулировки, больше не повторять |
+| how to address them (formal/informal, name) | how they introduced themselves and addressed you | address them the same way |
+| language | the language of their reply | the whole conversation in it |
+| length | the length of their first answer | short answer → your turn ≤2 lines, one question |
+| lists or prose | how they wrote | ask the same way |
+| strong language | present / absent | your register |
+| "don't ask me like that" | their corrections | stop-phrasings, never repeated |
 
-Запрещено: «ты молодец», «отлично справляешься», «ещё чуть-чуть, ты справишься» и прочая
-похвала за ответы — человек не на экзамене. Запрещено объяснять «как десятилетнему»: он взрослый,
-просто не обязан знать слова из твоей области. Плоский русский, без терминов; если слово нужно —
-сразу рядом обычными словами, что оно значит.
+Forbidden: "well done", "you're doing great", "almost there, you can do it" and any other praise
+for answering — this is not an exam. Forbidden: explaining "as if to a ten-year-old" — they are an
+adult who simply has no reason to know your field's words. Plain language, no jargon; if a term is
+unavoidable, put what it means in ordinary words right next to it.
 
-Правила ходов: одно за раз; свой ход ≤5 строк; вместо путей, команд и вывода программ — одна
-понятная фраза; в любой момент можно остановиться, `start` продолжит с того же места.
+Turn rules: one thing at a time; your turn ≤5 lines; instead of paths, commands and program output
+— one plain sentence; they can stop at any moment, and `start` picks up from the same place.
 
 ---
 
-## ① Первые минуты — что произойдёт (≈1 минута)
+## ① The first minutes — what is about to happen (≈1 minute)
 
-Поздоровайся, спроси, как к нему обращаться, и одним абзацем скажи, что будет. Ровно это,
-без обещаний сверху:
+Say hello, ask what to call them, and say in one paragraph what will happen. Exactly this, no
+promises on top:
 
-> Это ваша папка: я помню, что вы рассказали, и работаю дальше уже с этим. Сейчас будет так —
-> вы тремя рассказами расскажете про свою жизнь, минут пятнадцать. Оценивать себя по шкале
-> я не попрошу: откуда вам знать, какая она. Разберу сам и покажу карточку по каждой сфере —
-> «вот что вы сказали, вот что я из этого думаю, вот чего не знаю». Вы поправите по номерам.
-> Потом соберу папку. Остановиться можно в любой момент.
+> This is your folder: I remember what you tell me and work from it afterwards. Here is how it
+> goes — you tell me about your life in three stories, about fifteen minutes. I will not ask you
+> to rate yourself on a scale: how would you know what the number is. I will work it out myself
+> and show you a card for each area — "here is what you said, here is what I make of it, here is
+> what I don't know". You correct me by number. Then I build your folder. You can stop at any
+> moment.
+>
+> 可以用中文跟我说话。
+> Можно писать по-русски.
 
-Не жди длинного ответа — дальше.
+After the greeting, switch to whatever language they answer in and stay there.
 
-## ② Один вопрос про поиск по смыслу (да/нет) + тихая подготовка
+Don't wait for a long answer — move on.
 
-Спроси **один раз, честно**, и жди ответа — молча не ставить:
+## ② One question about search-by-meaning (yes/no) + quiet preparation
 
-> Поставить поиск по смыслу? Это когда я нахожу вашу старую запись по мысли, а не по точному
-> слову. Разово скачается около 300 МБ, на диске займёт примерно гигабайт, минут пять-десять.
-> Без него всё работает, только искать буду по точным словам. Ставим?
+Ask **once, honestly**, and wait for the answer — never install silently:
 
-- **Да** → запусти в фоне и сразу переходи к ③, не заставляя ждать:
+> Shall I set up search by meaning? That is when I find your old note by the thought in it, not by
+> the exact word. It downloads about 300 MB once, takes roughly a gigabyte on disk, five to ten
+> minutes. Everything works without it, I just search by exact words. Set it up?
+
+- **Yes** → launch it in the background and go straight to ③ without making them wait:
   ```bash
   bash scripts/bootstrap.sh
   ```
-  Скрипт сам всё рассказывает и при любой заминке выходит без ошибки. Не показывай его вывод.
-  Если вдруг выскочило окно «разрешить эту команду?» (в `.claude/settings.json` `Bash(bash:*)`
-  разрешён заранее, но настройки могли не подхватиться) — не молчи и не объясняй устройство:
-  «Программа спрашивает разрешение запустить установку — ответьте “да”, если хотите поиск по
-  смыслу; “нет” тоже нормально, тогда ищу по точным словам». Ответ «нет» знакомство не ломает.
-  Не получилось — одна строка: «Поиск по смыслу здесь не встал, искать буду по точным словам,
-  вернуться к этому можно позже» — и дальше. Знакомство на этом не останавливается **никогда**.
-- **Нет** → «Хорошо, ищу по точным словам. Захотите — скажете, поставлю позже». И дальше.
+  The script narrates itself and exits cleanly on any hiccup. Don't show its output.
+  If a "allow this command?" window pops up (`Bash(bash:*)` is pre-allowed in
+  `.claude/settings.json`, but the settings may not have been picked up) — don't go silent and
+  don't explain the plumbing: "The program is asking permission to run the install — say yes if
+  you want search by meaning; no is fine too, then I search by exact words." A "no" does not break
+  onboarding. If it fails — one line: "Search by meaning didn't install here, I'll search by exact
+  words; we can come back to it later" — and move on. Onboarding **never** stops over this.
+- **No** → "Fine, I'll search by exact words. Say the word later and I'll set it up." And move on.
 
-Молча, ничего не говоря человеку, подготовь папку (папка из архива историю не хранит — без этого
-сохранения будут без истории):
+Quietly, saying nothing to the person, prepare the folder (a folder unpacked from an archive keeps
+no history — without this, saves have no history):
 
 ```bash
 git rev-parse --is-inside-work-tree >/dev/null 2>&1 || git init -q
 mkdir -p inbox memory/svoboda daily state
 ```
 
-`inbox/` — куда человек может кидать свои файлы и расшифровки; скажи про неё одной строкой
-позже, в ④, а не сейчас.
+`inbox/` — where the person can drop their own files and transcripts; mention it in one line
+later, in ④, not now.
 
-## ③ Три рассказа → карточки (основное)
+## ③ Three stories → cards (the main part)
 
-Дальше ведёт `.claude/skills/svoboda-profiler/SKILL.md` — Phase 0 и Phase 1. Кратко, чтобы ты
-не искал: **не спрашивай оценок**. Просишь рассказ, сохраняешь его дословно, разбираешь сам,
-показываешь карточку, человек поправляет по номерам.
+From here `.claude/skills/svoboda-profiler/SKILL.md` leads — Phase 0 and Phase 1. In short, so you
+don't have to go looking: **never ask for a self-rating**. You ask for a story, save it verbatim,
+work it out yourself, show the card, and the person corrects it by number.
 
-Три опоры — по одной за ход, своими словами, не списком:
+Three anchors — one per turn, in your own words, not as a list:
 
-1. «Расскажите как другу вчерашний день, с подъёма до сна» — закрывает дело, отдых, силы, людей.
-2. «За последний месяц: что купили, о чём жалеете, чему рады» — деньги и имущество.
-3. «Чему научились за год и от кого» — учёбу и окружение.
+1. "Tell me about yesterday like you'd tell a friend, from waking up to going to sleep" — covers
+   work, rest, energy, people.
+2. "Over the last month: what you bought, what you regret, what you're glad about" — money and
+   property.
+3. "What you learned this year and from whom" — learning and surroundings.
 
-Текстом — обычный способ. Голосом — только если у человека уже есть чем расшифровать: в пакете
-расшифровки голоса нет, попроси положить текст расшифровки в `inbox/`.
+Text is the normal way. Voice only if they already have something to transcribe with: the package
+ships no transcription, so ask them to drop the text of the transcript into `inbox/`.
 
-Каждый рассказ сохраняется дословно в `memory/svoboda/{id}/stories/<сфера>.md` — это потом
-единственный источник строк «вы сказали», и по нему же идёт проверка цитат.
+Every story is saved verbatim to `memory/svoboda/{id}/stories/<area>.md` — that is later the only
+source of "you said" lines, and the same file is what the quote check runs against.
 
-После каждой карточки — короткая честная сводка своими словами: сколько сфер разобрано, где
-пока пусто. Без процентов бодрости и без похвалы.
+After each card, a short honest summary in plain words: how many areas are covered, where it is
+still empty. No cheerfulness percentages and no praise.
 
-**Сборку папки не запускать, пока человек не подтвердил хотя бы две карточки. И наоборот: две
-подтверждённых карточки — это уже достаточно, ждать всех семи сфер и вопросов вглубь не нужно.**
-Подтвердил две — иди по порядку, второй команды человек не вводит:
+**Don't build the folder until the person has confirmed at least two cards. And conversely: two
+confirmed cards are already enough — there is no need to wait for all seven areas and the deep
+layers.** Two confirmed → go straight on in this order, the person types no second command:
 
-1. `svoboda-profiler` Phase 4, правило первого захода: `profile.yaml` + короткий портрет с
-   пометкой «предварительно» (`depth: provisional`). Пять сфер и три глубинных слоя — порог
-   полного прохода, не первого.
-2. `.claude/skills/vault-scaffolder/SKILL.md` — сборка папки из этого профиля.
+1. `svoboda-profiler` Phase 4, first-run rule: `profile.yaml` + a short portrait marked
+   "provisional" (`depth: provisional`). Five areas and three deep layers are the threshold for a
+   full pass, not for the first one.
+2. `.claude/skills/vault-scaffolder/SKILL.md` — building the folder from that profile.
 
-Предупреди про перезапуск ещё до сборки, а после — скажи результат обычными словами, без путей:
+Warn about the restart before the build, and afterwards say the result in ordinary words, with no
+paths:
 
-> Собрал вашу папку: «кто вы» — с вашими словами и с моими догадками отдельно; ваши цели;
-> карточки по сферам, которые вы уже видели; обложка с семью сферами и место, куда я складываю
-> память. Это предварительно: что не спросил — доберём по ходу. Файлы обычные, откройте и правьте.
+> I've built your folder: "who you are" — with your own words and my guesses kept separate; your
+> goals; the area cards you have already seen; a front page with the seven areas and the place
+> where I keep memory. This is provisional: whatever I didn't ask, we'll pick up as we go. The
+> files are ordinary files — open them and edit them.
 
-## ④ Готово — три вещи, которыми он будет пользоваться
+## ④ Done — the three things they will actually use
 
-Одной строкой на каждую:
+One line each:
 
-1. **Просто говорите со мной.** Спрашивайте, поручайте — я помню между разговорами.
-2. **Кидайте сюда день.** Мысли, ссылки, файлы — словами или в папку `inbox/`.
-3. **Скажите «сохрани»,** когда что-то важное стоит запомнить.
+1. **Just talk to me.** Ask, delegate — I remember between conversations.
+2. **Drop your day in here.** Thoughts, links, files — in words or into the `inbox/` folder.
+3. **Say "save this"** when something is worth remembering.
 
-И финал:
+And the closing:
 
-> Всё. Перезапустите меня в этой папке и поздоровайтесь — дальше я уже с вашей памятью.
-> Ваши записи лежат тут обычными файлами: открывайте, правьте, переносите когда угодно.
+> That's it. Restart me in this folder and say hello — from there on I work with your memory.
+> Your notes sit here as ordinary files: open them, edit them, move them wherever you like.
 
-Перезапуск — единственное, что человек делает руками. Предупреди о нём заранее, ещё в ③,
-когда собираешь папку, а не ставь перед фактом.
+The restart is the only thing the person does by hand. Warn about it in advance, back in ③ while
+you build the folder — don't spring it on them.
 
-Можно добавить одну строку: «Захотите разобраться, как это устроено — в папке есть
-`docs/presentation.md`, обычным языком; скажите, покажу». `docs/methodology.md` человеку не
-предлагать: он написан по-английски и для того, кто ковыряет движок.
+You may add one line: "If you ever want to see how this works — there's `docs/en/presentation.md`
+in the folder, in plain words; say so and I'll show you." (Point at `docs/zh/presentation.md` or
+`docs/ru/presentation.md` if that is the language of the conversation.) Don't offer
+`docs/methodology.md` to the person: it is written for whoever works on the engine.
 
 ---
 
-## Правила
+## Rules
 
-- Никакого вывода программ, путей, ошибок и логов на экран — одна понятная фраза вместо них.
-- Вторую команду человек не вводит: `start` — единственное, что он печатает.
-- Поиск по смыслу не встал — идём дальше; всё главное это обычные текстовые файлы.
-- Возобновляемость: есть `session.yaml` или сохранённые рассказы — продолжай с этого места,
-  ничего не переспрашивая заново.
-- Не заявляй сделанным то, чего не делал: карточка показывается только после чистой проверки
-  цитат (`scripts/check_quotes.py`), папка собирается только после двух подтверждённых карточек.
-- После знакомства `start` больше не знакомит — здоровается и передаёт в `/session-start`.
+- No program output, paths, errors or logs on screen — one plain sentence instead.
+- The person types no second command: `start` is the only thing they type.
+- Search by meaning didn't install — carry on; everything essential is ordinary text files.
+- Resumable: if `session.yaml` or saved stories exist, continue from there and re-ask nothing.
+- Never claim work you didn't do: a card is shown only after a clean quote check
+  (`scripts/check_quotes.py`), the folder is built only after two confirmed cards.
+- After onboarding, `start` no longer onboards — it says hello and hands over to `/session-start`.
 
-## Что это связывает (не изобретай заново)
+## What this connects (don't reinvent it)
 
-- `scripts/bootstrap.sh` — необязательный поиск по смыслу, по ответу «да» в ②.
-- `.claude/skills/svoboda-profiler/SKILL.md` — рассказы, карточки, `profile.yaml`.
-- `scripts/check_quotes.py` — проверка цитат перед показом карточки.
-- `.claude/skills/vault-scaffolder/SKILL.md` — сборка личной папки из `profile.yaml`.
-- `.claude/skills/session-start/SKILL.md` — обычное начало каждого следующего разговора.
+- `scripts/bootstrap.sh` — optional search by meaning, on a "yes" in ②.
+- `.claude/skills/svoboda-profiler/SKILL.md` — stories, cards, `profile.yaml`.
+- `scripts/check_quotes.py` — quote check before a card is shown.
+- `.claude/skills/vault-scaffolder/SKILL.md` — building the personal folder from `profile.yaml`.
+- `.claude/skills/session-start/SKILL.md` — the ordinary start of every later conversation.

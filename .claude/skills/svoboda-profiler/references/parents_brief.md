@@ -4,17 +4,22 @@ Send as a brief. Subject answers what resonates, skips what they don't want. Ref
 
 ## The Six Questions
 
-1. **Мать.** Какая она была когда тебе было 10? Не "хорошая/плохая" — что она *делала*. Контролировала? Тревожилась? Была рядом но не здесь? Была слишком здесь?
+Ask them in the language the person writes in.
 
-2. **Отец.** То же самое — что он делал. Присутствовал или фоном? Требовал? Наказывал? Игнорировал? Нормальный но далёкий?
+1. **Mother.** What was she like when you were 10? Not "good/bad" — what she *did*. Controlling?
+   Anxious? There but not present? Too present?
 
-3. **Между ними.** Какая динамика? Конфликт, холод, созависимость, кто доминировал?
+2. **Father.** Same thing — what he did. Present or background? Demanding? Punishing? Ignoring?
+   Fine but distant?
 
-4. **Ты в системе.** Какая роль? Невидимка? Медиатор? Проблемный ребёнок? Тот на кого проецировали?
+3. **Between them.** What was the dynamic? Conflict, coldness, codependency, who dominated?
 
-5. **Сепарация.** Когда и как отделился? Конфликт? Тихий уход? Вытолкнули?
+4. **You in the system.** What role? The invisible one? The mediator? The problem child? The one
+   they projected onto?
 
-6. **Сейчас.** Общаешься? Как? Есть незакрытое?
+5. **Separation.** When and how did you separate? A conflict? A quiet exit? Were you pushed out?
+
+6. **Now.** Do you talk? How? Is anything left unfinished?
 
 ## Interpretation Guide
 

@@ -6,104 +6,109 @@ profile_version: ""
 sourced_from: memory/svoboda/{subject_id}/profile.yaml
 ---
 
-# Кто вы: {{имя}}
+# Who you are: {{name}}
 
-> **Этот файл про вас, и он ваш.** Помощник заполняет его по вашим же рассказам после знакомства
-> и перечитывает при каждом запуске — отсюда он знает, как с вами разговаривать.
+> **This file is about you, and it is yours.** The assistant fills it in from your own stories
+> after onboarding and re-reads it on every start — this is where it knows how to talk to you from.
 >
-> **Правьте руками сколько угодно.** Вычеркнули строку — она не вернётся: при пересборке
-> помощник читает этот файл и сохраняет всё, что вы поправили или дописали. Не согласны с
-> формулировкой — скажите ему словами, он перепишет.
+> **Edit it by hand as much as you like.** Cross a line out and it does not come back: on a rebuild
+> the assistant reads this file and keeps everything you corrected or added. If you disagree with a
+> wording, say so in words and it will rewrite it.
 >
-> **Как читать строки.** У каждой видно, откуда она взялась: _ваши слова_ (вы это сказали,
-> дословно) · _видно в файлах_ (он это нашёл в вашей папке) · _моя догадка_ (его вывод, а не
-> факт — можно спорить). Догадки без источника он писать не должен. Диагнозов тут нет и быть
-> не может: это описание, а не медицина. Всё, что оказалось неверным, уезжает вниз, в «Снято»,
-> и не удаляется молча.
+> **How to read the lines.** Each one shows where it came from: _your words_ (you said it, word for
+> word) · _seen in your files_ (it found this in your folder) · _my guess_ (its inference, not a
+> fact — arguable). It must not write guesses without a source. There are no diagnoses here and
+> there cannot be: this is a description, not medicine. Anything that turned out to be wrong moves
+> down into "Withdrawn" and is never deleted silently.
+>
+> **Language.** This file is written in the language you write in. Section headings are translated
+> along with the rest; file names and keys stay as they are.
 
-## Коротко
+## In short
 
-| Что | Как |
+| What | How |
 |-------|-------|
-| Имя | _{{как вас зовут}}_ |
-| Возраст | _{{сколько лет}}_ |
-| Чем заняты | _{{работа, дело}}_ |
-| Языки | _{{на каких говорите}}_ |
-| Часовой пояс | _{{где вы по времени}}_ |
+| Name | _{{what you're called}}_ |
+| Age | _{{how old}}_ |
+| What you do | _{{work, occupation}}_ |
+| Languages | _{{which ones you speak}}_ |
+| Time zone | _{{where you are in time}}_ |
 
 ---
 
-## Как со мной работать
+## How to work with me
 
-_Это про форму разговора, а не выводы о человеке. Заполняется из `profile.yaml.interface_draft`
-при сборке и дописывается `/session-save`, когда человек поправляет форму. Каждая строка — с
-датой и его словами. Строки не выдумывать: нет его поправки — строки нет._
+_This is about the form of the conversation, not conclusions about the person. Filled from
+`profile.yaml.interface_draft` at build time and extended by `/session-save` whenever the person
+corrects the form. Every line carries a date and their own words. Don't invent lines: no correction
+from them, no line._
 
-| Что | Как | Дата | Откуда |
+| What | How | Date | Source |
 |---|---|---|---|
-| Обращение | _ты / вы / по имени_ | | |
-| Длина ответа | _коротко / средне / развёрнуто_ | | |
-| Темп | _один вопрос за раз / можно несколько_ | | |
-| Язык и регистр | _язык, крепкие слова да/нет_ | | |
-| Списки | _списком / сплошным текстом_ | | |
-| Чего не спрашивать | _ваши стоп-темы и стоп-формулировки_ | | |
-| Что срабатывает | _на что вы отвечаете охотно_ | | |
-| Снято | _что перестало действовать, с датой_ | | |
+| Form of address | _first name / formal / informal_ | | |
+| Answer length | _short / medium / full_ | | |
+| Pace | _one question at a time / several is fine_ | | |
+| Language and register | _language, strong words yes/no_ | | |
+| Lists | _as a list / as prose_ | | |
+| What not to ask | _your stop-topics and stop-phrasings_ | | |
+| What works | _what you answer readily_ | | |
+| Withdrawn | _what stopped applying, with a date_ | | |
 
 ---
 
-## Что вы сами про себя сказали
+## What you said about yourself
 
-_Ваши слова, дословно, с датой. Отсюда растёт всё остальное в этом файле._
+_Your words, verbatim, with dates. Everything else in this file grows out of them._
 
-- _«…» — {{дата}}_
-
----
-
-## Как вы думаете и учитесь
-
-_Как вы разбираетесь в новом: заходите вглубь или пробегаете по верхам, берёте рывками или
-понемногу каждый день. Одна-две строки, каждая со ссылкой на ваши слова или на то, что видно
-в файлах._
+- _«…» — {{date}}_
 
 ---
 
-## Что вас заряжает и что выматывает
+## How you think and learn
 
-_Что даёт силы и что их съедает — из ваших же рассказов. Без выводов «поэтому вы такой»._
-
----
-
-## Что вас злит
-
-_Что выводит из себя по-настоящему: сорванная договорённость, вода вместо ответа, повтор
-одного и того же вопроса. Помощник этого не делает и на это не наступает._
+_How you get to grips with something new: going deep or skimming the surface, in bursts or a little
+every day. One or two lines, each with a reference to your words or to what is visible in the
+files._
 
 ---
 
-## Как вы отвечаете под нагрузкой
+## What charges you and what drains you
 
-_Что видно, когда много всего сразу: сообщения короче, темп быстрее, время суток. Только
-наблюдения с источником — без ярлыков и без диагнозов._
+_What gives you energy and what eats it — out of your own stories. No "and that's why you are like
+this" conclusions._
 
 ---
 
-## Что вы обычно делаете в типовых ситуациях
+## What makes you angry
 
-_Догадка помощника: в такой-то ситуации вы, скорее всего, поступите так-то. Нужна, чтобы он
-не переспрашивал очевидное. Не совпало — скажите, строка изменится._
+_What genuinely sets you off: a broken agreement, waffle instead of an answer, the same question
+asked again. The assistant doesn't do those things and doesn't step on them._
 
-| Ситуация | Что вы, скорее всего, сделаете |
+---
+
+## How you respond under load
+
+_What is visible when a lot lands at once: shorter messages, faster pace, time of day. Observations
+with a source only — no labels and no diagnoses._
+
+---
+
+## What you usually do in typical situations
+
+_The assistant's guess: in a situation like this you will most likely do that. It exists so it
+doesn't have to re-ask the obvious. Wrong — say so and the line changes._
+
+| Situation | What you'll most likely do |
 |-----------|-------------------|
 | _…_ | _…_ |
 
 ---
 
-## Мои догадки о том, чего вы про себя не видите
+## My guesses about what you don't see about yourself
 
-_Это самая спорная часть файла, и она помечена как догадка. Не диагноз и не приговор — то, на
-что помощник смотрит внимательнее. Каждая строка: что именно, почему он так решил, что бы его
-переубедило. Не согласны — вычеркните, он не вернёт._
+_This is the most arguable part of the file, and it is marked as a guess. Not a diagnosis and not a
+verdict — just what the assistant watches more closely. Each line: what exactly, why it thinks so,
+what would change its mind. Disagree — cross it out, it won't come back._
 
 1. _…_
 2. _…_
@@ -111,31 +116,32 @@ _Это самая спорная часть файла, и она помече�
 
 ---
 
-## Чего я про вас не знаю
+## What I don't know about you
 
-_Дыры. То, о чём вы не рассказывали, и то, чего помощник не спрашивал. Здесь честно пусто,
-а не выдумано._
+_The gaps. What you haven't talked about, and what the assistant never asked. Honestly empty here
+rather than invented._
 
 - _…_
 
 ---
 
-## Снято
+## Withdrawn
 
-_Сюда уезжает то, что оказалось неверным: старая формулировка, дата и чем заменили. Молча
-ничего не удаляется — иначе то же самое приедет обратно на следующем разборе._
+_What turned out to be wrong moves here: the old wording, the date, and what replaced it. Nothing
+is deleted silently — otherwise the same thing comes back on the next pass._
 
-_(пока пусто)_
+_(empty for now)_
 
 ---
 
-## Что помощник тут делает
+## What the assistant does here
 
-Не чат, который забывает. Четыре вещи:
+Not a chat that forgets. Four things:
 
-1. **Помнит** — между разговорами, целиком, вашими словами.
-2. **Делает** — доводит задачу до конца, а не выдаёт советы.
-3. **Отражает** — показывает повторы и то, что вы сами про себя говорили раньше.
-4. **Работает сам** — в тех рамках, о которых вы договорились.
+1. **Remembers** — between conversations, in full, in your words.
+2. **Does** — takes a task to the end instead of handing out advice.
+3. **Reflects** — shows you the repeats and what you yourself said earlier.
+4. **Works on its own** — within the limits you agreed.
 
-Решаете вы. Он разбирает, делает и показывает, что видит. Непрошеных советов не даёт.
+You decide. It works things out, does them, and shows you what it sees. It doesn't give unasked-for
+advice.

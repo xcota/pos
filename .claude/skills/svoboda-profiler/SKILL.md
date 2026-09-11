@@ -2,7 +2,7 @@
 name: svoboda-profiler
 version: 3.2
 user_invocable: true
-description: "Use when asked to profile someone, unpack a person, build a psychological portrait, run a Svoboda session, or map life state. Triggers on распаковка, профилирование, психопортрет, точка А, колесо баланса, profile someone, unpack, svoboda session."
+description: "Use when asked to profile someone, unpack a person, build a psychological portrait, run a Svoboda session, or map life state. Triggers on profile someone, unpack a person, psychological portrait, point A, life-state map, svoboda session."
 ---
 
 # Svoboda Profiler v3.2
@@ -16,19 +16,28 @@ Build (1) a **causal psychological profile** AND (2) a **living life-state docum
 2. Machine-readable profile (`profile.yaml`) — feeds downstream `vault-scaffolder`. **Canonical schema is defined once, below in Phase 4, and the scaffolder reads that exact shape.**
 3. Operational layer (`pp.md` + `plan-fact.md` template + `plans.md`) — living life-state document
 
-## СВОБОДА = 7 доменов (acronym)
+## The 7 domains
 
-| Letter | Domain | Focus |
-|--------|--------|-------|
-| **С** | **С**аморазвитие | learning, education, skills, content consumption, personal growth |
-| **В** | **В**итальность | health, body, energy, mental state, "жажда жизни" — NOT just physical |
-| **О** | **О**кружение | environment, place of living, people, networking, communication channels |
-| **Б** | **Б**огатство | philosophical relationship with wealth — what does "rich" mean to them, what they hold above money |
-| **О** | **О**тдых | rest, recovery, travel, entertainment, hobbies as recovery (NOT skill-building) |
-| **Д** | **Д**ело | work, business, projects, profession, what they DO |
-| **А** | **А**ктивы | financial assets, income sources, asset management, liabilities |
+The `key` column is the identifier used in files, folders and `profile.yaml` — it never changes and
+is never translated. The name and the gloss in brackets are what you say out loud, translated into
+the language of the conversation.
 
-**Critical distinction:** Богатство (philosophical) ≠ Активы (operational). Богатство is "what does wealth mean to you / you can be rich and stingy or poor and generous". Активы is "what assets do you actually own and how do you manage them".
+| Key | Domain (say it with the gloss) | Focus |
+|-----|-------------------------------|-------|
+| `samorazvitie` | Self-development (learning and growth) | learning, education, skills, content consumption, personal growth |
+| `vitalnost` | Vitality (body and energy) | health, body, energy, mental state, appetite for life — NOT just physical |
+| `okruzhenie` | Surroundings (people and place) | environment, place of living, people, networking, communication channels |
+| `bogatstvo` | Wealth (what "enough" means to you) | philosophical relationship with wealth — what "rich" means to them, what they hold above money |
+| `otdyh` | Rest (what restores you) | rest, recovery, travel, entertainment, hobbies as recovery (NOT skill-building) |
+| `delo` | Work (what you do) | work, business, projects, profession, what they DO |
+| `aktivy` | Assets (money and property) | financial assets, income sources, asset management, liabilities |
+
+Chinese: 自我成长（学习与成长）· 活力（身体与精力）· 环境（身边的人和住的地方）· 财富（对你来说什么是够）·
+休息（什么让你恢复）· 事业（你在做什么）· 资产（钱和财产）.
+
+**Critical distinction:** Wealth (`bogatstvo`, philosophical) ≠ Assets (`aktivy`, operational).
+Wealth is "what does wealth mean to you / you can be rich and stingy or poor and generous". Assets
+is "what do you actually own and how do you manage it".
 
 ## Invocation
 
@@ -51,244 +60,293 @@ last_updated: {iso_date}
 phase: 1
 domains_completed: []   # subset of [samorazvitie, vitalnost, okruzhenie, bogatstvo, otdyh, delo, aktivy]
 cards_confirmed: []     # domains whose card was shown AND confirmed/corrected by the person
-self_scoring: not_asked # not_asked|volunteered — мы цифру у человека НЕ спрашиваем
+self_scoring: not_asked # not_asked|volunteered — we NEVER ask the person for a number
 interface_draft: {channel: text, reply_len: "", language: "", profanity: "", address: "", lists: "", avoid: []}
-                        # форма общения; копируется в profile.yaml на Phase 4
+                        # shape of the conversation; copied into profile.yaml at Phase 4
 layers_completed: []    # subset of [granularity, motivation, losses, loneliness, anger, irreversibility, attachment, attribution, rumination, boundary, temporal, strengths, load_mode]
 parents_done: false
 synthesized: false
-operational_layer_done: false   # NEW v3: ПП + ПЛАН-ФАКТ + ПЛАНЫ generated
+operational_layer_done: false   # NEW v3: dashboard + plan-vs-fact + plans generated
 scaffolded: false
 profile_version: 0              # v3.1: bumps on each (re)synthesis
 last_delta: null                # v3.1: iso_date of last logged drift fact
 delta_count_since_synthesis: 0  # v3.1: staleness trigger — re-cut a domain when this crosses threshold
 data_path: memory/svoboda/{subject_id}/
-channel: {text|voice}   # чем человек отвечает
-language: {ru|en}
+channel: {text|voice}   # how the person answers
+language: {en|zh|ru|…}  # the language the person writes in — everything you say goes in it
 ```
 
 Continue from `phase` + next uncompleted block. Never restart completed blocks. Every exchange writes raw data + updates session YAML atomically.
 
 ## Protocol
 
-### Phase 0: Знакомство — рассказы вместо анкеты
+### Phase 0: Onboarding — stories instead of a questionnaire
 
-**Человека не просят оценивать себя цифрой — это единственное место, где такой вопрос вообще
-упомянут, и упомянут как запрет.** Формулировка «оцени от 1 до 10 свою сферу» и любые её варианты
-не задаются: человек не обязан знать, какая она, и в ответ приходит самооценка вместо фактов.
-Цифру по каждой сфере ставит агент — из того, что человек рассказал, — и показывает её на проверку
-последней строкой карточки.
+**Language first. Speak the language the person writes in; if you are unsure, ask once, in one
+line, and then stay in the language they answer in.** Their own words are never translated when
+you quote them back. Card labels come from the table in "Card labels (EN / ZH / RU)" below. File
+names, folder names, domain keys and commands stay ASCII/English in every language.
 
-**Пустая папка (обычный случай — человек только пришёл).** Корпуса нет, знакомство идёт с первого
-ответа. Три рассказа-опоры, по одному за ход, своими словами, не списком:
+**The person is never asked to rate themselves with a number — this is the only place such a
+question is mentioned at all, and it is mentioned as a ban.** "Rate this area of your life from 1
+to 10" and every variant of it is not asked: the person has no reason to know what the number is,
+and what comes back is a self-image instead of facts. The number for each area is set by the agent
+— out of what the person told you — and shown for checking as the last line of the card.
 
-1. «Расскажите как другу вчерашний день, с подъёма до сна» → Дело, Отдых, Витальность, Окружение.
-2. «За последний месяц: что купили, о чём жалеете, чему рады» → Активы, Богатство.
-3. «Чему научились за год и от кого» → Саморазвитие, Окружение.
+**Empty folder (the normal case — the person has just arrived).** There is no corpus; onboarding
+runs from their first answer. Three anchor stories, one per turn, in your own words, not as a list:
 
-Не форс-чойс «одно из двух». Текст — обычный способ; голос — только если у человека есть чем
-расшифровать (расшифровку он кладёт в `inbox/`; своего расшифровщика в пакете нет).
+1. "Tell me about yesterday like you'd tell a friend, from waking up to going to sleep" → Work,
+   Rest, Vitality, Surroundings.
+2. "Over the last month: what you bought, what you regret, what you're glad about" → Assets, Wealth.
+3. "What you learned this year and from whom" → Self-development, Surroundings.
 
-**Каждый рассказ сохраняется дословно** в `memory/svoboda/{subject_id}/stories/<сфера>.md` (при
-первом ходе `mkdir -p memory/svoboda/{subject_id}/stories`), с датой в шапке. Это единственный
-источник строк «вы сказали» и единственное, по чему потом идёт проверка цитат. Не пересказывай
-в этот файл — клади ровно то, что человек написал.
+No forced choice between two options. Text is the normal channel; voice only if the person has
+something to transcribe with (they drop the transcript into `inbox/`; the package ships no
+transcription of its own).
 
-После первого ответа заполни `session.yaml.interface_draft` (см. «Рабочий профиль и адаптация»)
-и со следующего хода говори в его форме.
+**Every story is saved verbatim** to `memory/svoboda/{subject_id}/stories/<area>.md` (on the first
+turn, `mkdir -p memory/svoboda/{subject_id}/stories`), with the date in the heading. It is the only
+source of "you said" lines and the only thing the quote check runs against. Do not paraphrase into
+that file — put in exactly what the person wrote.
 
-**Папка уже живая (повторный проход, есть накопленное).** Прежде чем спрашивать, прочитай, что
-человек уже говорил и делал: его сохранённые рассказы `stories/*.md` и записи в `inbox/`, его
-поправки с датами, свои `daily/` за две недели (это твой пересказ, не его слова — так и помечай),
-`git log --since=30.days --format=%s` как след поведения. Если сырья много (>20K токенов) — это
-работа отдельного агента, а не главного окна: он отдаёт `memory/svoboda/{subject_id}/prefill.md`
-≤15K с черновиками карточек и дырами, главное окно читает только его.
-НЕ читать: старый `profile.md` целиком (кроме раздела «Как со мной работать»), `context/identity.md`
-кроме разделов «Снято» (что уже оказалось неверным) и «Как со мной работать», `knowledge/people/{subject_id}.md` — иначе вместо человека
-разбираешь свои прошлые ярлыки.
+After their first answer, fill `session.yaml.interface_draft` (see "Working profile and
+adaptation") and from your next turn speak in their shape.
 
-### Phase 1: 7 Доменов СВОБОДА — рассказ → карточка → поправка
+**The folder is already alive (a repeat pass, there is accumulated material).** Before asking
+anything, read what the person has already said and done: their saved stories `stories/*.md` and
+notes in `inbox/`, their dated corrections, your own `daily/` for the last two weeks (that is your
+retelling, not their words — label it that way), `git log --since=30.days --format=%s` as a trace
+of behaviour. If there is a lot of raw material (>20K tokens), that is a separate agent's job, not
+the main window's: it returns `memory/svoboda/{subject_id}/prefill.md` ≤15K with draft cards and
+gaps, and the main window reads only that.
+Do NOT read: the old `profile.md` in full (except the "How to work with me" section),
+`context/identity.md` except its "Withdrawn" (what already turned out to be wrong) and "How to work
+with me" sections, `knowledge/people/{subject_id}.md` — otherwise you are working over your own old
+labels instead of the person.
 
-Для КАЖДОГО домена, по порядку:
+## Card labels (EN / ZH / RU)
 
-**Step A′ — Подсказка.** Один заход: попроси рассказать про сферу как хочется, плюс не больше трёх
-конкретных дыр, которые остались после прошлых рассказов. Живой разговор = один вопрос за ход.
-Цифру не спрашивай ни в какой форме. Перед показом прогони подсказку по `avoid[]` этого человека
-(из `interface_draft`): совпало — переформулируй, не отправляй. Список стоп-формулировок — поле
-конкретного человека, в скилле констант нет.
+Pick the row set for the language of the conversation. The kind of line IS its tier — see Phase 1
+Step C.
 
-**Step B — Пробы** по домену (ниже) + `references/domain_probes.md` — подвопросы для покрытия.
-Пробы не читаются вслух списком, они нужны, чтобы посчитать охват.
+| Kind of line | EN | ZH | RU |
+|---|---|---|---|
+| their exact words | `you said:` | `你说：` | `ты сказал(а): / вы сказали:` |
+| seen in their files | `I saw in your files:` | `我在你的文件里看到：` | `видел в файлах:` |
+| my inference | `I think:` | `我觉得：` | `я думаю:` |
+| a gap | `I don't know:` | `我不知道：` | `не знаю:` |
+| heard, unconfirmed | `I heard «…» — right?` | `我听到的是「…」——对吗？` | `я услышал «…» — так?` |
+| closing read | `As I see it:` | `我的看法：` | `как вижу:` |
 
-**Step C — Карточка** `memory/svoboda/{subject_id}/domains/{domain}.md`. Пишется сразу теми
-словами, которыми будет показана — служебных кодов и тегов в ней нет, только пометка источника
-в конце строки (её при показе не читают вслух). **Обращение то же, каким идёт разговор:** говорите
-на «вы» — пиши «вы сказали:», на «ты» — «ты сказал:». Проверка цитат понимает обе формы, так что
-переписывать карточку перед показом не нужно (в примере ниже — «ты», потому что в примере на «ты»):
+`scripts/check_quotes.py` recognises the "you said" label in all three languages, so a card written
+in any of them is checked the same way.
+
+### Phase 1: the 7 domains — story → card → correction
+
+For EACH domain, in order:
+
+**Step A′ — Prompt.** One pass: ask them to tell you about the area however they like, plus no more
+than three concrete gaps left over from earlier stories. A live conversation = one question per
+turn. Never ask for a number in any form. Before sending, run your prompt against this person's
+`avoid[]` (from `interface_draft`): a hit means rephrase, not send. The stop-phrasing list belongs
+to the specific person; the skill holds no constants.
+
+**Step B — Probes** for the domain (below) + `references/domain_probes.md` — sub-questions used to
+count coverage. Probes are never read out as a list; they exist so you can measure coverage.
+
+**Step C — The card** `memory/svoboda/{subject_id}/domains/{domain}.md`. Write it straight away in
+the words it will be shown in — no internal codes or tags in it, only the source marker at the end
+of a line (that tail is not read out when you show it). **Labels come from the card-label table in
+the language of the conversation, and the form of address is the one the conversation uses.** The
+quote check understands all three label sets, so there is no need to rewrite the card before
+showing it (the example below is in English):
 
 ```
-# Дело — {subject_id}
-рассказы: stories/vcherashniy-den.md, stories/god-uchyoby.md
+# Work — {subject_id}
+stories: stories/yesterday.md, stories/year-of-learning.md
 
-## Строки
-1. ты сказал: «до обеда правил сайт клиенту» — stories/vcherashniy-den.md
-2. ты сказал: «созвон с партнёром» — stories/vcherashniy-den.md
-3. видел в файлах: за месяц правки в трёх проектах, ничего не закрыто — git status
-4. я думаю: узкое место — поток клиентов, а не выбор проекта — из 1 и 3
-5. я услышал: «Фигма» — так?
+## Lines
+1. you said: «spent the morning fixing a client's site» — stories/yesterday.md
+2. you said: «call with my partner» — stories/yesterday.md
+3. I saw in your files: edits in three projects this month, nothing closed — git status
+4. I think: the bottleneck is the flow of clients, not the choice of project — from 1 and 3
+5. I heard: «Figma» — right?
 
-## Не знаю
-- сайт — основной доход или один из; партнёр по деньгам или по делу
-## Закрыто им (повторно не спрашивать)
-- (пусто)
-## Охват: 4 из 7 подвопросов → уверенность средняя
-## Как вижу: работа руками есть, поток клиентов — затык. 6 из 10, уверенность средняя.
-## Поправки
-- (после показа)
+## I don't know
+- whether the site is the main income or one of several; whether the partner is money or craft
+## Closed by them (do not ask again)
+- (empty)
+## Coverage: 4 of 7 sub-questions → medium confidence
+## As I see it: the hands-on work is there, client flow is the jam. 6 out of 10, medium confidence.
+## Corrections
+- (after it is shown)
 ```
 
-Четыре вида строк, и вид строки — это и есть её тир:
-- **«ты сказал: «…»»** — только дословная цитата из его рассказа + файл рассказа в конце строки.
-  Пересказ своими словами сюда не пишется никогда: это уже «я думаю».
-- **«видел в файлах: …»** — поведение, которое видно в папке (файлы, `git status`), с источником.
-- **«я думаю: …»** — твой вывод, с номерами строк, из которых он сделан.
-- **«я услышал: … — так?»** — имя, число, город, расслышанное слово: пока человек не подтвердил,
-  в выводы и в цифру это не идёт.
-- Слова третьих лиц — «с чужих слов: …», без имён посторонних людей.
+Four kinds of line, and the kind of line IS its tier:
+- **«you said: «…»»** — only a verbatim quote from their story + the story file at the end of the
+  line. A paraphrase never goes here: that is already "I think".
+- **«I saw in your files: …»** — behaviour visible in the folder (files, `git status`), with its
+  source.
+- **«I think: …»** — your inference, with the numbers of the lines it was drawn from.
+- **«I heard: … — right?»** — a name, a number, a city, a word you half-caught: until the person
+  confirms it, it feeds neither conclusions nor the number.
+- Third-party statements — «second-hand: …», without the names of outside people.
 
-Правила:
-- Пропущенное (спрашивал — не тронул) = пробел в данных, не диагноз. Закрытое им словами → в
-  «Закрыто им», повторно не спрашивать без его инициативы.
-- **Охват** = затронутые подвопросы / все по `references/domain_probes.md`. Меньше 40% →
-  `observed: null`, в показе «цифры нет — об этом вы не говорили», не ноль и не «слабая сфера».
-- Уверенность (низкая / средняя / высокая) — по охвату, не по числу строк.
-- Про речь пиши только «назвал / не назвал семейство X» (`granularity_instrument.md`). Слова
-  «подавление», «защита», «травма» в карточку не попадают.
-- Ничего похожего на пароли, ключи и номера карт в карточку не переносится, даже если он это
-  продиктовал.
+Rules:
+- Something skipped (you asked, they didn't touch it) = a gap in the data, not a diagnosis. What
+  they closed in words → "Closed by them", never asked again unless they raise it.
+- **Coverage** = sub-questions touched / all of them per `references/domain_probes.md`. Under 40% →
+  `observed: null`, and in the showing "no number — you didn't talk about this", not a zero and not
+  "a weak area".
+- Confidence (low / medium / high) — from coverage, not from the number of lines.
+- About speech, write only "named / never named the X family" (`granularity_instrument.md`). The
+  words "suppression", "defence", "trauma" never enter a card.
+- Nothing resembling passwords, keys or card numbers goes into a card, even if they dictated it.
 
-**Step D — Проверка цитат (обязательно, до показа).**
+**Step D — Quote check (mandatory, before showing).**
 
 ```bash
 python3 scripts/check_quotes.py memory/svoboda/{subject_id}/domains/{domain}.md
 ```
 
-Скрипт берёт каждую строку «ты сказал» / «вы сказали» и ищет её дословно в сохранённых рассказах
-этого человека (`stories/` — включая `stories/popravki.md`, куда падают его поправки, см. Step F). Не нашлась — печатает номер строки и переписывает её в «я услышал: … — так?»: значит
-это моя формулировка, а не его слова. Красный прогон (код 1) = карточку **не показывать**: разберись
-с помеченными строками и прогони снова, до чистого прогона в этой же сессии. Код 2 = проверять
-нечего (нет рассказов или в карточке нет ни одной строки-цитаты) — это тоже «не показывать»:
-сначала сохрани рассказ в `stories/`, потом собирай карточку. Нет Python — строки
-«ты сказал» из показа убираются совсем, остаются «видел в файлах», «я думаю» и «не знаю»:
-непроверенное за его слова не выдаём.
+The script takes every "you said" line (in any of the three label languages) and looks for it
+verbatim in that person's saved stories (`stories/` — including `stories/corrections.md`, where
+their corrections land, see Step F). Not found → it prints the line number and rewrites the line as
+"I heard: … — right?": meaning it was your wording, not their words. A red run (exit code 1) = **do
+not show the card**: deal with the flagged lines and run it again, until a clean run in the same
+session. Exit code 2 = there is nothing to check (no stories, or no quote line in the card) — that
+is also "do not show": first save the story into `stories/`, then build the card. No Python → drop
+the "you said" lines from the showing entirely, leaving "I saw in your files", "I think" and "I
+don't know": what is unverified is not passed off as their words.
 
-**Как называть сферы вслух.** Всегда с пояснением в скобках, чтобы человек не гадал:
-Саморазвитие (учёба и рост) · Витальность (тело и силы) · Окружение (люди рядом и где живёте) ·
-Богатство (что для вас достаток) · Отдых (что восстанавливает) · Дело (чем занимаетесь) ·
-Активы (деньги и имущество).
+**How to name the areas out loud.** Always with the gloss in brackets, so the person isn't left
+guessing: Self-development (learning and growth) · Vitality (body and energy) · Surroundings
+(people and place) · Wealth (what "enough" means to you) · Rest (what restores you) · Work (what
+you do) · Assets (money and property). In Chinese: 自我成长（学习与成长）· 活力（身体与精力）·
+环境（身边的人和住的地方）· 财富（对你来说什么是够）· 休息（什么让你恢复）· 事业（你在做什么）·
+资产（钱和财产）.
 
-**Step E — Показ.** Читаешь карточку человеку как есть, убрав хвосты-источники и служебные
-заголовки, строго в этом порядке:
+**Step E — Showing.** You read the card to the person as it is, minus the source tails and the
+internal headings, strictly in this order:
 
-1. Нумерованные строки: «вы сказали: …» / «видел в файлах: …» / «я думаю: …».
-2. «Не знаю: …».
-3. «Я услышал X — так?».
-4. Последней строкой: «Как вижу {сферу}: {одна фраза его словами}. N из 10, уверенность средняя» —
-   или «цифры не ставлю, об этом вы не говорили», если охват мал.
+1. The numbered lines: "you said: …" / "I saw in your files: …" / "I think: …".
+2. "I don't know: …".
+3. "I heard X — right?".
+4. As the last line: "As I see Work: {one phrase in their words}. N out of 10, medium confidence" —
+   or "I'm not putting a number on it, you didn't talk about this" when coverage is thin.
 
-Никогда не начинай с цифры и никогда не спрашивай про неё. Пример показа:
+Never open with the number and never ask about it. Example of a showing:
 
-> Дело — вот что понял, поправьте по номерам:
-> 1. вы сказали: до обеда правили сайт клиенту
-> 2. вы сказали: созвон с партнёром
-> 3. видел в файлах: за месяц правки в трёх проектах, ничего не закрыто
-> 4. я думаю: узкое место — поток клиентов, а не выбор проекта
-> Не знаю: сайт — основной доход или один из; партнёр по деньгам или по делу.
-> Я услышал «Фигма» — так?
-> Как вижу Дело: работа руками есть, поток клиентов — затык. 6 из 10, уверенность средняя.
+> Work — here's what I understood, correct me by number:
+> 1. you said: you spent the morning fixing a client's site
+> 2. you said: a call with your partner
+> 3. I saw in your files: edits in three projects this month, nothing closed
+> 4. I think: the bottleneck is the flow of clients, not the choice of project
+> I don't know: whether the site is your main income or one of several; whether the partner is
+> money or craft.
+> I heard «Figma» — right?
+> As I see Work: the hands-on work is there, client flow is the jam. 6 out of 10, medium confidence.
 
-**Step F — Поправка.** Его поправку **сначала дописываешь дословно** в
-`memory/svoboda/{subject_id}/stories/popravki.md` (шапка `## {YYYY-MM-DD} — {сфера}`, ниже его
-фраза как есть), и только потом правишь карточку и гоняешь проверку цитат заново. Иначе скрипт
-не найдёт его свежие слова в рассказах и вернёт их обратно в «я услышал: … — так?» — человек
-получит вопрос про то, что сам только что поправил.
+**Step F — Correction.** Their correction is **first appended verbatim** to
+`memory/svoboda/{subject_id}/stories/corrections.md` (heading `## {YYYY-MM-DD} — {area}`, their
+phrase as-is underneath), and only then do you edit the card and re-run the quote check. Otherwise
+the script won't find their fresh words in the stories and will push them back into "I heard: … —
+right?" — and the person gets asked about the very thing they just corrected.
 
-«Да» одним словом подтверждает только строки «вы сказали». Строки «я думаю»
-остаются догадками, пока человек не ответил по номеру. «Не так: …» → его формулировка становится
-строкой «ты сказал» поверх старой, старая уходит в «Поправки» + `delta_log {source: correction}`.
-Строка «видел в файлах» не стирается под интерпретацию — факт остаётся, рядом его слова. Молчание ≠ подтверждение: нет ответа —
-карточка остаётся черновиком, синтез и сборка папки не запускаются. Домен подтверждён/поправлен →
-добавь его в `session.yaml.cards_confirmed`. Если человек **сам** назвал число — запиши в
-`score_divergence` как volunteered и `self_scoring: volunteered`; спрашивать нельзя.
+A one-word "yes" confirms only the "you said" lines. "I think" lines stay guesses until the person
+answers by number. "Not like that: …" → their wording becomes a "you said" line on top of the old
+one, and the old one moves to "Corrections" + `delta_log {source: correction}`. An "I saw in your
+files" line is never erased under an interpretation — the fact stays, their words go next to it.
+Silence ≠ confirmation: no answer → the card stays a draft, and neither synthesis nor the folder
+build starts. A domain confirmed/corrected → add it to `session.yaml.cards_confirmed`. If the
+person names a number **themselves**, record it in `score_divergence` as volunteered and set
+`self_scoring: volunteered`; asking is not allowed.
 
-**Гейт:** пока `cards_confirmed` меньше двух — Phase 4 не запускать и сборку папки не начинать.
+**Gate:** while `cards_confirmed` is under two — do not run Phase 4 and do not start the folder
+build.
 
-**Step B — пробы по доменам:**
+**Step B — domain probes:**
 
-1. **Саморазвитие** — НЕ дипломы, а *как* учится. Burst-mode? Conformist? What они rejected matters more. Skills (existing + wanted), content consumed, какие книги изменили жизнь.
+1. **Self-development** (`samorazvitie`) — NOT diplomas, but *how* they learn. Burst-mode?
+   Conformist? What they rejected matters more. Skills (existing + wanted), content consumed, which
+   books changed their life.
 
-2. **Витальность** — body relationship + mental state + "жажда жизни". Substances history if any. How they monitor/optimize. Interoception level. О чем думаешь когда просыпаешься. Что вдохновляет.
+2. **Vitality** (`vitalnost`) — body relationship + mental state + appetite for life. Substances
+   history if any. How they monitor/optimize. Interoception level. What they think about on waking.
+   What inspires them.
 
-3. **Окружение** — physical environment (place of living, atmosphere), people network, communication channels. Кого хочешь в окружении (фантазия) vs кто есть (факт). Networking strategies. **Includes parents/family if person doesn't separate Phase 3.**
+3. **Surroundings** (`okruzhenie`) — physical environment (place of living, atmosphere), people
+   network, communication channels. Who they want around them (the wish) vs who is actually there
+   (the fact). Networking strategies. **Includes parents/family if the person doesn't separate
+   Phase 3.**
 
-4. **Богатство** — *philosophical*. "Что для тебя богатство? Как ты поймешь что оно наступило?" Что человек ставит выше денег — его словами, без эзотерики (ни таро, ни «энергий», ни духовных практик). Relationship with abundance/scarcity. Что бы делали с unlimited resources.
+4. **Wealth** (`bogatstvo`) — *philosophical*. "What is wealth to you? How will you know it has
+   arrived?" What they put above money — in their own words, with no esoterica (no tarot, no
+   "energies", no spiritual practices). Relationship with abundance/scarcity. What they would do
+   with unlimited resources.
 
-5. **Отдых** — recovery patterns, travel, entertainment. Не хобби-проекты (те идут в Дело/Саморазвитие) — а то что *восстанавливает*. Влияние путешествий. Время на природе.
+5. **Rest** (`otdyh`) — recovery patterns, travel, entertainment. Not hobby-projects (those go to
+   Work / Self-development) — what actually *restores*. The effect of travel. Time in nature.
 
-6. **Дело** — what they build, how they work, what tools, what they refuse to do. Бизнес/работа/проекты. Источники профессионального дохода.
+6. **Work** (`delo`) — what they build, how they work, what tools, what they refuse to do.
+   Business / job / projects. Sources of professional income.
 
-7. **Активы** — operational. Источники дохода (числа если дают), пассивный доход, ликвидные/неликвидные активы, пассивы, кредиты, финансовая грамотность, неверные финансовые решения в анамнезе.
+7. **Assets** (`aktivy`) — operational. Income sources (numbers if they give them), passive income,
+   liquid/illiquid assets, liabilities, loans, financial literacy, past bad money decisions.
 
 **Collection guidelines:**
 - One domain per exchange. Brief question, no preamble.
 - Text is the normal channel; a voice transcript the person supplies is welcome extra (speech patterns).
-- Accept whatever format. Рассказ — дословно в `stories/`, разбор — в карточку, не наоборот.
+- Accept whatever format. The story goes verbatim into `stories/`, the read-out into the card —
+  never the other way round.
 - If they go off-script into another domain — let them, remap later.
 - Off-script content → `data_path/freeform.md`, integrate in synthesis.
-- Один рассказ обычно закрывает несколько сфер: разложи его по карточкам сам, не переспрашивая
-  то же самое семь раз.
+- One story usually closes several areas: split it across the cards yourself instead of asking the
+  same thing seven times.
 
-**Рабочий профиль и адаптация**
+**Working profile and adaptation**
 
-Адаптируется форма, не содержание: неудобные наблюдения и дыры докладываются всё равно, но в его
-регистре.
+What adapts is the form, not the content: uncomfortable observations and gaps are still reported,
+just in their register.
 
-- **Где хранится.** Единственная правда — раздел «Как со мной работать» в `context/identity.md`
-  (его читает каждый запуск). Поля: как обращаться · длина и темп · язык и регистр · чего не
-  спрашивать и не предлагать (`avoid[]`) · что срабатывает · снято (с датой). Каждая строка — с
-  датой и с его цитатой или ссылкой на файл. Второго списка в другом файле не заводить.
-- **Во время знакомства** форма живёт в `session.yaml.interface_draft`: `channel: text|voice` ·
-  `reply_len: short|medium|long` · `language` · `profanity: yes|no` · `address: ты|вы|имя` ·
-  `lists: yes|no` · `avoid: []`. Каждое поле исполняемое: short → подсказка ≤2 строк и один вопрос;
-  `lists: no` → не отвечать списком; `avoid` → греп по своей реплике перед отправкой, только по
-  своим строкам (вопросам и подсказкам), не по его цитатам.
-- Поправка формы («не так спрашивай», «короче») = данные об интерфейсе, не о личности →
-  `interface_draft` + `delta_log {source: interface}`, не в выводы о человеке.
-- На Phase 4 `interface_draft` и `self_scoring` копируются в `profile.yaml`; сборщик читает их
-  оттуда и пишет раздел «Как со мной работать» в `context/identity.md`.
-- **Как растёт дальше:** `/session-save` Step 0 — поправки этой сессии → 0–2 строки в тот же
-  раздел; агент показывает кандидатов, человек кивает или нет. Этот раздел исключён из запрета
-  «не читать старый профиль»: форма ≠ выводы о человеке.
+- **Where it lives.** The single source of truth is the "How to work with me" section in
+  `context/identity.md` (every boot reads it). Fields: how to address them · length and pace ·
+  language and register · what not to ask and not to offer (`avoid[]`) · what works · withdrawn
+  (with a date). Every line carries a date and either their quote or a file reference. Do not start
+  a second such list in another file.
+- **During onboarding** the form lives in `session.yaml.interface_draft`: `channel: text|voice` ·
+  `reply_len: short|medium|long` · `language` · `profanity: yes|no` · `address: informal|formal|name` ·
+  `lists: yes|no` · `avoid: []`. Every field is executable: short → a prompt of ≤2 lines and one
+  question; `lists: no` → don't answer with a list; `avoid` → grep your own turn before sending,
+  and only your own lines (questions and prompts), never their quotes.
+- A form correction ("don't ask it like that", "shorter") = interface data, not personality data →
+  `interface_draft` + `delta_log {source: interface}`, never into conclusions about the person.
+- At Phase 4, `interface_draft` and `self_scoring` are copied into `profile.yaml`; the scaffolder
+  reads them from there and writes the "How to work with me" section of `context/identity.md`.
+- **How it grows afterwards:** `/session-save` Step 0 — this session's corrections → 0–2 lines into
+  the same section; the agent shows the candidates and the person nods or doesn't. That section is
+  exempt from the "don't read the old profile" ban: form ≠ conclusions about the person.
 
 ### Phase 2: 13 Deep Layers (depth → causal map)
 
 After 5+ domains collected, probe these. Read `references/deep_layers.md`. Layers 1–6 are the core; 7–13 (v3.2) add causal angles as MEASUREMENT, never therapy. Where a layer carries an academic typology (attachment type, attribution axes, mode-under-load), hold it as a **silent profiler yardstick** scored from speech — never read the labels to the subject.
 
-1. **Эмоциональная гранулярность** — feel with high resolution or process emotions as data? **(v3.1: score against the coverage map in `references/granularity_instrument.md` — which emotion families + body-signal channels they spontaneously reach vs systematically never name.)**
-2. **Мотивация инструмента** — *why* do they want what they say they want?
-3. **Проигрыши** — wounds (not lessons). What they lost and couldn't convert.
-4. **Одиночество** — distinguish solitude from loneliness?
-5. **Гнев** — what triggers real anger? Most diagnostic suppressed emotion.
-6. **Необратимость** — what do they consider irreversible?
-7. **Привязанность** (v3.2) — when someone close pulls away, what fires first? Type as causal pattern + genesis. → Section V.
-8. **Атрибуция** (v3.2) — where the cause flies on failure vs who gets credit on success. Asymmetry = predictive lever. → Section VI + XIII.
-9. **Руминация vs рефлексия** (v3.2) — does the thought loop in place or turn a new side? Resolves "no off-switch."
-10. **Граница под давлением** (v3.2) — self-erasure (yield to keep the bond) vs system-integrity (hold + anger), and the switch-point.
-11. **Временна́я перспектива** (v3.2) — which time they decide from; future-as-plan vs future-as-deferral.
-12. **Силы vs навыки** (v3.2) — what charges vs what drains; causal to burnout / role-fit. Deepens Дело.
-13. **Когнитивный режим под нагрузкой** (v3.2) — does analytic mode hold or flip under stress; where it goes rigid. Strictest non-therapy watch.
+1. **Emotional granularity** — feel with high resolution or process emotions as data? **(v3.1: score against the coverage map in `references/granularity_instrument.md` — which emotion families + body-signal channels they spontaneously reach vs systematically never name.)**
+2. **Motivation of the instrument** — *why* do they want what they say they want?
+3. **Losses** — wounds (not lessons). What they lost and couldn't convert.
+4. **Loneliness** — distinguish solitude from loneliness?
+5. **Anger** — what triggers real anger? Most diagnostic suppressed emotion.
+6. **Irreversibility** — what do they consider irreversible?
+7. **Attachment** (v3.2) — when someone close pulls away, what fires first? Type as causal pattern + genesis. → Section V.
+8. **Attribution** (v3.2) — where the cause flies on failure vs who gets credit on success. Asymmetry = predictive lever. → Section VI + XIII.
+9. **Rumination vs reflection** (v3.2) — does the thought loop in place or turn a new side? Resolves "no off-switch."
+10. **Boundary under pressure** (v3.2) — self-erasure (yield to keep the bond) vs system-integrity (hold + anger), and the switch-point.
+11. **Time perspective** (v3.2) — which time they decide from; future-as-plan vs future-as-deferral.
+12. **Strengths vs skills** (v3.2) — what charges vs what drains; causal to burnout / role-fit. Deepens Work.
+13. **Cognitive mode under load** (v3.2) — does analytic mode hold or flip under stress; where it goes rigid. Strictest non-therapy watch.
 
-Layer 1 + Layer 3 most diagnostic — prioritize these. Layer 7 (привязанность) + Layer 10 (граница) feed Section V; Layer 13 predicts crisis behavior.
+Layer 1 + Layer 3 most diagnostic — prioritize these. Layer 7 (attachment) + Layer 10 (boundary) feed Section V; Layer 13 predicts crisis behavior.
 
 ### Phase 3: Parents/Origin (optional, high-value)
 
@@ -298,19 +356,19 @@ If open to it, read `references/parents_brief.md`. Genesis of patterns from Phas
 
 ### Phase 4: Synthesis
 
-**Порог зависит от захода — одно правило, оно же в `start` ③ и в `vault-scaffolder`:**
+**The threshold depends on the run — one rule, repeated in `start` ③ and in `vault-scaffolder`:**
 
-| Заход | Порог | Что пишем |
+| Run | Threshold | What is written |
 |---|---|---|
-| Первый (`run_type: fresh`, папка ещё не собрана) | **≥2 подтверждённых карточки** (`cards_confirmed`) | `profile.yaml` + короткий `profile.md` с `depth: provisional`; пустые поля оставляем пустыми, не выдумываем |
-| Полный проход (`rerun`, глубина) | 5 сфер Phase 1 + 3 слоя Phase 2 | полный `profile.md` по шаблону, `depth: confirmed` |
+| First (`run_type: fresh`, folder not built yet) | **≥2 confirmed cards** (`cards_confirmed`) | `profile.yaml` + a short `profile.md` with `depth: provisional`; empty fields stay empty, nothing invented |
+| Full pass (`rerun`, depth) | 5 domains from Phase 1 + 3 layers from Phase 2 | the full `profile.md` per template, `depth: confirmed` |
 
-Первый заход **не ждёт** пяти сфер и трёх слоёв: иначе человек за пятнадцать минут не получает
-ни портрета, ни собранной папки, а `context/identity.md` остаётся с `{{ }}`. Две подтверждённые
-карточки — это и есть минимум первого захода; остальное добирается дальше по ходу.
+The first run does **not** wait for five domains and three layers: otherwise fifteen minutes in,
+the person has neither a portrait nor a built folder, and `context/identity.md` is still full of
+`{{ }}`. Two confirmed cards ARE the minimum of a first run; the rest accrues as you go.
 
-Read `references/synthesis_template.md` (на первом заходе — только те разделы, под которые есть
-данные; раздела без данных в файле нет).
+Read `references/synthesis_template.md` (on a first run — only the sections there is data for; a
+section with no data is simply absent from the file).
 
 **Two artifacts in same turn:**
 
@@ -337,7 +395,7 @@ identity:                           # [scaffolder] nested map
   timezone: {...}                   # IANA tz
 
 svoboda_scores:                     # [scaffolder] nested map, OBSERVED score (1..10) the profiler derived
-  samorazvitie: {N or null}         # null = охват мал, «об этом не говорили» (НЕ ноль)
+  samorazvitie: {N or null}         # null = thin coverage, "you didn't talk about this" (NOT a zero)
   vitalnost: {N or null}
   okruzhenie: {N or null}
   bogatstvo: {N or null}
@@ -345,20 +403,20 @@ svoboda_scores:                     # [scaffolder] nested map, OBSERVED score (1
   delo: {N or null}
   aktivy: {N or null}
 
-score_confidence:                   # low|med|high per domain — по охвату подвопросов, не по числу строк
+score_confidence:                   # low|med|high per domain — from sub-question coverage, not from the number of lines
   {domain}: low|med|high
 
-self_scoring: not_asked             # not_asked|volunteered — цифру у человека не спрашиваем
-score_divergence:                   # ТОЛЬКО когда человек сам назвал число, без вопроса
-  - {domain: delo, self: 8 (volunteered), observed: 4, note: "назвал сам; в рассказе — три заглохших проекта"}
+self_scoring: not_asked             # not_asked|volunteered — we never ask the person for a number
+score_divergence:                   # ONLY when the person named a number themselves, unasked
+  - {domain: delo, self: 8 (volunteered), observed: 4, note: "named it unasked; the story has three stalled projects"}
 
 interface_draft: {channel, reply_len, language, profanity, address, lists, avoid: []}
-                                    # [scaffolder] форма общения, из session.yaml; → раздел «Как со мной работать»
+                                    # [scaffolder] shape of the conversation, from session.yaml; → the "How to work with me" section
 
 domains_active: [...]               # [scaffolder] subset of svoboda where person actually operates
-growth_edges_named: [...]           # [scaffolder] ТОЛЬКО сферы, где человек сам назвал дыру своими словами
-depth: provisional|confirmed        # первый проход всегда provisional
-cards_confirmed: [...]              # сферы, карточку которых человек увидел и подтвердил/поправил
+growth_edges_named: [...]           # [scaffolder] ONLY domains where the person named a gap in their own words
+depth: provisional|confirmed        # a first run is always provisional
+cards_confirmed: [...]              # domains whose card the person saw and confirmed/corrected
 
 north_star: >                       # [scaffolder] 1-2 sentences; verbatim into context/goals.md.
   ...                               # Separate the telos (what they want) from the means (how they fund it).
@@ -410,14 +468,14 @@ delta_log: []                       # v3.1: living profile, append-only [{date, 
 
 **Synthesis rules:**
 - Every pattern → tag (e.g., `#conflict_avoider`)
-- Every tag → origin from a [FACT] quote of theirs, or `origin: not given` (нет цитаты — происхождение не выдумываем)
+- Every tag → origin from a [FACT] quote of theirs, or `origin: not given` (no quote → the origin is not invented)
 - Predictive model: 5-7 common decision points
 - Blind spots: what they can't see
 - Corrections log: where initial read was wrong
 
 ### Phase 4b: Scoring Gate (≥80 to accept)
 
-Score the profile (агент оценивает СВОЮ работу, не человек себя) against `context/scoring-gate.md` AND the Profile Quality Checklist:
+Score the profile (the agent scores ITS OWN work, not the person scoring themselves) against `context/scoring-gate.md` AND the Profile Quality Checklist:
 - Every tag has origin traced OR explicitly `not given` (+20)
 - Predictive model evidence-based, not archetypal (+20)
 - ≥2 corrections logged (+15)
@@ -426,9 +484,9 @@ Score the profile (агент оценивает СВОЮ работу, не ч�
 - Speech pattern analysis present if voice data (+10)
 - Phase 1 ≥5/7 AND Phase 2 ≥3/6 (+5)
 
-**Гейт до чек-листа:** меньше двух показанных и подтверждённых карточек (`cards_confirmed`) → не синтезировать вообще. Первый проход всегда `depth: provisional`. Если карточек ≥2, а чек-лист <65 — не останавливаться и не писать «too guarded»: выдать provisional и идти дальше (первый проход текстом объективно не набирает +10 за речь и +5 за покрытие).
+**Gate before the checklist:** fewer than two cards shown and confirmed (`cards_confirmed`) → do not synthesize at all. A first run is always `depth: provisional`. If there are ≥2 cards but the checklist is <65 — don't stop and don't write "too guarded": emit provisional and move on (a first run over text objectively cannot earn the +10 for speech and the +5 for coverage).
 
-<80 → iterate the weakest section, re-probe (**max 2 cycles** — never loop a guarded subject indefinitely). 65–79 after 2 cycles → accept as **provisional**: emit the profile with a header caveat `Depth: provisional — re-cut when the subject is ready`, set `depth: provisional` in profile.yaml, and proceed (skip no downstream phase). <65 after 2 cycles: если `cards_confirmed` ≥ 2 — всё равно provisional, идти дальше; человеку про «слишком закрытую сессию» не писать (он ответил на всё, что спросили). Если карточек меньше двух — не синтезировать, вернуться к следующей карточке. ≥80 → Phase 4c.
+<80 → iterate the weakest section, re-probe (**max 2 cycles** — never loop a guarded subject indefinitely). 65–79 after 2 cycles → accept as **provisional**: emit the profile with a header caveat `Depth: provisional — re-cut when the subject is ready`, set `depth: provisional` in profile.yaml, and proceed (skip no downstream phase). <65 after 2 cycles: if `cards_confirmed` ≥ 2 — provisional anyway, move on; never tell the person the session was "too guarded" (they answered everything they were asked). If there are fewer than two cards — don't synthesize, go back and do the next card. ≥80 → Phase 4c.
 
 ### Phase 4c: Entity Creation (knowledge graph integration)
 
@@ -442,58 +500,62 @@ Score the profile (агент оценивает СВОЮ работу, не ч�
 
 Three operational artifacts that turn the profile from snapshot → living document.
 
-**Создаются только по явной просьбе человека.** Ничего не предзаполняется цифрами: наблюдаемые цифры агента живут в карточках сфер и в `profile.yaml`, в дневник и на панель они не переезжают.
+**Created only when the person explicitly asks for them.** Nothing is pre-filled with numbers: the
+agent's observed numbers live in the domain cards and in `profile.yaml`; they do not migrate into
+the journal or the dashboard. Write each of these in the language the person writes in.
 
-1. **`memory/svoboda/{subject_id}/pp.md`** — Приборная панель. Только если человек сам хочет вести
-   цифры по месяцам; строка месяца остаётся пустой, свои наблюдаемые цифры сюда не пишем:
+1. **`memory/svoboda/{subject_id}/pp.md`** — the dashboard. Only if the person wants to track
+   numbers month by month themselves; the month row stays empty — your observed numbers do not go
+   in here:
    ```markdown
-   # Приборная панель — {subject_id}
+   # Dashboard — {subject_id}
 
-   Ведёте сами, если хотите видеть движение по месяцам. Важна траектория, не абсолют.
+   You keep this yourself, if you want to see movement month by month. The trajectory matters, not
+   the absolute value.
 
-   | Месяц | Саморазвитие | Витальность | Окружение | Богатство | Отдых | Дело | Активы | Заметки |
+   | Month | Self-development | Vitality | Surroundings | Wealth | Rest | Work | Assets | Notes |
    |-------|---|---|---|---|---|---|---|-------|
    | {YYYY-MM} |  |  |  |  |  |  |  |  |
    ```
 
 2. **`memory/svoboda/{subject_id}/plan-fact.md`** — daily journal template:
    ```markdown
-   # ПЛАН-ФАКТ — {subject_id}
+   # PLAN vs FACT — {subject_id}
 
    ## {YYYY-MM-DD}
-   **План:** {что планировал}
-   **Факт:** {что сделал}
-   **Рефлексия:**
-   1. Каким был сегодняшний день? (2-3 прилагательных)
-   2. Кому/чему благодарен?
-   3. Главный урок?
+   **Plan:** {what was planned}
+   **Fact:** {what was done}
+   **Reflection:**
+   1. What was today like? (2-3 adjectives)
+   2. Who or what am I grateful to?
+   3. The main lesson?
 
-   **Буфер НС (последние 2 недели):** на дне / в норме / на пределе
+   **Nervous-system buffer (last 2 weeks):** depleted / normal / at the limit
    ```
    v3.2: the **NS buffer** line is a session-state modifier, NOT a domain and NOT a trait. Svoboda records it so the same reaction reads correctly (a flare in `overloaded` = physiology; in `normal` = a stable pattern) and it **modifies interpretation, it does not trigger an intervention**.
 
-3. **`memory/svoboda/{subject_id}/plans.md`** — Точка A → B → C → G roadmap:
+3. **`memory/svoboda/{subject_id}/plans.md`** — Point A → B → C → G roadmap:
    ```markdown
-   # ПЛАНЫ — {subject_id}
+   # PLANS — {subject_id}
 
-   ## Ключевая метрика
-   {измеримая, e.g. "личный доход в мес"}
+   ## Key metric
+   {measurable, e.g. "personal income per month"}
 
-   ## Точка A (сейчас)
+   ## Point A (now)
    {value} — {date}
 
-   ## Точка B (через 3 месяца)
+   ## Point B (in 3 months)
    {target} — {date}
-   **Зачем:** {motivation}
-   **Как:** {steps}
+   **Why:** {motivation}
+   **How:** {steps}
 
-   ## Точка C (через 6 месяцев)
+   ## Point C (in 6 months)
    {target}
 
-   ## Точка G (стратегическая)
+   ## Point G (strategic)
    {long-term north star — derived from profile.north_star}
    ```
-   Pre-fill Точка G from `profile.yaml.north_star`.
+   Pre-fill Point G from `profile.yaml.north_star`.
 
 After generation: `operational_layer_done: true` in session YAML.
 
@@ -533,7 +595,7 @@ This is a **diagnostic** instrument. Adopt the measurement engine; reject the th
 - Granularity coverage map — a **diagnostic yardstick** (`references/granularity_instrument.md`), NOT a daily logger.
 - Volunteered-score vs observed — only when the person named a number unasked.
 - v3.2 deep layers 7–13 — conversational MEASUREMENT scored from speech, each rendered flat (no clinical labels to the subject), each with a non-therapy boundary baked into its probe.
-- Social graph (refines Окружение) + memory-availability map (lens in Phase 3) — diagnostic refinements, not new domains.
+- Social graph (refines Surroundings) + memory-availability map (lens in Phase 3) — diagnostic refinements, not new domains.
 - NS-buffer session-state — an interpretation modifier only, NOT wired to regulation routing.
 
 **Out of scope (intervention / retention):**
@@ -544,30 +606,32 @@ This is a **diagnostic** instrument. Adopt the measurement engine; reject the th
 
 ## Key Principles
 
-1. **Каузальность > описание.** "He's analytical" = worthless. "She rehearses every decision in advance because a volatile parent made surprises unsafe in childhood" = profile.
-2. **Точка А ≠ цель.** This is about FIXING current state, not aspirational. Don't push subject toward "10s everywhere" — record where they actually are.
+1. **Causality > description.** "He's analytical" = worthless. "She rehearses every decision in advance because a volatile parent made surprises unsafe in childhood" = profile.
+2. **Point A ≠ the goal.** This is about FIXING current state, not aspirational. Don't push subject toward "10s everywhere" — record where they actually are.
 3. **Living document, not snapshot.** v3 added the operational layer; v3.1 adds the delta layer. Log drift as it happens, resynthesize on accrual, re-cut domains annually as the floor.
-4. **Цвет/цифра как сигнал, не оценка.** A low OBSERVED score with confidence ≥ med = where attention is needed, not judgment. Low confidence = «об этом не говорили», not a weak spot. Цифру ставит агент и показывает на проверку — человека оценивать себя не просят.
-5. **Коррекции > проекции.** If subject corrects you — log it. The correction IS the data.
-6. **Речь = данные.** How they speak matters as much as what. Voice preferred for that reason.
-7. **Пропуск = пробел в данных.** What they skip is a gap to fill or a boundary they closed — not a diagnosis.
-8. **Не терапия.** Profiling, not healing. No "you should work on this." Just the map.
+4. **Colour/number as a signal, not a verdict.** A low OBSERVED score with confidence ≥ med = where attention is needed, not judgment. Low confidence = "you didn't talk about this", not a weak spot. The agent sets the number and shows it for checking — the person is never asked to rate themselves.
+5. **Corrections > projections.** If subject corrects you — log it. The correction IS the data.
+6. **Speech = data.** How they speak matters as much as what. Voice preferred for that reason.
+7. **A skip = a gap in the data.** What they skip is a gap to fill or a boundary they closed — not a diagnosis.
+8. **Not therapy.** Profiling, not healing. No "you should work on this." Just the map.
 
-## Голос — необязательный дополнительный вход
+## Voice — an optional extra input
 
-Обычный вход — текст: расшифровщика в пакете нет, и просить человека что-то ставить ради
-знакомства не надо. Если у него уже есть чем расшифровать свою запись — пусть положит текст
-расшифровки в `inbox/`, и дальше он читается как обычный рассказ (сохраняется в `stories/`).
-По расшифровке дополнительно видно, как человек говорит: перескоки, самопоправки, плотность
-эмоциональных слов. Расслышанные имена, числа и города — всегда `[?]` до подтверждения.
+The normal input is text: the package ships no transcription, and there is no reason to make the
+person install anything for onboarding. If they already have something to transcribe a recording
+with, let them drop the text of the transcript into `inbox/`, and from there it reads as an
+ordinary story (saved into `stories/`). A transcript additionally shows HOW the person speaks:
+jumps, self-corrections, the density of emotional words. Names, numbers and cities you half-caught
+are always `[?]` until confirmed.
 
 ## References
 
-- `references/domain_probes.md` — подвопросы по сферам для счёта охвата (Phase 1 Step B)
-- `references/svoboda_questions.md` — запасные вопросы на случай пустого листа: человек не знает,
-  что говорить о сфере. Не анкета и не читается подряд — берёшь одну-две штуки и спрашиваешь
-  своими словами. Оценок себя там нет и быть не должно.
-- `scripts/check_quotes.py` — проверка цитат карточки по рассказам человека (Phase 1 Step D, обязательна до показа)
+- `references/domain_probes.md` — per-domain sub-questions used to count coverage (Phase 1 Step B)
+- `references/svoboda_questions.md` — a fallback questions bank for blank-page syndrome, when the
+  person doesn't know what to say about an area. Not a questionnaire and never read straight
+  through — you take one or two and ask them in your own words. There are no self-rating questions
+  in it, and there must never be.
+- `scripts/check_quotes.py` — checks a card's quotes against the person's stories (Phase 1 Step D, mandatory before showing)
 - `references/deep_layers.md` — Phase 2 questioning framework
 - `references/granularity_instrument.md` — v3.1: emotion-family + body-signal coverage map (Layer 1 diagnostic yardstick)
 - `references/parents_brief.md` — Phase 3 family system brief

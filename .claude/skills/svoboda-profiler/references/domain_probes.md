@@ -1,22 +1,23 @@
-# Подвопросы по сферам — для охвата
+# Per-domain sub-questions — for coverage
 
-Это счётчик, а не опросник. Списком вслух не читать и по пунктам не допрашивать: человек
-рассказывает свободно, а ты отмечаешь, какие подвопросы его рассказ уже закрыл.
+This is a counter, not a questionnaire. Never read the list out loud and never interrogate point by
+point: the person talks freely and you tick off which sub-questions their story already closed.
 
-**Охват** = сколько подвопросов сферы человек затронул сам / сколько их всего.
-Меньше 40% → цифру по сфере не ставим (`observed: null`), в показе — «об этом вы не говорили».
-40–70% → уверенность средняя. Больше 70% → высокая.
+**Coverage** = how many of a domain's sub-questions the person touched on their own / how many
+there are in total.
+Under 40% → no number for that domain (`observed: null`), and in the showing: "you didn't talk
+about this". 40–70% → medium confidence. Over 70% → high.
 
-Дыры из этого списка можно назвать человеку — не больше трёх за ход и обычными словами.
-Формулировки, которые он просил не использовать (`avoid[]`), сюда не попадают: прогони свою
-реплику по его списку перед отправкой.
+Gaps from this list may be named to the person — no more than three per turn and in ordinary words,
+in the language they write in. Phrasings they asked you not to use (`avoid[]`) never make it in:
+run your own turn against their list before sending.
 
-| Сфера | Подвопросы |
+| Domain | Sub-questions |
 |---|---|
-| **Саморазвитие** (учёба и рост) | как учится (рывками или ровно) · что взял и оставил · что бросил · откуда берёт материал · что реально изменило · чему хочет научиться |
-| **Витальность** (тело и силы) | сон · движение (делает или планирует) · еда · вещества · что восстанавливает · что беспокоит по здоровью |
-| **Окружение** (люди рядом и где живёт) | где живёт · кто рядом · кто заряжает · кто выматывает · кого не хватает · семья — только если сам заговорил |
-| **Богатство** (что для него достаток) | что это для него · как поймёт, что наступило · живёт из избытка или из нехватки · что делал бы без ограничений |
-| **Отдых** (что восстанавливает) | что восстанавливает · как выглядит выходной · поездки · природа · есть ли выключатель |
-| **Дело** (чем занимается) | что строит · главный проект · сколько времени куда · от чего отказался · чем работает · что тянет по инерции |
-| **Активы** (деньги и имущество) | откуда доход · есть ли доход без работы · что можно продать быстро · долги · ведёт ли учёт · прошлые ошибки с деньгами |
+| **Self-development** (`samorazvitie`, learning and growth) | how they learn (in bursts or evenly) · what they took and kept · what they dropped · where they get material · what actually changed them · what they want to learn |
+| **Vitality** (`vitalnost`, body and energy) | sleep · movement (doing it or planning it) · food · substances · what restores them · what worries them about their health |
+| **Surroundings** (`okruzhenie`, people and place) | where they live · who is around · who charges them · who drains them · who is missing · family — only if they raised it themselves |
+| **Wealth** (`bogatstvo`, what "enough" means to them) | what it means to them · how they'll know it has arrived · living from abundance or from scarcity · what they'd do with no limits |
+| **Rest** (`otdyh`, what restores them) | what restores them · what a day off looks like · trips · nature · whether there is an off-switch |
+| **Work** (`delo`, what they do) | what they're building · the main project · where the time goes · what they refused · what tools they work with · what they're carrying out of inertia |
+| **Assets** (`aktivy`, money and property) | where the income comes from · income without working · what could be sold fast · debts · whether they keep accounts · past money mistakes |

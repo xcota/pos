@@ -1,32 +1,32 @@
 #!/usr/bin/env bash
-# Ставит необязательный поиск по смыслу (окружение Python + словарь + указатель).
-# Запускается из знакомства (/start) — руками вызывать не надо.
-# Запускать повторно безопасно: окружение и указатель пересобираются с нуля,
-# записи человека при этом не трогаются.
+# Installs the optional search-by-meaning (Python environment + model + index).
+# Called from onboarding (/start) — no need to run it by hand.
+# Safe to re-run: the environment and the index are rebuilt from scratch, and the
+# person's own notes are never touched.
 #
-# Ни одна ошибка здесь не должна ронять знакомство: любой сбой = понятная строка
-# по-русски и выход с кодом 0. Без поиска по смыслу всё остальное работает.
+# No error here may break onboarding: any failure = one plain line and exit 0.
+# Everything else works without search by meaning.
 cd "$(dirname "${BASH_SOURCE[0]}")/.." || exit 0
 
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "На этом компьютере нет Python, поэтому поиск по смыслу пока не работает."
-  echo "Всё остальное работает: записи ищутся по точным словам."
-  echo "Захотите включить позже — поставьте Python 3 и напишите: /start"
+  echo "There is no Python on this computer, so search by meaning doesn't work yet."
+  echo "Everything else works: notes are searched by exact words."
+  echo "If you want it later — install Python 3 and type: /start"
   exit 0
 fi
 
-echo "→ Ставлю поиск по смыслу. Это один раз, качается около 300 МБ."
+echo "-> Setting up search by meaning. One time only, about 300 MB to download."
 if ! bash scripts/memory_index_setup.sh >/dev/null 2>&1; then
-  echo "Не получилось поставить поиск по смыслу — видимо, для этой версии Python нет готовых частей."
-  echo "Всё остальное работает: записи ищутся по точным словам. К этому можно вернуться позже."
+  echo "Could not set up search by meaning — there seem to be no ready-made parts for this Python version."
+  echo "Everything else works: notes are searched by exact words. We can come back to this later."
   exit 0
 fi
 
-echo "→ Читаю папку и собираю указатель по вашим записям…"
+echo "-> Reading the folder and building the index over your notes..."
 if ! .memory_venv/bin/python scripts/memory_index.py build >/dev/null 2>&1; then
-  echo "Указатель собрать не удалось — скорее всего, не докачался словарь."
-  echo "Всё остальное работает: записи ищутся по точным словам. Попробовать снова: /start"
+  echo "The index could not be built — most likely the model didn't finish downloading."
+  echo "Everything else works: notes are searched by exact words. To try again: /start"
   exit 0
 fi
 
-echo "✓ Готово: теперь записи находятся по смыслу, а не только по точным словам."
+echo "Done: notes are now found by meaning, not only by exact words."

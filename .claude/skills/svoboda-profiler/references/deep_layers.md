@@ -1,8 +1,10 @@
 # Deep Layers — Questioning Framework
 
-## Layer 1: Эмоциональная гранулярность
+Ask every probe in the language the person writes in; the wording here is the shape, not a script.
 
-**Core question:** Do they feel with high resolution, or is it "норм / не норм / перегрузка"?
+## Layer 1: Emotional granularity
+
+**Core question:** Do they feel with high resolution, or is it "fine / not fine / overloaded"?
 
 **How to probe:**
 - Don't ask "what do you feel?" — ask about a specific recent event and listen for emotional vocabulary.
@@ -16,7 +18,7 @@
 
 **Key pattern:** If they describe emotions exclusively through outcomes ("I was productive" / "I lost weight") rather than states ("I felt restless") — that's instrumentalization.
 
-## Layer 2: Мотивация инструмента
+## Layer 2: Motivation of the instrument
 
 **Core question:** Why do they want what they say they want?
 
@@ -30,7 +32,7 @@
 - Genuine curiosity vs compensatory mechanism.
 - The gap between stated motivation and structural motivation.
 
-## Layer 3: Проигрыши
+## Layer 3: Losses
 
 **Core question:** Is there a loss they couldn't convert into a lesson?
 
@@ -44,7 +46,7 @@
 - The loss they CAN'T convert reveals their actual attachment structure.
 - Speed of reframing = speed of emotional bypass. Instant "it was a lesson" = didn't process the emotion.
 
-## Layer 4: Одиночество
+## Layer 4: Loneliness
 
 **Core question:** Do they know the difference between solitude (chosen) and loneliness (unchosen)?
 
@@ -58,7 +60,7 @@
 - Immediate solution-redirect = the need exists but is architecturally suppressed.
 - Clear "no, never" = either true (rare) or dissociated from the feeling.
 
-## Layer 5: Гнев
+## Layer 5: Anger
 
 **Core question:** What triggers real anger — not annoyance, not disinterest, but ANGER?
 
@@ -72,7 +74,7 @@
 - People-based anger (betrayal, disrespect) = identity invested in social bonds.
 - "I don't really get angry" = most suppressed emotion → highest diagnostic value. Whatever DOES break through IS their real boundary.
 
-## Layer 6: Необратимость
+## Layer 6: Irreversibility
 
 **Core question:** What do they consider truly irreversible?
 
@@ -92,7 +94,7 @@
 
 Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an academic typology (attachment type, attribution axes, mode-under-load), hold it as a **silent profiler yardstick** scored from speech — like the 14 emotion families in `granularity_instrument.md`, never read the labels to the subject. Each probes a real causal/diagnostic angle the 7 domains + Layers 1–6 don't reach. Diagnose, don't intervene (Principle 8).
 
-## Layer 7: Стиль привязанности (механика близости + генезис)
+## Layer 7: Attachment style (the mechanics of closeness + its genesis)
 
 **Core question:** When someone close goes quiet / pulls away — what fires FIRST: contact-restoration (anxiety, monitoring their behavior), an internal exit into work, or steady contact with no spike?
 
@@ -106,9 +108,9 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 **What it reveals:**
 - Attachment type as a causal behavior pattern in closeness and under stress — distinct from the phenomenology of loneliness (L4).
 - Two branches can co-occur — an anxious root (an inconsistent caregiver) plus an avoidant defense layered on top → disorganized candidate.
-- Output goes into Section V (Отношения), not a parallel section.
+- Output goes into Section V (Relationships), not a parallel section.
 
-## Layer 8: Атрибутивный стиль (грамматика объяснения провала/успеха)
+## Layer 8: Attributional style (the grammar of explaining failure/success)
 
 **Core question:** When something breaks, where does the cause fly first — outward (circumstances, people, market) or inward (I missed it, I overestimated)? And symmetrically — when it works, whose credit is it?
 
@@ -123,7 +125,7 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 - The causal grammar of explaining the past — orthogonal to L2 (forward motivation) and L3 (loss conversion).
 - Asymmetry is the signal: e.g. one category attributed internally while everything else gets externally neutralized. That asymmetry predicts whether they'll change behavior or find an external cause. Feeds Section VI + the predictive model (XIII).
 
-## Layer 9: Руминация vs рефлексия (что мысль делает с проблемой)
+## Layer 9: Rumination vs reflection (what the thought does with the problem)
 
 **Core question:** When a thought keeps returning to a problem — does it loop in place with no exit (rumination), or does each pass add an angle and move toward resolution (reflection)?
 
@@ -137,7 +139,7 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 - A mechanism distinct from anxiety (anxiety = future, rumination = past/errors) and from cognitive-style-in-norm (Section II measures scanning/deep-dive, not loop-stickiness).
 - Resolves a "can't switch the mind off / thinking all the time" report when it surfaces: is that a reflective stream (resource) or a ruminative capture (cost) masked as a deliberate choice? Feeds Sections II + III.
 
-## Layer 10: Граница под давлением (self-erasure vs system-integrity, switch-point)
+## Layer 10: The boundary under pressure (self-erasure vs system-integrity, switch-point)
 
 **Core question:** When someone's need presses on yours, where does the boundary break — do you yield to keep the bond (erase yourself), or hold hard and get angry at the protocol violation (system integrity)? And WHEN did one mode switch to the other?
 
@@ -152,7 +154,7 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 - Mechanically different from L5/L4: anger = boundary FIRED, people-pleasing = boundary did NOT fire.
 - Catches a split boundary — e.g. hard in one arena (systems, work, principles) yet historically absent in another (intimacy, family) — when the subject shows one. The switch-point between the two modes is a causal output neither L5 (boundary fired) nor L4 (loneliness phenomenon) produces. Separates two roots: anxious-attachment self-erasure vs a learned caretaker/role-imposed self-erasure.
 
-## Layer 11: Временна́я перспектива (из какого времени принимает решения)
+## Layer 11: Time perspective (which time they decide from)
 
 **Core question:** Which time does the person actually decide from — pulled back (nostalgia/regret), stuck in the present (hedonism/fatalism), or living in the future — and is the future a PLAN (agency) or a DEFERRAL (avoiding the present)?
 
@@ -167,7 +169,7 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 - Dominant time horizon as a causal decision pattern — plans.md OPERATIONALIZES the future (A→G) but never diagnoses the orientation itself.
 - Rare combinations surface here — a person can hold two horizons at once that don't normally co-occur (e.g. a deferral-heavy future alongside a vividly mourned past, or present-fatalism alongside a detailed long-range plan). Note the combination; don't expect a fixed signature. Severance often ← amnesia of a painful period (defense); a long horizon often ← early safety. Feeds Section I + plans.md.
 
-## Layer 12: Сигнатурные силы vs выученные навыки (заряжает vs истощает)
+## Layer 12: Signature strengths vs learned skills (charges vs drains)
 
 **Core question:** What does the person do easily and WITH LIFT (signature strength) vs what they're good at but it DRAINS them (learned skill)?
 
@@ -175,14 +177,14 @@ Same rules as 1–6: a conversation, never a questionnaire. Where a layer has an
 - Not the VIA-240, no "signature strengths / virtues" vocabulary.
 - Probe the ENERGY trace, not quality: "after which work do you come out charged, and after which wrung out — even if you did it well?"
 - Probe the seam where a paid/important strip is minimized: "X is what pays, yet you've squeezed it down to the bare minimum — is that efficiency, or does it quietly drain you?"
-- Cross with Дело: a domain can score high yet be built on draining skills.
+- Cross with Work (`delo`): a domain can score high yet be built on draining skills.
 - Diagnostic: a map of where strength/skill is and why a strip is abandoned — NEVER "develop your strengths" (aspiration; would also nudge a deliberately-parked strip, against a deliberately-parked priority).
 
 **What it reveals:**
-- Separates energizing strengths from draining skills — causal to burnout and the "is this person in the right role" check that Дело (WHAT they build + operational power) doesn't make.
+- Separates energizing strengths from draining skills — causal to burnout and the "is this person in the right role" check that Work (WHAT they build + operational power) doesn't make.
 - Often explains why a profitable strip is parked while energy pours into unpaid work — a puzzle the domain scores alone leave unsolved.
 
-## Layer 13: Когнитивный режим под нагрузкой + точки слома (lead: режим)
+## Layer 13: Cognitive mode under load + break-points (lead: the mode)
 
 **Core question:** Does thinking stay analytical under stress/overload or switch to another mode (lead axis) — and where does it predictably go rigid (secondary axis)?
 

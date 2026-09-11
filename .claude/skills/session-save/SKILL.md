@@ -15,28 +15,30 @@ Save current session state before closing or when context gets heavy (>150K toke
 
 0. **Analyze this session as a self-improvement signal:** before summarizing, walk back through this session and read it as friction data (like `/reflect` Step 1b, but over the CURRENT dialogue): how the user responded (tone, corrections, what they valued, what frustrated them), and where the agent missed, substituted, failed to orient, or added noise. → new anti-pattern / learned / identity refinements, tagged with a source-tier. Don't bulk-load the transcript — reflect over what is already in context.
 
-   **Поправки формы → `context/identity.md` § «Как со мной работать».** Если человек за эту сессию
-   поправил, КАК с ним говорить («короче», «не спрашивай про это», «на ты», «не списком») — это
-   данные об интерфейсе, а не выводы о нём: 0–2 строки в тот раздел, каждая с датой и его словами.
-   Второго списка в другом файле не заводить. Покажи кандидатов одной строкой и запиши только то,
-   с чем он согласился; молчание — не согласие. Выводы о человеке (карточки сфер, профиль) сюда
-   не попадают, и наоборот.
+   **Form corrections → `context/identity.md` § "How to work with me".** If during this session the
+   person corrected HOW you talk to them ("shorter", "don't ask me about that", "use my first
+   name", "not as a list") — that is interface data, not a conclusion about them: 0–2 lines into
+   that section, each with a date and their own words. Do not start a second such list in another
+   file. Show the candidates in one line and write down only what they agreed with; silence is not
+   agreement. Conclusions about the person (area cards, the profile) do not go here, and vice versa.
 
-0b. **Новое про сферу жизни → в карточку сферы (иначе портрет застынет на дне знакомства).**
-   Если человек за эту сессию между делом рассказал новое про одну из семи сфер (Саморазвитие,
-   Витальность, Окружение, Богатство, Отдых, Дело, Активы) и папка уже собрана
-   (`memory/svoboda/{id}/` существует):
+0b. **Something new about a life area → into that area's card (otherwise the portrait freezes at
+   onboarding depth).** If in passing during this session the person told you something new about
+   one of the seven areas (Self-development, Vitality, Surroundings, Wealth, Rest, Work, Assets)
+   and the folder is already built (`memory/svoboda/{id}/` exists):
 
-   1. Дословную фразу — в `memory/svoboda/{id}/stories/dopolneniya.md` под шапкой
-      `## {YYYY-MM-DD}` (без этого проверка цитат её не найдёт).
-   2. Одну строку в `memory/svoboda/{id}/domains/{сфера}.md` в раздел «Строки», в том же виде,
-      что и в знакомстве: `вы сказали: «…» — из разговора {дата}` или `я думаю: … — из 1 и 3`.
-      Больше двух строк за сессию не дописывать; пересказ вместо цитаты — это «я думаю», не
-      «вы сказали».
-   3. Сфера впервые получила записи → отметь это одной строкой в `HOME.md` (в разделе про семь
-      сфер), чтобы было видно, где густо, а где человек не говорил.
-   4. Цифру по сфере здесь **не пересчитываем** и заново не показываем. Пересобрать карточку
-      целиком — только по его слову: «пройдём эту сферу заново» → `/svoboda-profiler {id} update {сфера}`.
+   1. The verbatim phrase → `memory/svoboda/{id}/stories/additions.md` under the heading
+      `## {YYYY-MM-DD}` (without this the quote check will not find it).
+   2. One line in `memory/svoboda/{id}/domains/{area}.md` under "Lines", in the same shape as
+      during onboarding: `you said: «…» — from the conversation on {date}` or
+      `I think: … — from 1 and 3`. Use the label set for the language of the conversation (see the
+      table in `start` / `svoboda-profiler`). No more than two lines per session; a paraphrase
+      instead of a quote is "I think", not "you said".
+   3. An area got its first entries → note it in one line in `HOME.md` (in the seven-areas
+      section), so it is visible where it is dense and where the person hasn't spoken.
+   4. The number for the area is **not recalculated** here and not shown again. Rebuilding the
+      whole card happens only on their word: "let's go through this area again" →
+      `/svoboda-profiler {id} update {area}`.
 
 1. **Summarize** what was done — scope = ALL un-persisted work since the last commit, NOT just the current salient task:
    - First **scan for orphans**: `git log --oneline -5` vs. substantive work that exists only in the transcript/compaction-summary. Anything analyzed-but-never-written-to-a-file → fixate it in this save. Work done before a `/compact` is the most likely orphan — explicitly verify it got persisted.

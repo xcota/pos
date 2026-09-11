@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
-"""Проверка цитат в карточке сферы.
+"""Quote check for a domain card.
 
-Каждая строка карточки, которая начинается с «ты сказал:» или «вы сказали:»
-(обращение — то же, каким идёт разговор), должна дословно находиться в рассказах
-человека (папка stories/ рядом с карточкой). Если цитаты там нет — строка не факт,
-а моё предположение: скрипт печатает её номер и переписывает её в
-«я услышал: … — так?».
+Every card line that starts with a "you said" label — `you said:` in English,
+`你说：` in Chinese, `ты сказал(а):` / `вы сказали:` in Russian (the form of
+address is the one the conversation uses) — must be found word for word in the
+person's stories (the `stories/` folder next to the card). If the quote isn't
+there, the line is not a fact but my own assumption: the script prints its number
+and rewrites it as "I heard: … — right?" in the same language.
 
-Поправки человека тоже должны лежать в stories/ (например stories/popravki.md) —
-иначе его же свежая поправка не найдётся и уедет обратно в вопрос.
+The person's corrections must also live in stories/ (for example
+stories/corrections.md) — otherwise their own fresh correction is not found and
+travels straight back into a question.
 
-Запуск:
+Usage:
     python3 scripts/check_quotes.py memory/svoboda/{id}/domains/delo.md
-    python3 scripts/check_quotes.py <карточка> --dry-run      # только показать
-    python3 scripts/check_quotes.py <карточка> --stories <папка>
+    python3 scripts/check_quotes.py <card> --dry-run      # show only
+    python3 scripts/check_quotes.py <card> --stories <folder>
 
-Коды выхода: 0 — все цитаты нашлись; 1 — были непроверенные строки (они
-помечены); 2 — карточку или рассказы не удалось прочитать, либо в карточке нет
-ни одной строки-цитаты (проверять нечего — показывать такую карточку нельзя).
+Exit codes: 0 — every quote checked out; 1 — there were unverified lines (they
+are now flagged); 2 — the card or the stories could not be read, or the card has
+no quote line at all (nothing to check — such a card must not be shown).
 
-Только стандартная библиотека. Ничего никуда не отправляет.
+Standard library only. Sends nothing anywhere.
 """
 
 import argparse
@@ -28,16 +30,32 @@ import sys
 import unicodedata
 from pathlib import Path
 
-QUOTE_MARKS = '«»""„“”\'"'
+# "you said" in the three card-label languages (see the label table in
+# .claude/skills/start/SKILL.md). Add a language here and the check follows.
 SAID_RE = re.compile(
-    r"^(\s*(?:\d+[.)]\s*)?)(ты сказал(?:а)?|вы сказали)\s*:\s*(.+?)\s*$",
+    r"^(\s*(?:\d+[.)]\s*)?)(you said|你说|ты сказал(?:а)?|вы сказали)\s*[:：]\s*(.+?)\s*$",
     re.IGNORECASE,
 )
-QUOTED_RE = re.compile(r"[«\"„](.+?)[»\"“”]", re.DOTALL)
+HEARD = {
+    "en": ("I heard: {payload}", "I heard: {payload} — right?"),
+    "zh": ("我听到的是：{payload}", "我听到的是：{payload}——对吗？"),
+    "ru": ("я услышал: {payload}", "я услышал: {payload} — так?"),
+}
+QUOTED_RE = re.compile(r"[«\"„「『](.+?)[»\"“”」』]", re.DOTALL)
+
+
+def label_language(label: str) -> str:
+    """Which language's label set this line was written in."""
+    low = label.lower()
+    if low.startswith("you said"):
+        return "en"
+    if label.startswith("你说"):
+        return "zh"
+    return "ru"
 
 
 def normalize(text: str) -> str:
-    """Сравниваем без регистра, пунктуации, ё и лишних пробелов."""
+    """Compare without case, punctuation, Russian ё, or extra spaces."""
     text = unicodedata.normalize("NFKC", text).lower().replace("ё", "е")
     text = "".join(ch if ch.isalnum() else " " for ch in text)
     return " ".join(text.split())
@@ -67,7 +85,7 @@ def load_stories(stories: Path) -> str:
 
 
 def claims(line: str) -> list[str]:
-    """Что именно проверять в строке «ты сказал: …»."""
+    """What exactly to check in a "you said: …" line."""
     match = SAID_RE.match(line)
     if not match:
         return []
@@ -75,52 +93,55 @@ def claims(line: str) -> list[str]:
     quoted = [q for q in QUOTED_RE.findall(payload) if normalize(q)]
     if quoted:
         return quoted
-    # кавычек нет — проверяем всю строку, отрезав пометку канала в скобках
+    # no quotation marks — check the whole line, minus a trailing source marker
     payload = re.sub(r"\((?:[^()]*)\)\s*$", "", payload).strip()
     return [payload] if normalize(payload) else []
 
 
 def rewrite(line: str) -> str:
-    """Строка становится вопросом. Ссылку на рассказ отрезаем — цитаты там нет."""
+    """The line becomes a question. The story reference is cut — the quote isn't there."""
     match = SAID_RE.match(line)
     prefix, payload = match.group(1), match.group(3)
+    lang = label_language(match.group(2))
     quoted = QUOTED_RE.findall(payload)
     if quoted:
-        payload = " ".join(f"«{q.strip()}»" for q in quoted)
+        marks = ("「", "」") if lang == "zh" else ("«", "»")
+        payload = " ".join(f"{marks[0]}{q.strip()}{marks[1]}" for q in quoted)
     payload = payload.rstrip()
-    if payload.endswith("?"):
-        return f"{prefix}я услышал: {payload}"
-    return f"{prefix}я услышал: {payload} — так?"
+    plain, question = HEARD[lang]
+    if payload.endswith(("?", "？")):
+        return prefix + plain.format(payload=payload)
+    return prefix + question.format(payload=payload)
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Проверить цитаты в карточке сферы")
-    parser.add_argument("card", help="файл карточки")
-    parser.add_argument("--stories", help="папка с рассказами (по умолчанию — рядом с карточкой)")
-    parser.add_argument("--dry-run", action="store_true", help="не править файл, только показать")
+    parser = argparse.ArgumentParser(description="Check the quotes in a domain card")
+    parser.add_argument("card", help="the card file")
+    parser.add_argument("--stories", help="folder with the stories (default: next to the card)")
+    parser.add_argument("--dry-run", action="store_true", help="don't edit the file, only show")
     args = parser.parse_args()
 
     card = Path(args.card)
     if not card.is_file():
-        print(f"нет карточки: {card}")
+        print(f"no such card: {card}")
         return 2
 
     stories_dir = find_stories_dir(card, args.stories)
     if stories_dir is None:
-        print("не нашёл папку stories/ с рассказами — проверять не по чему")
+        print("couldn't find a stories/ folder with the stories — nothing to check against")
         return 2
 
     corpus = load_stories(stories_dir)
     if not corpus:
-        print(f"в {stories_dir} пусто — проверять не по чему")
+        print(f"{stories_dir} is empty — nothing to check against")
         return 2
 
     lines = card.read_text(encoding="utf-8").splitlines()
     total = sum(1 for line in lines if claims(line))
     if not total:
         print(
-            "в карточке нет ни одной строки «ты сказал» / «вы сказали» — проверять нечего; "
-            "либо цитат нет, либо они написаны другими словами. Карточку не показывать."
+            "the card has no \"you said\" line in any of the label languages — nothing to check; "
+            "either there are no quotes, or they are written in other words. Do not show this card."
         )
         return 2
 
@@ -135,18 +156,18 @@ def main() -> int:
             lines[i] = rewrite(line)
 
     if not bad:
-        print(f"цитаты сходятся: {total} из {total} (рассказы: {stories_dir})")
+        print(f"quotes check out: {total} of {total} (stories: {stories_dir})")
         return 0
 
     for number, original, missing in bad:
-        print(f"строка {number}: в рассказах нет — {missing[0].strip()}")
-        print(f"  было:  {original}")
-        print(f"  стало: {lines[number - 1].strip()}")
+        print(f"line {number}: not in the stories — {missing[0].strip()}")
+        print(f"  was:  {original}")
+        print(f"  now:  {lines[number - 1].strip()}")
     if not args.dry_run:
         card.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        print(f"помечено строк: {len(bad)}. Карточка поправлена — показывать можно после чистого прогона.")
+        print(f"lines flagged: {len(bad)}. Card corrected — it may be shown after a clean run.")
     else:
-        print(f"помечено бы строк: {len(bad)} (--dry-run, файл не тронут)")
+        print(f"lines that would be flagged: {len(bad)} (--dry-run, file untouched)")
     return 1
 
 

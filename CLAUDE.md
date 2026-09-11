@@ -2,7 +2,8 @@
 
 Memory + execution + mirror — this folder is where you keep the person you work with.
 
-**👋 Первый раз здесь? Просто напишите `start`.** Дальше всё сделаю я — команд от вас не нужно. До этого папка пустая.
+**👋 First time here? Just type `start`.** I'll do the rest — no commands needed from you. Until then this folder is empty.
+可以用中文跟我说话 · Можно писать по-русски
 
 ## Rules
 1. Result first. Explanation only if asked.
@@ -52,4 +53,4 @@ Feedback → `context/anti-patterns.md` / `context/learned.md`. Loop: `/reflect`
 ## Architecture
 `context/` rules+goals · `rules/` hard rules · `knowledge/` graph+wikilinks · `state/` cross-context · `daily/` notes · `reports/` artifacts · `memory/svoboda/` their stories + domain cards · `inbox/` drop-box.
 
-High-signal. Reply in the language of the latest message.
+High-signal. Speak the language the person writes in; if unsure, ask once. Quotes of their words are never translated.

@@ -3,63 +3,66 @@ type: dashboard
 updated: ""
 ---
 
-# Главная
+# Home
 
-> **Страница пока пустая.** Помощник заполнит её, когда вы пройдёте знакомство — напишите ему `/start`.
-> Рядом: [CLAUDE.md](CLAUDE.md) · [MEMORY.md](MEMORY.md) · [context/](context/) · [daily/](daily/)
+> **This page is still empty.** The assistant fills it in once you have been through onboarding —
+> type `start`.
+> Nearby: [CLAUDE.md](CLAUDE.md) · [MEMORY.md](MEMORY.md) · [context/](context/) · [daily/](daily/)
 
-> _Главное, к чему вы идёте:_ _{{from north_star}}_
+> _The main thing you are heading towards:_ _{{from north_star}}_
 
-## Семь сфер жизни
+## The seven areas of life
 
 ```mermaid
 mindmap
-  root((Жизнь))
-    Саморазвитие — учёба и рост
-    Витальность — тело и силы
-    Окружение — люди рядом
-    Богатство — что для вас достаток
-    Отдых
-    Дело
-    Активы — деньги и имущество
+  root((Life))
+    Self-development — learning and growth
+    Vitality — body and energy
+    Surroundings — people and place
+    Wealth — what "enough" means to you
+    Rest
+    Work
+    Assets — money and property
 ```
 
-_Цифру по сфере помощник ставит сам — и только когда вы рассказали достаточно.
-Пока рассказов мало, вместо цифры так и написано: «об этом не говорили»._
+_The assistant sets the number for an area itself — and only once you have told it enough.
+While there is little to go on, it says so instead of giving a number: "you didn't talk about
+this"._
 
 ---
 
-## Дела
+## Things you're doing
 
-_Чем вы заняты сейчас. Каждая строка ссылается на файл в `knowledge/projects/`
-или на папку `projects/{название}/`, когда она появится._
+_What you are busy with now. Each line points to a file in `knowledge/projects/` or to a folder
+`projects/{name}/` once one exists._
 
-| Дело | Как идёт | Где лежит |
+| Thing | How it's going | Where it lives |
 |------|----------|-----------|
 | _—_ | _—_ | _—_ |
 
 ---
 
-## Записи
+## Notes
 
-_Что вы уже рассказали, разложенное по полкам._
+_What you have already told me, sorted onto shelves._
 
-- Люди → `knowledge/people/`
-- Понятия → `knowledge/concepts/`
-- Инструменты → `knowledge/tools/`
-- Сводные страницы → `knowledge/moc/`
-
----
-
-## Служебное
-
-- На чём остановились → [state/current.md](state/current.md)
-- Что помощнику не повторять → [context/anti-patterns.md](context/anti-patterns.md)
-- Что помощник умеет → `.claude/skills/`
-- Бланки для новых записей → `_templates/`
+- People → `knowledge/people/`
+- Concepts → `knowledge/concepts/`
+- Tools → `knowledge/tools/`
+- Overview pages → `knowledge/moc/`
 
 ---
 
-## Дни
+## Housekeeping
 
-_Сегодняшняя запись: `daily/ГГГГ-ММ-ДД.md`. Всё, что помощник собрал отдельным файлом: `reports/`._
+- Where we stopped → [state/current.md](state/current.md)
+- What the assistant must not repeat → [context/anti-patterns.md](context/anti-patterns.md)
+- What the assistant can do → `.claude/skills/`
+- Blank forms for new notes → `_templates/`
+
+---
+
+## Days
+
+_Today's note: `daily/YYYY-MM-DD.md`. Everything the assistant put together as a separate file:
+`reports/`._

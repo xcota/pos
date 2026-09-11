@@ -17,24 +17,26 @@ Distilled from a clinical emotion catalog (a ~66-emotion + body-feeling taxonomy
 
 ## Emotion families (14)
 
-A "reach" = naming a felt **state**, not an outcome or a cognitive verdict.
+A "reach" = naming a felt **state**, not an outcome or a cognitive verdict. The example tokens are
+in English; score whatever language the person actually speaks — what matters is the family, not
+the word list.
 
-| # | Family | Example tokens (RU) | Notes |
-|---|--------|---------------------|-------|
-| 1 | Радость / подъём | радость, восторг, кайф, воодушевление, эйфория | high-arousal positive |
-| 2 | Покой / удовлетворённость | спокойствие, умиротворение, довольство, расслабленность | low-arousal positive — often absent in driven people |
-| 3 | Нежность / любовь | нежность, тепло, привязанность, влюблённость, умиление | attachment-positive |
-| 4 | Благодарность | благодарность, признательность, тронут | prosocial — telling when absent |
-| 5 | Интерес / азарт | любопытство, увлечённость, азарт, предвкушение | drive-positive — usually present in builders |
-| 6 | Гордость / уверенность | гордость, уверенность, удовлетворение собой | agency-positive |
-| 7 | Грусть / печаль | грусть, печаль, тоска, уныние, горе | low-arousal negative |
-| 8 | Одиночество / тоска по | одиночество, заброшенность, тоска по кому-то | distinct from #7 — feed Layer 4 |
-| 9 | Страх / тревога | страх, тревога, беспокойство, паника, опасение | threat-negative |
-| 10 | Стыд / вина | стыд, вина, смущение, неловкость, сожаление | self-conscious — heavily suppressed in many |
-| 11 | Злость / гнев | раздражение, злость, гнев, ярость, возмущение | feed Layer 5; outcome-substitution common here |
-| 12 | Отвращение / презрение | отвращение, брезгливость, презрение | boundary-negative |
-| 13 | Зависть / ревность | зависть, ревность, обида | comparative — rarely volunteered, high-signal |
-| 14 | Перегруз / опустошение | перегрузка, истощение, апатия, пустота, оцепенение, отупение | the "норм/не норм/перегрузка" floor — if this is the ONLY register reached, granularity is low |
+| # | Family | Example tokens | Notes |
+|---|--------|----------------|-------|
+| 1 | Joy / elation | joy, delight, buzz, excitement, euphoria | high-arousal positive |
+| 2 | Calm / contentment | calm, peace, contentment, relaxed | low-arousal positive — often absent in driven people |
+| 3 | Tenderness / love | tenderness, warmth, affection, being in love, melting | attachment-positive |
+| 4 | Gratitude | grateful, thankful, moved, touched | prosocial — telling when absent |
+| 5 | Interest / drive | curiosity, absorption, eagerness, anticipation | drive-positive — usually present in builders |
+| 6 | Pride / confidence | pride, confidence, satisfaction with oneself | agency-positive |
+| 7 | Sadness / sorrow | sadness, sorrow, grief, gloom, heaviness | low-arousal negative |
+| 8 | Loneliness / longing | loneliness, abandonment, missing someone | distinct from #7 — feed Layer 4 |
+| 9 | Fear / anxiety | fear, anxiety, worry, panic, dread | threat-negative |
+| 10 | Shame / guilt | shame, guilt, embarrassment, awkwardness, regret | self-conscious — heavily suppressed in many |
+| 11 | Anger | irritation, anger, rage, fury, indignation | feed Layer 5; outcome-substitution common here |
+| 12 | Disgust / contempt | disgust, revulsion, contempt | boundary-negative |
+| 13 | Envy / jealousy | envy, jealousy, resentment | comparative — rarely volunteered, high-signal |
+| 14 | Overload / depletion | overload, exhaustion, apathy, emptiness, numbness, blankness | the "fine / not fine / overloaded" floor — if this is the ONLY register reached, granularity is low |
 
 ## Body-signal channels (8)
 
@@ -42,21 +44,21 @@ Interoception map. A subject who narrates feeling only through #14-floor words b
 
 | # | Channel | Example signals |
 |---|---------|-----------------|
-| 1 | Грудь | сжатие / тяжесть / распирание / открытость в груди |
-| 2 | Горло | ком, сжатие, перехват |
-| 3 | Живот / нутро | узел, сосёт, бабочки, провал, тошнота |
-| 4 | Голова | давление, туман, лёгкость, звон |
-| 5 | Плечи / шея | напряжение, зажим, тяжесть |
-| 6 | Дыхание | поверхностное / задержка / свободное / сбитое |
-| 7 | Температура / энергия | жар, холод, мурашки, разряженность, гудит |
-| 8 | Мышечный тонус | сжатые кулаки/челюсть, расслабленность, не усидеть |
+| 1 | Chest | tightness / heaviness / bursting / openness in the chest |
+| 2 | Throat | a lump, closing up, catching |
+| 3 | Stomach / gut | a knot, a pull, butterflies, dropping, nausea |
+| 4 | Head | pressure, fog, lightness, ringing |
+| 5 | Shoulders / neck | tension, clamping, weight |
+| 6 | Breathing | shallow / held / free / broken |
+| 7 | Temperature / energy | heat, cold, goosebumps, discharged, humming |
+| 8 | Muscle tone | clenched fists or jaw, relaxed, can't sit still |
 
 ## Reading the map
 
 - **Wide families + precise body channels + control** → integrated EI. Note as strength.
-- **Floor-only (#14) + few channels** → low granularity. NOT a deficit to "fix" (not therapy) — a structural fact: feeds the Эмоциональная архитектура section and likely a tag for how the subject relates to their own affect.
+- **Floor-only (#14) + few channels** → low granularity. NOT a deficit to "fix" (not therapy) — a structural fact: feeds the Emotional architecture section and likely a tag for how the subject relates to their own affect.
 - **v3.2 — on the floor register, distinguish two very different reads:** an *even, neutral baseline* (steady positive/negative tone, just low resolution) vs a *muted/flattened affect* (a dampened tone that reads as defended-down rather than simply low-resolution — e.g. early environments that punished or never named feeling can leave this). Same floor-only vocabulary, opposite meaning — the second is a genesis signal to trace, not just low granularity. This is the entire affective-set-point add; no PA/NA axis, no PANAS.
-- **Outcome-substitution tell** (describes #1/#11/#7 only via results — "я был продуктивен", "я просто закрыл вопрос") → emotions processed as data. Highest-value Layer 1 finding; corroborate with Layer 2 (motivation) and Layer 3 (loss).
+- **Outcome-substitution tell** (describes #1/#11/#7 only via results — "I was productive", "I just closed it out") → emotions processed as data. Highest-value Layer 1 finding; corroborate with Layer 2 (motivation) and Layer 3 (loss).
 - **One conspicuously absent family** that the events clearly contained → suppression. Route to the matching deep layer (anger→L5, loss/sadness→L3, loneliness→L4).
 
 Coverage is a snapshot like everything else — re-score on `resynthesize`; a widening map over time is itself data (deltas).

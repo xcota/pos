@@ -1,662 +1,658 @@
-# СВОБОДА — запасные вопросы (на случай пустого листа)
+# Questions bank — fallback prompts for a blank page
 
-Источник: методология СВОБОДА (воркбук, 7 доменов).
-Назначение: fallback при синдроме пустого листа — когда человек не знает что говорить о сфере.
-НЕ использовать как анкету. Агент ведёт разговор органически, вопросы — для вдохновения.
+**This file is a questions bank, not a script.** Source: the seven-domain methodology (workbook).
+Purpose: a fallback for blank-page syndrome — when the person doesn't know what to say about an
+area. NOT to be used as a questionnaire. The agent leads the conversation organically; these
+questions are there for inspiration. Ask them in the language the person writes in, in your own
+words, one or two at a time.
 
-**Просить человека оценить себя нельзя** — ни цифрой, ни «как вы оцениваете…». Здесь остались
-только вопросы о фактах: что было, когда, сколько, с кем. Цифру по сфере ставит агент сам и
-показывает на проверку (см. Phase 1 в SKILL.md).
+**Asking the person to rate themselves is forbidden** — not with a number, not with "how would you
+rate…". Only questions about facts are left here: what happened, when, how much, with whom. The
+number for an area is set by the agent and shown for checking (see Phase 1 in SKILL.md).
 
-**Эзотерики здесь нет и быть не должно.** Вопросов про таро, матрицу судьбы, дизайн
-человека, «духовные практики» и энергии не задаём — ни своими словами, ни отсюда.
-Про самопознание спрашиваем фактами: что человек делает, когда хочет разобраться в себе.
+**There is no esoterica here and there must not be.** No questions about tarot, destiny matrices,
+human design, "spiritual practices" or energies — neither in your own words nor from this file.
+Self-knowledge is asked about through facts: what the person does when they want to understand
+themselves.
 
-## САМОРАЗВИТИЕ
+## SELF-DEVELOPMENT (samorazvitie)
 
-- Обучение / образование
-- Базовое образование: на кого и где вы учились?
-- Какое дополнительное обучение (курсы, тренинги) вы прошли за последние 1-3 года?
-- Какое самое последнее обучение вы прошли?
-- Что интересного вы изучили / узнали за последнее время?
-- Что активно изучаете и хотите изучать?
-- Сколько денег вы вложили в свое дополнительное обучение?
-- Какие знания/навыки вы хотите изучить/получить, но постоянно откладываете?
-- Какие у вас есть уникальные знания?
-- Какой у вас есть особенный опыт?
-- Что вы можете делать легко, долго и с удовольствием?
-- Какие 10 вещей вам нравится делать?
-- Что по вашему может помочь вам развиваться быстрее?
-- Навыки
-- Какие у вас есть навыки? Что вы умеете делать отлично?
-- Какие 10 навыков и компетенций вы развиваете и/или хотите развивать?
-- Какие навыки вы хотите получить, но постоянно откладываете?
-- Потребляемый контент
-- Какую музыку вы слушаете и любите?
-- Какая музыка вас вдохновляет?
-- Какие фильмы и сериалы вы смотрите и любите?
-- Какие книги, статьи или ресурсы по саморазвитию вам нравятся?
-- О чем вы читали бы часами?
-- Какие книги вы прочитали за последний 1 год?
-- Какие книги изменили вашу жизнь?
-- Хобби
-- Какое у вас есть хобби сейчас?
-- Каким хобби вы занимались в детстве?
-- Каким хобби хотите заниматься, но постоянно откладываете или не можете себе позволить?
-- Самоорганизация и эффективность
-- Как вы организуете свой день?
-- Как планируете свои дела?
-- Какие используете приложения и сервисы для планирования и учета задач?
-- Техники достижения целей
-- Какая у вас великая цель?
-- Ведете список целей?
-- Расписываете подробно цели со сроками, деталями и стоимостью?
-- Создавали ранее или создаете каждый год карту желаний?
-- Самоанализ и рефлексия
-- Как вы рефлексируете о своем прошлом опыте и событиях в вашей жизни?
-- Какие аспекты вашей личности или жизни вы обычно анализируете в процессе саморефлексии?
-- Какие есть ситуации или моменты, когда вы предпочитаете проводить самоанализ?
-- Ведете ли вы дневник или записываете свои мысли и чувства для самопознания?
-- Как вы разбираетесь в себе
-- Чем вы занимаетесь, когда хотите разобраться в себе?
-- Что из этого вы делаете регулярно, а что бросили?
-- Как вы относитесь к обратной связи о себе от других людей?
-- Какие книги, курсы или приложения вам в этом пригодились?
-- Творчество
-- Каким творчеством вы занимаетесь сейчас?
-- Каким творчеством вы занимались в детстве?
-- Каким творчеством хотите заниматься, но постоянно откладываете или не можете себе позволить?
-- Чего общего у вашего хобби/творчество с вашей основной деятельностью?
-- Чем бы вы занимались, если бы вам вообще не нужны были деньги?
-- Чем еще вы увлекаетесь и занимаетесь помимо работы?
+- Learning / education
+- Formal education: what did you study, and where?
+- What extra training (courses, workshops) have you done in the last 1–3 years?
+- What was the most recent thing you trained in?
+- What interesting thing have you learned or found out lately?
+- What are you actively studying, and what do you want to study?
+- How much money have you put into your own extra training?
+- What knowledge or skills do you want to learn but keep putting off?
+- What unique knowledge do you have?
+- What unusual experience do you have?
+- What can you do easily, for a long time, and with pleasure?
+- What are 10 things you enjoy doing?
+- What, in your view, could help you develop faster?
+- Skills
+- What skills do you have? What do you do really well?
+- What 10 skills and competencies are you developing or want to develop?
+- What skills do you want to acquire but keep putting off?
+- Content you consume
+- What music do you listen to and love?
+- What music inspires you?
+- What films and series do you watch and love?
+- What books, articles or resources on personal development do you like?
+- What would you read about for hours?
+- What books have you read in the last year?
+- What books changed your life?
+- Hobbies
+- What hobby do you have right now?
+- What hobbies did you have as a child?
+- What hobby do you want to take up but keep putting off or can't afford?
+- Self-organization and effectiveness
+- How do you organize your day?
+- How do you plan what you have to do?
+- What apps and services do you use to plan and track tasks?
+- Goal-setting techniques
+- What is your big goal?
+- Do you keep a list of goals?
+- Do you write goals out in detail, with deadlines, specifics and costs?
+- Have you made, or do you make each year, a vision board?
+- Self-analysis and reflection
+- How do you reflect on your past experience and on events in your life?
+- Which aspects of your personality or your life do you usually analyze when you reflect?
+- Are there situations or moments when you prefer to do that self-analysis?
+- Do you keep a journal or write down your thoughts and feelings to understand yourself?
+- How you work yourself out
+- What do you do when you want to understand yourself?
+- Which of those do you do regularly, and which did you drop?
+- How do you take feedback about yourself from other people?
+- Which books, courses or apps have been useful for that?
+- Creativity
+- What creative work do you do now?
+- What creative work did you do as a child?
+- What creative work do you want to do but keep putting off or can't afford?
+- What does your hobby or creative work have in common with your main occupation?
+- What would you do if you didn't need money at all?
+- What else are you into and busy with besides work?
 
-## ВИТАЛЬНОСТЬ
+## VITALITY (vitalnost)
 
-- Мысли и гибкость мышления
-- О чем вы думаете в первую очередь, когда просыпаетесь утром?
-- Как вы относитесь к новым идеям?
-- Когда в последний раз вы испытывали восторг и от чего?
-- Как вы реагируете на неожиданные или непредвиденные ситуации?
-- Как вы обычно реагируете на конструктивную критику или отклонение ваших идей?
-- Когда в последний раз резко менялись условия — что вы тогда сделали в первые дни?
-- Как вы преодолеваете трудности или препятствия в своей жизни или работе?
-- Какие практики или упражнения вы применяете для развития гибкости мышления?
-- Психологическое состояние
-- Как можешь описать свое текущее психологическое состояние?
-- Какие эмоции или чувства вы часто переживаете в последнее время?
-- Как вы обычно справляетесь со стрессом или негативными эмоциями?
-- Как часто вы испытываете стресс и от чего?
-- Как вы реагируете на стрессовые ситуации или переживания?
-- Какие методы и практики вы используете для поддержания своего психологического благополучия?
-- Здоровье и ощущения в теле
-- Что с телом сейчас: что болит, что мешает, что проверяли последний раз?
-- Какие у вас ощищуения в теле? Какое состояние сейчас?
-- Что вас беспокоит в теле постоянно? Что у вас болит в теле постоянно?
-- Что по здоровью/спорту/красоте вы давно хотели сделать, но постоянно откладываете?
-- В каком состоянии ваши зубы?
-- В каком состоянии ваше зрение?
-- Как вы ухаживаете за своим физическим здоровьем и самочувствием?
-- Спорт и физическая активности
-- Какие практики или ритуалы вы используете для улучшения физического состояния в теле?
-- Каким спортом вы сейчас занимаетесь?
-- Каким спортом вы занимались ранее по жизни?
-- Каким спортом вы занималить в детстве?
-- Каким спортом хотелось бы заниматься, но постоянно откладываете или не можете себе позволить?
-- Что вам дает спорт?
-- Какие у вас есть спортивные цели?
-- Какие у вас есть спортивные достижения?
-- Что у вас отнимает спорт?
-- Какие у вас есть проблемы/травмы, связанные со спортом?
-- Образ жизни
-- Есть ли у вас лишний/недостаточный вес?
-- Какие есть вредные привычки, пагубно влияющие на здоровье? 
-(фастфуд, сладкое, кофе, алкоголь, курение, наркотики)
-- Как появились эти вредные привычки?
-- Пробовали когда-то наркотики?
-- Употребляете ли сейчас наркотики/курите травку (даже иногда или по праздникам)?
-- В чем вы сейчас себя цененаправлено ограничиваете? (диеты, курение, алкоголь)
-- Энергия жизни и энергетические действия
-- Как вы описываете свой уровень энергии и выносливости в течение дня?
-- Перечислите все, что вас сейчас вдохновляет, интересует, заставляет чувствовать себя живым?
-- Какая музыка, звук - создает ритм жизни, заряжает?
-- Как вы описываете свой уровень мотивации и энергии для выполнения повседневных задач?
-- Что вас мотивирует сейчас?
-- Питание домашнее и общепит
-- Какие продукты покупаете домой?
-- Как вы выбираете продукты для своего домашнего потребления?
-- Какие продукты или блюда обычно входят в ваш рацион на каждый день?
-- Какие кафе/рестораны посещаете?
-- Что вы чаще всего заказываете в меню?
-- Что вы ели вчера — с утра и до вечера?
-- Какие кулинарные привычки или рецепты вы унаследовали от своей семьи или культуры?
-- Какие изменения в вашем рационе или пищевых привычках вы хотели бы внести для улучшения своего здоровья или самочувствия?
-- Как вы относитесь к употреблению мяса и другой животной пище?
-- Как вы относитесь к вегатерианству и вегантству и употреблению растительной пищи?
-- Витамины и добавки
-- Как часто вы сдаете анализы?
-- Используете ли вы витаминные комплексы или пищевые добавки, и если да, какие и с какой целью?
-- Как вы определяете, какие витамины или пищевые добавки вам нужны?
-- Что из добавок принимаете сейчас, что бросили и почему?
-- График дня и сон
-- Во сколько легли и встали за последнюю неделю, сколько раз просыпались?
-- Во сколько вы просыпаетесь? По будильнику или без?
-- Во сколько вы ложитесь спать?
-- Как вы организуете свой вечер перед сном? Есть ли какие-то ритуалы или привычки, которые помогают вам расслабиться и заснуть?
-- Как ваша работа или учеба влияют на ваш график сна и качество вашего сна?
-- Как вы относитесь к дневному сну или коротким дремотам в течение дня?
+- Thinking and mental flexibility
+- What do you think about first when you wake up in the morning?
+- How do you react to new ideas?
+- When did you last feel real delight, and at what?
+- How do you react to unexpected or unplanned situations?
+- How do you usually react to constructive criticism or to your ideas being turned down?
+- The last time conditions changed sharply — what did you do in the first few days?
+- How do you get through difficulties or obstacles in your life or work?
+- What practices or exercises do you use to develop flexible thinking?
+- Psychological state
+- How would you describe your current psychological state?
+- What emotions or feelings have you been having a lot lately?
+- How do you usually deal with stress or negative emotions?
+- How often do you feel stressed, and by what?
+- How do you react to stressful situations or experiences?
+- What methods and practices do you use to look after your mental wellbeing?
+- Health and body sensations
+- What's going on with your body right now: what hurts, what gets in the way, what was last checked?
+- What sensations do you have in your body? What state is it in now?
+- What bothers you in your body constantly? What hurts constantly?
+- What health / sport / appearance thing have you long wanted to do but keep putting off?
+- What condition are your teeth in?
+- What condition is your eyesight in?
+- How do you look after your physical health and wellbeing?
+- Sport and physical activity
+- What practices or rituals do you use to improve your physical condition?
+- What sport do you do now?
+- What sport have you done earlier in life?
+- What sport did you do as a child?
+- What sport would you like to do but keep putting off or can't afford?
+- What does sport give you?
+- What sporting goals do you have?
+- What sporting achievements do you have?
+- What does sport take from you?
+- What problems or injuries do you have connected to sport?
+- Lifestyle
+- Are you over- or underweight?
+- What bad habits do you have that harm your health? (fast food, sugar, coffee, alcohol, smoking, drugs)
+- How did those habits start?
+- Have you ever tried drugs?
+- Do you use drugs or smoke weed now (even occasionally or on holidays)?
+- What are you deliberately restricting right now? (diets, smoking, alcohol)
+- Life energy and what generates it
+- How would you describe your energy and stamina through the day?
+- List everything that inspires you right now, interests you, makes you feel alive.
+- What music or sound sets the rhythm of your life and charges you?
+- How would you describe your motivation and energy for everyday tasks?
+- What motivates you right now?
+- Food at home and eating out
+- What food do you buy for home?
+- How do you choose what you eat at home?
+- What foods or dishes are usually in your everyday diet?
+- What cafés and restaurants do you go to?
+- What do you order most often?
+- What did you eat yesterday — from morning to evening?
+- What cooking habits or recipes did you inherit from your family or culture?
+- What changes to your diet or eating habits would you like to make for your health or wellbeing?
+- How do you feel about eating meat and other animal products?
+- How do you feel about vegetarianism, veganism and plant-based food?
+- Vitamins and supplements
+- How often do you get blood work done?
+- Do you use vitamin complexes or supplements, and if so, which and what for?
+- How do you decide which vitamins or supplements you need?
+- Which supplements are you taking now, which did you drop, and why?
+- Daily schedule and sleep
+- What time did you go to bed and get up over the last week, and how often did you wake up?
+- What time do you wake up? With an alarm or without?
+- What time do you go to bed?
+- How do you set up your evening before sleep? Any rituals or habits that help you relax and fall asleep?
+- How do your work or studies affect your sleep schedule and sleep quality?
+- How do you feel about daytime naps?
 
-## ОКРУЖЕНИЕ
+## SURROUNDINGS (okruzhenie)
 
-- Место жительства и среда вокруг
-- Где вы живёте и что в этом месте вы бы поменяли первым?
-- Что в вашем окружении вы хотите изменить для улучшения вашего качества жизни?
-- Какие аспекты места жительства вы считаете наиболее важными для благополучия и комфорта?
-- Что вокруг вас шумит и мешает, а где получается тишина?
-- Как вы взаимодействуете с вашими соседями или сообществом в вашем районе?
-- Опишите вашу рабочую среду? Как она влияет на вашу продуктивность и настроение?
-- Какие аспекты природной среды (парки, леса, водоемы и т. д.) вы предпочитаете для расслабления и отдыха?
-- Как вы справляетесь с загрязнением или недостатком чистоты в вашей среде?
-- Какие изменения в окружении могли бы повлиять на ваше психологическое состояние и общее благополучие?
-- Какие планы или шаги вы рассматриваете для улучшения вашего окружения и места, где вы живете или работаете?
-- Где бы вы хотели жить? (город, страна)
-- Отношения с людьми
-- С кем вы разговаривали на этой неделе не по делу?
-- Какие типы отношений (семейные, дружеские, профессиональные и т. д.) вам ближе всего, и почему?
-- Какие у вас сейчас есть отношения?
-- Напишите 5-10 человек, с которыми вы общаетесь сейчас больше всего?
-- За какие советы и рекомендации люди ценят вас?
-- Вопрос для одиноких волков и волчиц. Что хотелось бы поменять в своей текущей жизни относительно взаимоотношений с противоположным полом?
-- Как вы реагируете на конфликты или разногласия в отношениях?
-- Как вы реагируете на негативные или токсичные отношения?
-- Как вы поддерживаете связь с друзьями или близкими, особенно если вы находитесь на расстоянии друг от друга?
-- Вспомните случай, когда вы поняли состояние человека раньше, чем он сказал — что вы заметили?
-- Какие изменения вы хотели бы внести в отношения с людьми для их улучшения или развития?
-- Отношения с партнером / мужем / женой
-- Какие у вас сейчас отношения?
-- Что для вас любовь? Как человек должен ее проявлять по вашему?
-- Хватает ли вам время на жену/мужа?
-- Что есть такого в семье и отношениях, что вы долго откладывали и не делали?
-- Что бы вы изменили / что вас не устраивает в партнере, в семье и отношениях?
-- За что вы благодарны своему партнеру? Чему он вас учит?
-- Кто за что отвечает в вашей паре?
-- Что самое романтичное происходило в вашей жизни с партнером?
-- Кто первый идет на встречу при конфликтах?
-- Чего вы никогда не сможете простить?
-- Ревнивый ли вы человек?  Ревнивый ли ваш партнер? Как боретесь, если оба ревнивые?
-- Связь с бывшим партнером  / мужем / женой
-- Вас когда-нибудь бросали в отношениях? Какие это вызвало эмоции?
-- Как вы взаимодействуете с бывшим партнером / мужем / женой после разрыва отношений?
-- За что вы благодарны бывшему партнеру? Чему он вас научил?
-- Какие границы или правила вы устанавливаете для себя при общении с бывшим партнером/мужем/женой?
-- Какие аспекты вашей бывшей связи вы хотели бы сохранить или изменить в вашем текущем общении?
-- Как вы смотрите на возможность дружбы с бывшим партнером/мужем/женой?
-- Какие стратегии или подходы вы используете, чтобы поддерживать здоровые и уважительные отношения с бывшим партнером/мужем/женой?
-- Взаимодействие с детьми
-- Что вы делали вместе с детьми за последний месяц?
-- Хватает ли вам время на взаимодействие с детьми?
-- Как вы проводите время с детьми в вашей жизни? Какие активности вы предпочитаете делать вместе?
-- Как вы обычно реагируете на эмоциональные или поведенческие проявления детей?
-- Как вы поддерживаете связь с детьми в вашей семье или окружении?
-- Какие методы воспитания и обучения детей вы предпочитаете?
-- Как вы обеспечиваете эмоциональную поддержку и безопасную обстановку для детей?
-- Как вы реагируете на конфликты или непонимание с детьми?
-- Как вы стимулируете творческое мышление и развитие у детей?
-- Как вы поддерживаете детей в их учебе и развитии?
-- Какие изменения в вашем взаимодействии с детьми вы считаете желательными для улучшения отношений и их развития?
-- Отношения с родителями
-- Когда вы в последний раз общались с родителями и о чём был разговор?
-- Как вы проводите время с родителями?
-- Опишите свою эмоциональную связь с мамой?
-- Опишите свою эмоциональную связь с папой?
-- Как вы реагируете на советы или критику от ваших родителей?
-- Как вы поддерживаете связь с родителями, если вы находитесь на расстоянии друг от друга?
-- Как вы обычно разрешаете конфликты или непонимание с родителями?
-- Какие ценности или убеждения вы разделяете с вашими родителями?
-- Как вы поддерживаете родителей в их нуждах или заботах, если таковые есть?
-- Какие изменения в отношении к родителям вы считаете желательными для улучшения отношений?
-- Хотители вы помогать родителям финансово?
-- Связь с родственниками
-- С кем из родни вы общаетесь чаще всего и по какому поводу?
-- Как вы проводите время с вашими родственниками?
-- Как вы реагируете на конфликты или разногласия с родственниками?
-- Как вы поддерживаете связь с родственниками?
-- Как вы относитесь к традициям и обычаям вашей семьи или родственников?
-- Как вы реагируете на советы или критику от ваших родственников?
-- Какие изменения в вашем общении с родственниками вы считаете желательными для улучшения отношений и общего благополучия?
-- Хотите ли вы помочь родственникам?
-- Связь с друзьями
-- Как вы определяете значение дружбы в вашей жизни? Что для вас дружба?
-- Кто твой ближайший друг?
-- За что вы уважаете своего близкого друга?
-- Какое самое нелепое совместное воспоминание, связанное с другом?
-- Какую самую интересную историю вы прошли вместе?
-- Когда друг сделал для вас что-то очень крутое и приятное?
-- Были моменты, когда друг вытащил вас "со дна"?
-- Какие качества вы цените в своих друзьях, и почему?
-- Как вы обычно поддерживаете связь с вашими друзьями?
-- Как вы проводите время вместе со своими друзьями?
-- Как вы реагируете на конфликты или разногласия с вашими друзьями?
-- Как вы устанавливаете границы и поддерживаете здоровые отношения с вашими друзьями?
-- За чем к вам обращаются знакомые и друзья?
-- Работа с единомышленниками
-- Как вы определяете единомышленников в вашей области деятельности или интересах?
-- Как вы поддерживаете связь с вашими единомышленниками и подписчиками?
-- Какие виды активностей или мероприятий вы предпочитаете организовывать для вашего сообщества единомышленников?
-- Как вы взаимодействуете с вашими подписчиками в социальных сетях или онлайн-платформах?
-- Как вы реагируете на обратную связь или предложения от ваших единомышленников и подписчиков?
-- Какие планы или цели вы ставите перед собой в отношении развития вашего сообщества единомышленников?
-- Как вы поддерживаете доверие и уважение в отношениях с вашими единомышленниками и подписчиками?
-- Что вы делали для своей аудитории за последний месяц и что она в ответ сделала?
-- Какие стратегии или подходы вы используете для увеличения числа единомышленников и подписчиков, а также для укрепления связи с существующими?
-- О чем спрашивают подписчики?
-- Работа в команде
-- Какие у вас отношения с командой?
-- Что в команде делаете именно вы, чего не делает никто другой?
-- Как вы обычно устанавливаете контакт и сотрудничество с другими членами команды?
-- Как вы реагируете на конфликты или разногласия в команде? Как вы их разрешаете?
-- Как вы поддерживаете коммуникацию и обмен информацией в вашей команде?
-- Как вы стимулируете мотивацию и эффективность работы команды?
-- Как вы поддерживаете доверие и уважение в отношениях с другими членами команды?
-- Какие практики или стратегии вы используете для улучшения сотрудничества и результативности работы вашей команды?
-- Поддержка (бадди, 10ка, сообщество)
-- Как и где вы находите поддержку или помощь?
-- Кто из окружения активно вас поддержикает?
-- Чья поддержка тебе необходима и важна?
-- Какие люди тебя вдохновляют больше всего?
-- Кто из окружения гордится тобой?
-- Кто поддерживал тебя в начале пути?
-- Какие методы поддержки вы используете?
-- Как вы поддерживаете своего партнера в его личных целях и стремлениях?
-- Какие стратегии вы используете для решения конфликтов или трудностей в отношениях?
-- Когда близкому было плохо — что вы конкретно сделали?
-- Есть ли у вас "бадди" и нужен ли он вам?
-- Как вы поддерживаете вашего "бадди" в его личных и профессиональных усилиях?
-- Какие преимущества вы видите в партнерстве или "бадди" в сравнении с индивидуальной работой?
-- Какие практики или стратегии вы используете для развития поддерживающего и заботливого сообщества вокруг себя?
-- Знакомства и социальные связи
-- С кем вы познакомились за последние полгода и как это вышло?
-- Как вы предпочитаете находить новых друзей или знакомых?
-- Как вы обычно настраиваетесь на социальные встречи или мероприятия?
-- Как вы поддерживаете связь с вашими новыми знакомыми после первой встречи или знакомства?
-- Какие планы или шаги вы предпринимаете для расширения вашего круга общения и углубления социальных связей?
-- Источники коммуникации и делового общения
+- Where you live and the environment around you
+- Where do you live, and what would you change about the place first?
+- What in your surroundings do you want to change to improve your quality of life?
+- Which aspects of where you live do you consider most important for wellbeing and comfort?
+- What around you is noisy and in the way, and where do you actually get quiet?
+- How do you interact with your neighbours or the community in your area?
+- Describe your work environment. How does it affect your productivity and mood?
+- Which aspects of nature (parks, forests, water) do you prefer for relaxing and resting?
+- How do you deal with pollution or lack of cleanliness in your environment?
+- What changes in your surroundings could affect your psychological state and general wellbeing?
+- What plans or steps are you considering to improve your surroundings and the place you live or work in?
+- Where would you like to live? (city, country)
+- Relationships with people
+- Who have you talked to this week about something other than business?
+- Which kinds of relationships (family, friends, professional, etc.) are closest to you, and why?
+- What relationships do you have right now?
+- Write down 5–10 people you communicate with most right now.
+- What advice and recommendations do people value you for?
+- A question for the lone wolves. What would you like to change in your current life regarding relationships with the opposite sex?
+- How do you react to conflicts or disagreements in relationships?
+- How do you react to negative or toxic relationships?
+- How do you keep in touch with friends or people close to you, especially at a distance?
+- Recall a time you understood someone's state before they said it — what did you notice?
+- What changes would you like to make in your relationships with people, to improve or develop them?
+- Relationship with a partner / husband / wife
+- What relationship are you in right now?
+- What is love to you? How should a person show it, in your view?
+- Do you have enough time for your wife/husband?
+- What in your family and relationship have you long put off and not done?
+- What would you change, or what doesn't suit you, in your partner, your family, your relationship?
+- What are you grateful to your partner for? What do they teach you?
+- Who is responsible for what in your couple?
+- What is the most romantic thing that has happened in your life with your partner?
+- Who makes the first move after a conflict?
+- What could you never forgive?
+- Are you a jealous person? Is your partner? How do you deal with it if you both are?
+- Connection with a former partner / husband / wife
+- Have you ever been left in a relationship? What emotions did it bring up?
+- How do you interact with a former partner after a break-up?
+- What are you grateful to your ex for? What did they teach you?
+- What boundaries or rules do you set for yourself when talking to an ex?
+- What parts of that former connection would you like to keep or change in how you talk now?
+- How do you view the possibility of friendship with an ex?
+- What strategies or approaches do you use to keep the relationship with an ex healthy and respectful?
+- Interacting with children
+- What did you do together with your children over the last month?
+- Do you have enough time to spend with your children?
+- How do you spend time with the children in your life? What activities do you prefer to do together?
+- How do you usually react to children's emotional or behavioural expressions?
+- How do you keep in touch with the children in your family or circle?
+- What approaches to raising and teaching children do you prefer?
+- How do you provide emotional support and a safe setting for children?
+- How do you react to conflicts or misunderstandings with children?
+- How do you encourage creative thinking and development in children?
+- How do you support children in their studies and development?
+- What changes in how you interact with children would you consider desirable, for the relationship and for their development?
+- Relationship with parents
+- When did you last speak to your parents, and what was the conversation about?
+- How do you spend time with your parents?
+- Describe your emotional connection with your mother.
+- Describe your emotional connection with your father.
+- How do you react to advice or criticism from your parents?
+- How do you keep in touch with your parents if you live far apart?
+- How do you usually resolve conflicts or misunderstandings with your parents?
+- What values or beliefs do you share with your parents?
+- How do you support your parents in their needs or worries, if any?
+- What changes in your relationship with your parents would you consider desirable?
+- Do you want to help your parents financially?
+- Connection with relatives
+- Which relative do you talk to most often, and about what?
+- How do you spend time with your relatives?
+- How do you react to conflicts or disagreements with relatives?
+- How do you keep in touch with relatives?
+- How do you feel about the traditions and customs of your family or relatives?
+- How do you react to advice or criticism from relatives?
+- What changes in how you communicate with relatives would you consider desirable, for the relationships and for general wellbeing?
+- Do you want to help your relatives?
+- Connection with friends
+- How do you define what friendship means in your life? What is friendship to you?
+- Who is your closest friend?
+- What do you respect your close friend for?
+- What is the most absurd shared memory you have with a friend?
+- What is the most interesting story you went through together?
+- When did a friend do something really great and kind for you?
+- Have there been moments when a friend pulled you off the bottom?
+- What qualities do you value in your friends, and why?
+- How do you usually keep in touch with your friends?
+- How do you spend time together with your friends?
+- How do you react to conflicts or disagreements with your friends?
+- How do you set boundaries and keep relationships with your friends healthy?
+- What do acquaintances and friends come to you for?
+- Working with like-minded people
+- How do you identify like-minded people in your field or your interests?
+- How do you keep in touch with your like-minded people and followers?
+- What kinds of activities or events do you prefer to organize for your community?
+- How do you interact with your followers on social networks or online platforms?
+- How do you react to feedback or suggestions from your like-minded people and followers?
+- What plans or goals do you set for yourself regarding growing your community?
+- How do you maintain trust and respect in your relationships with your community and followers?
+- What did you do for your audience over the last month, and what did they do in return?
+- What strategies or approaches do you use to grow the number of like-minded people and followers, and to strengthen the connection with the existing ones?
+- What do your followers ask about?
+- Working in a team
+- What is your relationship with your team like?
+- What do you do in the team that nobody else does?
+- How do you usually establish contact and cooperation with other team members?
+- How do you react to conflicts or disagreements in the team? How do you resolve them?
+- How do you maintain communication and information sharing in your team?
+- How do you support motivation and effectiveness in the team's work?
+- How do you maintain trust and respect in your relationships with other team members?
+- What practices or strategies do you use to improve your team's cooperation and results?
+- Support (a buddy, a small circle, a community)
+- How and where do you find support or help?
+- Who around you actively supports you?
+- Whose support do you need and value?
+- Which people inspire you most?
+- Who around you is proud of you?
+- Who supported you at the beginning of your path?
+- What ways of supporting others do you use?
+- How do you support your partner in their personal goals and aspirations?
+- What strategies do you use to resolve conflicts or difficulties in relationships?
+- When someone close was in a bad way — what exactly did you do?
+- Do you have a "buddy", and do you need one?
+- How do you support your buddy in their personal and professional efforts?
+- What advantages do you see in partnership or a buddy compared to working alone?
+- What practices or strategies do you use to grow a supportive and caring community around you?
+- Meeting people and social ties
+- Who have you met in the last six months, and how did that happen?
+- How do you prefer to find new friends or acquaintances?
+- How do you usually get yourself ready for social meetings or events?
+- How do you keep in touch with new acquaintances after a first meeting?
+- What plans or steps are you taking to widen your circle and deepen your social ties?
+- Channels of communication and business contact
+- What channels do you usually use to build new social ties?
+- Which professional or business events do you prefer to attend to widen your circle?
+- How do you use social networks or online platforms to find new social ties?
+- What strategies or approaches do you use to start a conversation with new people at professional events or in other settings?
+- What kinds of events or meetings do you find most productive for creating new social ties?
+- How do you keep in touch with new acquaintances after a first meeting or contact?
+- What methods or strategies do you use to strengthen and maintain new social ties over the long run?
 
-## 03 ОКРУЖЕНИЕ
+## WEALTH (bogatstvo)
 
-- Какие источники коммуникации вы обычно используете для установления новых социальных связей?
-- Какие профессиональные или деловые события вы предпочитаете посещать для расширения своего круга общения?
-- Как вы используете социальные сети или онлайн-платформы для поиска новых социальных связей?
-- Какие стратегии или подходы вы используете для заведения разговора или начала общения с новыми людьми на профессиональных мероприятиях или в других контекстах?
-- Какие виды мероприятий или встреч вы считаете наиболее продуктивными для создания новых социальных связей?
-- Как вы поддерживаете связь с новыми знакомыми после первой встречи или контакта?
-- Какие методы или стратегии вы используете для укрепления и поддержания новых социальных связей в долгосрочной перспективе?
+- What is wealth to you?
+- How will you know that wealth has arrived?
 
-## БОГАТСТВО
+## REST (otdyh)
 
-- Что для тебя богатство?
+- Travel
+- How do you see the effect of travel on your general wellbeing and happiness?
+- Which aspects of life do you think travel affects most favourably?
+- Which trip changed something in you, and what exactly changed after it?
+- What skills or qualities do you develop through travel?
+- How does travel help your mental and emotional health?
+- What changes happened in your life after travelling?
+- What goals or dreams are you pursuing through your travels?
+- What plans or steps are you taking to build travel into your life as a source of satisfaction and growth?
+- Where did you go over the last year, and what do you still remember from it?
+- How many times have you travelled in the last 1–3 years?
+- What is the most vivid trip of your life?
+- Where have you long wanted to travel but kept putting it off or couldn't afford?
+- Planning rest
+- Do you plan your annual holiday in advance?
+- Do you plan rest into your daily, weekly and monthly schedule in advance?
+- How do you use the calendar to find the best time for your holiday or rest?
+- How does planning rest in advance help you save time, resources and money?
+- How does planning rest in advance help you avoid stress and unexpected surprises during a trip?
+- How does planning rest in your calendar in advance help you organize your time and prioritize tasks before and after a holiday?
+- What practical steps do you take to make sure your holiday or rest goes as planned?
+- Time for yourself
+- How do you rest alone and spend time with yourself?
+- Which aspects of life do you find most favourable for personal growth in solitude?
+- When were you last alone, and how did you spend that time?
+- What skills or qualities do you develop by giving time to yourself?
+- What changes in your life came from time spent with yourself?
+- How often do you use time alone for reflection and self-analysis?
+- What plans or steps are you taking to build time for yourself into your life as a source of rest and growth?
+- Time in nature
+- How often do you spend time in nature?
+- How does time in nature help you relax, release stress and restore energy?
+- What outdoor activities do you prefer for improving your quality of life and wellbeing?
+- How does contact with nature affect your emotional stability and psychological state?
+- What changes in your life came from time spent in nature that you consider most significant?
+- What plans or steps are you taking to build time in nature into your life as a source of health, satisfaction and growth?
+- Entertainment
+- How do you have fun?
+- What entertainment do you prefer for relaxing and getting away from everyday concerns?
+- Which kinds of entertainment or events do you find most useful for your general wellbeing and happiness?
+- After which of your leisure activities do you feel lighter, and after which heavier?
+- Which entertainment helps you widen your horizons and learn something new?
+- Which entertainment can harm your body or your emotional state?
+- Which entertainment do you choose in order to be with other people?
+- Which entertainment do you choose to keep your creative thinking and inspiration going?
+- How do you plan to build the entertainment you choose into your life as a source of pleasure, satisfaction and growth?
+- Fullness of life
+- What makes your life full?
+- Which aspects of your life do you find most boring or monotonous?
+- What new goals or aspirations would you like to bring into your life to make it more engaging?
+- How do you view learning new skills or hobbies to add variety to everyday life?
+- How do you use your time to organize activities or trips that could make your life more interesting?
+- What changes in your way of life could you make to keep a constant sense of wonder and delight?
+- How do you view bringing more time for creativity and self-expression into your life?
+- How do you plan to build more variety and adventure into your everyday routine?
+- What steps are you ready to take to create a fuller and more interesting life for yourself?
+- Emotions and vividness of life
+- How often do you feel emotion and vividness in life?
+- What is the most vivid memory of your life that you can name?
+- What kinds of new experiences or adventures would you like to have?
+- Which moments in your life brought you the most joy and satisfaction?
+- What methods do you use to create more memorable moments in your life?
+- How do you keep your interest in life and your appetite for new adventures and experiences?
+- What events or activities are you planning to create brighter, unforgettable moments with family or friends?
+- How do you see the role of experiment and risk in creating vivid moments in your life?
+- What changes in your way of life are you ready to make to make it fuller, more interesting and more emotionally rich?
 
-## 
+## WORK (delo)
 
-- Как ты поймешь, что богатство наступило?
+- What do you do? Tell me about your main and your secondary activity.
+- How long have you been doing this kind of work?
+- Why are you doing exactly this right now?
+- Business and entrepreneurship
+- What business do you run?
+- What is the idea or concept of your business?
+- What made you start your business? How did you arrive at your product? Why did it appear?
+- What products or services does your business offer?
+- Try to explain what your product is so that a five-year-old or your grandmother would understand.
+- What problem that people run into does your product solve?
+- What is the result of your product?
+- What counts as a really great result from using your product?
+- How would you describe your target audience or market segment?
+- What unique features or advantages make your business stand out on the market?
+- How is your product different from the competitors?
+- Who else does the same thing, and where do your clients go when they leave?
+- How do you promote your business or attract clients?
+- What are your main goals and ambitions in growing your business?
+- What challenges or obstacles do you meet in your business, and how do you get through them?
+- What achievements or moments of pride can you name in the history of your business?
+- How do you see your business developing further?
+- How do you manage the financial side of your business, such as budgeting and accounting?
+- What do you do to ensure the quality of your products or services?
+- What strategies do you use to keep existing clients and attract new ones?
+- How do you build and maintain relationships with your partners, suppliers and clients?
+- How do you plan to use innovation or technology to improve your business?
+- What and who in the business have you had more than enough of?
+- What result do you think can be achieved in your field in an hour, a day, a month, six months?
+- What is it impossible to get a result without?
+- What risks and "dangerous places" does your product have?
+- What in the business have you long put off and still don't do?
+- Mission and promises of the business
+- What is the big mission of your business, and its purpose?
+- What values lie under your mission and your promises?
+- What values and principles lie at the base of your business?
+- How do you convey your mission and your promises to your clients?
+- What did you promise your clients, and how do you check that the promise was kept?
+- How do you bring the mission and promises into the everyday work of your company?
+- How do you train and involve employees in carrying out the mission and delivering the promises?
+- How do you differentiate your business on the market through your mission and promises?
+- Strategy, methodology and packaging of projects
+- How do you set the strategy for your projects?
+- What methodologies or approaches do you use in planning and running projects?
+- What could kill your project in the next year, and what are you doing about it?
+- What tools do you use to package and present your projects?
+- How do you structure project tasks and stages?
+- How do you manage communication and interaction with project participants within your chosen methodology?
+- Which numbers tell you the project is moving — and what are they right now?
+- How do you ensure transparency and effective resource management within your strategy and methodology?
+- How do you react to changes during a project, and what strategies do you use to adapt to new circumstances?
+- How do you document the processes and results of your projects for future use and learning?
+- Marketing and traffic sources
+- What marketing strategies do you use to attract clients to your business?
+- How do you define your target audience, and which traffic sources are they most active on?
+- What online platforms or channels do you use to attract traffic?
+- How do you judge the effectiveness of your marketing, and what metrics do you use to measure success?
+- How do you adapt your marketing strategies to different traffic sources?
+- How do you build and maintain relationships with your target audience through marketing channels?
+- What tools and analytics do you use to optimize your marketing?
+- How do you allocate budget across marketing channels, and how do you prioritize them?
+- How do you scale your marketing when traffic grows or the business expands?
+- How do you follow new trends and innovations in marketing, and what do you do to bring them into your business?
+- What has to be done to earn more in your field?
+- Employed work
+- What job are you employed in?
+- What position do you hold, and what are your main responsibilities?
+- What do you like about your work?
+- Why are you doing exactly this right now?
+- What or who at work have you had more than enough of?
+- What projects or tasks do you usually do in your role?
+- How do you interact with colleagues and management in your work?
+- What tools and technologies do you use in your work, and how do you apply them?
+- What skills and knowledge do you consider most important for doing your work well?
+- How do you organize your work environment and processes to raise your productivity and quality?
+- How do you solve the problems and difficulties that come up in your work?
+- What can you do now that you couldn't do a year ago?
+- Which tasks or projects do you most enjoy doing, and why?
+- How do you see your role at work, and what goals do you set for yourself within your current position?
+- Freelance
+- What kind of work do you do as a freelancer?
+- Why are you doing exactly this right now?
+- What values or principles lie under your approach to freelancing?
+- How long have you been freelancing?
+- Do you prefer working at scale or one-to-one?
+- What or who in freelancing have you had more than enough of?
+- Does personal work irritate you — explaining something to people one to one, for example?
+- How do you find clients for your freelance work?
+- What skills or knowledge do you offer your clients?
+- What tools or software do you use in your work?
+- How do you set prices and rates for your freelance services?
+- How do you manage your working time and project deadlines?
+- What do people pay you for?
+- How do you handle payment and finance questions in your freelance work?
+- What challenges or advantages do you see in freelancing compared to traditional office work?
+- How do you usually manage communication with your freelance clients?
+- How do you build and maintain long-term relationships with your customers?
+- How do you resolve conflicts or problems that come up while doing freelance projects?
+- How many orders have you had in the last six months, and where did the clients come from?
+- How do you plan your freelance career over the long run?
+- How do you deal with the sense of isolation or loneliness that freelancing can bring?
+- Projects
+- What projects are you running right now?
+- Which kinds of projects do you enjoy most, and why?
+- The biggest and best project / client
+- The strangest project / client
+- Realization and recognition
+- What concrete goals or dreams are you working towards in what you do?
+- How do you define success for yourself personally?
+- What steps are you taking to realize your goals and dreams?
+- How do you motivate yourself on the way to the results you want?
+- How do you separate your own achievements and successes from outside approval and recognition?
+- How important is it to you that the people around you recognize your achievements?
+- How do you react to criticism or failure on the way to your goals?
+- What methods or strategies do you use to track and assess your progress?
+- How do you mark your successes and achievements on the way to your goals?
+- What advice would you give to other people working towards their dreams and goals?
+- Professionalism and expertise
+- How many years have you been in your field?
+- How do you define professionalism in your field?
+- What key skills and knowledge make you an expert in your area?
+- What are the 5 pieces that success in your field is made of?
+- What is specific about your approach to the subject, to the result?
+- What do you do differently from everyone else that lets you get an extraordinary result?
+- What do you do that most people don't do or don't understand?
+- Professional qualities you're proud of? (at least 5)
+- What are your strong qualities?
+- What is the price list for your services?
+- Do you have professional diplomas, certificates, awards or titles?
+- How do you keep improving your professional skills and knowledge?
+- How do you demonstrate your expertise to clients, colleagues or management?
+- How do you react to challenges or situations that require extra knowledge or skills in your field?
+- How do you handle situations where you lack the experience or knowledge to solve a particular problem?
+- How do you maintain your professional image and reputation?
+- How do you work on developing your expertise and authority in your field?
+- Public presence and personal brand
+- How do you define your personal brand, and what does it stand for to you?
+- What steps are you taking to strengthen your personal brand in your industry or field?
+- How do you use social networks and online platforms to widen your public presence and strengthen your personal brand?
+- How do you shape content and messages to reflect your personal brand and draw the attention of your target audience?
+- How do you build relationships with your audience and maintain them through your personal brand?
+- How do you build your image and authority in your industry or among your audience?
+- How do you react to negative comments or criticism that could affect your personal brand?
+- Do you speak publicly?
+- How do you use events and public speaking to strengthen your public presence and personal brand?
+- Have you ever been interviewed, and if so, on what subject?
+- How do you keep your personal brand transparent and consistent across everything you do?
+- What values and principles lie at the base of your personal brand, and how do you carry them into your public work?
+- Working with social media
+- Which social networks do you actively use?
+- Which social networks do you use to promote your business or personal brand?
+- How do you set your social media strategy, and what goals do you set for yourself?
+- Roughly how many followers do you have on each network?
+- How do you interact with your audience on social platforms, and how often do you publish?
+- What values do you want to convey through your blog?
+- What do you enjoy talking about in your blog, what would you gladly share?
+- If you have already sold products through your blog: what sold best?
+- What do followers constantly ask about in your blog?
+- How do you choose content formats for each platform to draw your audience's attention best?
+- How do you use analytics to assess the effectiveness of your presence on social networks and optimize your strategy?
+- How do you respond to your audience's feedback and comments, and how do you ensure a fast, good-quality reply?
+- How do you build a community around your brand on social networks, and how do you encourage the audience to take part?
+- How do you manage advertising campaigns on social platforms, and what results do you expect from them?
+- What strategies do you use to grow your follower count and audience engagement on social networks?
+- Creating content
+- How do you choose the topics and formats of your social media posts?
+- How do you adapt content to the needs and preferences of your target audience on different platforms?
+- How do you keep the style and tone of your content consistent across your publishing?
+- How do you use stories and live streams to interact with your audience on platforms that support them?
+- How do you create content that produces engagement and dialogue with your audience — polls, questions, challenges?
+- Which of your posts did best, and which numbers showed you that?
+- How do you react to trends and changes in audience behaviour, and how do they affect your content strategy?
+- How do you plan and manage your content over the long run in order to reach your social media goals?
+- Recommendations and reviews
+- How do you actively collect recommendations and reviews of your product or service?
+- How do you motivate clients to leave positive reviews of your business?
+- How do you use recommendations and reviews to strengthen trust in your brand among new clients?
+- How do you react to negative reviews or criticism of your product or service?
+- How do you fold recommendations and reviews into your marketing strategy?
+- How do you use positive reviews to create content and attract new clients?
+- How do you organize a system of reviews and recommendations on your website or social networks?
+- How do you maintain relationships with clients who left positive reviews of your business?
+- How do you analyze reviews and recommendations to pull out useful feedback for improving your product or service?
+- How many clients came through recommendations over the last year?
+- Systems and process optimization
+- Do you enjoy the process of the work itself in your field?
+- What does your business structure consist of?
+- What main business processes have you identified in what you do?
+- How do you document those processes, and what system do you use to store them and give access to them?
+- What tools or software do you use to automate and manage your business processes?
+- How do you optimize your business processes to raise efficiency and reduce costs?
+- How do you measure and analyze the performance of your business processes?
+- How do you react to bottlenecks or problems you find in the processes, and what steps do you take to remove them?
+- How do you train employees and involve them in improving and optimizing business processes?
+- How do you keep flexibility in your systems and processes so they adapt to changing market conditions and client needs?
+- How do you ensure consistency and synchronization between the different business processes in your company?
+- What plans do you have for developing and improving your systems and processes in the business?
+- Organization and team
+- How do you motivate yourself and your employees to succeed in your business?
+- A leader or a loner?
+- Who do you want to work with?
+- Which people would you gladly work with and help?
+- Charity and volunteering
+- What are you already doing now, but for free?
 
-## ОТДЫХ
+## ASSETS (aktivy)
 
-- Путешествия
-- Как вы видите влияние путешествий на ваше общее благополучие и уровень счастья?
-- Какие аспекты жизни вы считаете наиболее благоприятно воздействующими путешествия?
-- Какая поездка что-то в вас изменила и что именно изменилось после неё?
-- Какие навыки или качества вы развиваете благодаря путешествиям?
-- Как путешествия способствуют вашему умственному и эмоциональному здоровью?
-- Какие изменения в вашей жизни произошли после путешествий?
-- Какие цели или мечты вы преследуете через свои путешествия?
-- Какие планы или меры вы принимаете, чтобы интегрировать путешествия в свою жизнь как источник удовлетворения и роста?
-- Куда вы ездили за последний год и что оттуда до сих пор помните?
-- Сколько раз ты был в путешествии за последние 1-3 года?
-- Какое твое самое яркое путешествие в жизни?
-- Куда вы давно хотели отправиться в путешествие, но постоянно откладывали или не могли себе позволить?
-- Планирование отдыха
-- Планируете ли вы свой ежегодный отдых/отпуск заранее?
-- Планируете ли заранее время на отдых в ежедневном, еженедельном и ежемесячном графике?
-- Как вы используете календарь для определения оптимального времени для вашего отпуска или отдыха?
-- Как планирование отдыха заранее помогает вам сэкономить время, ресурсы и деньги?
-- Как планирование отдыха заранее помогает вам избежать стресса и неожиданных сюрпризов во время поездки?
-- Как планирование отдыха заранее в календаре помогает вам организовать свое время и приоритизировать ваши задачи до и после отпуска?
-- Какие практические шаги вы предпринимаете, чтобы убедиться, что ваш отпуск или отдых проходят как запланировано?
-- Время для себя
-- Как вы отдыхаете в одиночестве и проводите время для себя?
-- Какие аспекты жизни вы считаете наиболее благоприятными для личного роста и развития в контексте одиночества?
-- Когда вы в последний раз были один и как провели это время?
-- Какие навыки или качества вы развиваете, посвящая время себе?
-- Какие изменения в вашей жизни произошли благодаря времени, проведенному с самим собой?
-- Как часто вы используете время в одиночестве для саморефлексии и самоанализа?
-- Какие планы или меры вы принимаете, чтобы интегрировать время себе в свою жизнь как источник отдыха и саморазвития?
-- Время на природе
-- Как часто ты проводишь время на природе?
-- Как время на природе помогает вам расслабиться, снять стресс и восстановить энергию?
-- Какие активности или занятия на открытом воздухе вы предпочитаете для улучшения качества своей жизни и самочувствия?
-- Как контакт с природой влияет на вашу эмоциональную стабильность и психологическое состояние?
-- Какие изменения в вашей жизни произошли благодаря времени, проведенному на природе, которые вы считаете наиболее значимыми?
-- Какие планы или меры вы принимаете, чтобы интегрировать время на природе в свою жизнь как источник здоровья, удовлетворения и развития?
-- Развлечения
-- Как вы развлекаетесь?
-- Какие развлечения вы предпочитаете для расслабления и отдыха от повседневных забот?
-- Какие виды развлечений или мероприятий вы считаете наиболее полезными для вашего общего благополучия и уровня счастья?
-- После чего из вашего досуга вам легче, а после чего тяжелее?
-- Какие развлечения помогают вам расширить ваш кругозор и узнать что-то новое?
-- Какие развлечения могут вредить вашему телу или эмоциональному состоянию?
-- Какие развлечения вы выбираете для того, чтобы общаться с другими людьми?
-- Какие развлечения вы выбираете для того, чтобы поддерживать свое творческое мышление и вдохновение?
-- Как вы планируете интегрировать выбранные вами развлечения в свою жизнь как источник удовольствия, удовлетворения и развития?
-- Наполненность жизни
-- Что делает вашу жизнь наполненной?
-- Какие аспекты вашей жизни вы считаете наиболее скучными или монотонными?
-- Какие новые цели или стремления вы хотели бы включить в свою жизнь для того, чтобы она стала более увлекательной?
-- Как вы смотрите на возможность учиться новым навыкам или хобби для разнообразия повседневной жизни?
-- Как вы используете свое время, чтобы организовать различные мероприятия или путешествия, которые могут сделать вашу жизнь более интересной?
-- Какие изменения в вашем образе жизни вы могли бы внести, чтобы поддерживать постоянное чувство удивления и восторга?
-- Как вы смотрите на возможность включить в свою жизнь больше времени для творчества и самовыражения?
-- Как вы планируете интегрировать больше разнообразия и приключений в вашу повседневную рутину?
-- Какие шаги вы готовы предпринять, чтобы создать более насыщенную и интересную жизнь для себя?
-- Эмоции и яркость жизни
-- Как часто испытываете эмоции и яркость жизни?
-- Какое самое яркое воспоминание из своей жизни можете отметить?
-- Какие виды новых опытов или приключений вы хотели бы испытать?
-- Какие моменты в вашей жизни принесли вам наибольшую радость и удовлетворение?
-- Какие методы вы используете, чтобы создавать более запоминающиеся моменты в вашей жизни?
-- Как вы поддерживаете свой интерес к жизни и стремление к новым приключениям и опытам?
-- Какие мероприятия или активности вы планируете, чтобы создать более яркие и незабываемые моменты с семьей или друзьями?
-- Как вы воспринимаете роль экспериментирования и риска в создании ярких моментов в вашей жизни?
-- Какие изменения в вашем образе жизни вы готовы внести, чтобы сделать свою жизнь более насыщенной, интересной и эмоционально насыщенной?
-
-## ДЕЛО
-
-- Чем вы занимаетесь? Расскажите о вашей основной и дополнительной деятельности.
-- Как долго вы занимаетесь этим видом деятельности?
-- Почему вы сейчас занимаетесь именно этим?
-- Бизнес и предпринимательство
-- Что за бизнес вы ведете?
-- Какова идея или концепция вашего бизнеса?
-- Что вдохновило вас начать свой бизнес? Как вы пришли к вашему продукту? Почему он появился?
-- Какие продукты или услуги ваш бизнес предлагает?
-- Попытайтесь объяснить, что является вашим продуктом так, чтобы было понятно даже 5-летнему ребенку или вашей бабушке?
-- Какую проблему, с которой сталкиваются люди, решает ваш продукт?
-- Что является результатом вашего продукта?
-- Что считается супер-крутым результатом от использования вашего продукта?
-- Как вы описали бы вашу целевую аудиторию или рыночный сегмент?
-- Какие уникальные особенности или преимущества вашего бизнеса выделяют его на рынке?
-- Чем ваш продукт отличается от конкурентов?
-- Кто ещё делает то же самое и к кому уходят ваши клиенты, если уходят?
-- Как вы продвигаете свой бизнес или привлекаете клиентов?
-- Каковы ваши основные цели и амбиции в развитии вашего бизнеса?
-- Какие вызовы или препятствия вы сталкиваетесь в вашем бизнесе, и как вы их преодолеваете?
-- Какие достижения или моменты гордости вы можете выделить в истории вашего бизнеса?
-- Как вы видите дальнейшее развитие вашего бизнеса в будущем?
-- Как вы управляете финансовыми аспектами вашего бизнеса, такими как бюджетирование и учет?
-- Какие меры вы принимаете для обеспечения качества продукции или услуг вашего бизнеса?
-- Какие стратегии вы используете для удержания существующих клиентов и привлечения новых?
-- Как вы развиваете и поддерживаете отношения с вашими партнерами, поставщиками и клиентами?
-- Как вы планируете использовать инновации или технологии для улучшения вашего бизнеса?
-- Что и/или кто в бизнесе вам ооочень надоело?
-- Как вы считаете, какой результат в вашей теме можно достичь за час, за день, за месяц, за полгода?
-- Без чего нельзя добиться результата?
-- Какие есть риски и «опасные места» в вашем продукте?
-- Что есть такого в бизнесе, что вы долго откладывали и не делаете?
-- Миссия и обещания бизнеса
-- Какова большая миссия вашего бизнеса и его цель?
-- Какие ценности лежат в основе вашей миссии и обещаний бизнеса?
-- Какие ценности и принципы лежат в основе вашего бизнеса?
-- Как вы доносите миссию и обещания вашего бизнеса своим клиентам?
-- Что вы пообещали клиентам и как проверяете, что обещание выполнено?
-- Как вы внедряете миссию и обещания бизнеса в повседневную деятельность вашей компании?
-- Как вы обучаете и вовлекаете сотрудников в осуществление миссии и достижение обещаний вашего бизнеса?
-- Как вы дифференцируете ваш бизнес на рынке с помощью вашей миссии и обещаний?
-- Стратегия, методология и упаковка проектов
-- Как вы определяете стратегию для своих проектов?
-- Какие методологии или подходы вы используете при планировании и выполнении проектов?
-- Что может убить ваш проект в ближайший год и что вы на этот счёт делаете?
-- Какие инструменты вы используете для упаковки и презентации своих проектов?
-- Как вы структурируете проектные задачи и этапы выполнения проекта?
-- Как вы управляете коммуникацией и взаимодействием с участниками проекта в рамках выбранной методологии?
-- По каким цифрам вы понимаете, что проект идёт — и какие они сейчас?
-- Как вы обеспечиваете прозрачность и эффективное управление ресурсами в рамках вашей стратегии и методологии?
-- Как вы реагируете на изменения в ходе выполнения проекта и какие стратегии вы используете для адаптации к новым обстоятельствам?
-- Как вы документируете процессы и результаты своих проектов для будущего использования и обучения?
-- Маркетинг и источники трафика
-- Какие маркетинговые стратегии вы используете для привлечения клиентов к вашему бизнесу?
-- Как вы определяете вашу целевую аудиторию и на каких источниках трафика они наиболее активны?
-- Какие онлайн-платформы или каналы вы используете для привлечения трафика?
-- Как вы определяете эффективность ваших маркетинговых усилий и какие метрики вы используете для измерения успеха?
-- Как вы адаптируете свои маркетинговые стратегии в зависимости от различных источников трафика?
-- Как вы строите и поддерживаете отношения с вашей целевой аудиторией через маркетинговые каналы?
-- Какие инструменты и аналитические данные вы используете для оптимизации ваших маркетинговых усилий?
-- Как вы выделяете бюджет на различные маркетинговые каналы и как определяете их приоритетность?
-- Как вы масштабируете свои маркетинговые усилия при увеличении объема трафика или расширении бизнеса?
-- Как вы следите за новыми тенденциями и инновациями в области маркетинга и какие шаги вы предпринимаете для их внедрения в свой бизнес?
-- Что нужно делать чтобы больше заработать в твоей сфере?
-- Наемная работа
-- На какой наемной работе вы работете?
-- Какую должность вы занимаете на своей работе, и какие основные обязанности у вас есть?
-- Что нравится в вашей роботе?
-- Почему вы сейчас занимаетесь именно этим?
-- Что/кто в работе вам ооочень надоело?
-- Какие проекты или задачи вы обычно выполняете в рамках своей должности?
-- Как вы взаимодействуете с коллегами и руководством в ходе своей работы?
-- Какие инструменты и технологии вы используете в своей работе, и как вы их применяете?
-- Какие навыки и знания вы считаете наиболее важными для эффективного выполнения своей работы?
-- Как вы организуете свою рабочую среду и рабочие процессы для повышения производительности и качества вашей работы?
-- Как вы решаете возникающие проблемы и трудности в ходе своей работы?
-- Что вы умеете сейчас, чего не умели год назад?
-- Какие задачи или проекты вам нравится выполнять больше всего, и почему?
-- Как вы видите свою роль на работе и какие цели на будущее вы ставите перед собой в рамках текущей должности?
-- Фриланс
-- Какой вид работы вы выполняете на фрилансе?
-- Почему вы сейчас занимаетесь именно этим?
-- Какие ценности или принципы лежат в основе вашего подхода к работе на фрилансе?
-- Как долго вы уже занимаетесь фрилансом?
-- Больше нравится работать массово или индивидуально?
-- Что/кто во фрилансе вам ооочень надоело?
-- Раздражает ли личная работа, например лично объяснять что-то людям?
-- Как вы находите клиентов для вашей фрилансерской деятельности?
-- Какие навыки или знания вы предлагаете своим клиентам?
-- Какие инструменты или программное обеспечение вы используете в своей работе?
-- Как вы устанавливаете цены и тарифы на ваши услуги на фрилансе?
-- Как вы управляете своим рабочим временем и сроками выполнения проектов?
-- За что вам платят деньги?
-- Как вы решаете вопросы связанные с оплатой и финансами в своей работе на фрилансе?
-- Какие вызовы или преимущества вы видите в работе на фрилансе по сравнению с традиционной офисной работой?
-- Как вы обычно управляете коммуникацией с вашими клиентами на фрилансе?
-- Как вы строите и поддерживаете долгосрочные отношения с вашими заказчиками?
-- Как вы решаете конфликты или неполадки, возникающие в процессе выполнения проектов на фрилансе?
-- Сколько заказов было за последние полгода и откуда пришли клиенты?
-- Как вы планируете вашу карьеру на фрилансе в долгосрочной перспективе?
-- Как вы справляетесь с чувством изоляции или одиночества, которое может возникать при работе на фрилансе?
-- Проекты
-- Какие проекты вы сейчас ведете?
-- Какие виды проектов вам больше всего нравятся и почему?
-- Самый большой и крутой проект / клиент
-- Самый странный проект / клиент
-- Реализация и признание
-- Какие конкретные цели или мечты вы стремитесь достичь в своей деятельности?
-- Как вы определяете успех для себя лично?
-- Какие шаги вы предпринимаете для реализации своих целей и мечтаний?
-- Как вы мотивируете себя на пути к достижению желаемых результатов?
-- Как вы отличаете собственные достижения и успехи от внешних оценок и признаний?
-- Насколько вам важно признание ваших достижений со стороны окружающих?
-- Как вы реагируете на критику или неудачи на пути к достижению своих целей?
-- Какие методы или стратегии вы используете для отслеживания и оценки своего прогресса?
-- Как вы отмечаете свои успехи и достижения на пути к реализации своих целей?
-- Какие советы вы бы дали другим людям, стремящимся к реализации своих мечтаний и целей?
-- Профессионализм и экспертность
-- Сколько лет вы уже в своей сфере?
-- Как вы определяете понятие профессионализма в своей области деятельности?
-- Какие ключевые навыки и знания делают вас экспертом в вашей области?
-- Из каких 5 пазлов состоит успех в вашей сфере?
-- В чем специфика вашего подхода к теме, к результату?
-- Что вы делаете по-другому, не как все, что позволяет вам сделать экстраординарный результат?
-- Что вы делаете такого, чего не делает или не понимает большинство?
-- Профессиональные качества, которыми гордитесь? (минимум 5)
-- Какие ваши сильные качества?
-- Какой прайс на ваши услуги
-- Есть ли у вас профессиональные  дипломы, сертификаты, награды или регалии?
-- Как вы постоянно совершенствуете свои профессиональные навыки и знания?
-- Как вы демонстрируете свою экспертность своим клиентам, коллегам или начальству?
-- Как вы реагируете на вызовы или ситуации, требующие дополнительных знаний или навыков в вашей области?
-- Как вы справляетесь с ситуациями, когда вам не хватает опыта или знаний для решения определенной проблемы?
-- Как вы поддерживаете свой профессиональный имидж и репутацию?
-- Как вы работаете над развитием своей экспертизы и авторитета в вашей области?
-- Публичность и личный бренд
-- Как вы определяете свой личный бренд и что он олицетворяет для вас?
-- Какие шаги вы предпринимаете для укрепления своего личного бренда в своей отрасли или области деятельности?
-- Как вы используете социальные сети и онлайн-платформы для расширения вашей публичности и укрепления личного бренда?
-- Как вы формируете контент и сообщения, чтобы отражать ваш личный бренд и привлекать внимание вашей целевой аудитории?
-- Как вы строите отношения с вашей аудиторией и поддерживаете их через ваш личный бренд?
-- Как вы выстраиваете свой имидж и авторитет в своей отрасли или среди вашей аудитории?
-- Как вы реагируете на отрицательные комментарии или критику, которые могут повлиять на ваш личный бренд?
-- Выступаете ли вы как спикер?
-- Как вы используете мероприятия и публичные выступления для укрепления вашей публичности и личного бренда?
-- Брали ли у вас когда-нибудь интервью, если да, то на какую тему?
-- Как вы поддерживаете прозрачность и консистентность вашего личного бренда во всех аспектах вашей деятельности?
-- Какие ценности и принципы лежат в основе вашего личного бренда, и как вы их продвигаете в своей публичной деятельности?
-- Работа с соцсетями
-- Какие у вас есть активные соцсети?
-- Какие социальные сети вы используете для продвижения вашего бизнеса или личного бренда?
-- Как вы определяете свою стратегию на социальных сетях и какие цели вы ставите перед собой?
-- Сколько примерно подписчиков вы имеетев каждой соцсети?
-- Как вы взаимодействуете с вашей аудиторией на социальных платформах и как часто вы публикуете контент?
-- Какие ценности вы хотите донести через свой блог?
-- Что вам интересно рассказывать в блоге, чем с удовольствием делились бы?
-- Если уже продавали продукты в блоге: что продавалось лучше всего?
-- Что постоянно спрашивают в блоге подписчики?
-- Как вы выбираете форматы контента для каждой социальной платформы, чтобы максимально привлечь внимание вашей аудитории?
-- Как вы используете аналитические данные для оценки эффективности вашего присутствия в социальных сетях и оптимизации вашей стратегии?
-- Как вы реагируете на отзывы и комментарии вашей аудитории на социальных сетях, и как вы обеспечиваете быстрый и качественный ответ?
-- Как вы строите сообщество вокруг вашего бренда на социальных сетях и как вы стимулируете участие аудитории?
-- Как вы управляете рекламными кампаниями на социальных платформах и какие результаты вы ожидаете от них?
-- Какие стратегии вы используете для роста вашего количества подписчиков и увеличения вовлеченности вашей аудитории в социальных сетях?
-- Создание контента
-- Как вы определяете темы и форматы контента для своих публикаций в социальных сетях?
-- Как вы адаптируете контент под потребности и предпочтения вашей целевой аудитории на разных социальных платформах?
-- Как вы поддерживаете консистентность стиля и тону вашего контента на протяжении вашей публикации в социальных сетях?
-- Как вы используете истории (Stories) и прямые трансляции для взаимодействия с вашей аудиторией на платформах, которые их поддерживают?
-- Как вы создаете контент, который вызывает вовлеченность и диалог с вашей аудиторией, такой как опросы, вопросы и вызовы?
-- Какая ваша публикация зашла лучше всех и по каким цифрам вы это увидели?
-- Как вы реагируете на тренды и изменения в поведении аудитории, и как они влияют на вашу стратегию создания контента?
-- Как вы планируете и управляете вашим контентом на долгосрочной основе, чтобы достигать ваших целей в социальных сетях?
-- Рекомендации и отзывы
-- Как вы активно собираете рекомендации и отзывы о вашем продукте или услуге?
-- Как вы мотивируете клиентов оставлять положительные отзывы о вашем бизнесе?
-- Как вы используете рекомендации и отзывы для укрепления доверия к вашему бренду среди новых клиентов?
-- Как вы реагируете на отрицательные отзывы или критику о вашем продукте или услуге?
-- Как вы интегрируете рекомендации и отзывы в вашу маркетинговую стратегию?
-- Как вы используете положительные отзывы для создания контента и привлечения новых клиентов?
-- Как вы организуете систему отзывов и рекомендаций на вашем веб-сайте или в социальных сетях?
-- Как вы поддерживаете отношения с клиентами, которые оставили положительные отзывы о вашем бизнесе?
-- Как вы анализируете отзывы и рекомендации, чтобы извлечь полезную обратную связь для улучшения вашего продукта или услуги?
-- Сколько клиентов пришло по рекомендации за последний год?
-- Системы и оптимизация процессов
-- Нравится ли вам сам процесс работы в вашей сфере?
-- Из чего состоит ваша бизнес-структура?
-- Какие основные бизнес-процессы вы определили в вашей деятельности?
-- Как вы документируете эти процессы и какую систему вы используете для их хранения и доступа?
-- Какие инструменты или программное обеспечение вы используете для автоматизации и управления вашими бизнес-процессами?
-- Как вы оптимизируете ваши бизнес-процессы для повышения эффективности и снижения издержек?
-- Как вы измеряете и анализируете производительность ваших бизнес-процессов?
-- Как вы реагируете на обнаруженные узкие места или проблемы в процессах и какие шаги вы предпринимаете для их устранения?
-- Как вы обучаете сотрудников и вовлекаете их в улучшение и оптимизацию бизнес-процессов?
-- Как вы поддерживаете гибкость в ваших системах и процессах, чтобы адаптироваться к изменяющимся условиям рынка и потребностям клиентов?
-- Как вы обеспечиваете согласованность и синхронизацию между различными бизнес-процессами в вашей компании?
-- Какие планы на будущее у вас есть по развитию и совершенствованию ваших систем и процессов в бизнесе?
-- Организация и команда
-- Как вы мотивируете себя и своих сотрудников для достижения успеха в вашем бизнесе?
-- Лидер или одиночка?
-- С кем ты хочешь работать?
-- С какими людьми ты с удовольствием бы работал и помогал им?
-- Благотворительность и волонтерство
-- Что вы делаете уже сейчас, но бесплатно?
-
-## АКТИВЫ
-
-- Источники дохода
-- Какой сейчас средний ежемесячный доход на себя?
-- Есть ли пассивный доход? Приходят ли деньги, когда вы не работаете?
-- Сколько денег нужно вам для счастья?
-- В какой момент жизни был самый сильный финансовый прорыв? С чем это было связано?
-- Накопления
-- Откладываете ли вы часть заработанных денег в накопления?
-- Сколько отложено денег в активах или вкладах?
-- Сколько накоплений в валюте других стран?
-- Финансовая грамотность
-- Хватает ли денег на всё или постоянная нехватка денег?
-- Сколько месяцев ты сможешь прожить, если перестанешь работать сегодня?
-- Инвестиционная грамотность
-- Изучаете ли вы тему инвестиций и различные инвестиционные инструменты?
-- Есть ли у вас инвестиции?
-- Есть ли у вас криптовалюты?
-- Как вы определяете свои инвестиционные цели и приоритеты?
-- Какое вложение вы сделали последним и сколько были готовы потерять?
-- Какие финансовые инструменты и активы вы рассматриваете для инвестирования?
-- Как вы анализируете потенциальную доходность и риски различных инвестиционных возможностей?
-- Как вы проводите исследование и анализ рынка перед инвестированием?
-- Какие стратегии вы используете для диверсификации вашего портфеля и снижения риска?
-- Какие факторы влияют на ваш выбор конкретных инвестиционных активов?
-- Какие виды инвестиционных активов вы рассматриваете для включения в свой портфель?
-- Как вы планируете свои инвестиции в долгосрочной перспективе и какие шаги вы предпринимаете для достижения своих целей?
-- Как вы следите за производительностью вашего инвестиционного портфеля и какие метрики вы используете для оценки успеха?
-- Как вы реагируете на изменения на рынке и как это влияет на ваши инвестиционные решения?
-- Как вы продолжаете обучаться и совершенствоваться в области инвестиций, чтобы повысить свою инвестиционную грамотность?
-- Как вы продолжаете обучаться и развиваться в области инвестиций?
-- Учет доходов и расходов
-- Ведете учет доходов и расходов?
-- Какие методы и инструменты вы используете для отслеживания своих доходов и расходов (приложения, боты, Excel)?
-- Как часто вы обновляете свой учет финансов и проверяете свой финансовый статус?
-- Как вы категоризируете свои расходы для более детального анализа своих финансов?
-- Как вы планируете свои расходы и управляете своим бюджетом на основе учета доходов и расходов прошлых периодов?
-- Как вы определяете приоритеты в своих расходах и решаете, на что вы хотите потратить свои деньги?
-- Как вы анализируете свои расходы, чтобы выявить возможные области экономии и оптимизации?
-- Как вы используете учет доходов и расходов для достижения своих финансовых целей, таких как накопления или инвестирование?
-- Как вы реагируете на изменения в своих финансах и какие шаги вы предпринимаете, чтобы адаптироваться к этим изменениям?
-- Сколько вы сейчас тратите денег на жизнь?
-- Каков у вас примерный уровень обязательных ежемесячных расходов?
-- Что вы еще хотите себе купить?
-- Что крутого вы себе купили за последнее время?
-- Назовите самую яркую и желанную покупку в своей жизни?
-- Что ты давно хотите купить, но постоянно откладываетеили не можете себе позволить?
-- Учет активов и пассивов
-- Что у вас записано в учёте и по какой цене вы это считаете?
-- Как вы классифицируете ваши активы на основе их ликвидности и потенциальной доходности?
-- Как вы учитываете изменения стоимости ваших активов, такие как инвестиционные портфели или недвижимость?
-- Как вы определяете свои пассивы и как вы учитываете свои долговые обязательства?
-- Какие методы вы используете для оценки и учета ваших пассивов, таких как кредиты или ипотеки?
-- Как вы управляете своими пассивами и какие шаги вы предпринимаете для их минимизации или оптимизации?
-- Как вы учитываете проценты по вашим долгам и как это влияет на ваше финансовое состояние?
-- Сколько месяцев вы протянете, если доход завтра прекратится?
-- Как вы реагируете на изменения в своем учете активов и пассивов, и какие корректировки вы можете внести в свои финансовые планы?
-- Как вы используете информацию о вашем учете активов и пассивов для принятия финансовых решений и планирования вашего будущего?
-- Активы материальные
-- Недвижимость для сдачи в аренду
-- Автомобиль для сдачи в аренду
-- Все вещи, которые можно продать
-- Любые физические накопления
-- Ценные бумаги
-- Криптовалюты
-- Активы нематериальные
-- Знания, навыки и умения, которые можно монетизировать
-- Отличное здоровье: физическое и психическое
-- Интеллектуальная собственность
-- Бизнес-процессы и ноу-хау
-- Информационные базы данных
-- Репутация и имидж
-- Пассивы материальные
-- Долги и кредиты, сколько?
-- Арендованная недвижимость для проживания
-- Арендованный автомобиль
-- Земельные участки
-- Личный автомобиль
-- Алименты
-- Базовые потребности
-- Финансовые обязательства
-- Пассивы нематериальные
-- Лень
-- Токсичное окружение
-- Некачественный образ жизни
-- Плохое здоровье: физическое и психическое
+- Income sources
+- What is your current average monthly income for yourself?
+- Do you have passive income? Does money come in when you are not working?
+- How much money do you need to be happy?
+- At what point in your life was your strongest financial breakthrough? What was it connected to?
+- Savings
+- Do you put part of what you earn into savings?
+- How much money is put aside in assets or deposits?
+- How much of your savings is in other countries' currencies?
+- Financial literacy
+- Is there enough money for everything, or is money constantly short?
+- How many months could you live if you stopped working today?
+- Investment literacy
+- Do you study the subject of investing and different investment instruments?
+- Do you have investments?
+- Do you have cryptocurrencies?
+- How do you define your investment goals and priorities?
+- What was the last investment you made, and how much were you prepared to lose?
+- Which financial instruments and assets are you considering for investment?
+- How do you analyze the potential return and risks of different investment opportunities?
+- How do you research and analyze the market before investing?
+- What strategies do you use to diversify your portfolio and lower risk?
+- What factors affect your choice of particular investment assets?
+- Which kinds of investment assets are you considering for your portfolio?
+- How do you plan your investments over the long run, and what steps are you taking towards your goals?
+- How do you track your portfolio's performance, and what metrics do you use to judge success?
+- How do you react to market changes, and how does that affect your investment decisions?
+- How do you keep learning and improving in investing, to raise your investment literacy?
+- How do you continue to learn and develop in the field of investing?
+- Tracking income and spending
+- Do you track income and spending?
+- What methods and tools do you use to track your income and spending (apps, bots, spreadsheets)?
+- How often do you update your accounts and check your financial status?
+- How do you categorize your spending for a more detailed analysis of your finances?
+- How do you plan your spending and manage your budget based on past income and spending records?
+- How do you set priorities in your spending and decide what you want to spend money on?
+- How do you analyze your spending to find possible areas to save and optimize?
+- How do you use income and spending records to reach financial goals such as saving or investing?
+- How do you react to changes in your finances, and what steps do you take to adapt to them?
+- How much do you currently spend on living?
+- Roughly what level of obligatory monthly expenses do you have?
+- What else do you want to buy for yourself?
+- What great thing have you bought yourself recently?
+- Name the most vivid and longed-for purchase of your life.
+- What have you long wanted to buy but keep putting off or can't afford?
+- Tracking assets and liabilities
+- What is written down in your records, and at what price do you count it?
+- How do you classify your assets by liquidity and potential return?
+- How do you account for changes in the value of your assets, such as investment portfolios or property?
+- How do you define your liabilities, and how do you account for your debt obligations?
+- What methods do you use to value and account for liabilities such as loans or mortgages?
+- How do you manage your liabilities, and what steps do you take to minimize or optimize them?
+- How do you account for the interest on your debts, and how does that affect your financial position?
+- How many months would you last if your income stopped tomorrow?
+- How do you react to changes in your assets and liabilities, and what corrections might you make to your financial plans?
+- How do you use the information from your asset and liability records to make financial decisions and plan your future?
+- Tangible assets
+- Property rented out
+- A car rented out
+- Everything that can be sold
+- Any physical savings
+- Securities
+- Cryptocurrencies
+- Intangible assets
+- Knowledge, skills and abilities that can be monetized
+- Excellent health: physical and mental
+- Intellectual property
+- Business processes and know-how
+- Information databases
+- Reputation and image
+- Tangible liabilities
+- Debts and loans, how much?
+- Rented property you live in
+- A rented car
+- Land plots
+- A personal car
+- Alimony
+- Basic needs
+- Financial obligations
+- Intangible liabilities
+- Laziness
+- A toxic environment
+- A poor way of life
+- Poor health: physical and mental

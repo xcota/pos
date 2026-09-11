@@ -1,70 +1,70 @@
 # Profile Synthesis Template
 
-Generate the final profile using this structure. Adapt sections as needed — not every person maps to every section.
+Generate the final profile using this structure. Adapt sections as needed — not every person maps to every section. Section headings below are the English shape; write the profile in the language the person writes in, and keep their quotes exactly as they said them.
 
 ## Document Structure
 
 ```markdown
-# Психологический профиль: [Name]
-**Версия:** [X.X]
-**Дата синтеза:** [date]
-**Источники:** [what data was collected]
+# Psychological profile: [Name]
+**Version:** [X.X]
+**Synthesis date:** [date]
+**Sources:** [what data was collected]
 
 > On `resynthesize` (v3.1): this is a **versioned diff**, not a rewrite. Open with "Δ since vN" — moved scores, new/retired tags, predictive-model updates — then the full body. The causal core (Section X genesis, origin-traced tags) is sticky: deltas update facts and active domains, not childhood etiology, unless a genuine new origin surfaced.
 
 ---
 
-## I. Ядро: [One-phrase pattern name]
+## I. Core: [One-phrase pattern name]
 The single pattern that runs through their entire life. Described with a concrete example chain
 spanning childhood → present. This is the throughline.
 
-## II. Когнитивный стиль
+## II. Cognitive style
 How they think: scanning vs deep-dive, chronological vs associative, burst vs gradual learning.
 Concrete evidence from speech patterns and self-described behavior.
 v3.2: fold in rumination-vs-reflection (L9 — does thought loop or turn a new side) and load-mode (L13 — does analytic mode hold or flip under stress, where it goes rigid).
 
-## III. Эмоциональная архитектура
+## III. Emotional architecture
 How they process emotions. Granularity level. Control mechanisms.
 v3.1: cite the coverage map (`references/granularity_instrument.md`) — emotion families reached vs **systematically absent**, body channels reached. The absent family is the key finding, not a vibe.
 Key finding: what's the ONE emotion/state that doesn't fit their system?
 
-## IV. Тело
+## IV. Body
 Relationship with body. Substances history if relevant. Optimization approach.
 Interoception channel: felt-sense vs metrics vs ignoring.
 
-## V. Отношения
+## V. Relationships
 Architecture (not history). What they structurally need.
 Attachment pattern with evidence. Current gaps.
-v3.2: state the attachment TYPE as mechanics + genesis (L7), not a clinical label. Include the boundary switch-point (L10 — where self-erasure flips to system-integrity). Render the social graph here as a sub-structure under Окружение (`social_graph`): 5–10 named people × energy direction (gives/takes) × attachment × unresolved relational loss.
+v3.2: state the attachment TYPE as mechanics + genesis (L7), not a clinical label. Include the boundary switch-point (L10 — where self-erasure flips to system-integrity). Render the social graph here as a sub-structure under Surroundings (`social_graph`): 5–10 named people × energy direction (gives/takes) × attachment × unresolved relational loss.
 
-## VI. Потери и resilience
+## VI. Losses and resilience
 How they handle loss. Speed of reframing.
 The one loss that doesn't convert (if found).
 v3.2: include attributional grammar (L8 — where the cause flies on failure vs who gets credit on success). The asymmetry (which one category gets internal attribution while the rest externalize) is the load-bearing finding.
 
-## VII. Гнев
+## VII. Anger
 What triggers it. System-based or people-based.
 What it reveals about their real boundaries.
 
-## VIII. Контент / мировоззрение
+## VIII. Content / worldview
 What shaped them culturally. Subcultures, media, aesthetic preferences.
 
-## IX. Восстановление
+## IX. Recovery
 How they recover from overload. Social vs solitary. Dream-state vs activity.
 
-## X. Родители — Происхождение архитектуры
+## X. Parents — where the architecture came from
 Family system. Role in it. How it generated current patterns.
 Genesis table: pattern → origin.
 v3.2: add the memory-availability map (`memory_access`) — which periods are vivid / factual-only / amnesiac. The distribution itself is suppression data and points at where the pattern-generator hides; map it, don't excavate.
 
-## XI. Метапрофиль: Blind Spots
+## XI. Meta-profile: blind spots
 What they can't see about themselves. Where their self-model diverges from observed behavior.
 Corrections log: where your projections were wrong and what replaced them.
 
-## XII. Сводка тегов
+## XII. Tag summary
 Table: tag → description. Every significant pattern gets a tag.
 
-## XIII. Предсказательная модель
+## XIII. Predictive model
 Table: situation → predicted behavior. 5-7 common decision points.
 Based on collected evidence, not stereotypes.
 v3.2: use load-mode (L13) as the crisis-behavior predictor (holds vs flips under overload) and attribution asymmetry (L8) to predict whether they'll change behavior after a failure or externalize it. Time-orientation (L11) predicts plan vs deferral.
