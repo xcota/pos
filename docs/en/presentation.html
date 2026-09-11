@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camomile: what it is, how it works, and how to use it</title>
+<style>
+:root{
+  --bg:#f3f0ea;
+  --ink:#2f3330;
+  --muted:#6d7269;
+  --yellow:#f2c027;
+  --yellow-soft:#fbeec4;
+  --green:#8fa985;
+  --green-deep:#63795c;
+  --card:#fffdf8;
+  --line:#ddd8ca;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,sans-serif;
+  font-size:18px;
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:740px;margin:0 auto;padding:56px 24px 110px}
+
+/* ---------- header ---------- */
+.header{text-align:center;margin-bottom:16px}
+.header img{display:block;width:100%;max-width:390px;height:auto;margin:0 auto 6px;border-radius:8px}
+h1{font-size:46px;line-height:1.1;letter-spacing:-.5px;margin:10px 0 14px;font-weight:800}
+.tagline{font-size:20px;line-height:1.55;max-width:620px;margin:0 auto;font-weight:600}
+.meta{margin-top:22px;font-size:13.5px;color:var(--muted);letter-spacing:.06em;text-transform:none}
+.rule{width:64px;height:4px;border-radius:2px;background:var(--yellow);margin:30px auto 0}
+
+/* ---------- typography ---------- */
+h2{
+  font-size:31px;line-height:1.2;font-weight:800;letter-spacing:-.3px;
+  margin:72px 0 22px;padding-top:26px;border-top:1px solid var(--line);position:relative;
+}
+h2::before{
+  content:"";position:absolute;top:-2px;left:0;width:46px;height:4px;border-radius:2px;background:var(--yellow);
+}
+h3{font-size:21px;line-height:1.35;font-weight:700;margin:44px 0 14px;padding-left:16px;border-left:4px solid var(--green);}
+p{margin:0 0 20px}
+ul{margin:0 0 22px;padding-left:1.35em}
+li{margin:0 0 12px}
+strong{font-weight:700}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:.88em;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 6px;
+  white-space:nowrap;
+}
+a{color:var(--green-deep);text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* ---------- figures ---------- */
+figure{margin:40px 0 44px}
+figure svg{display:block;width:100%;height:auto}
+figcaption{margin-top:12px;text-align:center;font-size:13.5px;color:var(--muted)}
+.dg text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;fill:var(--ink)}
+.dg .t{font-size:17px;font-weight:700}
+.dg .s{font-size:13.5px;fill:var(--muted)}
+.dg .lbl{font-size:14px;font-weight:600}
+.dg .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px}
+.dg .cap{font-size:15px}
+.dg .num{font-size:15px;font-weight:700;fill:#2f3330}
+
+/* ---------- q&a ---------- */
+.qa{margin:0 0 26px;padding-left:20px;border-left:3px solid var(--green)}
+.qa .q{font-weight:700;margin:0 0 8px}
+.qa p:last-child{margin-bottom:0}
+
+/* ---------- boxes ---------- */
+.box{
+  background:var(--card);border:2px solid var(--yellow);border-radius:16px;
+  padding:28px 30px 24px;margin:28px 0 0;
+}
+.box h2{margin-top:0;border-top:none;padding-top:0}
+.box h2::before{display:none}
+.box ul{margin-bottom:18px}
+.box p:last-child{margin-bottom:0}
+.more{
+  margin-top:36px;padding:18px 22px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;font-size:16.5px;
+}
+
+/* ---------- print ---------- */
+@page{size:A4;margin:16mm}
+@media print{
+  body{background:#fff;font-size:11.5pt;line-height:1.55}
+  .wrap{max-width:none;padding:0}
+  h1{font-size:30pt}
+  h2{font-size:18pt;margin-top:26pt}
+  h3{font-size:13.5pt;margin-top:18pt}
+  figure,.box,.qa,.more,li{break-inside:avoid;page-break-inside:avoid}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  figure svg,.box,code{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  a{color:inherit;text-decoration:none}
+}
+@media (max-width:520px){
+  body{font-size:17px}
+  h1{font-size:34px}
+  h2{font-size:25px}
+  .tagline{font-size:18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="header">
+  <img src="data:image/jpeg;base64,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" alt="Camomile">
+  <h1>Camomile</h1>
+  <p class="tagline">A folder on your computer where an AI assistant remembers you: what you are doing, what you decided, and how you want to be talked to.</p>
+  <p class="meta">version September 2026 · AGPL v3</p>
+  <div class="rule"></div>
+</header>
+
+<h2>What it is</h2>
+
+<p>Camomile is a folder on your computer plus an AI assistant that reads and writes that folder.</p>
+
+<p>In an ordinary AI chat you start from zero every time: who you are, what you are doing, what you already decided. Here all of that sits in files on your disk. The assistant looks into them at the start of a conversation and adds to them at the end. The longer you use it, the better it hits the mark — not because it "gets smarter", but because more is written down about you, in your own words.</p>
+
+<p>The name comes from the picture. You are in the middle, seven petals around you, and each petal is one area of life:</p>
+
+<ul>
+  <li><strong>Self-development</strong> — what you are learning and where you are growing</li>
+  <li><strong>Vitality</strong> — body, sleep, energy, how you feel</li>
+  <li><strong>Surroundings</strong> — the people close to you: family, friends, partners; and the place where you live</li>
+  <li><strong>Wealth</strong> — what "enough" means to you and how you will know it has arrived</li>
+  <li><strong>Rest</strong> — how you recover and what you enjoy</li>
+  <li><strong>Work</strong> — your job, your projects, whatever you are seriously busy with</li>
+  <li><strong>Assets</strong> — money and property: income, savings, housing, equipment, debts</li>
+</ul>
+
+<p>Inside the files these seven keep their original Russian names (<code>samorazvitie</code>, <code>vitalnost</code>, <code>okruzhenie</code>, <code>bogatstvo</code>, <code>otdyh</code>, <code>delo</code>, <code>aktivy</code>) — they are internal labels, nothing you have to read or type; in the original their first letters spell the word for "freedom".</p>
+
+<figure>
+<svg class="dg" viewBox="0 0 740 545" role="img" aria-label="The daisy of seven areas: the person in the middle, seven petals around — Self-development, Vitality, Surroundings, Wealth, Rest, Work, Assets">
+  <g fill="#fffdf8" stroke="#8fa985" stroke-width="2.5">
+    <g transform="rotate(0,370,300)"><ellipse cx="370" cy="182" rx="46" ry="80"/></g>
+    <g transform="rotate(51.43,370,300)"><ellipse cx="370" cy="182" rx="46" ry="80"/></g>
+    <g transform="rotate(102.86,370,300)"><ellipse cx="370" cy="182" rx="46" ry="80"/></g>
+    <g transform="rotate(154.29,370,300)"><ellipse cx="370" cy="182" rx="46" ry="80"/></g>
+    <g transform="rotate(205.71,370,300)"><ellipse cx="370" cy="182" rx="46" ry="80"/></g>
+    <g transform="rotate(257.14,370,300)"><ellipse cx="370" cy="182" rx="46" ry="80"/></g>
+    <g transform="rotate(308.57,370,300)"><ellipse cx="370" cy="182" rx="46" ry="80"/></g>
+  </g>
+
+  <circle cx="370" cy="300" r="60" fill="#f2c027" stroke="#d9a71f" stroke-width="2"/>
+  <circle cx="370" cy="280" r="13" fill="#3a3f3b"/>
+  <path d="M346 318 a24 24 0 0 1 48 0 z" fill="#3a3f3b"/>
+  <text class="t" x="370" y="341" text-anchor="middle" fill="#3a3f3b">you</text>
+
+  <text class="t" x="370" y="66" text-anchor="middle">Self-development</text>
+  <text class="s" x="370" y="88" text-anchor="middle">learning and growth</text>
+
+  <text class="t" x="550" y="150" text-anchor="start">Vitality</text>
+  <text class="s" x="550" y="172" text-anchor="start">body and energy</text>
+
+  <text class="t" x="589" y="344" text-anchor="start">Surroundings</text>
+  <text class="s" x="589" y="366" text-anchor="start">people and place</text>
+
+  <text class="t" x="471" y="503" text-anchor="start">Wealth</text>
+  <text class="s" x="471" y="525" text-anchor="start">what "enough" means</text>
+
+  <text class="t" x="269" y="503" text-anchor="end">Rest</text>
+  <text class="s" x="269" y="525" text-anchor="end">what restores you</text>
+
+  <text class="t" x="151" y="344" text-anchor="end">Work</text>
+  <text class="s" x="151" y="366" text-anchor="end">what you do</text>
+
+  <text class="t" x="190" y="150" text-anchor="end">Assets</text>
+  <text class="s" x="190" y="172" text-anchor="end">money and property</text>
+</svg>
+<figcaption>The daisy of seven areas: you in the middle, seven petals of life around you</figcaption>
+</figure>
+
+<p>The point of the daisy is simple: life is not one petal. The assistant keeps notes on all seven, and over time it becomes visible which ones are dense and which ones you simply never talked about.</p>
+
+<h2>How it works</h2>
+
+<p>Three things make up the whole system.</p>
+
+<figure>
+<svg class="dg" viewBox="0 0 740 440" role="img" aria-label="Diagram: memory, work and mirror read the folder of files at the start of a conversation and add to it at the end">
+  <defs>
+    <marker id="au" viewBox="0 0 12 12" refX="6" refY="10" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M6 0 L12 11 L0 11 Z" fill="#63795c"/>
+    </marker>
+    <marker id="ad" viewBox="0 0 12 12" refX="6" refY="10" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M6 0 L12 11 L0 11 Z" fill="#c9930f"/>
+    </marker>
+  </defs>
+
+  <g>
+    <rect x="12" y="16" width="228" height="86" rx="14" fill="#fffdf8" stroke="#8fa985" stroke-width="2.5"/>
+    <text class="t" x="126" y="52" text-anchor="middle">MEMORY</text>
+    <text class="s" x="126" y="76" text-anchor="middle">remembers you</text>
+    <text class="s" x="126" y="93" text-anchor="middle">between conversations</text>
+
+    <rect x="256" y="16" width="228" height="86" rx="14" fill="#fffdf8" stroke="#8fa985" stroke-width="2.5"/>
+    <text class="t" x="370" y="52" text-anchor="middle">WORK</text>
+    <text class="s" x="370" y="76" text-anchor="middle">keeps your projects</text>
+    <text class="s" x="370" y="93" text-anchor="middle">and decisions</text>
+
+    <rect x="500" y="16" width="228" height="86" rx="14" fill="#fffdf8" stroke="#8fa985" stroke-width="2.5"/>
+    <text class="t" x="614" y="52" text-anchor="middle">MIRROR</text>
+    <text class="s" x="614" y="76" text-anchor="middle">notices your corrections</text>
+    <text class="s" x="614" y="93" text-anchor="middle">and adjusts</text>
+  </g>
+
+  <line x1="300" y1="290" x2="300" y2="124" stroke="#63795c" stroke-width="3" marker-end="url(#au)"/>
+  <text class="lbl" x="284" y="176" text-anchor="end" fill="#63795c">reads</text>
+  <text class="lbl" x="284" y="196" text-anchor="end" fill="#63795c">at the start</text>
+
+  <line x1="440" y1="124" x2="440" y2="290" stroke="#c9930f" stroke-width="3" marker-end="url(#ad)"/>
+  <text class="lbl" x="456" y="176" text-anchor="start" fill="#a97c0c">writes</text>
+  <text class="lbl" x="456" y="196" text-anchor="start" fill="#a97c0c">at the end</text>
+
+  <path d="M110 300 h150 l22 24 h348 a14 14 0 0 1 14 14 v76 a14 14 0 0 1 -14 14 h-520 a14 14 0 0 1 -14 -14 v-100 a14 14 0 0 1 14 -14 z"
+        fill="#fffdf8" stroke="#3a3f3b" stroke-width="2.5" stroke-linejoin="round"/>
+  <text class="cap" x="370" y="356" text-anchor="middle" font-size="14">the folder on your disk: "who I am" · "what I am doing now" · "my goals"</text>
+  <text class="cap" x="370" y="380" text-anchor="middle" font-size="14">notes by day · cards about people and projects</text>
+  <text class="s" x="370" y="406" text-anchor="middle">ordinary text files — they open in any text editor</text>
+</svg>
+<figcaption>How it works: the three parts of the system and the folder they read and add to</figcaption>
+</figure>
+
+<h3>1. Memory — it remembers you between conversations</h3>
+
+<p>Mechanics, no miracles. The folder holds ordinary text files: "who I am", "what I am doing now", "my goals", notes by day, cards about people and projects. At the start of every conversation the assistant reads those files — that takes it seconds. At the end, when you say <code>/session-save</code> (or just "save this conversation"), it writes down what was done and decided.</p>
+
+<p>That is all. No magic and no database: open a file in a text editor and you see ordinary text that you can edit yourself.</p>
+
+<p>There is also <strong>search by meaning</strong> — when you ask "where did I talk about being tired in the mornings" and the note says "wrecked after getting up", and it still finds it. Nobody installs it silently: right at the start of the first session the assistant asks one yes/no question and says honestly what it costs — about one gigabyte of disk space and five to ten minutes to download. Say no and nothing is downloaded, search works by exact words, everything else works as usual. If the install fails (it happens), nothing breaks either — it says so in one line and moves on.</p>
+
+<h3>2. Your work — it keeps your projects and decisions</h3>
+
+<p>The assistant gives each of your things its own page and links the pages to each other — something like a small personal encyclopedia of your life. A person, a project, a decision, notes on something you read: each gets its own card.</p>
+
+<p>When you make a hard decision, you can ask for it to be written down separately: what you decided and why. Six months later the question "why did I do that back then" has an answer instead of a guess.</p>
+
+<h3>3. The mirror — it notices your corrections and adjusts</h3>
+
+<p>This is the part an ordinary chat does not have. When you correct the assistant — "too long", "don't ask two questions at once", "use my first name" — the correction goes into the "How to work with me" section of your "who I am" file, and it re-reads that file every time it starts. So the manner is not lost when you close the window and open a new one the next day.</p>
+
+<p>It does not do this silently: when you say "save" at the end of a conversation, it shows one or two candidate lines for that section and writes down only what you agreed to. Stay quiet and nothing is written. And the other way round: a correction about how to talk to you stays a correction about how to talk to you — it never turns into a conclusion about you as a person.</p>
+
+<p>Every few days you can type <code>/reflect</code>, and it goes over the recent days of work and pulls out lessons.</p>
+
+<p>To be honest about it: the folder already contains more than forty common mistakes taken apart, plus a set of rules — not about you, but about how AI assistants usually get things wrong (start building instead of asking, write in a clever-sounding way, claim work they did not do). So the assistant arrives already trained, and from there you finish the job.</p>
+
+<h2>Getting started</h2>
+
+<p>What you will see on screen, step by step. The same four steps as in the README — there are no others.</p>
+
+<figure>
+<svg class="dg" viewBox="0 0 740 230" role="img" aria-label="Four steps: install Claude Code, download and unpack the folder, open the folder and type claude, type slash start">
+  <g fill="#fffdf8" stroke="#ddd8ca" stroke-width="2">
+    <rect x="12" y="46" width="158" height="160" rx="14"/>
+    <rect x="198" y="46" width="158" height="160" rx="14"/>
+    <rect x="384" y="46" width="158" height="160" rx="14"/>
+    <rect x="570" y="46" width="158" height="160" rx="14"/>
+  </g>
+  <g fill="#8fa985">
+    <path d="M177 110 L191 122 L177 134 Z"/>
+    <path d="M363 110 L377 122 L363 134 Z"/>
+    <path d="M549 110 L563 122 L549 134 Z"/>
+  </g>
+  <g>
+    <circle cx="91" cy="46" r="21" fill="#f2c027" stroke="#f3f0ea" stroke-width="3"/>
+    <text class="t" x="91" y="53" text-anchor="middle" fill="#3a3f3b">1</text>
+    <circle cx="277" cy="46" r="21" fill="#f2c027" stroke="#f3f0ea" stroke-width="3"/>
+    <text class="t" x="277" y="53" text-anchor="middle" fill="#3a3f3b">2</text>
+    <circle cx="463" cy="46" r="21" fill="#f2c027" stroke="#f3f0ea" stroke-width="3"/>
+    <text class="t" x="463" y="53" text-anchor="middle" fill="#3a3f3b">3</text>
+    <circle cx="649" cy="46" r="21" fill="#f2c027" stroke="#f3f0ea" stroke-width="3"/>
+    <text class="t" x="649" y="53" text-anchor="middle" fill="#3a3f3b">4</text>
+  </g>
+
+  <text class="t" x="91" y="103" text-anchor="middle" font-size="16">Install</text>
+  <text class="t" x="91" y="124" text-anchor="middle" font-size="16">Claude Code</text>
+  <text class="s" x="91" y="158" text-anchor="middle">a paid plan,</text>
+  <text class="s" x="91" y="175" text-anchor="middle">Pro or Max</text>
+
+  <text class="t" x="277" y="103" text-anchor="middle" font-size="16">Download</text>
+  <text class="t" x="277" y="124" text-anchor="middle" font-size="16">and unpack</text>
+  <text class="s" x="277" y="158" text-anchor="middle">the folder — into</text>
+  <text class="s" x="277" y="175" text-anchor="middle">Documents, say</text>
+
+  <text class="t" x="463" y="100" text-anchor="middle" font-size="16">Open the folder</text>
+  <rect x="415" y="112" width="96" height="26" rx="7" fill="#f3f0ea" stroke="#ddd8ca"/>
+  <text class="mono" x="463" y="130" text-anchor="middle">cd  folder</text>
+  <rect x="427" y="146" width="72" height="26" rx="7" fill="#f3f0ea" stroke="#ddd8ca"/>
+  <text class="mono" x="463" y="164" text-anchor="middle">claude</text>
+  <text class="s" x="463" y="192" text-anchor="middle">in a command window</text>
+
+  <text class="t" x="649" y="103" text-anchor="middle" font-size="16">Type</text>
+  <rect x="613" y="114" width="72" height="28" rx="7" fill="#fbeec4" stroke="#f2c027"/>
+  <text class="mono" x="649" y="133" text-anchor="middle">/start</text>
+  <text class="s" x="649" y="168" text-anchor="middle">from here the</text>
+  <text class="s" x="649" y="185" text-anchor="middle">assistant leads</text>
+</svg>
+<figcaption>Four steps — there are no others</figcaption>
+</figure>
+
+<p><strong>Step 1. Install Claude Code.</strong> Claude Code is a program made by Anthropic: it starts in a command window, and inside that same window you write back and forth with the assistant, just like an ordinary chat. Inside it, the assistant is allowed to read and write files in your folder. A paid Claude plan (Pro or Max) is required — you pay Anthropic for it. Instructions: <a href="https://code.claude.com/docs/en/setup">https://code.claude.com/docs/en/setup</a> — there is one command there that you paste into a command window (step 3). You install it once.</p>
+
+<p><strong>Step 2. Download the folder and unpack it</strong> — into your Documents, for example. The page: <a href="https://github.com/xcota/pos">https://github.com/xcota/pos</a> (green "Code" button → "Download ZIP"); if GitHub does not open, the same folder is at <a href="https://gitee.com/cotya/pos-starter">https://gitee.com/cotya/pos-starter</a> (button "克隆/下载" → "下载 ZIP"). After unpacking, the folder is called <code>pos-main</code> or <code>pos-starter-master</code> — you can rename it to "Camomile".</p>
+
+<p><strong>Step 3. Open the folder in Claude Code.</strong> You need the window where commands are typed (on a Mac it is called Terminal; find it through the computer's search). Two lines go in there. The first: <code>cd</code>, a space, and the folder dragged in with your mouse — then Enter. <code>cd</code> means "go to": you are telling the window which folder to work with from now on. When you drag the folder in, a long line with slashes appears by itself — that is the folder's address, it is supposed to look like that, do not edit it. The second line: <code>claude</code> and Enter. If the answer is <code>command not found</code>, the program is not installed — go back to step 1.</p>
+
+<p><strong>What success looks like.</strong> The window clears, the program's greeting appears, and at the bottom there is a line you can type into. That is it — from here it is simply writing back and forth: you type a sentence, press Enter, read the answer.</p>
+
+<p><strong>Step 4. Type <code>/start</code>.</strong> One word. From here the assistant leads.</p>
+
+<p><strong>Coming back tomorrow.</strong> The same two lines in the same window: <code>cd</code> with your folder, then <code>claude</code>. The up arrow on your keyboard brings back what you typed last time. And one thing in advance: at the end of the first session the assistant asks you once to close it and open it again — those are the same two lines.</p>
+
+<h2>The first session: getting acquainted</h2>
+
+<p>The assistant asks you about yourself — as an ordinary conversation, one question at a time, not a ten-page questionnaire.</p>
+
+<p>How it goes today:</p>
+
+<ul>
+  <li><strong>The start.</strong> It asks what to call you and explains in one paragraph what is about to happen. Then one yes/no question: install search by meaning, and straight away what it costs (about a gigabyte of disk space, five to ten minutes). It downloads nothing silently.</li>
+  <li><strong>Three stories instead of a questionnaire.</strong> You are not asked to rate yourself: yesterday, from waking up to going to bed; the past month — what you bought, what you regret, what you are glad about; what you learned over the past year and from whom. That is enough to cover all seven areas. The stories are saved word for word.</li>
+  <li><strong>A card per area, for you to check.</strong> Numbered lines "you said" (your own words, word for word, checked against your own stories), "I saw in your files", "I think", then "I don't know" and "I heard '…' — right?", and as the last line its number with a confidence level. You correct by number. For an area you barely talked about there is no number at all — "you didn't talk about this".</li>
+  <li><strong>Questions that go deeper.</strong> After five areas the questions change character: what really makes you angry, what you lost and could not digest, how being lonely differs from being alone, what counts as irreversible for you. This is not a test — it is an ordinary conversation, just not a shallow one.</li>
+  <li><strong>Parents and childhood</strong> are a separate part, and it is <strong>optional</strong>. Say you would rather not, and the session moves on.</li>
+  <li><strong>The portrait.</strong> Out of all this it puts together a description: how you are built, where your strong spots and blind spots are, how you usually decide. It only starts building the folder after you have confirmed or corrected at least two cards — it does not build on unchecked conclusions.</li>
+  <li><strong>Building the folder.</strong> Then it builds your folder: the "who I am" file, your goals, starting tasks, a cover page with the seven areas. And it asks you once to close it and open it again.</li>
+</ul>
+
+<figure>
+<svg class="dg" viewBox="0 0 740 420" role="img" aria-label="A mock-up of an area card: numbered lines you said, I think, I don't know, I heard — right?, and a last line with the number">
+  <defs>
+    <marker id="ar" viewBox="0 0 12 12" refX="6" refY="10" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M6 0 L12 11 L0 11 Z" fill="#63795c"/>
+    </marker>
+  </defs>
+
+  <rect x="196" y="16" width="536" height="388" rx="16" fill="#fffdf8" stroke="#ddd8ca" stroke-width="2"/>
+  <circle cx="228" cy="52" r="8" fill="#f2c027"/>
+  <text class="t" x="246" y="58" font-size="16">Vitality — a card for you to check</text>
+  <line x1="212" y1="78" x2="716" y2="78" stroke="#ddd8ca" stroke-width="1.5"/>
+
+  <g fill="#f3f0ea" stroke="#8fa985" stroke-width="1.5">
+    <circle cx="232" cy="112" r="14"/>
+    <circle cx="232" cy="154" r="14"/>
+    <circle cx="232" cy="196" r="14"/>
+    <circle cx="232" cy="238" r="14"/>
+    <circle cx="232" cy="280" r="14"/>
+  </g>
+  <g class="num" text-anchor="middle">
+    <text x="232" y="117">1</text>
+    <text x="232" y="159">2</text>
+    <text x="232" y="201">3</text>
+    <text x="232" y="243">4</text>
+    <text x="232" y="285">5</text>
+  </g>
+
+  <g class="cap">
+    <text x="258" y="117"><tspan fill="#6d7269">you said:</tspan> "I sleep about five hours"</text>
+    <text x="258" y="159"><tspan fill="#6d7269">you said:</tspan> "by the evening there is nothing left"</text>
+    <text x="258" y="201"><tspan fill="#6d7269">I think:</tspan> the body runs on coffee, not on sleep</text>
+    <text x="258" y="243"><tspan fill="#6d7269">I don't know:</tspan> whether you had a weekend without work</text>
+    <text x="258" y="285"><tspan fill="#6d7269">I heard:</tspan> you dropped sport in March — right?</text>
+  </g>
+
+  <line x1="212" y1="310" x2="716" y2="310" stroke="#ddd8ca" stroke-width="1.5"/>
+  <rect x="212" y="326" width="504" height="60" rx="10" fill="#fbeec4" stroke="#f2c027" stroke-width="1.5"/>
+  <text class="cap" x="232" y="350"><tspan fill="#6d7269">as I see it:</tspan> the body pulls, but on its reserves</text>
+  <text class="t" x="232" y="373" font-size="16">6 out of 10, medium confidence</text>
+
+  <text class="s" x="170" y="150" text-anchor="end" fill="#63795c">you correct</text>
+  <text class="s" x="170" y="169" text-anchor="end" fill="#63795c">by number:</text>
+  <text class="s" x="170" y="205" text-anchor="end" fill="#63795c">"3 — not right,</text>
+  <text class="s" x="170" y="224" text-anchor="end" fill="#63795c">what happened was…"</text>
+  <path d="M120 244 C 150 250, 172 226, 196 206" fill="none" stroke="#63795c" stroke-width="2.5" marker-end="url(#ar)"/>
+</svg>
+<figcaption>An area card as the person sees it: the lines are numbered so you can correct by number</figcaption>
+</figure>
+
+<p>How long it takes. A quick pass, enough to start working, is about fifteen minutes. The full thing, with all the deeper questions, takes noticeably longer — several sittings. You can stop anywhere: everything is already written down, so you come back and type <code>/start</code>.</p>
+
+<h2>What changes as you use it</h2>
+
+<p>The more conversations you have saved, the less you have to re-tell yourself: the assistant already holds what you are working on, what you put aside and who is around you. Old decisions are one question away. The "How to work with me" section grows on your own corrections — and the conversation gets more accurate than it was on day one. We promise no timeline here: the speed depends only on how much you have said and saved.</p>
+
+<p>What will <strong>not</strong> happen: the assistant will not write to you on its own, will not remind you about your tasks, and will do nothing without your word. It sets no schedules and does not watch you. Everything happens only when you open a conversation and ask for something. Three commands worth remembering (type them straight into the conversation, with a slash in front): <code>/session-save</code> — save the conversation into memory, <code>/recall</code> — find something old, <code>/reflect</code> — go over the misses of the last few days. You can also just ask in plain words: "save this conversation", "find where I wrote about…".</p>
+
+<h2>Questions and answers</h2>
+
+<div class="qa"><p class="q">Where is my data?</p>
+<p>On your disk, in this folder, as ordinary text files. There is no separate storage and no server of ours. We do not register you anywhere: we have no accounts and there is nowhere to create one — the only subscription is with Anthropic, for the Claude Code program itself.</p></div>
+
+<div class="qa"><p class="q">What about passwords?</p>
+<p>You do not need to give the assistant passwords, keys or card numbers, and it does not copy them into your files even if you mention them in conversation — that is written into its rules.</p></div>
+
+<div class="qa"><p class="q">Does anything go to the internet?</p>
+<p>Yes, and it matters that you know it. For the assistant to answer, pieces of your notes are sent to Claude — as with any text you type into an AI chat. They go to no other service, but saying "everything stays on your computer" would not be true.</p></div>
+
+<div class="qa"><p class="q">What does it cost?</p>
+<p>A paid Claude plan from Anthropic (Pro or Max) — that is where the assistant runs, and you pay Anthropic for it. No other payments, and nothing paid to us.</p></div>
+
+<div class="qa"><p class="q">Can I use it on a phone?</p>
+<p>No. You need a computer: Mac or Linux. Windows is not supported yet.</p></div>
+
+<div class="qa"><p class="q">What if I delete the folder?</p>
+<p>Your notes are gone: the assistant remembers nothing about you any more, and there is no copy anywhere. The only thing left outside the folder is the downloaded dictionary for search by meaning, if you agreed to it — about a gigabyte; that is not your data, but it takes up space. The flip side of the same thing: copy the folder and all your notes have moved to another computer.</p></div>
+
+<div class="qa"><p class="q">Can I use English or Chinese?</p>
+<p>Yes — the assistant speaks the language you write in. If it is not sure which one you want, it asks once.</p></div>
+
+<div class="qa"><p class="q">Do I have to go through the whole first session?</p>
+<p>No. The first pass gives you a working basis, the rest is picked up as you go. You can stop at any question, and the part about parents and childhood can be skipped entirely.</p></div>
+
+<div class="qa"><p class="q">What does it write down about me, and how do I erase it?</p>
+<p>What you told it, plus its own conclusions. All of it is files you can open, read, edit and delete by hand. Or just tell it: remove this.</p></div>
+
+<div class="qa"><p class="q">Does it diagnose me?</p>
+<p>It builds a psychological portrait: it notices repeating reactions — how you behave when someone close pulls away, where you put the blame for a failure, what overload does to you — and where that came from, including family, if you talk about it. It does not say labels out loud, but it does put its conclusions into your "who I am" file. The portrait is yours: you read it and you edit it. If you do not want this, tell it, and it will not dig.</p></div>
+
+<div class="qa"><p class="q">What does the assistant not do?</p>
+<p>It does not write first, does not remind you, does not work on a schedule, does not go online on your behalf unasked, sends nothing to anyone, and does not claim work it did not do — if it did not do something, or is unsure, it says so.</p></div>
+
+<div class="qa"><p class="q">And if something breaks?</p>
+<p>Tell it in plain words what you see on the screen. It reads the same folder and fixes things itself. Worst case: unpack the folder again and go through the first session once more.</p></div>
+
+<div class="box">
+<h2>What you need: the honest list</h2>
+<ul>
+  <li>A Mac or a Linux computer. Windows is not supported yet.</li>
+  <li>A paid Claude plan (Pro or Max) from Anthropic.</li>
+  <li>The Claude Code program, installed.</li>
+  <li>Two helper programs, both free: Python and Git. On a Mac they are usually already there. Without Python there is no search by meaning and no quote self-check (in that case it simply does not show the "you said" lines) — but nothing breaks and you will not see errors on screen.</li>
+  <li>Being able to type two lines into a command window once — and to repeat them each time you come back.</li>
+  <li>An internet connection the whole time you are talking to the assistant.</li>
+  <li>About fifteen minutes for the first session. Going deeper takes several sittings.</li>
+  <li><strong>One yes/no question:</strong> search by meaning. The assistant asks right at the start and tells you what it costs: about a gigabyte of disk space, five to ten minutes. It lets you find your own notes by the sense of your question instead of the exact words. Say no and nothing is downloaded, everything else works.</li>
+  <li><strong>Optional:</strong> going through a YouTube video. That needs a separate free downloader program. Without it you can still work through chats, notes and summaries.</li>
+</ul>
+<p>What you do <strong>not</strong> need: to program, to keep accounts anywhere else, to run a server.</p>
+</div>
+
+<p class="more">The detailed script of the first session is in <a href="onboarding-flow.md"><code>docs/en/onboarding-flow.md</code></a>.</p>
+
+</div>
+</body>
+</html>
