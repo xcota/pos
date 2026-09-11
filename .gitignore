@@ -4,7 +4,7 @@
 __pycache__/
 .venv/
 
-# Служебное: пересобирается само, в архив и в историю не нужно
+# Housekeeping: rebuilt on its own, not needed in the archive or in history
 .memory_venv/
 *_venv/
 state/memory-index/*.npz
@@ -20,7 +20,7 @@ state/.lint-attempts.json
 .env
 *.env
 
-# Пустые папки должны доехать
+# Empty folders must survive the trip
 !.gitkeep
 !daily/.gitkeep
 !reports/.gitkeep
