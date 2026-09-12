@@ -16,7 +16,7 @@ Starting point: the folder is empty and the assistant knows nothing about you. S
 
 **At the end — the portrait.** Out of the conversation it puts together a description: how you are built, what you do at typical decision points, what it is guessing at and what it does not know about you, and its number for each area. There is one threshold: two cards that you have seen and either confirmed or corrected. Fewer than two and it does not build; more than two is not worth waiting for — the deeper questions and the remaining areas can be done later. The first pass is always marked as preliminary.
 
-**Building the folder.** After the portrait it builds your folder: the "who I am" file, your goals, starting tasks, a cover page with the seven areas. And it asks you once to close it and open it again in the same folder — that is the only thing you do by hand in the whole session, and it is the same two lines in the command window that you used to start.
+**Building the folder.** After the portrait it builds your folder: the "who I am" file, your goals, starting tasks, a cover page with the seven areas. And it asks you once to close it and open it again in the same folder — that is the only thing you do by hand in the whole session, and it is the same two lines in the command window that you used to start. When you open it again, it reads its own notes first — who you are, where you stopped — and from then on it does that at every start, on its own.
 
 How long it takes: a quick pass is about fifteen minutes, the full one, with all the deeper questions, takes several sittings. You can stop anywhere: everything is already on disk, so you come back, type `/start`, and it continues from the same place.
 

@@ -57,7 +57,9 @@ More detail: [what this is and how it works](docs/en/presentation.md) · [what t
 
 The same two lines in the same command window: first `cd` with your folder, then `claude`. In a command window the up arrow on your keyboard brings back what you typed last time — that is quicker.
 
-Every few days, at the start of a conversation, the assistant will say that its memory needs a few minutes of tidying and ask whether to do it now. Say yes: it merges what it has learned, removes duplicates and refreshes search by meaning. It never does this without asking, and there is no command to remember.
+You never load anything by hand. Each time you open it, the assistant first reads its own notes — who you are and how you like to talk, where you stopped, what you saved today — and only then answers. That is why the cheat sheet below is so short: the rest happens on its own.
+
+Every few days, at the start of a conversation, the assistant will say that its memory needs a few minutes of tidying and ask whether to do it now. Say yes: it merges what it has learned, removes duplicates and refreshes search by meaning. In the same way, every few days, it offers to go over its own misses of the last days. It never does either without asking, and there is no command to remember.
 
 ## Where your data is
 
@@ -79,7 +81,7 @@ Type them straight into the conversation, with a slash in front:
 | `/recall` | find an old note |
 | `/reflect` | go over the misses of the last few days |
 
-`/start` is only needed the very first time (and to continue an interrupted first session). All of the same things can be asked for in plain words: "save this conversation", "find where I wrote about…".
+`/start` is only needed the very first time (and to continue an interrupted first session). All of the same things can be asked for in plain words: "save this conversation", "find where I wrote about…". Loading its memory at the start, the tidy-up and the review of misses it offers on its own — you only say yes.
 
 ## License
 

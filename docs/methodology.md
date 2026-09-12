@@ -37,6 +37,9 @@ Each stage below is one of the ten approaches.
 demands it. There is one authoritative boot sequence, and it lives in `CLAUDE.md` (which the
 harness auto-loads first). Everything else — identity, memory index, current state — is pulled
 in a fixed order, and deep knowledge files are loaded *only when a task touches them*.
+A `SessionStart` hook (`.claude/hooks/session-start.sh`) pours `state/current.md`, priorities,
+today's note and checkpoints into the context at every launch, so the boot does not depend on the
+model remembering to read them; before onboarding it prints one line ("type start") instead.
 
 **What it gives you.** The agent boots in ~15–25K tokens instead of dragging the whole vault
 into every conversation. Working budget target ~60K, ceiling ~100K → then save and start fresh.
@@ -45,7 +48,7 @@ its own furniture.
 
 **The rule:** boot small, expand by need, never load a directory "just in case."
 
-Files: `CLAUDE.md` (boot order), `.claude/skills/session-start`, `state/current.md`
+Files: `CLAUDE.md` (boot order), `.claude/hooks/session-start.sh`, `.claude/skills/session-start`, `state/current.md`
 (session-generated — absent in a blank clone, written on first `/session-save`).
 
 ---
@@ -167,12 +170,17 @@ Files: `scripts/memory_index.py` (build / update / search / serve / dupes),
 
 The main signal isn't the daily summary — it's **the conversation itself**: how you correct,
 where the friction is, what you value. `/reflect` mines that; `/dream` consolidates memory on a
-cadence; `/recall` retrieves it.
+cadence; `/recall` retrieves it. The cadence is enforced by the start hook
+(`.claude/hooks/session-start.sh`, registered in `.claude/settings.json`): at every launch it pours
+`state/current.md`, priorities, today's note and checkpoints into the assistant's context, counts
+sessions, and prints a gate line when `/dream` is due (24h + 5 sessions since the last one) or
+`/reflect` is due (3 days). The assistant then offers it to the person in one sentence and runs only
+on a yes; each run stamps `state/last_dream.txt` / `state/last_reflect.txt`, which closes the gate.
 
 **What it gives you.** An agent that gets *less wrong over time* on your specific work, instead of
 making the same class of mistake every week.
 
-Files: `.claude/skills/reflect`, `.claude/skills/dream`, `context/anti-patterns.md`,
+Files: `.claude/hooks/session-start.sh`, `.claude/skills/reflect`, `.claude/skills/dream`, `context/anti-patterns.md`,
 `context/learned.md`, `context/skill-candidates.md`.
 
 ---
