@@ -87,3 +87,7 @@ Analyze recent work, extract patterns, learn from mistakes, propose improvements
 - One concrete improvement > ten vague observations
 - Update anti-patterns.md with EVERY new mistake pattern
 - If the same mistake appears 3+ times → escalate to rules/
+- When done, stamp it — the start hook (`.claude/hooks/session-start.sh`) uses this to know when the next reflection is due (every 3 days) and offers it to the person in one sentence:
+  ```bash
+  date +%s > state/last_reflect.txt
+  ```

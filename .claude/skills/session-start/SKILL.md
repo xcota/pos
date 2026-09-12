@@ -10,6 +10,8 @@ Boot context for a new working session. Progressive loading: minimal at start, e
 
 ## Steps
 
+0. **Check what the start hook already poured in.** `.claude/hooks/session-start.sh` runs at every launch and prints a `--- State ---` block (state, priorities, today's note, checkpoints, sensors and the 💤/🔍 gates). If that block is in context, skip steps 1, 2, 4 and 5 — those files are already read, re-reading them wastes the boot budget. No block (a subagent, another entry point, or the hook failed) → do the steps by hand. If the block says the folder is not set up yet, follow its line and stop.
+
 1. If `state/current.md` exists, read it — what's happening across all contexts right now. If it's absent (or `context/identity.md` still has `{{ }}` placeholders), the folder isn't set up yet — don't fabricate state. Say it to the person in ONE plain line, in the language they write in, and stop:
 
    > This folder isn't set up yet — just type `start` and I'll do the rest. No commands or steps needed from you.

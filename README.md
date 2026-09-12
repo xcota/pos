@@ -57,6 +57,8 @@ More detail: [what this is and how it works](docs/en/presentation.md) · [what t
 
 The same two lines in the same command window: first `cd` with your folder, then `claude`. In a command window the up arrow on your keyboard brings back what you typed last time — that is quicker.
 
+Every few days, at the start of a conversation, the assistant will say that its memory needs a few minutes of tidying and ask whether to do it now. Say yes: it merges what it has learned, removes duplicates and refreshes search by meaning. It never does this without asking, and there is no command to remember.
+
 ## Where your data is
 
 Everything sits on your own disk as ordinary text files — even a basic text editor opens them. There is no separate storage program and no server of ours. We do not register you anywhere: we have no accounts and there is nowhere to create one. The only subscription is with Anthropic, for the Claude Code program itself. Copy the folder and you have moved all your notes; delete the folder and the notes are gone.

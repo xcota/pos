@@ -62,7 +62,7 @@ What you will see on screen, step by step. The same four steps as in the README 
 
 **Step 4. Type `/start`.** One word. From here the assistant leads.
 
-**Coming back tomorrow.** The same two lines in the same window: `cd` with your folder, then `claude`. The up arrow on your keyboard brings back what you typed last time. And one thing in advance: at the end of the first session the assistant asks you once to close it and open it again — those are the same two lines.
+**Coming back tomorrow.** The same two lines in the same window: `cd` with your folder, then `claude`. The up arrow on your keyboard brings back what you typed last time. And one thing in advance: at the end of the first session the assistant asks you once to close it and open it again — those are the same two lines. Every few days, at the start of a conversation, it will also say that its memory needs a few minutes of tidying and ask whether to do it now — say yes; it never does this without asking.
 
 ## The first session: getting acquainted
 

@@ -25,6 +25,9 @@ Memory + execution + mirror — this folder is where you keep the person you wor
 
 Load boot context — don't ask; expand the cone only as far as the task reaches.
 
+**Start hook.** `.claude/hooks/session-start.sh` runs at every launch and pours a `--- State ---` block (state/current.md, priorities, today's note, checkpoints, sensors). Don't re-read what it already printed; no block (a subagent, or the hook failed) → read those files yourself. Before onboarding it prints one line instead — follow it.
+**Gates in that block.** `💤 Memory tidy-up is due` → offer it to the person in ONE sentence, in their language ("My memory needs a few minutes of tidying — do it now?"), run `/dream` only on a yes. `🔍 Reflection is due` → the same with `/reflect`. One offer per start, never unasked, never the command names to the person.
+
 ## Scope-gate (FIRST, before any multi-file build)
 Name the user's verb → the smallest artifact that closes it → deliver THAT first. A narrow verb ("check / find / make-a-file / short") = a narrow artifact + the right tool, **not** an apparatus (swarm / treatise / site / strategy). Apparatus only if explicitly asked OR impossible without it. Depth of reasoning ≠ size of apparatus. A second brief instead of shipping = dodging → stop, ship it.
 
@@ -48,7 +51,7 @@ Working-set **60K target · 100K ceiling** → `/session-save` → `/compact`. B
 4. Filenames `[a-z0-9_-]` only (except MEMORY.md, README.md, HOME.md, AGENTS.md, `MOC_<name>.md`).
 
 ## Self-improvement
-Feedback → `context/anti-patterns.md` / `context/learned.md`. Loop: `/reflect` + `/session-save`.
+Feedback → `context/anti-patterns.md` / `context/learned.md`. Loop: `/reflect` + `/session-save` + `/dream` (memory tidy-up: merges, prunes, refreshes search by meaning — offered by the start hook's gate, closed by its stamp).
 
 ## Architecture
 `context/` rules+goals · `rules/` hard rules · `knowledge/` graph+wikilinks · `state/` cross-context · `daily/` notes · `reports/` artifacts · `memory/svoboda/` their stories + domain cards · `inbox/` drop-box.

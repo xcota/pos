@@ -98,7 +98,7 @@ After pruning: `wc -l MEMORY.md` — must be ≤200. If over, prune harder.
 
 ## Phase 5 — Update the node-level embedding index
 
-After consolidating, recompute the semantic index — ONLY the changed files (git-diff from `manifest.git_head`, seconds, not the ~35-min full build):
+Only if `.memory_venv/bin/python` exists (the person said yes to search by meaning). If it does not, skip this phase without a word. Otherwise recompute the semantic index — ONLY the changed files (git-diff from `manifest.git_head`, seconds, not the ~35-min full build):
 
 ```bash
 .memory_venv/bin/python scripts/memory_index.py update
@@ -120,21 +120,25 @@ Return a **brief** summary (≤15 lines):
 
 If nothing changed (memories are already tight), say so in one line.
 
+Either way, close the gate first (the two commands under *Trigger gate* below), then report.
+
 ---
 
 ## Trigger gate (when to actually run)
 
 Dual-gate, both must be true:
-1. **≥24h** since the last dream — check `state/last_dream.txt` (a timestamp file)
-2. **≥5 sessions** since the last dream — check the session count
+1. **≥24h** since the last dream — `state/last_dream.txt` (epoch seconds, written by this skill)
+2. **≥5 sessions** since the last dream — `state/session_count_since_dream.txt` (counted by the start hook)
 
-After a successful run:
+You don't compute this yourself: `.claude/hooks/session-start.sh` checks both at every launch and prints `💤 Memory tidy-up is due` when the gate is open. Then you offer it to the person in ONE sentence, in their language ("My memory needs a few minutes of tidying — do it now?") and run only on a yes. The person never needs to know the word "dream".
+
+**After a successful run — mandatory, this is what closes the gate** (skip it and the offer repeats at every start):
 ```bash
-date -Iseconds > state/last_dream.txt
+date +%s > state/last_dream.txt
 echo 0 > state/session_count_since_dream.txt
 ```
 
-Manual override: the user invokes `/dream` directly → ignore the gate.
+Manual override: the person asks for it directly (in any words) → ignore the gate, still close it afterwards.
 
 ## Anti-patterns (do NOT)
 

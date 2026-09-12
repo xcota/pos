@@ -89,6 +89,8 @@ Save current session state before closing or when context gets heavy (>150K toke
    git add -A && git commit -m "[session-save]: {brief summary}"
    ```
 
+7. **Offer the tidy-up if it is due.** If this session's start block said `💤 Memory tidy-up is due` (or `🔍 Reflection is due`) and it hasn't been done yet, say it now in ONE sentence in the person's language and run `/dream` (or `/reflect`) only on a yes. Never run it unasked.
+
 ## Rules
 - Keep checkpoint files under 500 words
 - Don't save trivial sessions (quick questions, lookups)
