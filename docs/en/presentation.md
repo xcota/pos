@@ -26,9 +26,11 @@ Three things make up the whole system.
 
 ### 1. Memory — it remembers you between conversations
 
-Mechanics, no miracles. The folder holds ordinary text files: "who I am", "what I am doing now", "my goals", notes by day, cards about people and projects. At the start of every conversation the assistant reads those files — that takes it seconds. At the end, when you say `/session-save` (or just "save this conversation"), it writes down what was done and decided.
+Mechanics, no miracles. The folder holds ordinary text files: "who I am", "what I am doing now", "my goals", notes by day, cards about people and projects. At the start of every conversation the assistant reads those files on its own — who you are, where you stopped, what you saved today; that takes it seconds, and you never load anything by hand. At the end, when you say `/session-save` (or just "save this conversation"), it writes down what was done and decided.
 
 That is all. No magic and no database: open a file in a text editor and you see ordinary text that you can edit yourself.
+
+**Tidying up.** Notes pile up, and some of them repeat or go out of date. So every few days, at the start of a conversation, the assistant says its memory needs a few minutes of tidying and asks whether to do it now. Say yes: it merges what it has learned into the right files, removes duplicates, fixes facts that have changed, and refreshes search by meaning so that new notes are found too. It never starts this on its own, and there is no command to remember — you only say yes or later.
 
 There is also **search by meaning** — when you ask "where did I talk about being tired in the mornings" and the note says "wrecked after getting up", and it still finds it. Nobody installs it silently: right at the start of the first session the assistant asks one yes/no question and says honestly what it costs — about one gigabyte of disk space and five to ten minutes to download. Say no and nothing is downloaded, search works by exact words, everything else works as usual. If the install fails (it happens), nothing breaks either — it says so in one line and moves on.
 
@@ -44,7 +46,7 @@ This is the part an ordinary chat does not have. When you correct the assistant 
 
 It does not do this silently: when you say "save" at the end of a conversation, it shows one or two candidate lines for that section and writes down only what you agreed to. Stay quiet and nothing is written. And the other way round: a correction about how to talk to you stays a correction about how to talk to you — it never turns into a conclusion about you as a person.
 
-Every few days you can type `/reflect`, and it goes over the recent days of work and pulls out lessons.
+Every few days it also offers to go over its own misses of the last days and pull out lessons — you say yes or later; you can also ask for it yourself with `/reflect`.
 
 To be honest about it: the folder already contains more than forty common mistakes taken apart, plus a set of rules — not about you, but about how AI assistants usually get things wrong (start building instead of asking, write in a clever-sounding way, claim work they did not do). So the assistant arrives already trained, and from there you finish the job.
 
@@ -84,7 +86,7 @@ How long it takes. A quick pass, enough to start working, is about fifteen minut
 
 The more conversations you have saved, the less you have to re-tell yourself: the assistant already holds what you are working on, what you put aside and who is around you. Old decisions are one question away. The "How to work with me" section grows on your own corrections — and the conversation gets more accurate than it was on day one. We promise no timeline here: the speed depends only on how much you have said and saved.
 
-What will **not** happen: the assistant will not write to you on its own, will not remind you about your tasks, and will do nothing without your word. It sets no schedules and does not watch you. Everything happens only when you open a conversation and ask for something. Three commands worth remembering (type them straight into the conversation, with a slash in front): `/session-save` — save the conversation into memory, `/recall` — find something old, `/reflect` — go over the misses of the last few days. You can also just ask in plain words: "save this conversation", "find where I wrote about…".
+What will **not** happen: the assistant will not write to you on its own, will not remind you about your tasks, and will do nothing without your word. It sets no schedules and does not watch you. Everything happens only when you open a conversation — and the only things it brings up itself are the two offers above: to tidy its memory and to go over its misses, both only with your yes. Three commands worth remembering (type them straight into the conversation, with a slash in front): `/session-save` — save the conversation into memory, `/recall` — find something old, `/reflect` — go over the misses of the last few days. You can also just ask in plain words: "save this conversation", "find where I wrote about…".
 
 ## Questions and answers
 
@@ -109,6 +111,8 @@ What will **not** happen: the assistant will not write to you on its own, will n
 **Does it diagnose me?** It builds a psychological portrait: it notices repeating reactions — how you behave when someone close pulls away, where you put the blame for a failure, what overload does to you — and where that came from, including family, if you talk about it. It does not say labels out loud, but it does put its conclusions into your "who I am" file. The portrait is yours: you read it and you edit it. If you do not want this, tell it, and it will not dig.
 
 **What does the assistant not do?** It does not write first, does not remind you, does not work on a schedule, does not go online on your behalf unasked, sends nothing to anyone, and does not claim work it did not do — if it did not do something, or is unsure, it says so.
+
+**Do I have to keep its memory in order myself?** No. At every start it reads its own notes; you only say "save" at the end of a conversation. Every few days it offers a tidy-up of its memory (a few minutes: merging, removing duplicates, refreshing search) and, separately, a look at its own misses. Both wait for your yes. If you say no, nothing breaks — it will offer again another day.
 
 **And if something breaks?** Tell it in plain words what you see on the screen. It reads the same folder and fixes things itself. Worst case: unpack the folder again and go through the first session once more.
 
