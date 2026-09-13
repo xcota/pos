@@ -6,6 +6,8 @@ English · [中文](README.zh.md) · [Русский](docs/ru/README.md)
 
 **Presentation online:** https://xcota.github.io/pos/ (English · 中文 · Русский)
 
+_Version 2 · September 2026._ **What it does on its own:** at every start it reads its own notes (who you are, where you stopped). Every few days it offers to tidy its memory and, separately, to go over its own misses — both only after your yes. Nothing else happens without you.
+
 
 **A folder on your computer where an AI assistant remembers you: what you are doing, what you decided, and how you want to be talked to.**
 
