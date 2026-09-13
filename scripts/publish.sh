@@ -14,11 +14,11 @@ PROXY=""; [ "$1" = "--tunnel" ] && PROXY="-c http.proxy=socks5h://127.0.0.1:1808
 # Visible build stamp on the site (entry page + three presentations): date · short hash of the
 # content commit. Anyone can see at a glance whether the site has rebuilt — no trust required.
 STAMP="$(date +%F) · $(git rev-parse --short HEAD)"
-for f in docs/index.html docs/en/presentation.html docs/zh/presentation.html docs/ru/presentation.html; do
+for f in docs/index.html docs/en/presentation.html docs/zh/presentation.html docs/ru/presentation.html docs/en/guide.html docs/zh/guide.html docs/ru/guide.html; do
   sed -i '' "s|<span class=\"build\">[^<]*</span>|<span class=\"build\">$STAMP</span>|" "$f"
 done
 if ! git diff --quiet; then
-  git add docs/index.html docs/en/presentation.html docs/zh/presentation.html docs/ru/presentation.html
+  git add docs/index.html docs/en/presentation.html docs/zh/presentation.html docs/ru/presentation.html docs/en/guide.html docs/zh/guide.html docs/ru/guide.html
   git commit -q -m "site: build stamp $STAMP" -m "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
 fi
 echo "== site stamp: $STAMP"
