@@ -22,6 +22,9 @@ if ! git diff --quiet; then
   git commit -q -m "site: build stamp $STAMP" -m "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
 fi
 echo "== site stamp: $STAMP"
+# Cache-busting: links from the entry page carry the build hash, so a browser never reuses an old copy of a presentation.
+sed -i '' "s|presentation.html?v=[^\"]*\"|presentation.html?v=$(git rev-parse --short HEAD)\"|g" docs/index.html
+if ! git diff --quiet; then git add docs/index.html; git commit -q -m "site: link versions $(git rev-parse --short HEAD)" -m "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"; fi
 
 echo "== GitHub: main"
 timeout 120 git push github main:main
