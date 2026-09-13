@@ -141,6 +141,7 @@ echo 0 > state/session_count_since_dream.txt
 Manual override: the person asks for it directly (in any words) → ignore the gate, still close it afterwards.
 
 ## Anti-patterns (do NOT)
+- Touch the person's own words: `memory/svoboda/*/stories/` (incl. `corrections.md`, `additions.md`) and the "you said" lines of the area cards are OUTSIDE this sweep. The tidy-up works on `knowledge/`, `context/`, `state/` and `MEMORY.md` only.
 
 - ❌ Skip Phase 1 — synthesizing without orienting is the exact hallucination loop this protocol exists to prevent
 - ❌ Read full JSONL transcripts — always grep narrowly

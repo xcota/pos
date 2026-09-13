@@ -176,3 +176,12 @@ _(The persona-specific topic maps, group IDs, and named project links belong in 
 - Some older files may use `memory/YYYY-MM-DD.md`; current daily notes are in `daily/`.
 
 When you hit a drift: fix the stale file in place if cheap and certain; otherwise note it and move on. Do not build a parallel system to route around it.
+
+## Earlier versions — restoring on request
+
+The folder keeps its history in git: `/start` starts it quietly on a fresh folder; every `/session-save` and `/reflect` commits. When the person asks for an earlier version ("bring back yesterday's version of my goals file", "show me how this file looked a week ago"):
+
+1. `git log --oneline --date=short --format='%h %ad %s' -- <file>` — find the version; name the dates in plain words, no hashes to the person.
+2. `git show <rev>:<file>` — show or quote the earlier text FIRST; never restore blind.
+3. Restore ONE file only, and only on a yes: if that file has uncommitted changes, commit them first (`git add <file> && git commit -q -m "before restore"`), then `git checkout <rev> -- <file>` and commit again (`"restore <file> from <date>"`). The version they had is still in the history.
+4. Never `git reset --hard`, never touch other files, never rewrite history. Say in one line what changed.

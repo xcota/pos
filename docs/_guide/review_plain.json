@@ -1,0 +1,433 @@
+{
+  "findings": [
+    {
+      "quote": "You never need commands. Camomile works if you only write to it in ordinary words",
+      "problem": "Two lines later the guide says \"Four are worth knowing. Type them exactly as written, slash included.\" So which is it? I finish the first page unsure whether I have to learn anything or not, and that decides whether I keep reading.",
+      "fix": "You never have to type a command. Everything below can also be said in normal words — the four short words just save typing. If you never learn one, nothing is lost.",
+      "severity": "unclear"
+    },
+    {
+      "quote": "Four are worth knowing. Type them exactly as written, slash included.",
+      "problem": "Type them WHERE? I have never used a terminal. I don't know what window this goes in, whether I press Enter, or what happens if I misspell it (`/stat`, `/ start`, capital S).",
+      "fix": "add: 'You type these into the same chat box where you write everything else, then press Enter. If you spell one wrong nothing breaks — it just answers as if you'd said it in ordinary words, and you can try again.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "Once, on a folder you have just unpacked",
+      "problem": "\"Unpacked\" — from what? I never downloaded anything yet. The guide assumes I already have the folder and already have the program open, and never says how either happened.",
+      "fix": "add one line at the very top: 'This guide assumes you already downloaded Camomile, unzipped it, and opened it in Claude Code. If you haven't, do that first — see the README.' Then say 'on a folder you have just unzipped'.",
+      "severity": "missing"
+    },
+    {
+      "quote": "three stories, about fifteen minutes, a card per area of life to correct, then it builds your folder",
+      "problem": "\"A card\" — I have no idea what a card is. A screen? A file? Something I fill in? It is the central object of the whole first session and it is never defined.",
+      "fix": "'…then, for each area of your life, it shows you a short summary of what it heard — a few numbered lines you can correct. We call that a card. It's just text on screen; nothing to fill in.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "Your front page: where you're heading, the seven areas, what you're doing.",
+      "problem": "\"The seven areas\" is used at least six times across the guide and the seven are NEVER listed. I only ever learn two of them by accident (\"Work\", \"Vitality\"). I can't judge whether this thing covers my life or not.",
+      "fix": "add, on first mention: 'The seven areas are: Work, Money, Health, Relationships, … (list all seven).'",
+      "severity": "missing"
+    },
+    {
+      "quote": "One yes/no question: set up search by meaning? The cost comes first — about 300 megabytes downloaded once, about a gigabyte on disk. Say no and it searches exact words.",
+      "problem": "I'm asked to answer yes/no before I know what the difference is. \"Search by meaning\" vs \"exact words\" is only explained 220 lines later. And I can't tell if a gigabyte is a lot on my laptop, or whether I can change my mind.",
+      "fix": "'One yes/no question: should it be able to find your notes by what they mean, not just the exact words you typed? (Ask \"where did I write about being tired\" and it finds a note that says \"knackered every morning\".) It costs a one-time download of about 300 MB and about 1 GB of space — roughly two hundred photos. Say no now and say \"turn on search by meaning\" any time later.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "Silently it starts keeping earlier versions of your notes and makes an `inbox` folder.",
+      "problem": "\"Silently\" makes it sound like something is being done behind my back. And \"earlier versions\" — where do they live, and do they eat my disk space forever?",
+      "fix": "'Without asking, it starts keeping a copy of every earlier version of your notes (so nothing you write can be lost), and creates a folder called inbox for files you want it to read.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "Three stories, one per turn: yesterday; the last month; what you learned this year — each saved word for word.",
+      "problem": "\"One per turn\" — a turn of what? That's chat-software vocabulary. I read it as \"take turns\" and got lost.",
+      "fix": "'Three stories, one at a time — it asks, you answer, then it asks the next.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "A plain \"yes\" confirms only your own words; its conclusions stay guesses until you answer by number.",
+      "problem": "I read this three times and still don't know what I'm supposed to type. If I say \"yes\", what did I just agree to? What does \"answer by number\" look like if I agree rather than disagree?",
+      "fix": "'If you just say \"yes\", it only treats the lines that are your own words as confirmed. Anything it worked out itself stays marked as a guess until you reply with the line number — \"4 is right\" or \"4 is wrong, actually…\".'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "After two cards it builds your folder, then asks you once to close it and open it again — the only thing you do by hand.",
+      "problem": "Three separate problems in one sentence. (1) It said a card per area — there are seven areas — so why does it build after two? Do the other five come later? (2) Close WHAT — the folder, the window, the whole program? (3) \"By hand\" versus what? This is the single point where I most need step-by-step instructions and I get none.",
+      "fix": "'Once you've corrected the first two cards, it builds your folder. Then it will ask you to quit the program and start it again — type /exit, then start Claude Code in the same folder as before. That's the only thing in the whole setup you do yourself. The remaining five cards come after that.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "Plain conversation: no program output, no paths, no errors.",
+      "problem": "\"Program output\" and \"paths\" are words for people who already know what those look like. I'm being reassured about three things I've never seen and can't picture.",
+      "fix": "'It looks like an ordinary conversation. No technical text, no file locations, no error messages.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Cards come as numbered lines, then \"I don't know\", then \"I heard X — right?\", its reading of the area last.",
+      "problem": "This is a list of four things in an order, with no verbs, and I can't picture any of it. What does \"its reading of the area\" mean — a score? A paragraph?",
+      "fix": "Replace with one short worked example of an actual card on screen (four numbered lines, then the 'I don't know' line, then the 'I heard…' line, then its one-paragraph summary). Show it, don't describe its structure.",
+      "severity": "unclear"
+    },
+    {
+      "quote": "the area cards · your stories verbatim",
+      "problem": "\"Verbatim\" — I'd have to look it up. Worse: five lines earlier the same idea is written as \"word for word\", in plain English. Two words for one thing.",
+      "fix": "Use 'word for word' everywhere; drop 'verbatim' entirely (it also appears in the folder table at `memory/svoboda/<you>/`).",
+      "severity": "jargon"
+    },
+    {
+      "quote": "its rules set the working ceiling at 100K and tell it to save there",
+      "problem": "100K of what? Words? Pounds? Megabytes? This is the clearest example of something written for someone else. It tells me nothing I can act on.",
+      "fix": "'…or when the conversation has got long. It keeps an eye on that itself and will suggest saving when the time comes.' Cut the number.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "`/session-save`, optionally with a name for the checkpoint.",
+      "problem": "\"Checkpoint\" — first appearance, not explained. I only find out what it is eight lines later. In a folder table much later it becomes \"a checkpoint per save\", and I still picture a border crossing.",
+      "fix": "'/session-save, and you can add a name for it — \"save this as the supplier conversation\". The name just makes it easier to find later.' Then, on first use, gloss it: 'a short hand-over note of where you got to'.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "it offers one or two candidate lines for the \"How to work with me\" section of your own file, and keeps only what you agree to. Silence is not agreement.",
+      "problem": "\"Candidate lines\" is jargon, and \"your own file\" is a fourth name for the same thing (elsewhere: 'your file \"who I am\"', 'context/', 'thirteen sections'). I can't tell whether these are all the same file.",
+      "fix": "'It suggests one or two sentences to write down about how you like to be talked to — you say yes or no to each. If you say nothing, it doesn't write them.' And pick ONE name for that file and use it everywhere.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "without re-scoring the area or showing the card again",
+      "problem": "Direct contradiction with \"it never asks you to score yourself\" on the /start page. So something IS being scored — by whom, out of what? Nobody says.",
+      "fix": "'…without redoing the whole area or showing you the card again.' If there really is a score somewhere, say what it is and who assigns it; otherwise drop the word 'score' from the guide entirely.",
+      "severity": "unclear"
+    },
+    {
+      "quote": "then offers the tidy-up or the misses review if either was due — running it only on your yes",
+      "problem": "\"The misses review\" appears here with no introduction, and \"if either was due\" — due according to what? A calendar I can't see. I don't know what either of these does to my folder.",
+      "fix": "'…then, if enough time has passed, it offers one of two things in one sentence: a tidy-up of its own memory, or a look back at mistakes it made (it calls those its misses). Both only happen if you say yes.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "that check is pre-approved, so you never see an \"allow this?\" window",
+      "problem": "This is reassurance about a problem I didn't know existed, described in words from the programmer's side of the fence. It actually makes me nervous — what else is pre-approved without me?",
+      "fix": "Cut it. If it must stay: 'This happens quietly in the background; it won't interrupt you to ask permission.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "If not — or if the engine falls over —",
+      "problem": "\"Engine\" — first use, unexplained, and in the guide it means three different things: this one, \"the engine under your first conversation\" (/svoboda-profiler), and \"the search engine\" in scripts/. \"Falls over\" also reads like British slang for a machine I can't see.",
+      "fix": "'If it isn't installed, or if search by meaning stops working for any reason, it falls back to looking for the exact words…' Use 'engine' for nothing at all, or for exactly one thing.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "What comes back is candidates, not an answer — so it opens the best one to three and reads you the section.",
+      "problem": "\"Candidates\" is search-engineer language, and \"the best one to three\" is awkward enough that I stumbled. I also can't tell whether I have to choose or it chooses.",
+      "fix": "'What comes back is a shortlist of possible notes, not an answer — so it opens the two or three most likely and reads you the relevant bit.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "It gathers the last three to five daily notes, recent decisions, its watch-list of mistakes, its lessons and the recent saves.",
+      "problem": "\"Watch-list\" — first use, never defined, and the same thing is called \"its list of mistakes\" eight lines later, \"the misses review\" elsewhere, and \"its list of mistakes\" again in the folder table. Four names, one thing.",
+      "fix": "Pick one name — 'its list of mistakes' — and use it every time. Gloss it once: 'the running list of mistakes it has caught itself making, so it stops repeating them.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "The main material is the conversations themselves — read narrowly: only your turns, its replies and the friction points.",
+      "problem": "\"Read narrowly\", \"your turns\", \"friction points\" — three phrases in one sentence that I'd have to guess at. \"Friction points\" sounds like a car part.",
+      "fix": "'Mostly it re-reads the conversations themselves — just what you said, what it answered, and the places where you two got stuck.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "where it swapped your goal for its own, failed to orient, over-produced or made you wait",
+      "problem": "\"Failed to orient\" and \"over-produced\" mean nothing to me. This is the part where it admits its own faults — the most reassuring part of the whole guide — and it's written in words that hide the meaning.",
+      "fix": "'…where it went off and did something you didn't ask for, started building before it understood the question, gave you far more than you wanted, or kept you waiting.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "its list of mistakes — one that turns up three times or more is promoted into the folder's rules, where it becomes binding · your goals if horizons moved · a dated report · a stamp.",
+      "problem": "Four problems in one line: \"promoted\", \"becomes binding\", \"if horizons moved\" (horizons of what?), and \"a stamp\" — which is never explained anywhere until line 239, deep in a section I was told was 'under the hood'. Also this middle-dot list is hard to read as a sentence.",
+      "fix": "Break into a short list. 'a mistake that happens three times or more gets written into the folder's rules, so it can't happen again · your goals, if your timescales have changed · a dated report · and a note of the date it ran, so it knows when to do this next.' Drop the word 'stamp'.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Two things, each in one sentence, each waiting for your yes. Never more than one offer per start.",
+      "problem": "\"Per start\" — start of what? A conversation? The program? My day? This exact ambiguity repeats in \"read out at every start\" three times in the folder table.",
+      "fix": "'…never more than one offer each time you open the folder.' And use that same phrase everywhere 'start' currently appears.",
+      "severity": "unclear"
+    },
+    {
+      "quote": "a day has passed since the last one, *and* you have opened the folder about five times since",
+      "problem": "\"Opened the folder\" is used roughly ten times across the guide as the core unit of everything, and is never defined. Does double-clicking the folder in Finder count? Or only starting the program? I genuinely can't tell, so I can't predict when anything happens.",
+      "fix": "add, the first time it's used: 'Throughout this guide, \"opening the folder\" means starting Claude Code in it — not clicking the folder on your desktop.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "Six plain steps: it reads what is already written before touching anything; gathers the last few days and the facts that have drifted; merges its repeated notes into the proper file instead of leaving near-copies, turns \"yesterday\" into real dates, deletes facts it has found to be wrong; shortens its own table of contents; refreshes search by meaning; then reports what changed.",
+      "problem": "One sentence, over sixty words, six steps separated by semicolons — and it's called \"six plain steps\" while being the least plain sentence on the page. I lost the thread at the third semicolon.",
+      "fix": "Make it an actual numbered list of six short lines, one step each. The content is fine; the packaging isn't.",
+      "severity": "too long"
+    },
+    {
+      "quote": "Say \"later\" and nothing breaks — it asks once more when you save, and again next time you open the folder, until you say yes.",
+      "problem": "\"Until you say yes\" reads like it will pester me forever. I want to know if I can turn the nagging off permanently.",
+      "fix": "add: 'If you never want it to ask, say \"stop offering to tidy up\" and it won't ask again.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "Video needs a helper called yt-dlp; with no subtitles it never invents a transcript — it asks you to paste one.",
+      "problem": "\"yt-dlp\" is a name I cannot act on. How do I know if I have it? How do I get it? Am I supposed to install something? This is a dead end for me.",
+      "fix": "'For video it needs a small free program called yt-dlp. Just ask — \"do I have yt-dlp?\" — and it will check and walk you through installing it if not.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "*optional — you can ask for the same in plain words.*",
+      "problem": "This exact italic sentence appears seven times in a row, once per entry. By the third one I was skimming, and skimming is how I miss things.",
+      "fix": "Say it once at the top of the section: 'None of these seven are needed — you can ask for any of them in plain words.' Then delete all seven repeats.",
+      "severity": "too long"
+    },
+    {
+      "quote": "scored across nine things — your notes and how well they link, how fresh its state is, its three small helpers, its earlier versions. A total out of sixteen",
+      "problem": "Nine things but a score out of sixteen, and only four of the nine are listed. \"How fresh its state is\" and \"its three small helpers\" are both unexplained. I can't tell if a score of 11 is good or bad.",
+      "fix": "'It checks nine things about the folder and gives a score out of sixteen — anything under twelve means something needs attention. It then lists the problems worst first, with a fix for each.' Either list all nine or list none.",
+      "severity": "unclear"
+    },
+    {
+      "quote": "the three small helpers",
+      "problem": "This phrase appears three times (in /self-check, in the .claude/ row) and is never explained. Three helpers doing what? Are they people? Programs? Should I care?",
+      "fix": "'three small background scripts that run automatically — you never touch them' — say it once, on first use.",
+      "severity": "unclear"
+    },
+    {
+      "quote": "Shortens a heavy conversation into a hand-over note under two kilobytes, then checks every path, number and name survived it.",
+      "problem": "\"Hand-over note\" is never explained; \"two kilobytes\" means nothing to me (elsewhere the same kind of thing is sized \"under 500 words\" — pick one unit); \"every path\" is jargon again.",
+      "fix": "'Squeezes a long conversation down to a short summary — about one page — then checks that no file name, number or person's name got lost on the way.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Words it uses itself — you never type them",
+      "problem": "If I never type them, why am I reading four entries about them? This section made me feel I was reading someone else's manual by mistake.",
+      "fix": "Either cut the section, or reframe: 'You may see these names go by in its replies. Here's what they are, so they don't look alarming.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "the engine under your first conversation",
+      "problem": "The command name `/svoboda-profiler` contains an untranslated Russian word that means nothing in English, and 'engine' is used here in a completely different sense from 'the engine falls over' earlier. Two mysteries in one line.",
+      "fix": "'the part that runs your first conversation — the one that asks for your three stories.' If the name can't change, at least say 'svoboda is Russian for freedom; it's just a name.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "The table of contents for memory — pointers, never content.",
+      "problem": "\"Pointers\" — a word I'd have to look up, and it's used three times in the guide (here, 'memory pointers' in knowledge/, 'stale pointers out' in the tidy-up) without ever being explained. 'Never content' also confuses me — a table of contents with no content in it?",
+      "fix": "'An index of its memory — one line per topic saying where the real note lives, like an index at the back of a book. The actual writing is in the other files.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "carefully",
+      "problem": "Nine rows of the folder table say \"carefully\" in the \"Yours to edit?\" column and I never find out what happens if I'm not careful. Can I break the whole thing by deleting a line? Is there an undo? This is my biggest unanswered fear about living with this thing.",
+      "fix": "add one line under the table: 'Nothing you type into a file can break Camomile permanently — every earlier version is kept, and you can always say \"bring back yesterday's version of this file\". \"Carefully\" just means: it reads these at every start, so a confusing edit will confuse it too.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "carefully — not for hand-editing",
+      "problem": "These two contradict each other in the same cell. \"Carefully\" tells me I may; \"not for hand-editing\" tells me I may not. So may I?",
+      "fix": "Change the column value to 'no' and the note to 'Camomile keeps these for itself — leave them alone.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "yes — you flip `enabled:` by hand",
+      "problem": "This is the one place in the whole guide where I am told to edit a technical file myself, and there is no explanation of how: which file, which line, what to type, whether a typo breaks it. It also contradicts the promise on page one that I never need to do anything technical.",
+      "fix": "'Just ask: \"turn on the fitness add-on\". It changes the setting for you. (If you'd rather do it yourself, open modules.yaml and change enabled: false to enabled: true for that add-on.)'",
+      "severity": "missing"
+    },
+    {
+      "quote": "The machinery: settings that pre-approve ordinary operations, the three small helpers, the fifteen words it knows.",
+      "problem": "\"The machinery\", \"pre-approve ordinary operations\", and \"fifteen words\" — but Part 1 told me about four words, then seven more, then four internal ones. I have to add those up myself to see where fifteen comes from, and I shouldn't have to.",
+      "fix": "'The working parts: its settings, the background scripts, and all fifteen of the /words listed in Part 1. Nothing here is meant for you.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "leave it — safe to run again",
+      "problem": "\"Leave it\" and \"safe to run again\" pull in opposite directions — if I'm meant to leave it alone, why tell me running it is safe? And run it how? I have no way to run anything.",
+      "fix": "'leave it — Camomile runs these itself when it needs them.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "Eight blank forms: a day, a decision, a person, a project, a meeting, a plan, research, a claim ledger.",
+      "problem": "\"A claim ledger\" — I run a shop and I know what a ledger is, but a 'claim ledger' sounds like insurance paperwork. I can't guess what it's for.",
+      "fix": "'…research, and a list of things you've claimed are true with the evidence for each.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "`daily/YYYY-MM-DD.md`",
+      "problem": "YYYY-MM-DD is a programmer's way of writing a date pattern. I'd stare at it wondering what file is literally called that.",
+      "fix": "'daily/2026-09-13.md — one file per day, named by the date.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "`pp.md`, `plan-fact.md`, `plans.md` | *appear later, only if you ask.* A dashboard you keep yourself, a plan-versus-fact journal, a roadmap.",
+      "problem": "\"pp.md\" is a name with no meaning, \"dashboard\" is a car word being used for a document, and \"plan-versus-fact journal\" and \"roadmap\" are office jargon. Three things I can't picture, in one row.",
+      "fix": "'A one-page overview of what you're tracking, a journal comparing what you planned against what actually happened, and a list of what's coming next. It only makes these if you ask.' Give pp.md a real name.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Before printing anything it bumps a counter of how often you have opened the folder, so a later failure can't lose the count.",
+      "problem": "\"Bumps a counter\", \"a later failure can't lose the count\" — this is a note a programmer leaves for another programmer. There is nothing here for me to do or know.",
+      "fix": "Cut the second half of the sentence entirely. Nothing in it changes anything for the reader.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Then two gates.",
+      "problem": "\"Gates\" — never explained, and used four more times (\"it closes the gate\", \"The gate closes with two stamps\"). I picture a fence. It seems to mean 'a check on whether it's time to do something' but I had to reverse-engineer that.",
+      "fix": "'Then it checks two things about timing.' And later: 'It notes the date so it knows when to do this again.' Delete 'gate' and 'stamp' from the guide.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Those notices are instructions to the assistant, not to you",
+      "problem": "Then why am I reading them? The whole of Part 3 quotes instructions aimed at the software, and this line admits it. It made me feel I'd wandered into the staff-only area.",
+      "fix": "Rewrite Part 3 from my side: what I will see and when, not what the software is told to do. Or retitle it 'For the curious: what it's doing behind the scenes' and shorten it by half.",
+      "severity": "unclear"
+    },
+    {
+      "quote": "In order: it re-reads the conversation for friction; turns your corrections about *how* to talk to you into at most two dated candidate lines for the \"How to work with me\" section, writing only what you agreed to; puts anything new about one of the seven areas into your stories as your exact phrase, plus one line on that area's card; summarises **all** the work not yet written down since the last save; gives genuinely new knowledge a page; updates \"where we stopped\" and today's note; writes the checkpoint; and saves a new version into the folder's history.",
+      "problem": "One sentence, around ninety words, eight clauses. I could not hold it in my head, and it is a word-for-word repeat of the numbered list I already read on the /session-save page.",
+      "fix": "Delete it. The numbered list under /session-save already says all of this, readably.",
+      "severity": "too long"
+    },
+    {
+      "quote": "Those \"How to work with me\" lines are the one channel for manner: interface data, not conclusions about you, and they live in one place only.",
+      "problem": "\"The one channel for manner\" and \"interface data\" are the two most opaque phrases in the guide. I have no idea what is being promised me here, and I suspect it's something reassuring about privacy that I'm missing.",
+      "fix": "'These lines only ever record how you like to be spoken to — short answers, no tables. They never record opinions about you as a person; those go on the area cards instead.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "summarising without reading first is a hallucination factory, and skipping this aborts the run",
+      "problem": "\"Hallucination factory\" and \"aborts the run\" are both AI/programming words. I know what hallucinating is for a person, not for a program, and \"aborts the run\" sounds like something failed badly.",
+      "fix": "'if it summarises without reading first, it starts making things up — so if it can't read first, it stops instead.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Every link must point at something real or the write is refused.",
+      "problem": "\"The write is refused\" — refused by whom, and what do I see when that happens? This sounds like an error I'd have to deal with.",
+      "fix": "'If a link would point at a note that doesn't exist, it won't save that line at all.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Its table of contents goes back under its size limit: stale pointers out, long lines demoted, contradictions settled.",
+      "problem": "\"Stale pointers\", \"long lines demoted\" — four jargon words in one short line, and none of it tells me what changes for me.",
+      "fix": "'It trims its own index back to a sensible length: out-of-date entries removed, long ones moved into the full note, and any two entries that disagree sorted out.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Only the changed files are re-read — seconds, not the half-hour a full rebuild takes.",
+      "problem": "A half-hour is mentioned but never placed. Will my computer be unusable for half an hour? When would a full rebuild ever happen to me? This worried me more than it reassured me.",
+      "fix": "'It only re-reads the files that changed — a few seconds. (Building it from scratch takes about half an hour, but that only happens the first time you switch it on, and you can carry on using the computer while it runs.)'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "One file of numbers, no database, nothing over the internet.",
+      "problem": "\"One file of numbers\" is mysterious rather than reassuring, and \"no database\" is a reassurance aimed at someone who knows what a database would have cost them. Neither means anything to me.",
+      "fix": "'It all lives in one extra file on your disk, and nothing is sent anywhere.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "it wakes for your question, keeps the dictionary in memory so the next one is instant, sleeps after half an hour, and listens only to your own machine",
+      "problem": "\"Listens\" made me sit up — listens to WHAT? It's meant to reassure me and it did the opposite. \"Keeps the dictionary in memory\" is also jargon.",
+      "fix": "'It only wakes up when you ask something, stays ready for half an hour so the next question is instant, then goes back to sleep. It can't be reached from outside your own computer.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "a small local program using only what comes with Python. Without Python those \"you said\" lines are dropped",
+      "problem": "Python is named twice with no explanation, and I'm given a consequence without a way to check or fix it. Do I have Python? How would I know? Am I supposed to install it?",
+      "fix": "'It uses Python, which most computers already have. Ask \"do I have Python?\" and it will check. Without it, the feature simply switches off — nothing breaks, it just stops quoting you directly.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "If it hesitates, say: *use the folder's history (git)*.",
+      "problem": "A bare technical word I'm told to type as a magic spell, plus the unsettling implication that the assistant sometimes fails at this and I have to know the password. Why would it hesitate?",
+      "fix": "'If it says it can't, tell it: \"the folder keeps its own history — use that.\"' And explain once, earlier, in one clause, that the history is kept by a standard tool called git.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "There is also a manual route that always works: move your old folder aside — your notes stay in it — unpack a fresh copy, and ask the assistant to bring your notes across.",
+      "problem": "This is the emergency procedure and it's three vague verbs. Move it where? Unpack a fresh copy from where — do I download it again? What do I actually say to bring the notes across? If things are broken, this is the one part of the guide I'd be reading in a panic.",
+      "fix": "Turn into three literal numbered steps: '1. Rename your folder to camomile-old. 2. Download Camomile again from <link> and unzip it. 3. Open the new one and say: \"my old folder is next to this one, called camomile-old — bring my notes across.\"'",
+      "severity": "missing"
+    },
+    {
+      "quote": "Two things live outside and don't travel: Claude Code's own record of the conversations, and the download for search by meaning.",
+      "problem": "This is line 274 and it's the first time the guide properly names Claude Code — the actual program I'd need to have. It's mentioned as an aside, in a paragraph about backups.",
+      "fix": "add at the very top: 'Camomile is a folder. The program that reads it is called Claude Code, made by Anthropic. You need that installed and signed in.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "Everything inside finds its own way around by looking at where it is, so the same wiring works from any copy.",
+      "problem": "\"Wiring\" and \"finds its own way around by looking at where it is\" — I can tell this is meant to be reassuring but I can't extract the reassurance.",
+      "fix": "'You can put the folder anywhere on any computer and it will still work.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Storage is on your side; the thinking happens on Anthropic's servers, which is why you need a connection while talking.",
+      "problem": "This is the clearest sentence in the whole guide about what leaves my computer — but it raises the one question the guide never answers anywhere: what does this cost me per month? A shop owner decides on price before anything else.",
+      "fix": "add: 'What it costs: Camomile itself is free. Claude Code needs a paid Claude subscription — around $X a month — and that's the only money involved. No extra charges from Camomile, ever.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "You can stop any time, and it never asks you to score yourself.",
+      "problem": "\"You can stop any time\" — but nowhere in 356 lines am I told HOW to stop: how to interrupt an answer that's running too long, how to quit the program, how to walk away mid-setup and not lose my three stories.",
+      "fix": "add a short 'How to stop' box: 'Press Esc to interrupt it mid-answer. Type /exit to close the program. Anything you already told it is already saved — you can pick up from the same place by typing /start again.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "a correction carries forward, and anything live stays read-only until you ask",
+      "problem": "\"Anything live stays read-only\" is meaningless to me. Live like a broadcast? Read-only like a locked document? This is listed as one of eleven rules I'm supposed to understand.",
+      "fix": "'once you correct it, it stays corrected — and it won't change anything you're actively working on unless you ask it to.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "**Don't ship what it cannot perceive** — nothing judged by sight, sound or feel goes out unchecked.",
+      "problem": "\"Ship\" means send a parcel to me. And 'goes out' — goes out where? This rule sounds important and I can't decode it.",
+      "fix": "'Won't judge what it can't see or hear — if something has to be looked at or listened to, it hands it to you rather than guessing.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "**Filenames are plain** — lower-case letters, digits, dashes and underscores.",
+      "problem": "One of the eleven rules I'm presented with is a naming convention for files. It has nothing to do with my life, and its presence in a list of 'rules it lives by' made me think I'd misjudged who this guide is for.",
+      "fix": "Move it to the builders' document. Eleven rules where one is about filename characters undermines the other ten.",
+      "severity": "jargon"
+    },
+    {
+      "quote": "An add-on is a folder with a word in it, listed in `modules.yaml` with a switch, the folders it needs and its starter files.",
+      "problem": "\"A folder with a word in it\" is genuinely baffling — a word? Which word? Then a filename, a switch, dependencies and starter files, all in one sentence. I finished this paragraph knowing less than when I started.",
+      "fix": "'An add-on teaches Camomile one extra subject — fitness, say, or bookkeeping. They're all switched off to begin with. Ask \"what add-ons are there?\" to see the list. One example add-on ships switched off so you can look at how one is built.'",
+      "severity": "unclear"
+    },
+    {
+      "quote": "It re-cuts that one area against the old version, never from nothing.",
+      "problem": "\"Re-cuts\" — cutting what? This is step 2 of a recipe, so it's telling me what will happen, and I can't picture it.",
+      "fix": "'It rewrites just that one card, starting from what it already had rather than from a blank page.'",
+      "severity": "jargon"
+    },
+    {
+      "quote": "Install Claude Code there, point it at the folder, open it.",
+      "problem": "\"Point it at the folder\" is exactly the kind of instruction that assumes I've done this before. This is a three-step recipe where step 2 is three tasks I don't know how to do.",
+      "fix": "'Install Claude Code on the new computer (instructions: <link>), then open a Terminal window in your Camomile folder and type claude. If that sentence means nothing to you, the README has the click-by-click version.'",
+      "severity": "missing"
+    },
+    {
+      "quote": "Tell it in plain words what you see on the screen; it reads the same folder and fixes things.",
+      "problem": "This is the best line in the guide for someone like me — but it's buried as step 1 of the last-but-two recipe. It should be on page one, because it's the single fact that makes me think I could survive using this.",
+      "fix": "Move it to the top of the guide: 'If anything ever goes wrong, just describe what you see on screen. It can read its own folder and fix most things itself.'",
+      "severity": "missing"
+    }
+  ],
+  "helped_most": [
+    "The /session-save example — 'Saved: the supplier decision and why, the two prices, Friday as the deadline. Where-we-stopped says you're waiting on their reply.' This is the first place I could actually see what 'saving' produces: my real business facts in my own words, not a description of a mechanism. It also shows the yes/no offer arriving as a normal sentence, which told me more about how this thing behaves than three paragraphs of 'candidate lines' did.",
+    "The recipe 'It talks too much.' — say 'shorter' in the moment, it later shows one or two lines it wants to write down, say yes and the manner sticks. Three short steps, I know exactly what to type, what I'll see, and what changes. 'Silence is not agreement' at the end is the one sentence that made me trust it. (Runner-up: the 'Saying it in plain words' table, which is the only place that translates what I want into what I'd say.)"
+  ],
+  "confused_most": [
+    "The /start walkthrough, step 6 — 'A plain \"yes\" confirms only your own words; its conclusions stay guesses until you answer by number. After two cards it builds your folder, then asks you once to close it and open it again — the only thing you do by hand.' This is the first fifteen minutes of my life with this thing and I don't know what a card is, why only two of the seven, what I'm supposed to type, what I'm closing, or how to reopen it. Everything after this point rests on a step I can't picture.",
+    "The recipe 'Something broke.' step 3 — 'Worst case: move the old folder aside, unpack a fresh copy, ask it to bring your notes over.' The one moment I'd be panicking is the one covered by three vague verbs with no links, no click steps, and no reassurance about whether my stories survive. The same instruction appears twice in the guide, both times equally vague."
+  ],
+  "verdict": "Yes, just — the recipes and the plain-words table convinced me I could live with it, but Parts 2 and 3 read like someone else's manual, and I'd close the guide still not knowing what it costs me per month, how to stop it, or what to do the moment it asks me to 'close it and open it again'."
+}

@@ -89,7 +89,7 @@ Save current session state before closing or when context gets heavy (past the 1
    git add -A && git commit -m "[session-save]: {brief summary}"
    ```
 
-7. **Offer the tidy-up if it is due.** If this session's start block said `💤 Memory tidy-up is due` (or `🔍 Reflection is due`) and it hasn't been done yet, say it now in ONE sentence in the person's language and run `/dream` (or `/reflect`) only on a yes. Never run it unasked.
+7. **Offer the tidy-up if it is due.** If this session's start block said `💤 Memory tidy-up is due` (or `🔍 Reflection is due`) and it hasn't been done yet, say it now in ONE sentence in the person's language and run `/dream` (or `/reflect`) only on a yes. Never run it unasked. If the person has said they never want to be offered (their words in `context/identity.md` § How to work with me), skip the offer — they can ask for a tidy-up in plain words any time.
 
 ## Rules
 - Keep checkpoint files under 500 words
