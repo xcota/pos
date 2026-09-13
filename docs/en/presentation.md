@@ -1,131 +1,150 @@
-# Camomile: what it is, how it works, and how to use it
+# Camomile: what it is, how it works, how to use it
+
+_Version 2 · September 2026_
+
+**What it does on its own:** at every start it reads its own notes (who you are, where you stopped). Every few days it offers to tidy its memory and, separately, to go over its own misses — both only after your yes. Nothing else happens without you.
 
 ## What it is
 
-Camomile is a folder on your computer plus an AI assistant that reads and writes that folder.
+Camomile is a folder on your computer plus an AI assistant that reads and writes that folder. The assistant itself lives in Claude Code — a program by Anthropic that opens in a command window — not in the folder. This same text is online, if you would rather read before downloading anything: https://xcota.github.io/pos/ (English · 中文 · Русский).
 
-In an ordinary AI chat you start from zero every time: who you are, what you are doing, what you already decided. Here all of that sits in files on your disk. The assistant looks into them at the start of a conversation and adds to them at the end. The longer you use it, the better it hits the mark — not because it "gets smarter", but because more is written down about you, in your own words.
+In an ordinary AI chat you start from zero every time: who you are, what you are doing, what you already decided. Here all of that sits in files on your own disk. The assistant looks into them at the start of a conversation and adds to them at the end. The longer you use it, the better it hits the mark — not because it "gets smarter", but because more is written down about you, in your own words.
 
-The name comes from the picture. You are in the middle, seven petals around you, and each petal is one area of life:
+**Who this is for.** Anyone who has used ChatGPT and wants more from AI than one-off answers. You do not write a single line of code, at any point.
 
-- **Self-development** — what you are learning and where you are growing
-- **Vitality** — body, sleep, energy, how you feel
-- **Surroundings** — the people close to you: family, friends, partners; and the place where you live
-- **Wealth** — what "enough" means to you and how you will know it has arrived
-- **Rest** — how you recover and what you enjoy
-- **Work** — your job, your projects, whatever you are seriously busy with
-- **Assets** — money and property: income, savings, housing, equipment, debts
+What that looks like on an ordinary Tuesday: you talk over which supplier to drop and why — six months later you ask "why did I drop them", and the answer is your own note, not a guess. Or you come back after a fortnight away and ask "where did I stop with the new till system" — and it tells you, together with the reason you stopped there.
 
-Inside the files these seven keep their original Russian names (`samorazvitie`, `vitalnost`, `okruzhenie`, `bogatstvo`, `otdyh`, `delo`, `aktivy`) — they are internal labels, nothing you have to read or type; in the original their first letters spell the word for "freedom".
+It only does anything while that window is open and you are typing in it. Close the window and nothing of it is working on your files — you can shut the computer down, and nothing happens until you open it again.
 
-The point of the daisy is simple: life is not one petal. The assistant keeps notes on all seven, and over time it becomes visible which ones are dense and which ones you simply never talked about.
+The name comes from the picture — think of a daisy: you in the middle, seven petals around you — Self-development (learning and growth), Vitality (body and energy), Surroundings (people and place), Wealth (what "enough" means to you — the feeling, not the figure), Rest (what restores you), Work (what you do), Assets (the money itself: income, savings, property, equipment, debts). Life is not one petal, so notes are kept on all seven, and over time you can see which ones are full and which ones you simply never talked about.
 
-## How it works
+## What happens, step by step
 
-Three things make up the whole system.
+### Day one: getting it on your computer
 
-### 1. Memory — it remembers you between conversations
+Four steps, four short things to type in all — the wait is however long the downloads take. The conversation that follows, where it gets to know you, is about fifteen minutes on top.
 
-Mechanics, no miracles. The folder holds ordinary text files: "who I am", "what I am doing now", "my goals", notes by day, cards about people and projects. At the start of every conversation the assistant reads those files on its own — who you are, where you stopped, what you saved today; that takes it seconds, and you never load anything by hand. At the end, when you say `/session-save` (or just "save this conversation"), it writes down what was done and decided.
+1. **Install Claude Code** — a program by Anthropic that opens in the window where computer commands are typed. On a Mac: press Command and the space bar together — a search box appears in the middle of the screen — type "Terminal" and press Enter. On Linux: that window is usually called Terminal too; open it from your applications list, or press Ctrl, Alt and T together. Then open Anthropic's page, https://code.claude.com/docs/en/setup, find the install line for your kind of computer, select it and copy it. Click into the command window, paste it (Command together with V, or Ctrl together with Shift and V on Linux), press Enter, and wait until text stops scrolling — a minute or two. You only ever do this once. It needs a paid Claude plan from Anthropic: Pro is the cheaper one and is enough to start.
+2. **Download this folder.** https://github.com/xcota/pos → green "Code" button → "Download ZIP". The page is called "pos" — that is the right place, it is the older name of the same thing. If that page does not open where you live (in China, for example), the same folder is at https://gitee.com/cotya/pos-starter → "克隆/下载" → "下载 ZIP". Double-click the archive and a folder appears next to it, called `pos-main` or `pos-starter-master` — that is the one, the odd name is normal. Move it into your Documents, rename it "Camomile" if you like.
+3. **Point the window at the folder.** Open your Documents folder so you can see it next to the command window. In the command window type `cd`, then a space, then drag the Camomile folder itself onto the window — the folder, not the zip file you downloaded — and press Enter. `cd` means "go to"; the long line with slashes that appears by itself is the folder's address — do not edit it. Then type `claude` and press Enter. The very first time, it opens your browser so you can sign in to your Claude account — sign in with the account your paid plan is on, then come back to the command window. It may also ask you to pick light or dark; either is fine. Then it asks whether you trust the files in this folder: answer Yes, it is your own folder. If it says `command not found`, close this window, open a new one the same way, and type `claude` again — a window opened before the install finished does not know about it yet. If it still says that, the install did not finish: redo step 1.
+4. **Type `/start`** (with the slash) and press Enter. The last thing you need to know.
 
-That is all. No magic and no database: open a file in a text editor and you see ordinary text that you can edit yourself.
+It worked if the window clears, a greeting appears, and there is a line at the bottom to type into. From there it is plain writing back and forth.
 
-**Tidying up.** Notes pile up, and some of them repeat or go out of date. So every few days, at the start of a conversation, the assistant says its memory needs a few minutes of tidying and asks whether to do it now. Say yes: it merges what it has learned into the right files, removes duplicates, fixes facts that have changed, and refreshes search by meaning so that new notes are found too. It never starts this on its own, and there is no command to remember — you only say yes or later.
+### The first session: it gets to know you
 
-There is also **search by meaning** — when you ask "where did I talk about being tired in the mornings" and the note says "wrecked after getting up", and it still finds it. Nobody installs it silently: right at the start of the first session the assistant asks one yes/no question and says honestly what it costs — about one gigabyte of disk space and five to ten minutes to download. Say no and nothing is downloaded, search works by exact words, everything else works as usual. If the install fails (it happens), nothing breaks either — it says so in one line and moves on.
+It asks what to call you and reads one short paragraph of what comes next: three stories, about fifteen minutes, a card per area for you to correct, then it builds your folder — and you can stop at any moment. It never asks you for a score. On each area it writes its own reading — a figure out of ten with how sure it is — and only where you told it enough. That figure is a guess for you to correct or cross out, not a grade. If you name a number yourself ("I'd give work an eight"), it writes it down as yours and says if it sees things differently; it simply never asks you for one.
 
-### 2. Your work — it keeps your projects and decisions
+It takes the manner from your very first answer: a short answer gets short questions, one at a time; your language and your register, strong words included, if you use them; the way you addressed it, first name or not; lists if you write in lists.
 
-The assistant gives each of your things its own page and links the pages to each other — something like a small personal encyclopedia of your life. A person, a project, a decision, notes on something you read: each gets its own card.
+One yes/no question comes early: search by meaning. The cost is on the table before you answer — about one gigabyte of disk space, downloaded once, five to ten minutes. Say no and everything works, it just searches by exact words. Nothing is downloaded quietly. While you answer, it also quietly sets up two things in the folder: keeping earlier versions of your notes, and an `inbox` folder where you can drop your own files later.
 
-When you make a hard decision, you can ask for it to be written down separately: what you decided and why. Six months later the question "why did I do that back then" has an answer instead of a guess.
+Then three stories instead of a questionnaire: yesterday, from waking up to going to sleep; the last month — what you bought, what you regret, what you are glad about; what you learned this year and from whom. Your words are stored word for word, and they are the only thing ever quoted back to you.
 
-### 3. The mirror — it notices your corrections and adjusts
+For each area you get a card to check: numbered lines "you said" (your own words, checked against your own stories before the card is shown), "I saw in your files", "I think", then "I don't know" and "I heard X — right?". Its own reading for the area comes last, with how sure it is. You correct by number: "3 is wrong, what actually happened is…". A plain "yes" confirms only the "you said" lines — its conclusions stay guesses until you answer them by number. Said little about an area? Then no number at all, only "you didn't talk about this" — not a zero, not a "weak area".
 
-This is the part an ordinary chat does not have. When you correct the assistant — "too long", "don't ask two questions at once", "use my first name" — the correction goes into the "How to work with me" section of your "who I am" file, and it re-reads that file every time it starts. So the manner is not lost when you close the window and open a new one the next day.
+After five areas the questions go deeper: what really makes you angry, a loss you have not got over, how being lonely differs from being alone, what counts as irreversible for you, what charges you up and what drains you. Any of these you can pass on — say you would rather not and it moves to the next one. Parents and childhood are a separate part, and optional in the same way.
 
-It does not do this silently: when you say "save" at the end of a conversation, it shows one or two candidate lines for that section and writes down only what you agreed to. Stay quiet and nothing is written. And the other way round: a correction about how to talk to you stays a correction about how to talk to you — it never turns into a conclusion about you as a person.
+It starts building your folder only after you have confirmed or corrected at least two cards — and two is enough: there is no point waiting for all seven areas. Disagreeing is fine, a correction counts as an answer; it just wants your yes or your fix on at least two cards before it writes anything down. Otherwise its own guesses get read back as facts in every later conversation.
 
-Every few days it also offers to go over its own misses of the last days and pull out lessons — you say yes or later; you can also ask for it yourself with `/reflect`.
+Then it writes your files: who you are, how to work with you, your goals, starting tasks, a cover page with the seven areas, a "where to invest" list — only the areas you yourself called a hole, in your own words — and the record of the conversation itself. The whole portrait is written down as preliminary. And nothing is planned off its own numbers: a low reading of its own stays inside that area's card as its reading, and you are free to disagree by number.
 
-To be honest about it: the folder already contains more than forty common mistakes taken apart, plus a set of rules — not about you, but about how AI assistants usually get things wrong (start building instead of asking, write in a clever-sounding way, claim work they did not do). So the assistant arrives already trained, and from there you finish the job.
+At the end it asks you once to close it and open it again: type `/exit` and press Enter (or just close the window), then do the two lines from step 3 again — `cd` with your folder dragged in, then `claude`. That restart is the only thing you do by hand in the whole session.
 
-## Getting started
+A quick pass is about fifteen minutes. Everything deeper is not a second session you have to book — it accrues in ordinary conversations as you talk. Stop anywhere: it is all written down, so you come back, type `/start` again, and it continues from the same place instead of starting over.
 
-What you will see on screen, step by step. The same four steps as in the README — there are no others.
+### Every conversation after that
 
-**Step 1. Install Claude Code.** Claude Code is a program made by Anthropic: it starts in a command window, and inside that same window you write back and forth with the assistant, just like an ordinary chat. Inside it, the assistant is allowed to read and write files in your folder. A paid Claude plan (Pro or Max) is required — you pay Anthropic for it. Instructions: https://code.claude.com/docs/en/setup — there is one command there that you paste into a command window (step 3). You install it once.
+You open the same window the same way; the up arrow on your keyboard brings back what you typed last time. You do not have to remind it of anything. Before answering, it reads its own notes — who you are and how you like to be talked to, where you stopped, what you saved today — and picks up from there.
 
-**Step 2. Download the folder and unpack it** — into your Documents, for example. The page: https://github.com/xcota/pos (green "Code" button → "Download ZIP"); if GitHub does not open, the same folder is at https://gitee.com/cotya/pos-starter (button "克隆/下载" → "下载 ZIP"). After unpacking, the folder is called `pos-main` or `pos-starter-master` — you can rename it to "Camomile".
+At the end, say "save this conversation". It writes down what was done and decided, adds two or three lines to today's note, gives genuinely new things their own pages, and — if something new about one of the seven areas came up in passing — puts one line into that area's card, in your words. It does not re-score the area and does not show the card again; a full re-do of an area happens only if you ask for one. If you forget and simply close the window, nothing that was already in your files is lost — only today's conversation goes unwritten. Say it next time and carry on.
 
-**Step 3. Open the folder in Claude Code.** You need the window where commands are typed (on a Mac it is called Terminal; find it through the computer's search). Two lines go in there. The first: `cd`, a space, and the folder dragged in with your mouse — then Enter. `cd` means "go to": you are telling the window which folder to work with from now on. When you drag the folder in, a long line with slashes appears by itself — that is the folder's address, it is supposed to look like that, do not edit it. The second line: `claude` and Enter. The very first time, the program asks whether you trust the files in this folder — answer Yes: it is your own folder. If the answer is `command not found`, the program is not installed — go back to step 1.
+### Every few days
 
-**What success looks like.** The window clears, the program's greeting appears, and at the bottom there is a line you can type into. That is it — from here it is simply writing back and forth: you type a sentence, press Enter, read the answer.
+Two things it raises itself, each in one sentence, each waiting for your yes.
 
-**Step 4. Type `/start`.** One word. From here the assistant leads.
+**A tidy-up of its memory.** Notes pile up, repeat, go out of date. Every few days it will say its memory needs a few minutes of tidying and ask whether to do it now; you answer yes or later. What it does is its own bookkeeping: it merges its own repeated notes into the right files instead of leaving near-copies, puts real dates in place of "yesterday", drops its own notes that you have since corrected, shortens its own list of contents so it finds things faster, and refreshes search by meaning so new notes are found too. Your own words — the stories you told it — are not touched, and earlier versions of the files are kept, so anything can be brought back. Afterwards it reports in a few lines what it changed.
 
-**Coming back tomorrow.** The same two lines in the same window: `cd` with your folder, then `claude`. The up arrow on your keyboard brings back what you typed last time. You never load anything by hand: each time you open it, the assistant first reads its own notes — who you are, where you stopped — and only then answers. And one thing in advance: at the end of the first session the assistant asks you once to close it and open it again — those are the same two lines. Every few days, at the start of a conversation, it will also say that its memory needs a few minutes of tidying and ask whether to do it now — say yes; it never does this without asking.
+**A look at its own misses.** About every three days it offers to go back over the last days — where it misread you, where it produced too much, where it made you wait — and to write the lessons down so the same thing does not repeat.
 
-## The first session: getting acquainted
+### Whenever you need
 
-The assistant asks you about yourself — as an ordinary conversation, one question at a time, not a ten-page questionnaire.
+Ask for something old in your own words: "where did I write about being tired in the mornings". With search by meaning it finds the note that says "wrecked after getting up"; without it, it searches exact words and tells you so plainly, once.
 
-How it goes today:
+Ask why you decided something months ago and the answer is the note, not a guess. Hand it your day — thoughts, links, files — in words; or, for files, there is a folder called `inbox` inside your own folder: put them there and then tell it "take a look in inbox" — it does not go looking by itself. And correct it whenever it grates: "shorter", "don't ask me about that", "use my first name". Corrections like that are kept as rules about talking to you, never as conclusions about you; at the end it shows one or two lines it would like to write down, and keeps only what you agreed with. Silence is not agreement.
 
-- **The start.** It asks what to call you and explains in one paragraph what is about to happen. Then one yes/no question: install search by meaning, and straight away what it costs (about a gigabyte of disk space, five to ten minutes). It downloads nothing silently.
-- **Three stories instead of a questionnaire.** You are not asked to rate yourself: yesterday, from waking up to going to bed; the past month — what you bought, what you regret, what you are glad about; what you learned over the past year and from whom. That is enough to cover all seven areas. The stories are saved word for word.
-- **A card per area, for you to check.** Numbered lines "you said" (your own words, word for word, checked against your own stories), "I saw in your files", "I think", then "I don't know" and "I heard '…' — right?", and as the last line its number with a confidence level. You correct by number. For an area you barely talked about there is no number at all — "you didn't talk about this".
-- **Questions that go deeper.** After five areas the questions change character: what really makes you angry, what you lost and could not digest, how being lonely differs from being alone, what counts as irreversible for you. This is not a test — it is an ordinary conversation, just not a shallow one.
-- **Parents and childhood** are a separate part, and it is **optional**. Say you would rather not, and the session moves on.
-- **The portrait.** Out of all this it puts together a description: how you are built, where your strong spots and blind spots are, how you usually decide. It only starts building the folder after you have confirmed or corrected at least two cards — it does not build on unchecked conclusions.
-- **Building the folder.** Then it builds your folder: the "who I am" file, your goals, starting tasks, a cover page with the seven areas. And it asks you once to close it and open it again.
+### What never happens
 
-How long it takes. A quick pass, enough to start working, is about fifteen minutes. The full thing, with all the deeper questions, takes noticeably longer — several sittings. You can stop anywhere: everything is already written down, so you come back and type `/start`.
+It never writes to you first, never reminds you, never runs on a schedule, never watches you. It does not ask you to score yourself. It does not install anything quietly. It does not praise you for answering, and does not explain things as if to a ten-year-old. It does not pass its own wording off as your words: a quote it cannot find in your stories turns into "I heard … — right?". It never copies a password, PIN, key, card number, code or recovery phrase into any file, even if you dictate one and ask it to. It never restores a line you crossed out or rewrites one you fixed by hand. And it never starts the tidy-up or the review of misses without your yes.
 
-## What changes as you use it
+## Three things inside
 
-The more conversations you have saved, the less you have to re-tell yourself: the assistant already holds what you are working on, what you put aside and who is around you. Old decisions are one question away. The "How to work with me" section grows on your own corrections — and the conversation gets more accurate than it was on day one. We promise no timeline here: the speed depends only on how much you have said and saved.
+**Memory — it remembers you between conversations.** Ordinary text files: who you are, what you are doing now, your goals, notes by day, pages about people and projects. It reads them at the start on its own; you say "save" at the end. No magic and no database: open a file in a text editor and you see ordinary text that you can edit yourself.
 
-What will **not** happen: the assistant will not write to you on its own, will not remind you about your tasks, and will do nothing without your word. It sets no schedules and does not watch you. Everything happens only when you open a conversation — and the only things it brings up itself are the two offers above: to tidy its memory and to go over its misses, both only with your yes. Three commands worth remembering (type them straight into the conversation, with a slash in front): `/session-save` — save the conversation into memory, `/recall` — find something old, `/reflect` — go over the misses of the last few days. You can also just ask in plain words: "save this conversation", "find where I wrote about…".
+**Your work — it keeps your projects and decisions.** Each of your things gets its own page, and the pages link to one another — something like a small personal encyclopedia of your life. A person, a project, a decision, notes on something you read. Ask for a hard decision to be written down separately, with the reason, and six months later "why did I do that back then" has an answer instead of a guess.
+
+**How it adapts to you — it keeps your corrections and stops repeating what you told it not to do.** This is the part an ordinary chat does not have. Your corrections about how to talk to you go into a "How to work with me" section of your own file, and that file is re-read at every start — so the manner is not lost when you close the window and open a new one the next day. What changes is the **form**, not the content: it still names the inconvenient facts and the gaps, only in the manner you showed it. The folder also arrives with more than forty common mistakes already taken apart: not about you, but about how AI assistants usually get things wrong — building instead of asking, writing in a clever-sounding way, claiming work they did not do. Those are written down in the folder in plain text, and it reads the ones that apply to what you are doing. On top of them it keeps your own corrections as you make them — nothing for you to fill in.
+
+## What you type
+
+Once at the very beginning: `/start` — and again if you broke off part-way through that first session; it carries on from the same place instead of starting over.
+
+Three short words worth remembering afterwards. Type them exactly as they appear here, slash included:
+
+| Word | What it does |
+|---|---|
+| `/session-save` | save this conversation into memory |
+| `/recall` | find an old note |
+| `/reflect` | go over the misses of the last few days — and, once you have a few conversations behind you, show what it has understood about your manner and what it still does not know |
+
+Everything else is plain words: "save this conversation", "find where I wrote about…", "write down why I decided this", "shorter answers from now on". Both the tidy-up of its memory and the review of its misses it offers by itself — you only say yes or later. If you want to start the review yourself, the word for it is `/reflect`.
+
+## Your data
+
+Everything sits on your own disk, in that one folder, as ordinary text files — even a basic text editor opens them. There is no storage program and no server of ours on the internet. We do not register you anywhere: we have no accounts and there is nowhere to create one. The only thing that ever runs in the background is the local search, if you turned it on — it wakes for your question and goes back to sleep after half an hour, on your machine.
+
+Your notes live only in that folder: copy it and all of them have moved to another computer. Separately, Claude Code keeps a record of the conversations themselves outside your folder, in its own service area — deleting your folder does not delete those; they go with Claude Code's own files.
+
+Passwords, PINs, keys, card numbers, security codes, text-message codes, recovery phrases, passport numbers: you never need to give them, and a rule in the folder forbids writing any of them into any file — even if you dictate one yourself and ask for it to be saved. Only the fact without the secret ("has access to the bank"). If one is already sitting in a file, it tells you instead of quietly rewriting it.
+
+An honest note about the internet: for the assistant to answer you, pieces of your notes are sent to Claude — the same as any text you type into an AI chat. Storage is on your side, the thinking happens on Anthropic's servers, and that is why you need a connection while you are talking. Nothing goes anywhere else: the search and the quote check run on your own machine. The tidy-up is done by the assistant itself, so those notes go to Claude like anything else you write to it.
+
+Disk space, and only if you said yes to search by meaning: about one gigabyte in total, downloaded once. It sits partly in your folder and partly in your system's hidden downloads area — the assistant can show you both and delete them. Neither one is your notes, and both can be rebuilt later without losing a single note.
 
 ## Questions and answers
 
-**Where is my data?** On your disk, in this folder, as ordinary text files. There is no separate storage and no server of ours. We do not register you anywhere: we have no accounts and there is nowhere to create one — the only subscription is with Anthropic, for the Claude Code program itself.
+**What does it cost?** A Claude plan from Anthropic — that is where the assistant runs. Pro is the cheaper one and is enough to start; you buy it on Anthropic's own site. Plans come with a limit on how much you can use in a stretch: if you reach it, the assistant pauses for a few hours and then works again. No other payments, and nothing paid to us.
 
-**What about passwords?** You do not need to give the assistant passwords, keys or card numbers, and it does not copy them into your files even if you mention them in conversation — that is written into its rules.
+**Can I use it on a phone?** No. You need a computer: Mac or Linux. Windows is not supported yet — there is no version for it, you would waste an evening.
 
-**Does anything go to the internet?** Yes, and it matters that you know it. For the assistant to answer, pieces of your notes are sent to Claude — as with any text you type into an AI chat. They go to no other service, but saying "everything stays on your computer" would not be true.
+**What if I delete the folder?** Your notes are gone and nothing about you is remembered any more; there is no second copy of them. Two things live outside the folder and are not affected: the record of the conversations themselves, which Claude Code keeps in its own service area (that goes when Claude Code's own files go), and the downloaded dictionary for search by meaning, if you agreed to it — not your notes, but it takes up space.
 
-**What does it cost?** A paid Claude plan from Anthropic (Pro or Max) — that is where the assistant runs, and you pay Anthropic for it. No other payments, and nothing paid to us.
+**Can I write in English or Chinese?** Yes — it speaks the language you write in. If it cannot tell which one you want, it asks once.
 
-**Can I use it on a phone?** No. You need a computer: Mac or Linux. Windows is not supported yet.
+**Do I have to go through the whole first session?** No. The first pass gives you a working basis and the rest is picked up as you go, in ordinary conversations. You can stop at any question, and parents and childhood can be skipped entirely.
 
-**What if I delete the folder?** Your notes are gone: the assistant remembers nothing about you any more, and there is no copy anywhere. The only thing left outside the folder is the downloaded dictionary for search by meaning, if you agreed to it — about a gigabyte; that is not your data, but it takes up space. The flip side of the same thing: copy the folder and all your notes have moved to another computer.
+**What does it write down about me, and how do I erase it?** What you told it, plus its own conclusions, marked as guesses. All of it is files you can open, read, edit and delete by hand — or just tell it: remove this. A line you fix or cross out yourself stays fixed.
 
-**Can I use English or Chinese?** Yes — the assistant speaks the language you write in. If it is not sure which one you want, it asks once.
+**Does it diagnose me?** It builds a portrait: repeating reactions — how you behave when someone close pulls away, where you put the blame for a failure, what overload does to you — and where that came from, family included, if you talk about it. It is not therapy: no exercises, no homework, no "you should work on this". The portrait is yours to read and edit. Say you do not want it and it does not dig.
 
-**Do I have to go through the whole first session?** No. The first pass gives you a working basis, the rest is picked up as you go. You can stop at any question, and the part about parents and childhood can be skipped entirely.
+**Do I have to keep its memory in order myself?** No. It reads its own notes at every start; you say "save" at the end. The tidy-up and the review of misses it offers itself, and both wait for your yes. Say no and nothing breaks. It will ask once more when you save the conversation, and again the next time you open it, until you say yes.
 
-**What does it write down about me, and how do I erase it?** What you told it, plus its own conclusions. All of it is files you can open, read, edit and delete by hand. Or just tell it: remove this.
-
-**Does it diagnose me?** It builds a psychological portrait: it notices repeating reactions — how you behave when someone close pulls away, where you put the blame for a failure, what overload does to you — and where that came from, including family, if you talk about it. It does not say labels out loud, but it does put its conclusions into your "who I am" file. The portrait is yours: you read it and you edit it. If you do not want this, tell it, and it will not dig.
-
-**What does the assistant not do?** It does not write first, does not remind you, does not work on a schedule, does not go online on your behalf unasked, sends nothing to anyone, and does not claim work it did not do — if it did not do something, or is unsure, it says so.
-
-**Do I have to keep its memory in order myself?** No. At every start it reads its own notes; you only say "save" at the end of a conversation. Every few days it offers a tidy-up of its memory (a few minutes: merging, removing duplicates, refreshing search) and, separately, a look at its own misses. Both wait for your yes. If you say no, nothing breaks — it will offer again another day.
-
-**And if something breaks?** Tell it in plain words what you see on the screen. It reads the same folder and fixes things itself. Worst case: unpack the folder again and go through the first session once more.
+**And if something breaks?** Tell it in plain words what you see on the screen. It reads the same folder and fixes things itself. Worst case: move your old folder aside — your notes stay in it — unpack a fresh copy, and the assistant can bring your notes across.
 
 ## What you need: the honest list
 
-- A Mac or a Linux computer. Windows is not supported yet.
-- A paid Claude plan (Pro or Max) from Anthropic.
-- The Claude Code program, installed.
-- Two helper programs, both free: Python and Git. On a Mac they are usually already there. Without Python there is no search by meaning and no quote self-check (in that case it simply does not show the "you said" lines) — but nothing breaks and you will not see errors on screen.
-- Being able to type two lines into a command window once — and to repeat them each time you come back.
+- A Mac or a Linux computer. Windows is not supported yet — there is no version for it, you would waste an evening.
+- A paid Claude plan from Anthropic, Pro or Max — the only payment involved. Pro is enough to start.
+- The Claude Code program, installed once.
+- Two small helper programs, both free: Python and Git. You do not check this yourself: at the first start the assistant says in plain words whether anything is missing and gives you one line to paste — that is all it takes. Without Python you lose search by meaning and the check that the words it puts in your mouth are really yours (so those lines are left out of a card rather than guessed at), plus the check that the links between your notes still work; without Git you lose the safety net of earlier versions of your notes. Nothing else changes, nothing breaks, and no errors appear on your screen.
+- This folder, downloaded and unpacked wherever suits you.
+- Typing two lines into a command window once, and repeating them each time you come back.
 - An internet connection the whole time you are talking to the assistant.
-- About fifteen minutes for the first session. Going deeper takes several sittings.
-- **One yes/no question:** search by meaning. The assistant asks right at the start and tells you what it costs: about a gigabyte of disk space, five to ten minutes. It lets you find your own notes by the sense of your question instead of the exact words. Say no and nothing is downloaded, everything else works.
-- **Optional:** going through a YouTube video. That needs a separate free downloader program. Without it you can still work through chats, notes and summaries.
+- About fifteen minutes for the first session; everything deeper accrues in ordinary conversations afterwards.
+- **One yes/no question:** search by meaning — about one gigabyte of disk space, downloaded once, five to ten minutes. It finds your notes by the sense of your question instead of the exact words. Say no and nothing is downloaded; everything else works.
 
-What you do **not** need: to program, to keep accounts anywhere else, to run a server.
+What you do **not** need: to program, to keep an account anywhere else, to run a server of your own.
+
+## License
+
+AGPL v3: using and changing it is free; if you build a service for other people on top of it, open up your changes too. Full text in the LICENSE file.
