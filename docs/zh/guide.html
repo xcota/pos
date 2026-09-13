@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>洋甘菊使用说明——每个词怎么用、文件夹里有什么</title>
+<style>
+:root{
+  --bg:#f3f0ea;
+  --ink:#2f3330;
+  --muted:#6d7269;
+  --yellow:#f2c027;
+  --yellow-soft:#fbeec4;
+  --green:#8fa985;
+  --green-deep:#63795c;
+  --card:#fffdf8;
+  --line:#ddd8ca;
+  --cjk:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Heiti SC",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",Arial,sans-serif;
+  font-size:18px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:740px;margin:0 auto;padding:56px 24px 110px}
+
+/* ---------- header ---------- */
+.header{text-align:center;margin-bottom:16px}
+.header img{display:block;width:100%;max-width:390px;height:auto;margin:0 auto 6px;border-radius:8px}
+h1{font-size:46px;line-height:1.15;letter-spacing:0;margin:10px 0 14px;font-weight:800}
+.tagline{font-size:20px;line-height:1.65;max-width:620px;margin:0 auto;font-weight:600}
+.meta{margin-top:22px;font-size:13.5px;color:var(--muted);letter-spacing:.06em;text-transform:none}
+.rule{width:64px;height:4px;border-radius:2px;background:var(--yellow);margin:30px auto 0}
+
+/* ---------- typography ---------- */
+h2{
+  font-size:31px;line-height:1.3;font-weight:800;letter-spacing:0;
+  margin:72px 0 22px;padding-top:26px;border-top:1px solid var(--line);position:relative;
+}
+h2::before{
+  content:"";position:absolute;top:-2px;left:0;width:46px;height:4px;border-radius:2px;background:var(--yellow);
+}
+h3{font-size:21px;line-height:1.45;font-weight:700;margin:44px 0 14px;padding-left:16px;border-left:4px solid var(--green);}
+p{margin:0 0 20px}
+ul{margin:0 0 22px;padding-left:1.35em}
+li{margin:0 0 12px}
+strong{font-weight:700}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:.88em;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 6px;
+  white-space:nowrap;
+}
+a{color:var(--green-deep);text-decoration-thickness:1px;text-underline-offset:3px;word-break:break-all}
+
+/* ---------- figures ---------- */
+figure{margin:40px 0 44px}
+figure svg{display:block;width:100%;height:auto}
+figcaption{margin-top:12px;text-align:center;font-size:13.5px;color:var(--muted)}
+.dg text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Helvetica Neue",Arial,sans-serif;fill:var(--ink)}
+.dg .t{font-size:17px;font-weight:700}
+.dg .s{font-size:13.5px;fill:var(--muted)}
+.dg .lbl{font-size:14px;font-weight:600}
+.dg .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC","Microsoft YaHei",monospace;font-size:14px}
+.dg .cap{font-size:15px}
+.dg .num{font-size:15px;font-weight:700;fill:#2f3330}
+
+/* ---------- q&a ---------- */
+.qa{margin:0 0 26px;padding-left:20px;border-left:3px solid var(--green)}
+.qa .q{font-weight:700;margin:0 0 8px}
+.qa p:last-child{margin-bottom:0}
+
+/* ---------- boxes ---------- */
+.box{
+  background:var(--card);border:2px solid var(--yellow);border-radius:16px;
+  padding:28px 30px 24px;margin:28px 0 0;
+}
+.box h2{margin-top:0;border-top:none;padding-top:0}
+.box h2::before{display:none}
+.box ul{margin-bottom:18px}
+.box p:last-child{margin-bottom:0}
+.more{
+  margin-top:36px;padding:18px 22px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;font-size:16.5px;
+}
+
+/* ---------- print ---------- */
+@page{size:A4;margin:16mm}
+@media print{
+  body{background:#fff;font-size:11.5pt;line-height:1.65}
+  .wrap{max-width:none;padding:0}
+  h1{font-size:30pt}
+  h2{font-size:18pt;margin-top:26pt}
+  h3{font-size:13.5pt;margin-top:18pt}
+  figure,.box,.qa,.more,li{break-inside:avoid;page-break-inside:avoid}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  figure svg,.box,code{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  a{color:inherit;text-decoration:none}
+}
+@media (max-width:520px){
+  body{font-size:17px}
+  h1{font-size:34px}
+  h2{font-size:25px}
+  .tagline{font-size:18px}
+}
+</style>
+<style>
+/* ---------- tables & quotes (guide) ---------- */
+table{width:100%;border-collapse:collapse;margin:0 0 26px;font-size:16px}
+th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--yellow-soft);font-weight:700}
+tbody tr:nth-child(even){background:var(--card)}
+blockquote{margin:0 0 24px;padding-left:14px;border-left:3px solid var(--green);color:var(--muted)}
+blockquote strong{color:var(--ink)}
+ol{margin:0 0 22px;padding-left:1.5em}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+@media print{table,blockquote{break-inside:avoid;page-break-inside:avoid}
+  th{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+@media (max-width:520px){table{font-size:14.5px}th,td{padding:6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="header">
+  <img src="data:image/jpeg;base64,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" alt="Camomile">
+  <h1>洋甘菊使用说明：每个词怎么用、文件夹里有什么</h1>
+  <p class="meta">2026 年 9 月版 · 更新于 <span class="build">2026-09-13 · e3cb21b</span> · AGPL v3</p>
+  <p class="meta"><a href="presentation.html">← 回到介绍页</a></p>
+  <div class="rule"></div>
+</header>
+
+<p><em>第 2 版 · 2026 年 9 月</em></p>
+
+<blockquote><strong>开始之前。</strong> 看这篇之前，你手上应该已经有洋甘菊了：下载下来、压缩包解开，而且在 Claude Code 里打开过——Claude Code 是 Anthropic 公司的程序，它读的就是这个文件夹。还没弄好的话，README 里写了一步一步该点哪儿。<br><br><strong>以后不管哪儿出了岔子，你就把屏幕上看到的照直说一遍——他看的是同一个文件夹，大部分毛病他自己就能修。</strong></blockquote>
+
+<p><strong>要花多少钱。</strong> 洋甘菊本身不要钱。用 Claude Code 得有 Anthropic 的 Claude 付费订阅——Pro 是便宜的那档，够用；眼下多少钱，Anthropic 自己的官网上写着。要花的钱就这一笔。</p>
+
+<p><strong>下面这两个说法，后面会一直用到。</strong></p>
+
+<ul>
+
+<li><strong>打开文件夹</strong>，在这篇里的意思是：在这个文件夹里把 Claude Code 开起来——就是 README 里那两行：<code>cd</code> 加上你的文件夹，然后打 <code>claude</code>。不是在桌面上双击那个文件夹。
+
+</li>
+
+<li><strong>卡片</strong>，是他拿给你看的一张东西，说的是你生活里的某一个方面：带编号的几行，写着他听到了什么，你读、你改。没有一个空格要你自己填。
+
+</li>
+
+</ul>
+
+<p><strong>怎么停下来。</strong> 他回得太长，按 <code>Esc</code> 就打断他。想整个关掉，打 <code>/exit</code>。你已经跟他讲过的东西都存好了——下次打 <code>/start</code>，他从同一个地方接着走。</p>
+
+<p>你其实一个词都不用打。全程用大白话跟他说，洋甘菊照样能用——一开头他自己看一眼那份记录，聊完在后面添几笔。下面这些事，用平常的话说也都行；那四个短词只是省得你多打字。一个都不学，也不缺什么。</p>
+
+<p>这一篇是留着你想刨根问底的时候看的：每个词到底管什么、文件夹里到底放着什么。</p>
+
+<h2>第一部分：你要打的那些词</h2>
+
+<p>值得知道的就四个。就打在你平时打字的那一行里，回车。打错了也坏不了什么——换成大白话说同一件事（“把这次对话存一下”），结果一样。</p>
+
+<h3><code>/start</code></h3>
+
+<p><strong>什么时候用。</strong> 文件夹刚解开压缩包、头一回用的时候，打一次——中途断了想接着走，再打一次。</p>
+
+<p><strong>你要打什么。</strong> <code>/start</code>（不带斜杠打 <code>start</code> 也行）。</p>
+
+<p><strong>一步一步会发生什么。</strong></p>
+
+<ol>
+
+<li>他先问候你，问你想让他怎么称呼你，再用几句话说清接下来是什么：三段讲述、十五分钟左右、每个方面给你一张卡片让你改，然后他给你把那套文件建起来。七个方面是：自我成长（学到什么、长进多少）、活力（身体和精力）、环境（身边的人和住的地方）、财富（对你来说什么算够）、休息、事业，还有资产（钱和东西）。你随时可以停，而且他一次都不会让你给自己打分。
+
+</li>
+
+<li>你第一句回答是什么样，他就往什么样上学——你说哪种话、你怎么叫他、话多话少、写列表还是写整段。
+
+</li>
+
+<li>一个“要不要”的问题：要不要让他按意思去找你的记录，而不是只能照你当时写的原词找？（你问“我在哪写过没力气”，他能找到那条写着“每天早上像散架了”的记录。）要付出什么，他先说在前头：下载一次，大概 300 兆；占地方大概一个 G——差不多两百张照片。现在说“不要”也行，以后随时说一句“把按意思搜索打开”。
+
+</li>
+
+<li>这一步他不用问你：你记录的每一个旧版本他都替你留着，写过的东西丢不了；他还会建一个叫 <code>inbox</code> 的文件夹（就是“收件箱”），你想让他读的文件，丢进去就行。
+
+</li>
+
+<li>三段讲述，一段一段来——他问，你答，他再问下一段：昨天一天，从起床到睡觉；最近这一个月；今年学到了什么。每一段都一字不动地存下来。
+
+</li>
+
+<li>然后每个方面一张卡片，你按编号改：“第 3 条不对，实际是……”。你光说一句“对”，只算认了你自己原话那几行；他自己琢磨出来的那些，你没按编号回过之前，都还算猜测。某个方面你要是讲得够多，他可能在那张卡片最后放上他自己的一个数，外加他有多大把握——那是他的看法，从来不是让你自己打的分。
+
+</li>
+
+<li>头两张卡片你改完了，他就开始建你的那套文件。然后他会请你把他关掉再打开一次——整个过程里，你唯一要自己动手的就是这一下。打 <code>/exit</code>；然后照 README 那两行来：<code>cd</code>，空格，用鼠标把你的文件夹拖到窗口里，回车——再打 <code>claude</code>，回车。剩下那五个方面的卡片，重开之后接着来。
+
+</li>
+
+</ol>
+
+<p><strong>你会看到什么。</strong> 就是一场普通的对话：没有技术词，不会给你甩一串文件地址，也不会蹦出报错。卡片长这样：</p>
+
+<blockquote><strong>事业</strong><br>1. 你说：“铺子把我一早上全占了——七点我就站在柜台后面。”<br>2. 你说：“包装那家供货的我自己接过来了，不然没人去催他们。”<br>3. 我在你的文件里看到：跟那家供货的，你的期限是周五。<br>4. 我觉得：进货、看店、记账全在你一个人身上，没人能分担。<br><br>我不知道：你是想把铺子做大，还是只想做得省心点。<br><br>我听到的是：晚上比早上还难熬——对吗？<br><br>这个方面在我看来：一个人的生意，绷到头了，撑得住，但一点余量都没有。比较有把握——三段讲述里都提到了。</blockquote>
+
+<p>你回一句“第 4 条不对，账是我妹管的”——或者干脆说一句“对”。</p>
+
+<p><strong>他会写什么。</strong> 你的“我是谁”这个文件，你自己的话和他的猜测分开放 · 你的目标 · 你的首页，带七个方面 · 他的记忆目录 · 各个方面的卡片 · 你讲的那几段，一字不动 · 你记录里关于你的一页 · 他给自己写的那张说明书——照着你的脾气写的 · 还有他看出来、你自己不容易察觉的那些地方，写成他以后要守的规矩。</p>
+
+<h3><code>/session-save</code></h3>
+
+<p><strong>什么时候用。</strong> 一场值得留下的对话聊完的时候；或者聊得太久了——这个他自己盯着，该存了会提醒你。</p>
+
+<p><strong>你要打什么。</strong> <code>/session-save</code>，后面可以再给它起个名——“把这次存成供货商那场”——以后好找。</p>
+
+<p><strong>一步一步会发生什么。</strong></p>
+
+<ol>
+
+<li>他先把这场对话从头过一遍，看的是他自己：你在哪儿纠正了他，你看重什么，他哪儿没做到。
+
+</li>
+
+<li>你要是纠正了他跟你说话的<strong>方式</strong>，他会给你“我是谁”这个文件里的「怎么跟我打交道」那一段想好一两句话——一句一句问你行不行。你不吭声，他一个字都不写。
+
+</li>
+
+<li>七个方面里要是冒出了新情况，你说的原话进你讲的那几段，那个方面的卡片上再添一行——不重做这个方面，也不再把卡片端出来。
+
+</li>
+
+<li>他把上次存完之后还没落到纸上的东西归拢一遍，专挑那些只在聊天里说过、文件里还没有的活儿；真正新的东西单开一页。
+
+</li>
+
+<li>他把“停在哪”改成最新的，往今天的记录里添两三行，再写一张五百字以内的交班条：做完了什么、还剩什么、哪几个文件要紧、下回从哪儿接着走。
+
+</li>
+
+<li>他把这会儿的文件夹整个存一份，留着当旧版本。然后，要是离上次隔得够久了，他会用一句话问你两件事里的一件：要不要整理记忆，或者要不要把他自己出的岔子过一遍。两件都得你点头才做。
+
+</li>
+
+</ol>
+
+<p><strong>你会看到什么。</strong> 一小段报告，说存了什么，外加那一两句等你说行不行的话。</p>
+
+<p><strong>他会写什么。</strong> 你的“我是谁”这个文件（就那一段） · 你讲的那几段 · 一张方面卡片 · 今天的记录 · “停在哪” · 新开的页 · 他记下的教训和他出过的岔子清单 · 一张交班条。</p>
+
+<p><strong>例子。</strong></p>
+
+<blockquote><strong>你：</strong> 把这次对话存一下<br><strong>他：</strong> 存好了：换供货商这件事、你为什么换、两个报价、周五是最后期限。“停在哪”那儿写着：你在等他们回话。<br><strong>他：</strong> 有一句等你点头——你有两回让我别老追着问。要不要写下来：“除非我开口要几个选项，不然别追着问”？<br><strong>你：</strong> 行<br><strong>他：</strong> 写上了。还有：我的记忆该整理了——现在整，还是回头再说？</blockquote>
+
+<h3><code>/recall</code></h3>
+
+<p><strong>什么时候用。</strong> 你想找以前写过的东西，可想不起当时是拿什么词写的了。</p>
+
+<p><strong>你要打什么。</strong> <code>/recall</code> 加上你的问题，用你自己的话问。</p>
+
+<p><strong>一步一步会发生什么。</strong></p>
+
+<ol>
+
+<li>他先看一眼你这儿有没有开按意思搜索——悄悄看，不会停下来问你要不要开。
+
+</li>
+
+<li>开了，他就按意思找：给你找回来几条最像的记录，每条都带上对上的那一段，还有里头的几句原话。
+
+</li>
+
+<li>没开，他就照你当时写的原词去找，再用一句大白话跟你说一声（一场对话里只说这一次）：按意思搜索还没开，想要就说一句。要是开了却出了毛病，他不吭声，直接改回按原词找——你绝不会看到满屏带文件地址的报错。
+
+</li>
+
+<li>光甩给你一串名字不算回答——所以他会把最像的那两三条打开，把相关的那段念给你听。
+
+</li>
+
+</ol>
+
+<p><strong>他会写什么。</strong> 你的东西一样都不写——他只读你的记录。（按意思搜索自己会在它那本词典旁边记个流水账。）</p>
+
+<p><strong>例子。</strong></p>
+
+<blockquote><strong>你：</strong> <code>/recall</code> 我在哪写过早上像散架了<br><strong>他：</strong> 最像的是你讲昨天那段：“六点醒的，感觉像被车撞过。”另外七月那张活力卡片上还有一行——早上是一天里最难受的时候，那个月你把九点以后吃东西给停了。</blockquote>
+
+<h3><code>/reflect</code></h3>
+
+<p><strong>什么时候用。</strong> 大概每三天一次。这个他自己算，用一句话问你，你点头他才做。你也可以随时叫他做。</p>
+
+<p><strong>你要打什么。</strong> <code>/reflect</code>。</p>
+
+<p><strong>一步一步会发生什么。</strong></p>
+
+<ol>
+
+<li>他先把这些归拢到一处：最近三到五天的记录、最近定下的事、他记下的教训、最近几次存的东西，还有他出过的岔子清单——那是他自己抓到的错，一条条记着，免得同样的事再犯一回。
+
+</li>
+
+<li>主要还是把聊天本身重看一遍：你说了什么，他答了什么，你们俩在哪儿卡住了。
+
+</li>
+
+<li>关于你：你看重什么、烦什么，你想要什么但没说出口——每看出一条，就写成一句话，建议加到你“我是谁”这个文件里。关于他自己：哪儿自作主张干了你没让干的事，哪儿话还没听明白就先动手，哪儿给的东西比你要的多得多，哪儿让你干等着——每一条都记进他出过的岔子清单。
+
+</li>
+
+<li>他把教训捋出来，说说该改什么，再看看你的目标还作不作数，最后把这一遍写成一份短报告存起来。
+
+</li>
+
+<li>然后他用你平时说话的那种话，念三到五句大白话给你听：他觉得自己摸清了你喜欢别人怎么跟你说话、这方面他还有什么不知道，还有那一两处他不会再犯的岔子。他什么都不问你——这是面镜子，不是问卷。
+
+</li>
+
+</ol>
+
+<p><strong>你会看到什么。</strong> 一份很短、也不好听的报告，然后是那几句话。他自己的规矩是：说实话，失手的地方不许往好里粉饰。</p>
+
+<p><strong>他会写什么。</strong> 他记下的教训 · 他出过的岔子清单——同一条冒出来三次或者更多，就写进文件夹的规矩里，让它再也发生不了 · 你的目标（前提是你的时间安排变了） · 一份带日期的报告 · 这一次是哪天做的，好算下回什么时候再做。</p>
+
+<p><strong>例子。</strong></p>
+
+<blockquote><strong>你：</strong> <code>/reflect</code><br><strong>他：</strong> 三天里两处失手：周二你只要一个数，我给你摆了张表；周三你问我事，我先反问了你三个问题。<br><strong>他：</strong> 我自认摸到的：先给短答案，别给表格、除非你开口要，还有你宁可听见“这块缺东西”，也不要我瞎猜。我还不知道的：我不同意你的时候，你要不要我顶回去。<br><strong>他：</strong> 我不会再犯的两条：不给你没要的表格，先答再问。</blockquote>
+
+<h3>他自己会开口问的两件事</h3>
+
+<p>两件，各一句话，都等你点头。你每次打开文件夹，他最多开口一次。</p>
+
+<p><strong>整理记忆。</strong> 得两头都够上：离上一次过了一天，<strong>而且</strong>这中间你大概打开过五次文件夹。够上了，他会说一句：他的记忆要花几分钟整理一下，现在做不做？下面是六步：</p>
+
+<ol>
+
+<li>动手之前，他先把已经写下的东西看一遍。
+
+</li>
+
+<li>他把最近这几天的东西归到一处，再挑出那些已经过时的说法。
+
+</li>
+
+<li>他把自己记重的并到该去的文件里，不留一堆差不多重复的；把“昨天”换成真正的日期；把他发现是错的那些删掉。
+
+</li>
+
+<li>他把自己那份记忆目录缩短。
+
+</li>
+
+<li>他把按意思搜索重新过一遍。
+
+</li>
+
+<li>他报一下改了什么。
+
+</li>
+
+</ol>
+
+<p>你自己的话他一个字都不碰：你讲的那几段，还有卡片上「你说」那几行，按他自己的规矩就是碰不得的；他只收拾他自己写的东西，而且旧版本都留着。你说“回头再说”也不会坏什么——你存对话的时候他会再问，下次打开文件夹再问。你要是压根不想让他问，就说“以后别再问我要不要整理”（或者“这事别再问我”）：他会把这句写进你“我是谁”这个文件，从此以后你不叫他，他就不整理。</p>
+
+<p><strong>看看他自己出的岔子。</strong> 大概每三天一次——就是上面 <code>/reflect</code> 那一套，问法一样：一句话，你点头才做。</p>
+
+<h3>还有别的词，想用再用</h3>
+
+<p>下面这七个，一个都不用记——每一样都能用大白话跟他说。</p>
+
+<p><strong><code>/ingest</code></strong> —— 把一段录音整理稿、一份聊天记录、笔记，或者一条 YouTube 链接，变成你记录里的一页一页。视频要用一个不要钱的小程序，叫 yt-dlp：你问一句“我这儿有 yt-dlp 吗”，他会去看，再带着你把它装上。视频没有字幕的话，他绝不会编一份稿子出来——他会让你自己把稿子贴进来。</p>
+
+<p><strong><code>/query</code></strong> —— 一个问题要把好几条记录串起来才答得了，用它。他直接给你答案，每句话是从哪条记录来的都标上，然后把答案存成一页。</p>
+
+<p><strong><code>/graph-add</code></strong> —— 给一个人、一个项目或者一个决定单开一页。要是原来有条记录跟这个对不上，他把两个版本都留着，并且告诉你。</p>
+
+<p><strong><code>/self-check</code></strong> —— 给这个文件夹做个体检：八样东西各打个分，满分十六——刚建起来的文件夹，满分算十四，因为“项目”那一项还不算。他把毛病从最要紧的往下排，每条都说怎么修。</p>
+
+<p><strong><code>/lint</code></strong> —— 给你的记录做个体检：没有别的页连过去的页、一个月没人核对过的说法、同一个数出现了两种写法。他只报给你，不会闷声替你改。</p>
+
+<p><strong><code>/enable-modules</code></strong> —— 打开一个附加包（就是多教他一门专门的本事）。空着的地方他才放几个起步的文件，你填过的地方绝不覆盖。这个词不用记：说一句“把健身那个附加包打开”就行。</p>
+
+<p><strong><code>/compress</code></strong> —— 把一场长对话压成大概一页，然后再回头查一遍：文件名、数字、人名有没有在路上丢掉。</p>
+
+<h3>他自己用的词——你可能会在他的回话里瞄到</h3>
+
+<p>这些你从来不用打；只是有时会在他的回话里晃一下，所以这儿说一句都是什么。</p>
+
+<ul>
+
+<li><strong><code>/session-start</code></strong> —— 平常的开场。你一打开文件夹，后台那三个自己跑的小程序里，有一个就顺手把这事办了。
+
+</li>
+
+<li><strong><code>/dream</code></strong> —— 就是整理记忆。他问你，你说“好”；这个词你根本用不着。
+
+</li>
+
+<li><strong><code>/svoboda-profiler</code></strong> —— 第一场对话里问你要三段讲述的，就是它管的那一段。（<em>Svoboda</em> 是俄语“自由”的意思，就是个名字。）你说一句“事业那块再走一遍”，叫的也是它。
+
+</li>
+
+<li><strong><code>/vault-scaffolder</code></strong> —— 给你把那套文件建起来的那一部分。<code>/start</code> 会替你叫它。
+
+</li>
+
+</ul>
+
+<h3>用大白话怎么说</h3>
+
+<table>
+<thead><tr><th>你想干什么</th><th>怎么说</th></tr></thead>
+<tbody>
+<tr><td>存下这次对话</td><td>“把这次对话存一下”</td></tr>
+<tr><td>找一条旧记录</td><td>“找找我在哪写过早上没力气”</td></tr>
+<tr><td>记住一个人</td><td>“给我那个供货的安娜单开一页”</td></tr>
+<tr><td>读我丢进去的文件</td><td>“去 inbox 看看”</td></tr>
+<tr><td>答得短点</td><td>“短点” / “先给答案，我问了再解释”</td></tr>
+<tr><td>别再问我某件事</td><td>“这事别问我”</td></tr>
+<tr><td>以后别再提整理的事</td><td>“以后别再问我要不要整理”</td></tr>
+<tr><td>某个方面重来一遍</td><td>“事业那块再走一遍”</td></tr>
+<tr><td>现在就整理记忆</td><td>“现在就把你的记忆整理一下”</td></tr>
+<tr><td>找回文件的旧版本</td><td>“把我目标那个文件昨天的样子找回来”</td></tr>
+<tr><td>以后再开按意思搜索</td><td>“把按意思搜索打开”</td></tr>
+<tr><td>打开一个附加包</td><td>“把健身那个附加包打开”</td></tr>
+<tr><td>这个文件夹健不健康</td><td>“这个文件夹有哪儿坏了吗”</td></tr>
+<tr><td>擦掉关于我的某句话</td><td>“把我这一行去掉”</td></tr>
+</tbody>
+</table>
+
+<h2>第二部分：文件夹里有什么</h2>
+
+<p>全是普通的文字文件——你电脑上自带的那种记事本一类的小软件，随便哪个都打得开。</p>
+
+<table>
+<thead><tr><th>名字</th><th>里面装什么</th><th>你能改吗？</th></tr></thead>
+<tbody>
+<tr><td><code>HOME.md</code></td><td>你的首页：你要往哪儿去、七个方面、手头在做什么。</td><td>能</td></tr>
+<tr><td><code>CLAUDE.md</code></td><td>助手的那张说明书，你每次打开文件夹他都要看一遍。</td><td>别动——再建一遍文件夹的时候，这个会被整个重写</td></tr>
+<tr><td><code>MEMORY.md</code></td><td>他的记忆目录——一个话题一行，写着那条记录真正在哪，像书最后那几页的索引。内容本身都在别的文件里。</td><td>小心点改</td></tr>
+<tr><td><code>README.md</code>、<code>README.zh.md</code></td><td>给头一回来的人看的门面，英文和中文各一份。</td><td>能</td></tr>
+<tr><td><code>AGENTS.md</code></td><td>第二张说明书，内容一样，是给 Claude Code 以外的别的 AI 程序看的——跟 <code>CLAUDE.md</code> 得靠人手动保持一样。</td><td>小心点改</td></tr>
+<tr><td><code>LICENSE</code></td><td>法律条文（AGPL v3）：随便用、随便改。</td><td>别动</td></tr>
+<tr><td><code>context/</code></td><td>你的“我是谁”这个文件——十二段，里头有「怎么跟我打交道」和「划掉的」——外加你的目标、“该往哪儿使劲”的单子、他记下的教训和他出过的岔子清单。</td><td>小心点改——“我是谁”这个文件和你的目标都是你的；你划掉一行，它就一直划着</td></tr>
+<tr><td><code>knowledge/</code></td><td>你的记录，一页一页互相连着，分十三类：人、项目、概念、决定、查过的东西、工具、生意、健康、心理、课程、总览页、对不上的地方、索引条目。</td><td>能</td></tr>
+<tr><td><code>daily/</code></td><td>一天一个文件，按日期起名——<code>daily/2026-09-13.md</code>。一开始是空的；你每次打开文件夹，今天这个文件的最后八行他都要看一遍。</td><td>能</td></tr>
+<tr><td><code>state/</code></td><td>“停在哪”（他每次打开文件夹都看头四十行）、每存一场对话留下的一张交班条、定下的事、按意思搜索用的那本词典，还有上次整理记忆、上次复盘岔子是哪天。</td><td>不能——洋甘菊自己要用，别碰</td></tr>
+<tr><td><code>memory/svoboda/</code></td><td>一张空表格，加一个拿你名字起名的小文件夹：你讲的那几段一字不动，加上你的修改（「你说」那几行只能从这儿来）、七个方面的卡片和你的画像。</td><td>小心点改——你讲的那几段必须是你说的原样</td></tr>
+<tr><td><code>inbox/</code></td><td><em>一开始没有，后来才冒出来。</em> 你丢想法、链接和文件的地方。你不开口，他不会去处理里头的东西——不过搜索是会看里面的。</td><td>能——它就是干这个的</td></tr>
+<tr><td><code>reports/</code></td><td>他单独写成文件的那些成品，包括每一次复盘岔子。</td><td>能</td></tr>
+<tr><td><code>rules/</code></td><td>十一条硬规矩，外加一张这些规矩的清单。</td><td>小心点改</td></tr>
+<tr><td><code>.claude/</code></td><td>机器的零件：他的设置、三个在后台自己跑的小程序，还有第一部分里那十五个词，全在这儿。这儿没有一样是给你看的。</td><td>别动</td></tr>
+<tr><td><code>scripts/</code></td><td>四个给你用的小程序——按意思搜索、给它做安装的那个，还有核对引用的那个——另外一个是做这东西的人自己发版用的，在你这份拷贝里用不上。</td><td>别动——要用的时候洋甘菊自己会跑那四个</td></tr>
+<tr><td><code>_templates/</code></td><td>八张空表格：一天、一个决定、一个人、一个项目、一次见面、一份计划、一次查资料，还有一张记你当成事实说过的话、连带各自的凭据。</td><td>能</td></tr>
+<tr><td><code>modules/</code>、<code>modules.yaml</code></td><td>随你要不要的附加包，还有哪些正开着。一开始全是关着的。</td><td>张嘴就行：“把健身那个附加包打开”</td></tr>
+<tr><td><code>assets/</code></td><td>标志那张图。</td><td>能</td></tr>
+<tr><td><code>docs/</code></td><td>三种语言的介绍、这篇说明，还有给动手做东西的人看的一页。</td><td>能</td></tr>
+<tr><td><code>.memory_venv/</code></td><td><em>一开始没有；只有开了按意思搜索才会冒出来。</em> 大概一个 G 的、藏起来的帮手文件。不是你的记录。</td><td>别动</td></tr>
+<tr><td><code>pp.md</code>、<code>plan-fact.md</code>、<code>plans.md</code></td><td>一页纸的总览，写你在盯着什么；一本账，记你原先打算怎样、后来实际怎样；还有一张接下来要干什么的单子——都是他给你建文件的时候先空着放那儿的。你填上，或者删掉。</td><td>能</td></tr>
+<tr><td><code>projects/{name}/</code></td><td><em>一开始没有，得你开口要才有。</em> 给那种真攒了一堆细节的项目用。</td><td>能</td></tr>
+</tbody>
+</table>
+
+<p>你往文件里打的任何字，都不会把洋甘菊永久弄坏：每一个旧版本都留着，你随时可以说“把这个文件昨天的样子找回来”。“小心点改”的意思只是：这几样他是当规矩来读的，你要是改得自己都糊涂了，他也跟着糊涂。</p>
+
+<h2>第三部分：幕后是怎么回事（想知道再看）</h2>
+
+<h3>每次你打开文件夹</h3>
+
+<p>你一个字还没打，他已经把关于你的一小块东西读完了：你停在哪、“该往哪儿使劲”最上头那几条、今天记录的最后几行、最新的三张交班条。所以他从来不问你是谁。要是这个文件夹还没弄起来，他就只回你一行字：打 <code>/start</code>。</p>
+
+<p>他还顺手看看日子：该不该整理记忆了（离上次过了一天，而且这中间你大概打开过五次文件夹），该不该复盘他的岔子了（大概三天）。要是到点了，他会问你一句：现在做不做——一次最多问一件，先问整理，你不点头，什么都不动。你要是跟他说过永远别问，那他一声不吭，等你开口。</p>
+
+<h3>你说存一下的时候</h3>
+
+<p>你看到的是一小段报告，说什么进了记录，外加一两句等你说行不行的话；硬盘上多出来的，就是 <code>/session-save</code> 那一节列的那些文件，外加整个文件夹又存了一份旧版本。「怎么跟我打交道」那几行，永远只记你喜欢别人怎么跟你说话——答短点、别用表格、叫我名字。它们从来不记他对你这个人的看法；那些都在方面卡片上。</p>
+
+<h3>整理记忆，说细一点</h3>
+
+<p>你看到的就两样：问你的那一句，还有最后那份最多十五行的报告。中间就是第一部分那六步——有三件事值得说一下。动笔之前他先把已经写下的东西看一遍：没读就下总结，东西就是从这儿开始编出来的；所以他要是读不了，那就干脆不做。要是有一行写着通向某条记录，可那条记录根本不存在，这一行他压根不写。还有，把按意思搜索重新过一遍，只重读改过的那些文件，几秒钟的事——从头建一遍要久得多，可那只有你头一回打开它的时候才会碰上，而且是在后台跑，你该干嘛干嘛。你自己的话从来不碰：你讲的那几段，还有卡片上「你说」那几行，按他自己的规矩就在打扫范围之外——他只收拾他自己写的东西。</p>
+
+<h3>按意思搜索</h3>
+
+<p>他把你的记录切成一段一段，每段都连着它头上的那个小标题，所以你的问题对上的是一段话的<strong>意思</strong>，不是一模一样的词。它找的范围是：你的记录、你每天的记录、报告、你自己讲的那几段，还有 <code>inbox</code> 里的任何东西。这些全装在你自己硬盘上多出来的一个文件里，什么都不往外发。它占的地方——文件夹里大概一个 G 的、藏起来的帮手文件，外加文件夹外面留着的那 300 兆下载——都不是你的记录，两处都能删了再建。</p>
+
+<p>它不是一直开着的：你一问，它醒过来，再醒着待半个钟头，好让你下一个问题马上有答案，然后睡回去。从你电脑外面够不着它。</p>
+
+<h3>核对引用</h3>
+
+<p>一张卡片拿给你看之前，上面每一行凡是说这是你的话的，都要跟你自己讲的那几段一个字一个字对过；大小写和标点不算数。词要是不在里头，那就是助手自己的说法，于是这一行改成“我听到的是……——对吗？”。要是这道核对根本跑不起来，这张卡片<strong>就先不拿出来</strong>，等弄好了再说。</p>
+
+<p>这道核对什么都不往外发，英文、中文、俄文都对得上。它要用 Python，大多数电脑上本来就装着——你问一句“我这儿有 Python 吗”，他会去看。没有 Python，「你说」那几行就干脆不放，只留「我在你的文件里看到」「我觉得」和「我不知道」：核不了的东西，绝不冒充成你的话。</p>
+
+<h3>旧版本，和怎么找回来</h3>
+
+<p>每存一次，文件夹都在你自己硬盘上记一笔，用的是一个到处都在用、又不要钱的工具，叫 git；刚下载下来的文件夹一笔都没有，所以第一场对话他会悄悄给你开一本账。要找回来，你用大白话说就行：“把我目标那个文件昨天的样子找回来” · “给我看看这个文件一个礼拜前什么样”。这事他有一套固定的做法：他按日期找到那个版本，先把旧的文字念给你听，让你看清你要拿回来的是什么，你点头了他才把那<strong>一个</strong>文件放回去——绝不动整个文件夹，绝不动你没点名的文件。你原来那一版也留在记录里，所以你反悔也来得及。他要是磨蹭，你就跟他说：这个文件夹自己留着旧版本（git）——用那个。还有一条自己动手的路子，别的全不灵的时候它也灵：三步都写在第四部分“出岔子了”那儿。</p>
+
+<h3>拷贝、搬家、重来</h3>
+
+<p>把文件夹拷一份，东西全跟着走：每一条记录、每一段讲述、每一张卡片，还有旧版本。删了它，你的记录就没了；没有第二份。文件夹你放哪台电脑的哪儿都行，照样能用。有两样住在外面、不跟着走：Claude Code 自己存的那份对话记录，还有按意思搜索下载的那一份——两样都不是你的记录，而且都能重新弄出来。就算把建文件夹那一步再走一遍，你写的东西也不会被清空：目标一字不动地留着，划掉的行还是划着。唯一的例外是助手自己那张说明书 <code>CLAUDE.md</code>——那个每次都整个重写，所以你往里头加过的东西，记得另存一份。</p>
+
+<h3>什么会发到网上，什么留在你机器里</h3>
+
+<p><strong>会出去的。</strong> 你的对话，包括他为了答你而读的你记录里的片段——跟你打进任何 AI 聊天框里的字一样。东西存在你这边，动脑子那部分在 Anthropic 那边的机器上，所以你聊的时候得连着网。只有开了按意思搜索才多一样：那一次 300 兆的下载，而且要付出什么，在你回答之前就跟你说清楚了。</p>
+
+<p><strong>留在这儿的。</strong> 按意思搜索和核对引用从不离开你的机器。你的记录就是你硬盘上的普通文件——没有什么存东西的软件，没有我们的机器，哪儿也不用注册。</p>
+
+<p><strong>绝不写下来的。</strong> 密码、支付密码、密钥、卡号、安全码、短信验证码、钱包助记词、身份证号，绝不进任何文件，就算你自己念给他、还让他存也不写。这是条硬规矩，不是一句保证。只记事情，不记秘密——写“有银行的权限”这种就行。</p>
+
+<h3>他守的那些规矩</h3>
+
+<p>十一条硬规矩。大多数是这么来的：先好言好语提醒过，没拦住，同样的毛病又犯了，才升成硬规矩；只有一条——记录里不写秘密——是一上来就写死的，为的是让早先许下的那句承诺，底下真有一条规矩兜着。头三条什么时候都算数。</p>
+
+<ol>
+
+<li><strong>先说人话</strong> —— 一样东西是什么、能给你什么，用平常的词讲。
+
+</li>
+
+<li><strong>照实报</strong> —— 有什么说什么，不在结果外头裹一层好听的。
+
+</li>
+
+<li><strong>记录里不写秘密</strong> —— 任何文件里都不写密码、密钥、卡号、验证码、钱包助记词，你念给他也不写。
+
+</li>
+
+<li><strong>问什么答什么</strong> —— 绝不拿旁边那个他更好答的问题来顶数。
+
+</li>
+
+<li><strong>先弄明白你到底要什么</strong> —— 答之前、动手之前，先弄明白。
+
+</li>
+
+<li><strong>花的力气跟活儿对得上</strong> —— 自己用的工具就是个工具，不是产品。
+
+</li>
+
+<li><strong>纠正是永久的</strong> —— 你纠正过一次，就一直算数；你手头在忙的事，你不发话他不动。
+
+</li>
+
+<li><strong>正事就是正事</strong> —— 你说了要办的那件事<strong>就是</strong>正事；要不要拐去别的方向，由你开口。
+
+</li>
+
+<li><strong>看不见听不着的，不下判断</strong> —— 要看要听的东西，一律退回给你，不去瞎猜。
+
+</li>
+
+<li><strong>这个文件夹就在你自己电脑上</strong> —— 它留着旧版本是给你图个方便，不是跟谁签的合同。
+
+</li>
+
+<li><strong>文件名要朴素</strong> —— 这是他给自己文件定的一条家务规矩：小写字母、数字、短横和下划线。跟你没关系。
+
+</li>
+
+</ol>
+
+<h3>附加包（要不要随你）</h3>
+
+<p>一个附加包，就是多教洋甘菊一门专门的本事——比方说健身，或者记账。一开始全是关着的，现成的也一个都没带：只带了一个做好的样子货，也关着——你可以打开看看它怎么转，然后照着换成你自己的。问一句“都有哪些附加包”看单子，说“把……那个附加包打开”就开一个。</p>
+
+<h2>第四部分：照着做</h2>
+
+<p><strong>记住一个人。</strong></p>
+
+<ol>
+
+<li>“给安娜单开一页——她供包装的，三月展会上认识的。”
+
+</li>
+
+<li>他给她开一页，跟相关的东西连上，以后找得到。
+
+</li>
+
+<li>要是已经有条记录跟这个对不上，他把两个版本都摆给你看，不覆盖。
+
+</li>
+
+</ol>
+
+<p><strong>丢个文件给他。</strong></p>
+
+<ol>
+
+<li>把文件放进 <code>inbox</code> 这个文件夹。
+
+</li>
+
+<li>说一句“去 inbox 看看”——你不开口他不会去处理里头的东西，不过搜索是会看里面的。
+
+</li>
+
+<li>录音整理稿这类的，你说一句“把这个读进我的记录里”，它就变成你记录里的一页一页。
+
+</li>
+
+</ol>
+
+<p><strong>“我当时为什么那么定？”</strong></p>
+
+<ol>
+
+<li>直接问：“我当时为什么不用那家供货的了？”
+
+</li>
+
+<li>他找到你自己那条记录，念给你听——是你的理由，不是他猜的。
+
+</li>
+
+<li>想让下回更好找：“把这个决定和理由记一笔。”
+
+</li>
+
+</ol>
+
+<p><strong>他话太多。</strong></p>
+
+<ol>
+
+<li>当场就说：“短点” · “别用表格，除非我要”。
+
+</li>
+
+<li>聊完他会把想为这事写下来的一两行摆给你看。
+
+</li>
+
+<li>你说行，这个说话方式以后每一场都还在。你不吭声不算同意。
+
+</li>
+
+</ol>
+
+<p><strong>擦掉关于我的某句话。</strong></p>
+
+<ol>
+
+<li>说“把我那一行去掉”，他就把这行挪进你文件里「划掉的」那一段，带上日期：它不再算数，但字还在。想彻底没有，你自己把这行删了。
+
+</li>
+
+<li>划掉的行绝不会再放回来；你手动改过的行，绝不会被重写。
+
+</li>
+
+<li>想看看都有什么：“把你手上关于我的东西念给我听。”
+
+</li>
+
+</ol>
+
+<p><strong>我换了台新电脑。</strong></p>
+
+<ol>
+
+<li>把整个文件夹拷过去——记录、讲述、卡片、旧版本，都在里头。
+
+</li>
+
+<li>在那边装上 Claude Code（Anthropic 的说明：<a href="https://code.claude.com/docs/en/setup">https://code.claude.com/docs/en/setup</a> ），然后跟在家里一样打开文件夹：在那个给电脑打字下指令的窗口里，打 <code>cd</code> 再把文件夹拖进来，然后打 <code>claude</code>。这几句你要是看不懂，README 里写了一步一步该点哪儿。
+
+</li>
+
+<li>你原来开了按意思搜索：“把按意思搜索再打开一次”——一条记录都不会少。
+
+</li>
+
+</ol>
+
+<p><strong>出岔子了。</strong></p>
+
+<ol>
+
+<li>用大白话把你屏幕上看到的告诉他；他看的是同一个文件夹，大部分毛病他自己就能修。
+
+</li>
+
+<li>想要个说法：“这个文件夹有哪儿坏了吗？”
+
+</li>
+
+<li>最坏的情况，走自己动手这条路，它永远灵：
+
+<ol>
+
+<li>把你的旧文件夹改名叫 <code>camomile-old</code>。你的记录还在里头，一点不动。
+
+</li>
+
+<li>再下载一份洋甘菊：打开 <a href="https://github.com/xcota/pos">https://github.com/xcota/pos</a> ，按绿色那个“Code”按钮，选“Download ZIP”（你那边打不开 GitHub 的话，用 <a href="https://gitee.com/cotya/pos-starter">https://gitee.com/cotya/pos-starter</a> ），解开压缩包。
+
+</li>
+
+<li>打开新的这个文件夹，说一句：“我的旧文件夹就在这个旁边，叫 camomile-old——把我的记录搬过来。”
+
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+
+<p><strong>第一场里某个方面我想重来。</strong></p>
+
+<ol>
+
+<li>说一句“事业那块再走一遍”。
+
+</li>
+
+<li>他只重写那一张卡片，而且是从已有的东西往下改，不是从白纸开始。
+
+</li>
+
+<li>你的话先进你讲的那几段，然后那张卡片才改。
+
+</li>
+
+</ol>
+
+<p><strong>我想给我的项目开一页。</strong></p>
+
+<ol>
+
+<li>“给新收银机那事开一页”——外加你手上的情况。
+
+</li>
+
+<li>他把这一页跟该连的地方连上，还会去看有没有别的页连到它。
+
+</li>
+
+<li>等这个项目真长出一堆细节了，你开口要——“把这个项目单独放一个文件夹，带自己的记录”——他就动手给它建一个，名字照这个文件夹里起名的规矩来。
+
+</li>
+
+</ol>
+
+<p><em>给动手做东西的人看的：<code>docs/methodology.md</code>（偏技术，英文）。</em></p>
+
+</div>
+</body>
+</html>
