@@ -20,7 +20,7 @@ IDENTITY="$WS/context/identity.md"
 
 # ─── Not set up yet → one line, nothing else ─────────────────────────────────
 if [ ! -f "$IDENTITY" ] || grep -q '{{' "$IDENTITY" 2>/dev/null; then
-    echo "--- Camomile: this folder is NOT set up yet (context/identity.md still has placeholders). If the person's first message is \"start\" or \"/start\", run the start skill (it also resumes an interrupted first session). Otherwise answer with ONE plain line, in their language: \"This folder isn't set up yet — just type start and I'll do the rest.\" Never say \"vault\" to the person. ---"
+    echo "--- Camomile: this folder is NOT set up yet (context/identity.md still has placeholders). If the person's first message is \"start\" or \"/start\", run the start skill (it also resumes an interrupted first session). Otherwise answer with ONE plain line, in their language: \"This folder isn't set up yet — just type /start and I'll do the rest.\" Never say \"vault\" to the person. ---"
     exit 0
 fi
 

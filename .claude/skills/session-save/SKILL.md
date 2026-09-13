@@ -1,12 +1,12 @@
 ---
 name: session-save
-description: "Use when saving session state before closing or when context exceeds 150K tokens."
+description: "Use when saving session state before closing or when the working context passes the 100K ceiling set in CLAUDE.md."
 version: 1.0
 user_invocable: true
 ---
 # /session-save — Save Session State
 
-Save current session state before closing or when context gets heavy (>150K tokens).
+Save current session state before closing or when context gets heavy (past the 100K ceiling in CLAUDE.md).
 
 ## Arguments
 - `[name]` — optional checkpoint name. Auto-generated if not provided.

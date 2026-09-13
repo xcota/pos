@@ -99,6 +99,8 @@ Three short words worth remembering afterwards. Type them exactly as they appear
 
 Everything else is plain words: "save this conversation", "find where I wrote about…", "write down why I decided this", "shorter answers from now on". Both the tidy-up of its memory and the review of its misses it offers by itself — you only say yes or later. If you want to start the review yourself, the word for it is `/reflect`.
 
+How each word works, step by step and with examples, and what is inside the folder: the guide — `docs/en/guide.md` in your folder, or online at https://xcota.github.io/pos/en/guide.html.
+
 ## Your data
 
 Everything sits on your own disk, in that one folder, as ordinary text files — even a basic text editor opens them. There is no storage program and no server of ours on the internet. We do not register you anywhere: we have no accounts and there is nowhere to create one. The only thing that ever runs in the background is the local search, if you turned it on — it wakes for your question and goes back to sleep after half an hour, on your machine.

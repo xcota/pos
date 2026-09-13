@@ -63,7 +63,7 @@ After compression verify:
 
 ## Auto-Trigger (advisory)
 
-Context-fill % isn't directly observable — gate on the token budget in `CLAUDE.md` instead. As the main thread approaches the **100K ceiling** (or `/session-save` is invoked) → compress first → handoff blob. When context is clearly heavy (near the ~150K session-save threshold) → compress + save immediately → REFUSE further execution → handoff blob.
+Context-fill % isn't directly observable — gate on the token budget in `CLAUDE.md` instead. As the main thread approaches the **100K ceiling** (or `/session-save` is invoked) → compress first → handoff blob. When context is clearly heavy (near the 100K ceiling that triggers /session-save) → compress + save immediately → REFUSE further execution → handoff blob.
 
 ## Common Mistakes
 

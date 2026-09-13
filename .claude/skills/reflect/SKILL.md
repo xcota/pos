@@ -12,7 +12,7 @@ Analyze recent work, extract patterns, learn from mistakes, propose improvements
 
 ## When to Use
 - Manually: when you want to review and improve
-- Auto: wire up a periodic trigger yourself (e.g. a cron job or `/loop` calling `/reflect`) — not shipped by default
+- Auto: the start hook (`.claude/hooks/session-start.sh`) opens a gate every 3 days (`🔍 Reflection is due`, baselined on `state/last_reflect.txt`); the assistant then offers it to the person in one sentence and runs it only on a yes
 
 ## Steps
 
@@ -67,6 +67,8 @@ Analyze recent work, extract patterns, learn from mistakes, propose improvements
    - Save to `reports/reflection-{date}.md`
    - Compact: patterns, learnings, improvements, stats
    - Reflect on the work in its own terms. Judge work against the user's stated priorities — don't impose an external "infra-vs-output" or productivity ratio the user hasn't asked for.
+
+6b. **Read back to the person** — in their language, 3–5 plain lines, no paths: what I have understood about how they like to be talked to (from `context/identity.md` § "How to work with me"), what I still don't know about that, and the one or two misses of the last days I will not repeat. Ask nothing; this is a mirror, not a questionnaire.
 
 7. **Git commit:**
    ```bash

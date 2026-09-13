@@ -14,7 +14,7 @@ Boot context for a new working session. Progressive loading: minimal at start, e
 
 1. If `state/current.md` exists, read it — what's happening across all contexts right now. If it's absent (or `context/identity.md` still has `{{ }}` placeholders), the folder isn't set up yet — don't fabricate state. Say it to the person in ONE plain line, in the language they write in, and stop:
 
-   > This folder isn't set up yet — just type `start` and I'll do the rest. No commands or steps needed from you.
+   > This folder isn't set up yet — just type `/start` and I'll do the rest. No commands or steps needed from you.
 
    Say it in the language the person writes in. Never write the word "vault" to the person — it is a folder.
 2. Read `context/priorities.md` — current focus and active work

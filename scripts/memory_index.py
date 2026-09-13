@@ -7,7 +7,7 @@ Design decisions (all measured, not guessed):
     matters more than model choice.
   - model = EmbeddingGemma-300m q8 ONNX (ungated), 768d — quality in the
     BGE-M3 tier (hit@5 ~0.92) at ~15x less weight (309 MB vs 4.5 GB).
-  - storage = ONE .npz sidecar in git, brute-force numpy cosine, NO index / DB
+  - storage = ONE .npz sidecar (gitignored — a rebuildable cache, never the memory itself), brute-force numpy cosine, NO index / DB
     → nothing to corrupt (an embedded vector store under concurrent read+write
     once blew up to 100+ GB; a single flat file has no such failure mode).
   - ONLY full-rebuild + atomic replace. NEVER an incremental upsert into the store.

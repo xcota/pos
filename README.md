@@ -69,7 +69,7 @@ Everything sits on your own disk as ordinary text files — even a basic text ed
 
 You do not need to give the assistant passwords, keys or card numbers, and it does not copy them into your files even if you mention them in conversation — that is written into its rules.
 
-About disk space: if you agreed to search by meaning, its dictionary is kept outside the folder, in a service area of your system — about one gigabyte. It is not your notes, but it does take up space; the assistant can tell you how to remove it.
+About disk space: if you agreed to search by meaning, about one gigabyte of helper files sits inside the folder, in a hidden subfolder, and about 300 megabytes more outside it, in your system's hidden downloads area. None of it is your notes; the assistant can remove it or rebuild it, and no note is lost either way.
 
 An honest note about the internet: for the assistant to answer you, pieces of your notes are sent to Claude — the same as any text you type into an AI chat. Storage is on your side, thinking happens on Anthropic's servers. That is why you need an internet connection.
 
@@ -84,6 +84,8 @@ Type them straight into the conversation, with a slash in front:
 | `/reflect` | go over the misses of the last few days |
 
 `/start` is only needed the very first time (and to continue an interrupted first session). All of the same things can be asked for in plain words: "save this conversation", "find where I wrote about…". Loading its memory at the start, the tidy-up and the review of misses it offers on its own — you only say yes.
+
+**Full guide** — how each word works, step by step and with examples, and what is inside the folder: [docs/en/guide.md](docs/en/guide.md) · online: https://xcota.github.io/pos/en/guide.html
 
 ## License
 

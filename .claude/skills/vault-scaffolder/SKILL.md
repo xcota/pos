@@ -224,6 +224,7 @@ What to fill:
   keeps the words `you didn't talk about this` instead of a number — never invent one
 - Quick links: leave as shipped
 - North-star line: replace `{{from north_star}}` with `north_star`, verbatim, in the owner's words
+- `## How to use me`: keep as shipped — the four words, the two offers, the guide link — translated into the person's language; keep the code spans, and point the guide link at `docs/<lang>/guide.md` for their language (en / zh / ru)
 
 ### Step 5 — Fill context/identity.md (in place, IN THE PERSON'S LANGUAGE, preserve hand edits)
 

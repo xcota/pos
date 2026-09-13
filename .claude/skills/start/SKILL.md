@@ -156,6 +156,7 @@ One line each:
 1. **Just talk to me.** Ask, delegate — I remember between conversations.
 2. **Drop your day in here.** Thoughts, links, files — in words or into the `inbox/` folder.
 3. **Say "save this"** when something is worth remembering.
+4. **Four words, if you want them** (typed with the slash): `/session-save` — save this conversation; `/recall` — find an old note; `/reflect` — go over my misses; `/start` — only to redo this first session. Everything else in plain words. Every few days I will offer to tidy my memory myself — you only say yes.
 
 And the closing:
 
@@ -165,10 +166,10 @@ And the closing:
 The restart is the only thing the person does by hand. Warn about it in advance, back in ③ while
 you build the folder — don't spring it on them.
 
-You may add one line: "If you ever want to see how this works — there's `docs/en/presentation.md`
-in the folder, in plain words; say so and I'll show you." (Point at `docs/zh/presentation.md` or
-`docs/ru/presentation.md` if that is the language of the conversation.) Don't offer
-`docs/methodology.md` to the person: it is written for whoever works on the engine.
+Then ONE line pointing at the guide inside the folder: "How each word works, with examples, and
+what is inside this folder — `docs/en/guide.md`, in plain words; say so and I'll open it." (Point
+at `docs/zh/guide.md` or `docs/ru/guide.md` if that is the language of the conversation.) Don't
+offer `docs/methodology.md` to the person: it is written for whoever works on the engine.
 
 ---
 

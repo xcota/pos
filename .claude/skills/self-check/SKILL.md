@@ -17,7 +17,7 @@ wc -l CLAUDE.md 2>/dev/null
 grep "^## " CLAUDE.md 2>/dev/null
 ```
 
-Check: exists? >50 lines? Has sections: Identity/Rules, Context, Orchestration, Hard rules, Naming?
+Check: exists? >50 lines? Has sections: Rules, Boot (with the start hook and its gates), Scope-gate, Orchestration, Memory, Budget, Hard rules, Self-improvement, Architecture? Under 3500 bytes?
 
 Score: 0 (missing) / 1 (exists but thin) / 2 (full, with sections)
 
@@ -106,21 +106,26 @@ Score: 0 (no daily) / 1 (sporadic) / 2 (5+ day streak)
 
 ## Step 7: Hooks & Automation
 
-> Scope: hooks live in the GLOBAL `~/.claude/settings.json` (machine-wide, shared across all projects), not the workspace. A fresh vault ships zero hooks, so **0/2 is correct by design**; a non-zero count may include hooks from unrelated projects.
+> Scope: this folder ships its own hooks in the WORKSPACE `.claude/settings.json` — SessionStart → `session-start.sh` (pours state, counts sessions, opens the tidy-up / reflection gates), PreToolUse on Write|Edit → `wikilink-lint.sh`, PostToolUse on Bash|Grep → `semantic-recall.sh`. Check the workspace file, not `~/.claude/settings.json`; a fresh folder must score **2/2**.
 
 ```bash
-cat ~/.claude/settings.json 2>/dev/null | python3 -c "
-import json,sys
-d=json.load(sys.stdin)
-hooks=d.get('hooks',{})
-for event,configs in hooks.items():
+python3 - <<'PY2'
+import json, os
+d = json.load(open('.claude/settings.json'))
+n = 0
+for event, configs in d.get('hooks', {}).items():
     for c in configs:
-        for h in c.get('hooks',[]):
-            print(f'  {event}: {h.get(\"command\",\"?\")[:60]}')
-"
+        for h in c.get('hooks', []):
+            cmd = h.get('command', '')
+            script = cmd.split('/.claude/hooks/')[-1].strip('"') if '/.claude/hooks/' in cmd else ''
+            ok = os.path.exists(os.path.join('.claude/hooks', script)) if script else False
+            n += ok
+            print(f"  {event}: {script or cmd[:60]} {'OK' if ok else 'MISSING SCRIPT'}")
+print(f"  registered with a present script: {n}")
+PY2
 ```
 
-Score: 0 (no hooks) / 1 (1-2) / 2 (3+ covering Start/End/PostToolUse)
+Score: 0 (no hooks) / 1 (some, or a script missing) / 2 (SessionStart + PreToolUse + PostToolUse all registered and their scripts present)
 
 ## Step 8: Self-Improvement
 
