@@ -2,6 +2,8 @@
 
 _Version 2 · September 2026_
 
+_**This page** explains what it is and how it works. **The guide** explains every word, with examples, and what is inside the folder: `docs/en/guide.md` in your folder, or online at https://xcota.github.io/pos/en/guide.html._
+
 **What it does on its own:** at every start it reads its own notes (who you are, where you stopped). Every few days it offers to tidy its memory and, separately, to go over its own misses — both only after your yes. Nothing else happens without you.
 
 ## What it is
