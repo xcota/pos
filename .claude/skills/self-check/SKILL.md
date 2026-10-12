@@ -106,7 +106,7 @@ Score: 0 (no daily) / 1 (sporadic) / 2 (5+ day streak)
 
 ## Step 7: Hooks & Automation
 
-> Scope: this folder ships its own hooks in the WORKSPACE `.claude/settings.json` — SessionStart → `session-start.sh` (pours state, counts sessions, opens the tidy-up / reflection gates), PreToolUse on Write|Edit → `wikilink-lint.sh`, PostToolUse on Bash|Grep → `semantic-recall.sh`. Check the workspace file, not `~/.claude/settings.json`; a fresh folder must score **2/2**.
+> Scope: this folder ships its own hooks in the WORKSPACE `.claude/settings.json` — SessionStart → `session-start.sh` (pours state, counts sessions, opens the tidy-up / reflection gates), UserPromptSubmit → `prompt-recall.py`, PreToolUse on Write|Edit → `wikilink-lint.sh`, PostToolUse on Bash|Grep → `semantic-recall.sh`, SessionEnd → `session-end.sh`. Check the workspace file, not `~/.claude/settings.json`; a fresh folder must score **2/2**.
 
 ```bash
 python3 - <<'PY2'

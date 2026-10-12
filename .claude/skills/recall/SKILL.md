@@ -40,7 +40,7 @@ ls .memory_venv/bin/python state/memory-index/nodes.npz
   branch. Onboarding and the conversation never stop because of search.
 
 ## Mechanism
-`scripts/memory_index.py` — EmbeddingGemma q8 ONNX, nodes chunked by header, one `.npz` sidecar (`state/memory-index/`), brute-force cosine. Zero DB, zero external APIs. A warm server on 127.0.0.1:8765 (lazy, 30 min TTL): the first query is ~7s, then ~65 ms. Architecture: `knowledge/concepts/memory-embedding-layer.md`.
+`scripts/memory_index.py` — EmbeddingGemma q8 ONNX, nodes chunked by header, one `.npz` sidecar (`state/memory-index/`), brute-force cosine. Zero DB, zero external APIs. A warm server per folder on 127.0.0.1 (port 8800–8999, derived from the folder path; lazy, 30 min TTL): the first query is ~7s, then ~65 ms. Architecture: `knowledge/concepts/memory-embedding-layer.md`.
 
 Indexed: `knowledge/ daily/ context/ reports/ state/ memory/ inbox/ projects/` — which includes
 the person's verbatim stories (`memory/svoboda/{id}/stories/`) and whatever they drop into `inbox/`.

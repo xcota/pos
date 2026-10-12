@@ -35,7 +35,7 @@ Key principle: layer 3 is **derived**. Losing or corrupting it = a ~35-min rebui
 | **EmbeddingGemma-300m q8 [chosen]** | **0.620** | 0.40 | **0.92** | **0.92** |
 
 Facts the design stands on:
-1. **Granularity is the main lever.** Same model: file-level 0.318 → nodes 0.663 (**~2.1x**). Chunking by header decides more than picking a model.
+1. **Granularity is the main lever.** Same model: file-level 0.318 → nodes 0.663 (**~2.1x**). Caveat: that switch also baked in the header-path and collapsed hits to files, so "chunking decides more than picking a model" is a strong hint, not a proof.
 2. **grep degrades as the vault grows; embedding barely does.** At ~540 files the gap was ~2.3x; at ~1080 files, ~4.4x. The bigger the memory, the more the layer earns its keep.
 3. **Multilinguality is a threshold, not a bonus.** An English-centric model on a non-English vault is dead (0.008) even with perfect chunking. If your vault is not English, pick a multilingual embedding model.
 4. **Real quality is above raw MRR.** Manual inspection of the "misses": most are rank 2–3, where a *legitimately co-relevant* file sits above the ground-truth (often a better answer). The operational metric is hit@5 = **0.92**: the right file is in the top five 92% of the time.
@@ -53,16 +53,20 @@ Facts the design stands on:
 ## Build pipeline (`scripts/memory_index.py build`, ~35 min CPU)
 
 ```
-walk 6 wings (knowledge daily context reports state projects)
-  minus /node_modules/ /.venv/ /build/ /.git/ /memory-index/
+walk 8 wings (knowledge daily context reports state memory inbox projects; a missing one is skipped)
+  minus /node_modules/ /.venv/ /.memory_venv/ /site-packages/ /build/ /.git/ /memory-index/
 → chunk each file by ## / ### headers
     node = (header-path, section body); a file with no headers = 1 node
     header-path = "file-stem > H2 > H3" — BAKED INTO the embedding text
 → D_PROMPT + header-path + body[:2000] → EmbeddingGemma q8 → L2-normalize
-→ np.savez(nodes.tmp.npz): vecs[N×768 f32] + relpaths[N] + headers[N] + snippets[N]
-→ os.replace(tmp → nodes.npz)          ← ATOMIC; a partial write does not exist
-→ manifest.json: model, dim, counters, git HEAD, build date
+→ np.savez(nodes.tmp.npz), format 2:
+    vecs[N×768 f32] · file_id[N] + a file table · headers/snippets = one UTF-8 buffer + offsets
+    · meta (format, model, dim, git_head, built_at, counters) — INSIDE the same file
+→ os.replace(tmp → nodes.npz)          ← ONE atomic replace: vectors, strings and meta together
+→ manifest.json = a mirror of meta (for the start hook and people); the truth is in the npz
 ```
+
+**Format 2.** Format 1 stored the strings as fixed-width `<U` arrays: the longest header stretched every row — on one real vault 62% of the file was padding. The switch was checked pairwise on one snapshot: vectors bit-identical, all strings equal, the top-10 identical on 25/25 questions (179 → 79 MB, load 0.12 → 0.07 s). float16 vectors were rejected: another third off, but near-ties reorder (5 of 25 top-10 lists changed). Format 1 is still read; the next `update` rewrites it as format 2 without re-embedding.
 
 ## Search pipeline (`scripts/memory_index.py search "question"`)
 
@@ -77,7 +81,9 @@ It returns **path + section + snippet, not the full chunk** — the reading agen
 
 ## Warm server (lazy, TTL suicide) — removes the cold start
 
-`memory_index.py serve` — HTTP on `127.0.0.1:8765` (stdlib), model + vectors held in RAM (~500 MB). **Not a daemon:** `search` brings it up lazily (the first query is cold and spawns it in the background), and it dies on its own after 30 min idle. Read-only over the `.npz`, re-reads the file by mtime after a rebuild.
+`memory_index.py serve` — HTTP on `127.0.0.1:<port>` (stdlib), model + vectors held in RAM (~500 MB). **Not a daemon:** `search` brings it up lazily (the first query is cold and spawns it in the background), and it dies on its own after 30 min idle. Read-only over the `.npz`, re-reads the file by mtime after a rebuild.
+
+**One server per folder.** The port is `8800 + crc32(absolute folder path) % 200`, and every `/search` answer carries `X-Vault-Root` — the folder's absolute path, percent-encoded (a header must be ASCII; a folder path may not be). The CLI and both hooks treat an answer stamped by another folder (or not stamped at all — an older server) exactly like no server. Before this, every copy listened on one fixed port: with two folders on one machine the second server could not start and the hooks quietly fed the other folder's notes into this one. The server binds its port before loading the model, so a spawn that loses the race exits at once instead of loading 300 MB for nothing.
 
 | mode | latency (measured) |
 |---|---|
@@ -106,13 +112,15 @@ In this Claude Code there is no `Grep` tool — search (in the main thread and i
 - `.claude/hooks/semantic-recall.py` — extracts the pattern from the grep command (shlex; handles quotes and pipes) → knocks on the warm server → dense candidates are appended as `additionalContext`.
 - Registered in `.claude/settings.json` under the PostToolUse `Bash` matcher. **Active from the next session** (hooks are snapshotted at start). No server → a quiet plain grep + a lazy spawn; it NEVER blocks the search.
 
-`/recall` and `/dream` call the engine directly (they don't depend on the hook).
+**Second entry — a hook on every message:** `.claude/hooks/prompt-recall.py` on `UserPromptSubmit`. To each message the person sends: up to 3 nodes for its text, same server, same 0.50 threshold. Pastes, tags and links are stripped first; if fewer than 20 characters of their own words remain (a CJK character counts as 3), a paste becomes the query. Silent on slash commands, harness notifications and pasted code/logs (<30% letters); never surfaces `daily/` or `inbox/`; never repeats a file within a session (`state/memory-index/seen/`, gitignored). Silent when search by meaning isn't installed. Why: left to itself, an agent rarely goes to memory. Measured on one real vault, 60 real messages: a hit ≥0.50 for 40% of messages vs 7.6% for grep; at 0.55 — 17%. Both hooks log to `state/memory-index/hook.log` (lengths and paths, never the message text) — re-calibrate the threshold from it.
+
+`/recall` and `/dream` call the engine directly (they don't depend on the hooks).
 
 ## Runtime fragility: the venv is gitignored and can vanish
 
 The engine runs in a venv (`onnxruntime` + `transformers` + `numpy`, ~1 GB, gitignored). If it's deleted (a cleanup, a python upgrade), the data is fine (`nodes.npz` + the model cache under `~/.cache/huggingface`); only the runtime is gone. Recreate it: `bash scripts/memory_index_setup.sh` (the model self-downloads on the first build/search). The hook and server fail quietly when the venv is absent — they never block.
 
-`/dream` update: git-diff from `manifest.git_head` → re-embed only the nodes of changed files → assemble a **new full** array in memory → atomic replace. Only the re-compute is incremental; the write is always full.
+`/dream` update: git-diff from `git_head` (the meta inside the npz) + the worktree → re-embed only the nodes of changed files → assemble a **new full** array in memory → atomic replace. Only the re-compute is incremental; the write is always full. Guards: an index built by another model or dimension → full build (mixed vectors give garbage cosines without a single error); no git watermark (built before the folder's first commit) or a watermark that no longer resolves → full build. Every `update` also drops the nodes of files deleted from disk or newly excluded — they no longer pile up until a full build. Paths are read with `git -z`, so files with non-Latin names and renames are re-embedded too.
 
 ## Graph-upkeep operations the layer opens up (that grep couldn't)
 
@@ -128,9 +136,10 @@ Node vectors are not only for search. A pairwise cosine over the nodes gives the
 |---|---|
 | `scripts/memory_index.py` | the engine: build + update + search + serve + dupes, self-contained |
 | `scripts/memory_index_setup.sh` | venv bootstrap (regenerable runtime) |
-| `state/memory-index/nodes.npz` | sidecar: vecs + relpaths + headers + snippets (built locally on first `build`, gitignored) |
-| `state/memory-index/manifest.json` | model/dim/counters/git HEAD/build date |
+| `state/memory-index/nodes.npz` | sidecar, format 2: vectors + file table + packed headers/snippets + meta (built locally on first `build`, gitignored) |
+| `state/memory-index/manifest.json` | mirror of the meta: format/model/dim/vector dtype/counters/git HEAD/build date |
 | `.claude/hooks/semantic-recall.sh` / `.py` | PostToolUse Bash hook that appends semantic hits to a grep |
+| `.claude/hooks/prompt-recall.py` | UserPromptSubmit hook: up to 3 related notes attached to each message |
 
 ## Related
 

@@ -26,7 +26,7 @@ You are performing a dream — a reflective pass over your memory files. Synthes
 
 ```bash
 .memory_venv/bin/python scripts/memory_index.py search "QUERY"
-# warm server (ms): curl -s "http://127.0.0.1:8765/search?q=QUERY&k=8"
+# the same command uses the warm server when it is up (port is per folder, see the architecture note)
 ```
 Architecture: `knowledge/concepts/memory-embedding-layer.md`.
 
@@ -106,7 +106,7 @@ Only if `.memory_venv/bin/python` exists (the person said yes to search by meani
 
 Layer architecture: `knowledge/concepts/memory-embedding-layer.md` (EmbeddingGemma q8 ONNX, nodes chunked by header, one `.npz` sidecar, brute-force cosine).
 
-**Invariants:** `update`/`build` write ONLY a full-write + atomic `os.replace` — never an incremental upsert into the store. The warm server (127.0.0.1:8765) is read-only and re-reads the `.npz` by mtime on its own — no need to kill or restart it. Don't run two `update`/`build` in parallel (the last one wins — it won't corrupt anything, but it burns CPU for nothing).
+**Invariants:** `update`/`build` write ONLY a full-write + atomic `os.replace` — never an incremental upsert into the store. The warm server (127.0.0.1, port derived from this folder's path) is read-only and re-reads the `.npz` by mtime on its own — no need to kill or restart it. Don't run two `update`/`build` in parallel (the last one wins — it won't corrupt anything, but it burns CPU for nothing).
 
 **Optional (graph hygiene):** `memory_index.py dupes 0.9` — semantic duplicate nodes from different files = merge candidates; interpret by class (translations / boilerplate "Related" sections are not rot).
 

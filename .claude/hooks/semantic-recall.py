@@ -6,14 +6,17 @@ In this environment Claude Code has NO Grep tool — search = `grep`/`rg` inside
 Bash tool. So the hook hangs on Bash (via the .sh gate) and extracts the pattern
 from the command. A Grep tool, if it exists in another environment, is handled too.
 
-Knocks on the warm memory_index server (127.0.0.1:8765, ~65ms). No server → lazy
-background spawn + quiet exit (never blocks the search). Vault-scoped only.
+Knocks on THIS folder's warm memory_index server (~65ms): 127.0.0.1:PORT with
+PORT = 8800 + crc32(vault root) % 200 — the engine's formula, recomputed here without
+numpy. An answer stamped with another folder's X-Vault-Root counts as no server, so a
+second folder on the same machine never feeds its hits into this one. No server →
+lazy background spawn + quiet exit (never blocks the search). Vault-scoped only.
 
 Path-agnostic. The vault root is resolved, in order, from:
   1. $CLAUDE_PROJECT_DIR (exported by Claude Code)
   2. the hook payload's `cwd` / `project_dir`
   3. two levels up from this file (.claude/hooks/ → vault root)
-The venv python is resolved relative to that root (.memory_venv, then bge_test_venv).
+The engine runs in the venv relative to that root (.memory_venv); without it, no spawn.
 Layer doc: knowledge/concepts/memory-embedding-layer.md
 """
 import json
@@ -24,9 +27,9 @@ import subprocess
 import sys
 import urllib.parse
 import urllib.request
+import zlib
 from pathlib import Path
 
-SERVER = "http://127.0.0.1:8765"
 MIN_PATTERN = 6      # short/single-char patterns carry no semantics
 MIN_SCORE = 0.50     # below this = polysemy noise (measured: relevant hits 0.59+)
 TOP_K = 3
@@ -49,12 +52,26 @@ def resolve_vault(payload):
 
 
 def resolve_python(vault):
-    """venv python relative to the vault root; system python3 as last resort."""
-    for name in (".memory_venv", "bge_test_venv"):
-        cand = Path(vault) / name / "bin" / "python"
-        if cand.exists():
-            return str(cand)
-    return "python3"
+    """The engine's venv python relative to the vault root; None = not installed."""
+    cand = Path(vault) / ".memory_venv" / "bin" / "python"
+    return str(cand) if cand.exists() else None
+
+
+def server_port(vault):
+    """This folder's warm-server port — same formula as scripts/memory_index.py (keep in sync)."""
+    return 8800 + zlib.crc32(str(vault).encode()) % 200
+
+
+def ask_server(vault, q, k, timeout):
+    """Body of this folder's server answer; None = no server, or another folder's server."""
+    url = f"http://127.0.0.1:{server_port(vault)}/search?q={urllib.parse.quote(q)}&k={k}"
+    try:
+        with urllib.request.urlopen(url, timeout=timeout) as r:
+            if r.headers.get("X-Vault-Root") != urllib.parse.quote(str(vault)):
+                return None
+            return r.read().decode()
+    except Exception:
+        return None
 
 
 def engine_path(vault):
@@ -118,6 +135,8 @@ def main():
     except Exception:
         return
     vault = resolve_vault(payload)
+    if not (Path(vault) / "state" / "memory-index" / "nodes.npz").exists():
+        return                              # search by meaning is not installed here
     tool = payload.get("tool_name", "")
     cwd = payload.get("cwd", "")
     tin = payload.get("tool_input", {}) or {}
@@ -143,19 +162,17 @@ def main():
     aid = payload.get("agent_id")   # present ONLY if the hook fired inside a subagent
     _log(vault, f"fired[{tool}]{'[agent '+aid+']' if aid else '[main]'} q={q[:60]!r}")
 
-    try:
-        with urllib.request.urlopen(
-                f"{SERVER}/search?q={urllib.parse.quote(q)}&k={TOP_K}",
-                timeout=0.8) as r:
-            body = r.read().decode()
-    except Exception:
-        try:
-            subprocess.Popen([resolve_python(vault), engine_path(vault), "serve"],
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                             start_new_session=True)
-        except Exception:
-            pass
-        _log(vault, "server cold → spawned, skipped this call")
+    body = ask_server(vault, q, TOP_K, timeout=0.8)
+    if body is None:
+        py = resolve_python(vault)
+        if py:
+            try:
+                subprocess.Popen([py, engine_path(vault), "serve"],
+                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                                 start_new_session=True)
+            except Exception:
+                pass
+        _log(vault, "server cold or another folder's → spawned, skipped this call")
         return
 
     lines, keep = body.splitlines(), []

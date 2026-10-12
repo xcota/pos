@@ -10,7 +10,9 @@ __pycache__/
 state/memory-index/*.npz
 state/memory-index/manifest.json
 state/memory-index/*.log
+state/memory-index/seen/
 state/.lint-attempts.json
+state/.session_end_logged
 .huggingface/
 *.onnx
 *.log

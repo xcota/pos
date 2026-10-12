@@ -1,7 +1,7 @@
 ---
 type: context
 tags: [runtime, agents, boot]
-updated: 2026-07-08
+updated: 2026-10-12
 ---
 
 # Agent Runtime Adapter
@@ -60,7 +60,7 @@ Four layers, each with a distinct role. Only layers 1–2 and 4 always exist; la
 | 3 | **Embedding index** (optional module) | A derived, disposable search cache over layer 1 — semantic recall by meaning, not keyword | `state/memory-index/nodes.npz` |
 | 4 | **JSONL transcripts** | Cold storage, recovery only | `~/.claude/projects/...` |
 
-Key principle: **layer 3 is derived.** Losing or corrupting it costs a rebuild, never data — the memory itself cannot break; only the search cache can, and it is regenerable. If the module is installed, `scripts/memory_index.py build` (re)builds the index and `scripts/memory_index.py search "question"` queries it; a lazily-spawned warm server keeps repeat queries near-instant, and a PostToolUse hook can quietly attach semantic candidates to plain keyword searches. The `/recall` skill and `/dream` consolidation call the engine directly. When the module is absent, keyword search (`grep`/`rg`) is the fallback and nothing else changes.
+Key principle: **layer 3 is derived.** Losing or corrupting it costs a rebuild, never data — the memory itself cannot break; only the search cache can, and it is regenerable. If the module is installed, `scripts/memory_index.py build` (re)builds the index and `scripts/memory_index.py search "question"` queries it; a lazily-spawned warm server keeps repeat queries near-instant, and hooks quietly attach semantic candidates to plain keyword searches and to each message the person sends. The server is per folder (port `8800 + crc32(folder path) % 200`, every answer stamped with the folder's path in `X-Vault-Root`), so two folders on one machine never answer each other's searches. The `/recall` skill and `/dream` consolidation call the engine directly. When the module is absent, keyword search (`grep`/`rg`) is the fallback and nothing else changes.
 
 ## Skills
 
@@ -70,11 +70,9 @@ Key principle: **layer 3 is derived.** Losing or corrupting it costs a rebuild, 
 
 ## Hooks / Settings
 
-- Claude Code settings: `~/.claude/settings.json`
-- Hooks directory: `~/.claude/hooks/`
-- Common hook roles: SessionStart (session counter, daily log append), SessionEnd (daily log append), PreToolUse (wikilink lint), PostToolUse (activity logger, open-in-editor, and — if the memory-embedding module is installed — semantic-recall enrichment that quietly attaches meaning-matched candidates to keyword searches). Hooks are snapshotted at session start, so a newly-installed hook activates from the next session.
+- This folder's hooks live in `.claude/hooks/` and are registered in the workspace `.claude/settings.json` via `$CLAUDE_PROJECT_DIR/...` paths (user-level `~/.claude/settings.json` hooks, if any, run on top). None of them errors when python3 or the search module is missing — the part that needs it just stays quiet.
+- Shipped: SessionStart → `session-start.sh` (state block, session counter, tidy-up/reflection gates) · UserPromptSubmit → `prompt-recall.py` (up to 3 related notes from the semantic index attached to each message) · PreToolUse Write|Edit → `wikilink-lint.sh` · PostToolUse Bash|Grep → `semantic-recall.sh` (meaning-matched candidates appended to keyword searches) · SessionEnd → `session-end.sh` (one line per session — its first real message — under `## Sessions` in `daily/<today>.md`; no line for probes, resumed old threads, or text that looks like a password or code). Hooks are snapshotted at session start, so a newly-installed hook activates from the next session.
 - Hook scripts that open files should have both macOS (`open`) and Linux (`xdg-open`) fallbacks.
-- Script paths in hook config: use absolute paths or `{{VAULT_ROOT}}/...`-relative construction at install time.
 
 ## Boot Order
 

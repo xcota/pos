@@ -16,6 +16,7 @@ Don't ask permission for this boot context. Just load it.
 
 ## Memory
 - Daily notes: `daily/YYYY-MM-DD.md` — chronological source of recent state.
+- Lines under `## Sessions` in a daily note are written by a hook when a Claude Code session ends (one line: the session's first real message), not typed by the person.
 - Long-term index: `MEMORY.md` — loaded in direct/main sessions, not shared/group contexts.
 - Durable lessons: `context/learned.md`.
 - Mistakes to avoid: `context/anti-patterns.md`.
