@@ -34,7 +34,8 @@ advisory layer demonstrably failed to prevent its recurrence.
 - `work-is-the-work.md` — the operator's chosen primary work is the work; other
   lanes are opt-in; never redirect toward a generic "more valuable" goal. (C5)
 - `honesty-register.md` — report facts, not a flattering frame: don't spin a weak
-  result, don't dress up a failure, don't assert unverified absence. (C5)
+  result, don't dress up a failure, don't assert unverified absence, don't give a
+  number or a quality verdict without a measurement behind it. (C5)
 - `plain-first.md` — lead with the plain "what this gives you" take; don't mirror
   the register of a jargon/academic source; apparatus after. (C2 axis)
 - `perceive-before-ship.md` — perceive a sensory artifact through a real proxy

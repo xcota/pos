@@ -54,6 +54,19 @@ missing orientation docs.
   the expensive synthesis reserved for the actual synthesis.
 - Don't add an abstraction until a second concrete use exists.
 
+## Subscription limit — a gate before a swarm
+A plan's usage limit is spend, just like money. Before a run of more than ~20 agents:
+- **Forecast the share of the weekly limit and of the current 5-hour window — out
+  loud, before launching.** Base it on what similar past stages actually used, with
+  a ×1.5 margin. The current window's counter after a reset is not the week's spend.
+- **The window is almost used up** (less left than the forecast) → by default a
+  lighter mode or a launch after the reset; say so in one line.
+- **Intermediate results go straight into the project folder**, not a temporary
+  one; swarm agents never delete shared scratch space or other agents' files.
+- **A second full round** (critic, polish) only after a probe on 2–3 items that
+  moves the metric; a critic model at its ceiling → a live person, not another round.
+- At the end — actual versus forecast in one line.
+
 ## Orchestration note (a mechanism that breaks)
 
 Anti-patterns live in main-thread context — they do **not** propagate to workflow

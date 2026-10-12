@@ -41,8 +41,16 @@ here until the operator says "promote it".
 - **Evidence:** {sessions / checkpoints where it worked, 2+}
 - **Procedure draft:** {steps — the seed of a future SKILL.md}
 - **Triggers:** {when to invoke}
+- **Verified by:** {required if the heading says "— ready for gate": which check passed — command, path, commit, measurement}
+- **What didn't work:** {required if the heading says "— ready for gate": approaches discarded, and why}
 - **Gate:** awaiting the operator's OK to promote
 ```
+
+A candidate is marked ready for the promotion gate by appending `— ready for gate` to
+its heading. Only then are the last two fields mandatory (a raw candidate does not carry
+them yet), so the operator is never asked to promote something that names neither its
+check nor its dead ends. `python3 scripts/vault_sensors.py` lists marked candidates that
+lack either field; it never edits the entry.
 
 > _EXAMPLE row (delete on first real candidate):_
 >

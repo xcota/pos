@@ -54,8 +54,10 @@ Save current session state before closing or when context gets heavy (past the 1
 3. **Update shared state:**
    - Update `state/current.md` with session results
    - Append to `daily/{today}.md` with session summary (2-3 lines)
+   - **A status fact changed** (sent / closed / deployed / superseded)? Before the commit, search the old wording across `state/`, `MEMORY.md` and `knowledge/` (`grep -rn "<old wording>"`) and update every occurrence. A fact repeated in several files keeps lying from the one place you forgot.
 
 4. **Track learnings:**
+   - **Dedup gate — before a NEW anti-pattern or lesson:** search the one-line draft first: `/recall` (by hand: `.memory_venv/bin/python scripts/memory_index.py search "<draft>"`). Its word-search fallback does not look into `context/`, so also `grep -in "<keyword>"` over `context/anti-patterns-index.md`, `context/learned-index.md` and the entries in `context/anti-patterns.md` / `context/learned.md`. The same root already there → add a recurrence line to that entry in place (date, context, what it taught) and do NOT mint a new id; the recurrences counted there are what tells you it is time to escalate. A new id only for a root that isn't there yet.
    - If any anti-patterns were triggered → append to `context/anti-patterns.md`
    - If any new lessons learned → append to `context/learned.md`
 
@@ -79,6 +81,18 @@ Save current session state before closing or when context gets heavy (past the 1
    ## Continue With
    {prompt to resume this work in a new session}
    ```
+
+5b. **Vault sensors (read-only — they fix nothing):**
+   ```bash
+   python3 scripts/vault_sensors.py
+   ```
+   Prints four things:
+   - files over the 40 KB limit, with a cut plan by section;
+   - index drift: which `L-NNN` / `AP-NNN` in the bodies no line of the curated indexes resolves;
+   - skill candidates marked "ready for gate" that lack "Verified by" or "What didn't work";
+   - skill formatting under `.claude/skills` and `modules`: `name` equals the directory, `description` ≤ 1024 chars, file ≤ 500 lines.
+
+   **What to do with the output:** nothing automatically — it is a queue of manual work. Many signals → note them in `state/current.md`; don't fix them mid-save. Never generate the `context/*-index.md` files from the bodies: they hold clusters and recurrence chains a generator can't reproduce. The output is for you — don't read it out to the person; if `python3` is missing, skip the step without a word.
 
 6. **Git commit** — but inspect before `git add -A`:
    - Check untracked weight: `git status --short` + `du -sh` suspicious inbox dirs. Cloned external repos (nested `.git`), heavy binaries, recon dumps → add to `.gitignore`, don't commit into the vault.

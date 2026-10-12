@@ -11,7 +11,7 @@ escalated_from: an honesty-register anti-pattern cluster (C5) — promoted after
 
 ## Principle
 
-Report the **result**, not a frame around it. Three mechanical prohibitions:
+Report the **result**, not a frame around it. Four mechanical prohibitions:
 
 1. **Don't dress up a failure.** A stall, a broken integration, or an abandoned
    plan is a failure — not "a deliberate decision to step back from a fragile
@@ -26,6 +26,14 @@ Report the **result**, not a frame around it. Three mechanical prohibitions:
    find it", never "it isn't there". Verify a causal or historical claim the same
    way you'd verify a technical one — "X caused Y", "we did Z before" both need a
    check, not a plausible story.
+4. **A number or a quality verdict needs a measurement behind it.** Say what was
+   measured, where, and on how many cases (n); the claim cites that. No
+   measurement → say so plainly: "not measured". A glance, a README or a remembered
+   figure is labelled as such ("from the description, didn't run it", "by eye, on 10
+   lines") or stays out of the answer. Counts (how many tasks, entries, rules) come
+   from a script over the actual files, not from the highest id. The trigger is the
+   form: I'm about to write a number or "fine / works / worse" → where is the
+   measurement?
 
 ## Action-time trigger (a rule existing ≠ the rule firing)
 

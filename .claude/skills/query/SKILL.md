@@ -44,6 +44,25 @@ Find relevant entities:
 
 List sources explicitly — every claim needs a source.
 
+### Step 2b: Source check — SIFT
+For every external source (web page, PDF, someone else's repository), four moves:
+- **Stop** — do you know this source? If not, don't trust it by default.
+- **Investigate the source** — read sideways: who the author or publisher is, checked in OTHER sources, not on their own "about" page.
+- **Find better coverage** — don't settle for the first hit; climb to a better source for the same claim.
+- **Trace to the original context** — go up the chain to the primary work, not a retelling. A claim quoted third-hand has usually drifted from what was measured.
+
+**Four query angles** (at least three of the four, or the sample is one-sided): definition / official · evidence and validity · criticism and independent view · how to start.
+
+**Source quality ladder:**
+```
+primary empirical work
+  > systematic review / meta-analysis      (inherits publication bias)
+    > authoritative independent secondary (university libraries, named practitioners)
+      > vendor / official site             (accurate on description, has an interest)
+        > popular / blog
+```
+A primary work has Methods / Results / Discussion and a reference list. Red flags: predatory journal, claims without references, marketing dressed as evidence, one small study generalised to everyone.
+
 ### Step 3: Synthesize
 Produce an answer with:
 - Direct answer first (results-first).

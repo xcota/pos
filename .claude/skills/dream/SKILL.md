@@ -110,6 +110,19 @@ Layer architecture: `knowledge/concepts/memory-embedding-layer.md` (EmbeddingGem
 
 **Optional (graph hygiene):** `memory_index.py dupes 0.9` — semantic duplicate nodes from different files = merge candidates; interpret by class (translations / boilerplate "Related" sections are not rot).
 
+## Phase 5b — Vault sensors (read-only)
+
+```bash
+python3 scripts/vault_sensors.py --ids
+```
+Four signals (if `python3` is missing, skip the phase without a word):
+1. Files over the 40 KB limit, with a cut plan by section.
+2. `L-NNN` / `AP-NNN` present in a body but resolved by no line of the curated index. This is the **direct work queue for this dream**: file each uncovered ID under its cluster / theme by hand (`context/anti-patterns-index.md` cluster table, `context/learned-index.md` theme map).
+3. Skill candidates marked "ready for gate" that lack "Verified by" or "What didn't work".
+4. Skill formatting: `name` equals the directory name, `description` ≤ 1024 chars, file ≤ 500 lines.
+
+Never auto-generate the indexes: clusters, recurrence chains and the watch-list are judgment a generator doesn't reproduce, and boot would swell.
+
 ## Phase 6 — Report
 
 Return a **brief** summary (≤15 lines):
