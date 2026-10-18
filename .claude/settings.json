@@ -28,7 +28,9 @@
       "Bash(node:*)",
       "Bash(npm:*)",
       "Bash(jq:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(.memory_venv/bin/python:*)",
+      "Bash(date:*)"
     ],
     "deny": []
   },
