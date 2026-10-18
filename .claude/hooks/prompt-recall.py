@@ -38,6 +38,9 @@ from pathlib import Path
 MIN_QUERY = 20       # "yes", "go on", "ok" — no search
 MAX_QUERY = 400      # the query = the start of the message
 MIN_SCORE = 0.50     # as for greps (relevant hits score 0.59+)
+MIN_SCORE_CJK = 0.40 # Chinese/Japanese queries score lower: in a live onboarding run (2026-10-19)
+                     # the right card topped the list at 0.44 while unrelated files sat at 0.38-0.39
+TOP_K_CJK = 2        # lower bar -> fewer hits, so noise stays small
 TOP_K = 3
 FETCH_K = 12         # with a margin: the filters below drop some paths
 SKIP_PREFIX = ("daily/", "inbox/")
@@ -157,6 +160,8 @@ def recall(root, prompt, sid):
         return []
 
     seen = seen_load(root, sid)
+    cjk = any("\u3040" <= ch <= "\u30ff" or "\u4e00" <= ch <= "\u9fff" for ch in q)
+    min_score, top_k = (MIN_SCORE_CJK, TOP_K_CJK) if cjk else (MIN_SCORE, TOP_K)
     blocks, lines, i = [], body.splitlines(), 0
     while i < len(lines):
         ln = lines[i]
@@ -169,12 +174,12 @@ def recall(root, prompt, sid):
         if not m:
             continue
         score, path = float(m.group(1)), m.group(2).strip()
-        if score < MIN_SCORE or path in seen:
+        if score < min_score or path in seen:
             continue
         if path.startswith(SKIP_PREFIX) or any(s in path for s in SKIP_PART):
             continue
         blocks.append((path, block))
-        if len(blocks) >= TOP_K:
+        if len(blocks) >= top_k:
             break
     if not blocks:
         _log(root, f"len={len(q)} no hits above threshold")
