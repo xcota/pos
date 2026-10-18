@@ -6,6 +6,7 @@ English · [中文](README.zh.md) · [Русский](docs/ru/README.md)
 
 **Presentation online:** https://xcota.github.io/pos/ (English · 中文 · Русский)
 **Guide online:** https://xcota.github.io/pos/en/guide.html — every word with examples, and what is inside the folder (also in this folder: `docs/en/guide.md`)
+**Demo video (Chinese, 2:46):** https://xcota.github.io/pos/media/camomile-demo-zh.mp4 — a real first run: three days, from the first hello to remembering you.
 
 _Version 2 · September 2026._ **What it does on its own:** at every start it reads its own notes (who you are, where you stopped). Every few days it offers to tidy its memory and, separately, to go over its own misses — both only after your yes. Nothing else happens without you.
 
@@ -91,3 +92,5 @@ Type them straight into the conversation, with a slash in front:
 ## License
 
 AGPL v3: using and changing it is free; if you build a service for other people on top of it, open up your changes too. Full text in the LICENSE file.
+
+**Contributing** — report a bug, suggest an idea or send a change: [CONTRIBUTING.md](CONTRIBUTING.md).
